@@ -15,16 +15,28 @@
     const scenes = story.scenes.filter(scene=>lens==='all'||scene.lens===lens);
     return scenes.length ? scenes : story.scenes;
   }
-  function duration(options={}) {return scenesFor(options.lens,options.chapter).length * Math.max(2,Number(options.secondsPerScene)||10);}
+  function sceneDuration(scene,options={}) {
+    return Math.max(2,Number(options.secondsPerScene)||Number(scene.duration)||Number(story.meta.sceneDurationSeconds)||10);
+  }
+  function timelineFor(options={}) {
+    let start=0;
+    return scenesFor(options.lens,options.chapter).map(scene=>{
+      const duration=sceneDuration(scene,options),entry={scene,start,duration,end:start+duration};
+      start=entry.end;return entry;
+    });
+  }
+  function duration(options={}) {return timelineFor(options).reduce((sum,entry)=>sum+entry.duration,0);}
   function frameAt(seconds,options={}) {
     const lens = ['all','wbg','its','frontier'].includes(options.lens) ? options.lens : 'all';
-    const scenes = scenesFor(lens,options.chapter||'auto');
-    const secondsPerScene = Math.max(2,Number(options.secondsPerScene)||10);
-    const total = scenes.length*secondsPerScene;
+    const timeline = timelineFor({...options,lens,chapter:options.chapter||'auto'});
+    const scenes = timeline.map(entry=>entry.scene);
+    const total = timeline.length?timeline[timeline.length-1].end:0;
     const absoluteTime = Math.max(0,Number(seconds)||0);
     const time = total ? absoluteTime%total : 0;
-    const index = Math.min(scenes.length-1,Math.floor(time/secondsPerScene));
+    const index = Math.max(0,timeline.findIndex(entry=>time<entry.end));
     const scene = scenes[index]||{id:'overview',title:'Technology & Innovation Radar',companyIds:[]};
+    const start=timeline[index]?.start||0,secondsPerScene=timeline[index]?.duration||10;
+    const localTime=time-start;
     const focalIds = new Set(scene.companyIds||[]);
     const companies = data.companies.filter(c=>lens==='all'||c.lenses.includes(lens)||focalIds.has(c.id));
     const sectors = story.overview?.sectors||[];
@@ -33,10 +45,11 @@
       shortName:sectors.find(s=>s.id===domain.id)?.label||domain.shortName
     }));
     return {
-      time:absoluteTime,sceneTime:time-index*secondsPerScene,sceneIndex:index,
+      time:absoluteTime,sceneTime:localTime,sceneIndex:index,
       sceneCount:scenes.length,sceneDuration:secondsPerScene,totalDuration:total,
-      progress:secondsPerScene?(time-index*secondsPerScene)/secondsPerScene:0,
-      sequenceProgress:total?time/total:0,labelPage:Math.floor(absoluteTime/secondsPerScene),
+      progress:secondsPerScene?localTime/secondsPerScene:0,
+      sequenceProgress:total?time/total:0,
+      labelPage:(scene.labelPage??index)+Math.floor(absoluteTime/(total||1))*(story.meta.trendSceneCount||12),
       scene:{...scene,squareInsight:scene.squareInsight||scene.implication},companies,
       allCompanies:data.companies,domains,
       trends:data.trends.filter(t=>lens==='all'||t.lenses.includes(lens)),
@@ -44,5 +57,5 @@
       counts:{companies:data.companies.length,trends:data.trends.length,sources:data.sources.length}
     };
   }
-  root.RadarShowcaseModel=Object.freeze({data,story,byCompany,byTrend,bySource,lensNames,scenesFor,duration,frameAt});
+  root.RadarShowcaseModel=Object.freeze({data,story,byCompany,byTrend,bySource,lensNames,scenesFor,sceneDuration,timelineFor,duration,frameAt});
 })(typeof window!=='undefined'?window:globalThis);

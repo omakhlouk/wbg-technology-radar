@@ -1,37 +1,39 @@
 {
-  "release": "2026.11.24.4-github-ca5a746bc622",
+  "release": "2026.11.24.5-github-7a468b6d8747",
   "researchChecked": "2026-11-23",
-  "sourceRelease": "2026.11.24.4-a3ab08a78376",
+  "sourceRelease": "2026.11.24.5-00f1fefe79d8",
   "counts": {
     "trends": 37,
     "companies": 102,
-    "sources": 200,
+    "sources": 214,
     "opportunities": 17
   },
   "sha256": {
     ".nojekyll": "550c5cf1ff55b9e06674ba9498583fe537a9a47f825959dccd6ad36f41b7d885",
     "app.js": "46d5158bca73ddd884c49fa786e7aaf6bed07127a11db788ac1a67bce8954d6b",
-    "data.js": "276cc08fb5b4eb456aa4ebf245a80a459a94c67d57cb5f5d4a3e8e0e1c243685",
-    "data.json": "262cab43d7794c290a437a777c9009e46238e2923f6256a0db181332abfde2a5",
-    "index.html": "e2f5f121d51aa98b515c1803e399e1fee7a570d9ec794f82d16519ecac51f7fd",
-    "radar-hologram-1080.mp4": "3e7fb7949477d3851c28527b0e6a24203310eae82069991282dbd52b920399e2",
-    "radar-widescreen-1080.mp4": "429e6a5a748cc2f30c8dc85de963c4f3a69e333aef2745553ae55a9f4bd82a4b",
+    "data.js": "6e38efe2767097a0a26eee5c7fdc0a31b531caeab396c5292d8a5415d77d0ebf",
+    "data.json": "1096201edb1ede90f59673702c15247fcbb8862646f7d4a442395d750229c63e",
+    "index.html": "782ef75365ec209f0da3d866ba4338d266d23ccfa82638fd5934aa1544ba11dc",
+    "radar-hologram-1080.mp4": "29adb24eaeb30af0bc812ba3796dc1d6c525680496d6cead4fa13fc6d71ddccd",
+    "radar-widescreen-1080.mp4": "1eb98505fa097c83244770f50a73129a505cdd804ed03f5e71b6159be250852f",
     "research.html": "24fe96de249f44b3c9a9a9bc8b9d200fa168d2d897251720c8a704ba6eb9a25e",
-    "showcase-app.js": "995a39205c3649accd6e0a39d91618010204fce31fb15140bb643b80f0e9fb2b",
-    "showcase-data.js": "6572217599198224fd9480beb623a5671d13b514e6c7e4f30dd58ba7ac65f6af",
-    "showcase-data.json": "bb9758864aa6a2b61fd83135ee095c423f3f3212dd5d5a64254d6fcb85c1b8f6",
+    "showcase-app.js": "6b6e39f0ce2b679318ead2c74c0c0ab4289a32313bcb923f849844035c865087",
+    "showcase-data.js": "f3fd94df1301a83a32fc908af369ff0606ba831090e20f3a85cb93aa99f131d4",
+    "showcase-data.json": "bd7a72f76c4d1455d3880d1c28bca37613fee9a18e94aca79dbccfa08e50fe53",
     "showcase-export.js": "7ab9e8445f59c9b940714f4a483ca76f7d8f1d46011eacc417533a4976816696",
-    "showcase-model.js": "cb7b8fcd70fa572d6e47e86489444aff231d17d5984b873647558af5a3640c51",
-    "showcase-renderer.js": "eaa74eb9f52b7da82df5954ccd078499ce7bcfc849a0ca1b0fdbcc9579979721",
-    "showcase.css": "3c77f993c77a78b363c0b07858ccdd6e7cb95be539d393d2d83900f07b8ac765",
-    "styles.css": "8a8807b3aa8b3c17f1d7635a9f262c9fb348b69b8a43bdc5c5506c55a4989a78",
-    "wbg-logo-white.svg": "ca3fe1d43f221b9e9470894cd8c9a1db530e66fa5c40b77817d0e5f81dd7591d",
+    "showcase-model.js": "e4980a1b079c78559477b13c3ebe8f2e475297ca388f0bcf1d941c0378b14c2b",
+    "showcase-renderer.js": "3b4c6916efbe08d90c24c1346e1c49903e96c426c8bdda3e8ad37a570eda10e1",
+    "showcase.css": "fc802c8caeabb4d03db76b0cc8b61f0f613b8c04292731e4e86af55af007168d",
+    "styles.css": "7b7d96f2a3b4bb6a60707e4927a743e4954787fcc452e96982c9f8aa884f1d90",
+    "wbg-logo-white.svg": "755489ceb22228ef1a909e2ae6beba4d8dd17bdc0911c699ff805f7fc513a5fc",
     "wbg-logo.svg": "b9f548bee627ab585009d7a06d6b2d2e948b9d8e6556ccf226c18f49595da9a9"
   },
   "showcase": {
-    "scenes": 12,
-    "durationSeconds": 120,
+    "scenes": 17,
+    "durationSeconds": 180,
     "featuredBuilders": 63,
-    "storyboardChecked": "2026-11-24"
+    "storyboardChecked": "2026-11-24",
+    "spotlights": 5,
+    "trendScenes": 12
   }
 }

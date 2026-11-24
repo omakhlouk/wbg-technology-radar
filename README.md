@@ -2,19 +2,19 @@
 
 A cinematic technology radar for WBG development, ITS capabilities and the wider frontier.
 
-This edition includes **37 trends, 102 startups and ecosystem builders, 17 use cases and 200 source entries**, checked on **23 November 2026**.
+This edition includes **37 trends, 102 startups and ecosystem builders, 17 use cases and 214 source entries**. The broad landscape was checked on **23 November 2026**; the company close-ups and selected WBG references were refreshed on **24 November 2026**.
 
 ## Open the radar and films
 
 - [Public showcase](https://omakhlouk.github.io/wbg-technology-radar/)
 - [Clean square hologram view](https://omakhlouk.github.io/wbg-technology-radar/?mode=hologram&clean=1&play=1)
-- [Hologram MP4: 1080 × 1080, 120 seconds](radar-hologram-1080.mp4)
-- [Presentation MP4: 1920 × 1080, 120 seconds](radar-widescreen-1080.mp4)
-- [Complete research library](research.html)
+- [Hologram MP4: 1080 × 1080, 180 seconds](https://omakhlouk.github.io/wbg-technology-radar/radar-hologram-1080.mp4?v=2026.11.24.5)
+- [Presentation MP4: 1920 × 1080, 180 seconds](https://omakhlouk.github.io/wbg-technology-radar/radar-widescreen-1080.mp4?v=2026.11.24.5)
+- [Complete research library](https://omakhlouk.github.io/wbg-technology-radar/research.html)
 
-The showcase tells a 12-scene, two-minute story with 63 featured builders. Six scenes address WBG development priorities, four address ITS capabilities and two cover scientific and physical AI. Readable labels rotate through all 102 names across the full loop. The square film uses a pure black background and a circular safe area. It is a front-facing composition; match the display manufacturer's required format.
+The showcase tells a three-minute story with 12 trend scenes, 5 company close-ups and 63 featured builders. The camera zooms into Sarvam AI, SatSure, Factory, Reducto and LILA Sciences to explain functions and potential relevance to documented WBG work. Six scenes address WBG development priorities, four address ITS capabilities and two cover scientific and physical AI. Readable labels rotate through all 102 names across the full loop. The square film uses a pure black background and a circular safe area. It is a front-facing composition; match the display manufacturer's required format.
 
-The studio provides scene selection, playback, named-company search, evidence and insight dialogs, full-screen cinema view, mirroring, PNG export and custom browser recordings. Browsers use MP4/H264 when supported and WebM otherwise. The two provided films are H264 MP4, 30fps, without audio. Storyboard reviewed 24 November 2026; the underlying research cutoff remains 23 November, with four source rechecks recorded separately.
+The studio provides scene selection, playback, named-company search, evidence and insight dialogs, full-screen cinema view, mirroring, PNG export and custom browser recordings. Browsers use MP4/H264 when supported and WebM otherwise. The two provided films are H264 MP4, 30fps, without audio. Storyboard reviewed 24 November 2026; the underlying research cutoff remains 23 November, with the targeted research refresh recorded separately. Every scene names a WBG reference; company applications remain proposed connections.
 
 ## Hosting
 
@@ -24,8 +24,8 @@ The research library retains WBG, ITS and Frontier perspectives, source-linked p
 
 ## Source and maintenance
 
-[Download the complete source and Azure deployment package](source-release.zip). The archive includes the original `dist/` layout, all checked research, the storyboard, data compilers, video renderer, films and publication instructions. The files at this repository root are the directly published copy; logo paths are adjusted for the flat layout. To rebuild the film, use `scripts/render_showcase_video.mjs` with Node.js, `@napi-rs/canvas` and FFmpeg.
+[Download the source and deployment instructions](source-release.zip). The archive includes the original `dist/` layout, all checked research, the storyboard, data compilers and video renderer. The full-quality MP4s are separate downloads above; `RESTORE_FILMS.md` explains where to place them before deploying the complete site elsewhere. The files at this repository root are the directly published copy; logo paths are adjusted for the flat layout. To rebuild the film, use `scripts/render_showcase_video.mjs` with Node.js, `@napi-rs/canvas`, FFmpeg and `--font-dir` pointing to licensed local Arial Regular and Bold files. The films use actual Arial and the official vector WBG logotype. Font binaries are excluded from the public package.
 
 The original Azure address is a separate deployment. Publishing here does not change the Azure site.
 
-Release: `2026.11.24.4-github-ca5a746bc622`. `build.json` records hashes of the reviewed website assets.
+Release: `2026.11.24.5-github-7a468b6d8747`. `build.json` records hashes of the reviewed website assets.

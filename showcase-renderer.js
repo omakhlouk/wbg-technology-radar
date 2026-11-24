@@ -129,7 +129,7 @@
     arc(ctx,cx,cy,r+13,t*(TAU/120)+Math.PI,t*(TAU/120)+Math.PI*1.2,'rgba(160,226,247,.18)',1);
     return sweep;
   }
-  function render(ctx,width,height,frame={},options={}){
+  function renderBase(ctx,width,height,frame={},options={}){
     const square=options.format==='square'||(!options.format&&width/height<1.3);
     const W=square?1080:1920,H=1080,s=Math.min(width/W,height/H),ox=(width-W*s)/2,oy=(height-H*s)/2;
     const scene=frame.scene||{title:'Technology shaping opportunity',radarTitle:'Technology Radar',claim:'Explore emerging capabilities and the builders behind them.',implication:'Connect technology possibilities with meaningful development outcomes.',watch:'Follow the evidence.',companyIds:[]};
@@ -143,33 +143,39 @@
     const sceneColor=scene.lens==='wbg'?'#5EE6CF':scene.lens==='its'?'#5CCEFF':scene.lens==='frontier'?'#F6A5CE':'#5CCEFF';
     const reserved=[];
     const space={cx,cy,r,coreRadius,left:square?45:58,right:square?1035:1224,top:square?103:165,bottom:square?918:955,clipRadius:square?487:null,reserved};
-    ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle='#000000';ctx.fillRect(0,0,width,height);ctx.translate(ox,oy);ctx.scale(s,s);
+    ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle='#000000';ctx.fillRect(0,0,width,height);if(options.mirror){ctx.translate(width,0);ctx.scale(-1,1);}ctx.translate(ox,oy);ctx.scale(s,s);
     if(square){ctx.save();ctx.beginPath();ctx.arc(540,540,503,0,TAU);ctx.clip();}
     const anchorPoints=companyPoints(allCompanies,domains,cx,cy,r,square);
     const points=anchorPoints.filter(p=>allowedIds.has(p.id));
+    const camera=options.camera;
+    if(camera){
+      // Move the camera toward a real company coordinate. The profile and the
+      // corporate signature are drawn later, outside this transform.
+      ctx.save();
+      if(!square){ctx.beginPath();ctx.rect(42,144,1190,812);ctx.clip();}
+      const target=anchorPoints.find(p=>p.id===camera.companyId)||{x:cx,y:cy};
+      const travel=clamp(camera.travel||0,0,1),zoom=Number(camera.zoom)||1;
+      ctx.translate(cx,cy);ctx.scale(zoom,zoom);ctx.translate(-cx-(target.x-cx)*travel,-cy-(target.y-cy)*travel);
+      ctx.globalAlpha=Number.isFinite(camera.opacity)?camera.opacity:1;
+    }
     const focusDomains=new Set(points.filter(p=>emphasis.has(p.id)).map(p=>p.domain));
     const sweep=baseRadar(ctx,cx,cy,r,time,domains,focusDomains,square,space);
     // Sector headings: horizontal, outside the startup plotting bands.
+    ctx.save();if(camera)ctx.globalAlpha*=1-smooth(camera.travel/.52);
     domains.forEach((d,i)=>{
-      const a=-Math.PI/2+(i+.5)*TAU/6,rr=square?r*.89:r+62,x=cx+Math.cos(a)*rr,y=cy+Math.sin(a)*rr;
+      const a=-Math.PI/2+(i+.5)*TAU/6,rr=square?r*.89:r+62;
+      const x=square&&i===0?795:square&&i===5?285:cx+Math.cos(a)*rr,y=cy+Math.sin(a)*rr;
       const color=d.color||PALETTE[i],name=d.shortName||d.name||DOMAIN_NAMES[i];
       const lines=wrap(ctx,name,165,square?15:17,600);
       const box={x:x-88,y:y-11,w:176,h:lines.length*(square?18:21)+4};reserved.push(box);
       lines.forEach((l,j)=>text(ctx,l,x,y+j*(square?18:21),square?15:17,rgba(color,.93),600,'center'));
     });
-    if(square){
-      reserved.push({x:365,y:92,w:350,h:88},{x:288,y:807,w:504,h:100});
-      if(options.logo){try{ctx.drawImage(options.logo,410,109,260,61);}catch(_){tracked(ctx,'WORLD BANK GROUP',540,140,16,WHITE,1.6,'center');}}
-      else tracked(ctx,'WORLD BANK GROUP',540,140,16,WHITE,1.6,'center');
-      tracked(ctx,'ITS · INNOVATION',540,180,12,MUTED,1.2,'center');
-    }else{
-      if(options.logo){try{ctx.drawImage(options.logo,74,44,268,63);}catch(_){tracked(ctx,'WORLD BANK GROUP',74,82,23,WHITE,1.2);}}
-      else tracked(ctx,'WORLD BANK GROUP',74,82,23,WHITE,1.2);
-      line(ctx,369,47,369,100,'rgba(160,203,219,.35)');
-      text(ctx,'ITS',396,71,28,WHITE,700);text(ctx,'Technology & Innovation',396,99,19,MUTED,400);
-      tracked(ctx,'NOVEMBER 2026',1836,65,14,MUTED,2,'right');
-      tracked(ctx,'THE TECHNOLOGY RADAR',1836,92,13,'#5CCEFF',2,'right');
-      line(ctx,74,126,1846,126,'rgba(125,185,204,.15)');
+    ctx.restore();
+    if(square&&!options.hideBrand){
+      reserved.push({x:355,y:85,w:370,h:132},{x:288,y:807,w:504,h:100});
+      signature(ctx,true,options.logo);
+    }else if(!square&&!options.hideBrand){
+      signature(ctx,false,options.logo);
     }
     // Actual company coordinates are stable across scenes and label pages.
     points.forEach(p=>{
@@ -187,6 +193,7 @@
     wireGlobe(ctx,cx,cy,coreRadius-13,time,sceneColor);
     arc(ctx,cx,cy,coreRadius+8,-time*(TAU/40),-time*(TAU/40)+Math.PI*.7,rgba(sceneColor,.68),1.4);
     arc(ctx,cx,cy,coreRadius+8,-time*(TAU/40)+Math.PI,-time*(TAU/40)+Math.PI*1.14,rgba(sceneColor,.35),1);
+    ctx.save();if(camera)ctx.globalAlpha*=1-smooth(camera.travel/.52);
     if(square){
       tracked(ctx,LENS[scene.lens]||LENS.all,cx,cy-45,11,sceneColor,1.1,'center');
       const title=scene.radarTitle||scene.title||'Technology Radar';const lines=wrap(ctx,title,205,27,700);const top=cy-(lines.length-1)*17;
@@ -195,10 +202,12 @@
     }else{
       tracked(ctx,'WORLD BANK GROUP',cx,cy-26,10,MUTED,1.7,'center');text(ctx,'WBG',cx,cy+15,45,WHITE,700,'center');tracked(ctx,'TECHNOLOGY RADAR',cx,cy+42,10,sceneColor,1.7,'center');
     }
+    ctx.restore();
     const squareRingLabels=square?[[.58,'NOW'],[.79,'NEXT'],[.94,'HORIZON']].map(([v,name])=>{const a=-32*Math.PI/180;const x=cx+Math.cos(a)*r*v,y=cy+Math.sin(a)*r*v;const w=name.length*9+9;const box={x:x-w,y:y-12,w,h:22};reserved.push(box);return {name,x,y,box};}):[];
     const selectedLabels=selectLabels(points,scene,frame,options,square);
     const labels=placeLabels(ctx,selectedLabels,scene,space,square);
     const targets=points.map(p=>({id:p.id,kind:'point',x:(p.x-12)*s+ox,y:(p.y-12)*s+oy,w:24*s,h:24*s,name:p.company.name}));
+    ctx.save();if(camera)ctx.globalAlpha*=1-smooth(camera.travel/.52);
     labels.slice().reverse().forEach(l=>{
       const b=l.box;const ax=clamp(l.x,b.x,b.x+b.w),ay=clamp(l.y,b.y,b.y+b.h);
       if(Math.hypot(ax-l.x,ay-l.y)>10){ctx.beginPath();ctx.moveTo(l.x,l.y);const elbowX=l.x+(ax-l.x)*.6;ctx.lineTo(elbowX,ay);ctx.lineTo(ax,ay);ctx.strokeStyle=rgba(l.color,l.active?.65:.25);ctx.lineWidth=l.active?1.25:.8;ctx.stroke();}
@@ -213,15 +222,18 @@
     if(!square){
       [[.58,'NOW'],[.79,'NEXT'],[.94,'HORIZON']].forEach(([v,name])=>{const x=cx+13,y=cy-r*v-7;ctx.fillStyle='rgba(0,0,0,.9)';ctx.fillRect(x-3,y-13,85,19);tracked(ctx,name,x,y,11,MUTED,1.7);});
     }
+    ctx.restore();
+    if(camera)ctx.restore();
     const sceneIndex=(Number(frame.sceneIndex)||0),sceneCount=Number(frame.sceneCount)||12,progress=clamp(Number(frame.progress)||0,0,1);
-    if(square){
+    if(square&&!camera){
       const insight=scene.squareInsight||scene.implication||scene.claim;
       const captionLines=wrap(ctx,insight,480,20,400).slice(0,3);
       captionLines.forEach((caption,i)=>{ctx.save();font(ctx,20,400);ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.strokeStyle='#000';ctx.lineWidth=7;ctx.lineJoin='round';ctx.strokeText(caption,540,830+i*25);text(ctx,caption,540,830+i*25,20,'#D2E8EF',400,'center');ctx.restore();});
-      text(ctx,'Public-source research · Potential applications',540,943,12,'#91ACBA',400,'center');
+      const anchor=scene.wbgAnchor?.shortName||scene.wbgAnchor?.name;
+      text(ctx,anchor?'WBG WORK · '+anchor:'Public-source research · Potential applications',540,943,anchor?14:12,'#91ACBA',400,'center');
       tracked(ctx,'NOW · NEXT · HORIZON',540,967,12,MUTED,1.4,'center');
       const y=989,step=12,total=sceneCount*step;for(let i=0;i<sceneCount;i++)circle(ctx,cx-total/2+i*step,y,i===sceneIndex?2.8:1.6,i===sceneIndex?sceneColor:'rgba(155,208,222,.3)');
-    }else{
+    }else if(!square&&!camera){
       const x=1280,width=548;
       tracked(ctx,`${String(sceneIndex+1).padStart(2,'0')} / ${String(sceneCount).padStart(2,'0')}`,x,208,14,sceneColor,2);
       tracked(ctx,LENS[scene.lens]||LENS.all,x+104,208,14,MUTED,1.8);
@@ -250,12 +262,173 @@
       const tally=`${allCompanies.length} BUILDERS  /  ${(frame.trends||[]).length||37} TRENDS`;
       tracked(ctx,tally,1176,1029,12,MUTED,1.4,'right');
       const tx=1280,ty=976,tw=548;line(ctx,tx,ty,tx+tw,ty,'rgba(139,194,214,.18)',1);line(ctx,tx,ty,tx+tw*progress,ty,sceneColor,2);
-      text(ctx,'Public-source research · Potential applications',tx,1006,14,MUTED);text(ctx,'Evidence checked 23 Nov 2026',tx,1030,14,'#7F9DAE');
+      const anchor=scene.wbgAnchor?.shortName||scene.wbgAnchor?.name;
+      text(ctx,anchor?'WBG WORK · '+anchor:'Public-source research · Potential applications',tx,1006,14,MUTED);text(ctx,'Public sources · Evidence checked '+(frame.checkedLabel||'24 Nov 2026'),tx,1030,14,'#7F9DAE');
     }
     if(square)ctx.restore();ctx.restore();
-    lastLayout={targets,labelCount:labels.length,visibleCompanyIds:labels.map(l=>l.id),activeCompanyIds:labels.filter(l=>l.active).map(l=>l.id),format:square?'square':'wide',width,height};
+    lastLayout={targets:camera?[]:targets,labelCount:labels.length,visibleCompanyIds:labels.map(l=>l.id),activeCompanyIds:labels.filter(l=>l.active).map(l=>l.id),format:square?'square':'wide',width,height};
     return lastLayout;
   }
+  function smooth(value){const x=clamp(value,0,1);return x*x*(3-2*x);}
+  function fittedLogo(ctx,logo,x,y,width,height){
+    const sourceWidth=Number(logo.naturalWidth||logo.width)||width,sourceHeight=Number(logo.naturalHeight||logo.height)||height;
+    const ratio=Math.min(width/sourceWidth,height/sourceHeight),w=sourceWidth*ratio,h=sourceHeight*ratio;
+    ctx.drawImage(logo,x+(width-w)/2,y+(height-h)/2,w,h);
+  }
+  function signature(ctx,square,logo){
+    ctx.save();
+    if(square){
+      const backdrop=ctx.createLinearGradient(0,72,0,232);backdrop.addColorStop(0,'#000');backdrop.addColorStop(.84,'#000');backdrop.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle=backdrop;ctx.fillRect(384,72,312,160);
+      if(logo){try{fittedLogo(ctx,logo,410,109,260,61);}catch(_){tracked(ctx,'WORLD BANK GROUP',540,140,16,WHITE,1.6,'center');}}
+      else tracked(ctx,'WORLD BANK GROUP',540,140,16,WHITE,1.6,'center');
+      tracked(ctx,'ITS · INNOVATION',540,203,12,MUTED,1.2,'center');
+    }else{
+      ctx.fillStyle='#000';ctx.fillRect(0,0,1920,137);
+      if(logo){try{fittedLogo(ctx,logo,74,44,268,63);}catch(_){tracked(ctx,'WORLD BANK GROUP',74,82,23,WHITE,1.2);}}
+      else tracked(ctx,'WORLD BANK GROUP',74,82,23,WHITE,1.2);
+      line(ctx,369,47,369,100,'rgba(160,203,219,.35)');text(ctx,'ITS',396,71,28,WHITE,700);text(ctx,'Technology & Innovation',396,99,19,MUTED);
+      tracked(ctx,'NOVEMBER 2026',1836,65,14,MUTED,2,'right');tracked(ctx,'THE TECHNOLOGY RADAR',1836,92,13,'#5CCEFF',2,'right');line(ctx,74,126,1846,126,'rgba(125,185,204,.15)');
+    }
+    ctx.restore();
+  }
+  function capabilityGlyph(ctx,kind,x,y,size,color){
+    ctx.save();ctx.translate(x,y);ctx.scale(size/32,size/32);ctx.lineWidth=1.8;ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineCap='round';ctx.lineJoin='round';
+    const stroke=points=>{ctx.beginPath();points.forEach(([px,py],i)=>i?ctx.lineTo(px,py):ctx.moveTo(px,py));ctx.stroke();};
+    if(kind==='voice'){
+      [-12,-6,0,6,12].forEach((px,i)=>line(ctx,px,-[5,11,15,10,6][i],px,[5,11,15,10,6][i],color,2.1));
+    }else if(kind==='language'){
+      text(ctx,'A',-6,4,20,color,600,'center');text(ctx,'a',10,-6,17,color,600,'center');arc(ctx,0,1,18,.1,1.9,color,1.5);
+    }else if(kind==='conversation'){
+      stroke([[-15,-12],[15,-12],[15,8],[0,8],[-8,15],[-8,8],[-15,8],[-15,-12]]);[-6,0,6].forEach(px=>circle(ctx,px,-2,1.5,color));
+    }else if(kind==='satellite'){
+      ctx.rotate(-.48);ctx.strokeRect(-5,-7,10,14);ctx.strokeRect(-18,-5,9,10);ctx.strokeRect(9,-5,9,10);stroke([[0,7],[0,16]]);arc(ctx,0,16,5,Math.PI,TAU,color,1.7);
+    }else if(kind==='map'){
+      stroke([[-17,-11],[-5,-16],[6,-10],[17,-15],[17,12],[6,17],[-5,11],[-17,16],[-17,-11]]);stroke([[-5,-16],[-5,11]]);stroke([[6,-10],[6,17]]);circle(ctx,7,-2,3.4,null,color,1.8);
+    }else if(kind==='chart'){
+      stroke([[-14,-15],[-14,14],[17,14]]);stroke([[-9,7],[-2,1],[5,4],[14,-11]]);circle(ctx,14,-11,2.2,color);
+    }else if(kind==='code'){
+      stroke([[-8,-11],[-18,0],[-8,11]]);stroke([[8,-11],[18,0],[8,11]]);stroke([[4,-15],[-3,15]]);
+    }else if(kind==='test'){
+      circle(ctx,0,0,17,null,color,1.5);stroke([[-8,0],[-2,6],[10,-7]]);
+    }else if(kind==='branch'){
+      circle(ctx,-9,-12,4,null,color,1.8);circle(ctx,-9,13,4,null,color,1.8);circle(ctx,12,-6,4,null,color,1.8);stroke([[-9,-8],[-9,9]]);ctx.beginPath();ctx.moveTo(-9,6);ctx.bezierCurveTo(11,6,12,4,12,-2);ctx.stroke();
+    }else if(kind==='document'){
+      stroke([[-12,-17],[5,-17],[14,-8],[14,17],[-12,17],[-12,-17]]);stroke([[5,-17],[5,-8],[14,-8]]);[-2,5,11].forEach(py=>line(ctx,-6,py,8,py,color,1.6));
+    }else if(kind==='table'){
+      ctx.strokeRect(-16,-13,32,26);[-4,5].forEach(py=>line(ctx,-16,py,16,py,color,1.5));line(ctx,-5,-13,-5,13,color,1.5);line(ctx,6,-13,6,13,color,1.5);
+    }else if(kind==='link'){
+      ctx.rotate(-.65);ctx.beginPath();ctx.roundRect(-15,-8,20,15,7);ctx.stroke();ctx.beginPath();ctx.roundRect(-3,-8,20,15,7);ctx.stroke();
+    }else if(kind==='molecule'){
+      const vertices=[[-12,-8],[13,-8],[0,14]];vertices.forEach((a,i)=>line(ctx,a[0],a[1],vertices[(i+1)%3][0],vertices[(i+1)%3][1],color,1.6));vertices.forEach(([a,b])=>circle(ctx,a,b,5,'#02101A',color,1.8));circle(ctx,0,-18,3,color);line(ctx,0,-15,0,-9,color,1.5);
+    }else if(kind==='experiment'){
+      stroke([[-6,-17],[-6,-6],[-17,13],[-14,17],[14,17],[17,13],[6,-6],[6,-17]]);line(ctx,-10,-17,10,-17,color,1.7);line(ctx,-9,4,9,4,color,1.7);circle(ctx,-4,10,1.6,color);circle(ctx,6,12,1.2,color);
+    }else{
+      arc(ctx,0,0,15,-1.4,1.4,color,1.8);arc(ctx,0,0,15,1.75,4.4,color,1.8);stroke([[4,-18],[4,-12],[10,-13]]);stroke([[-4,18],[-4,12],[-10,13]]);circle(ctx,0,0,3,color);
+    }
+    ctx.restore();
+  }
+  function spotlightGlyphs(id){return id==='sarvam'?['voice','document','table']:id==='satsure'?['satellite','map','chart']:id==='factory'?['code','test','branch']:id==='reducto'?['document','table','link']:['molecule','experiment','cycle'];}
+  function profileDisc(ctx,x,y,r,t,color,alpha){
+    ctx.save();ctx.globalAlpha=alpha;
+    const halo=ctx.createRadialGradient(x,y,r*.68,x,y,r*1.13);halo.addColorStop(0,'rgba(0,0,0,0)');halo.addColorStop(.65,rgba(color,.05));halo.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=halo;ctx.fillRect(x-r*1.14,y-r*1.14,r*2.28,r*2.28);
+    const fill=ctx.createRadialGradient(x,y,r*.1,x,y,r);fill.addColorStop(0,'#020B11');fill.addColorStop(.84,'#010508');fill.addColorStop(1,'#000000');circle(ctx,x,y,r,fill,rgba(color,.34),1.4);
+    circle(ctx,x,y,r+7,null,'rgba(0,159,218,.19)',1);
+    arc(ctx,x,y,r+11,t*TAU/55,t*TAU/55+Math.PI*.42,rgba(color,.7),2);
+    arc(ctx,x,y,r+11,t*TAU/55+Math.PI,t*TAU/55+Math.PI*1.2,rgba(color,.35),1.5);
+    ctx.setLineDash([1,9]);arc(ctx,x,y,r-8,0,TAU,'rgba(126,197,222,.16)',1);ctx.setLineDash([]);
+    ctx.restore();
+  }
+  function renderSpotlight(ctx,width,height,frame,options){
+    const square=options.format==='square'||(!options.format&&width/height<1.3);
+    const W=square?1080:1920,H=1080,s=Math.min(width/W,height/H),ox=(width-W*s)/2,oy=(height-H*s)/2;
+    const scene=frame.scene,spot=scene.spotlight||{},id=spot.companyId||scene.companyIds?.[0];
+    const companies=frame.allCompanies||frame.companies||[],company=companies.find(c=>c.id===id)||{id,name:spot.shortName||'Company spotlight'};
+    const domains=frame.domains||[],domain=domains.find(d=>d.id===company.domain),color=domain?.color||'#5CCEFF';
+    const localDuration=Number(frame.sceneDuration)||12,duration=12;
+    // A short preview compresses the complete camera move and both text phases.
+    const t=clamp((Number(frame.sceneTime)||0)/localDuration,0,1)*duration,clock=options.reducedMotion?0:(Number(frame.time)||0);
+    const enter=options.reducedMotion?1:smooth(t/1.45),leave=options.reducedMotion?1:smooth((duration-t)/1.45),travel=Math.min(enter,leave);
+    const opacity=options.reducedMotion?1:Math.min(smooth((t-.85)/.6),smooth((duration-t-.75)/.7));
+    const phase=t<duration*.52?'capabilities':'application';
+    const parentScene={...scene,kind:'trend',companyIds:scene.parentCompanyIds||scene.companyIds,radarTitle:scene.parentRadarTitle||scene.radarTitle};
+    const baseFrame={...frame,scene:parentScene};
+    if(opacity<.999)renderBase(ctx,width,height,baseFrame,{...options,hideBrand:true,selectedId:id,camera:{companyId:id,zoom:1+travel*4.3,travel,opacity:1-opacity}});
+    else{ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle='#000';ctx.fillRect(0,0,width,height);ctx.restore();}
+    ctx.save();ctx.setTransform(1,0,0,1,0,0);if(options.mirror){ctx.translate(width,0);ctx.scale(-1,1);}ctx.translate(ox,oy);ctx.scale(s,s);
+    if(square){ctx.beginPath();ctx.arc(540,540,503,0,TAU);ctx.clip();}
+    const cx=square?540:670,cy=square?560:562,discR=square?365:380;
+    profileDisc(ctx,cx,cy,discR,clock,color,opacity);
+    ctx.save();ctx.globalAlpha=opacity;
+    const top=square?246:231;
+    tracked(ctx,'COMPANY CLOSE-UP',cx,top,14,color,2,'center');
+    const name=spot.shortName||company.name;
+    const nameSize=name.length>21?39:48;
+    text(ctx,name,cx,top+57,nameSize,WHITE,700,'center');
+    const headline=spot.headline||company.category||'A capability to explore';
+    paragraph(ctx,headline,cx,top+96,square?590:650,25,'#C2DCE8',400,31,2,'center');
+    const functional=spot.functionalities||spot.functions||['Understand the input','Perform the task','Return useful evidence'];
+    const glyphs=spotlightGlyphs(id),steps=spot.functionalLabels||functional;
+    const rowY=square?447:436,spacing=square?206:222;
+    for(let i=0;i<2;i++){
+      const x=cx+(i-1)*spacing;
+      line(ctx,x+43,rowY,x+spacing-43,rowY,'rgba(0,159,218,.35)',1.4);
+      const pulse=options.reducedMotion?.5:((clock*.35+i*.5)%1);
+      circle(ctx,x+46+(spacing-92)*pulse,rowY,2.3,rgba(color,.8));
+    }
+    steps.slice(0,3).forEach((label,i)=>{
+      const x=cx+(i-1)*spacing;
+      circle(ctx,x,rowY,37,'#02121D','rgba(0,159,218,.4)',1.3);
+      capabilityGlyph(ctx,glyphs[i],x,rowY,34,color);
+      if(spot.functionalLabels){
+        paragraph(ctx,label,x,rowY+66,spacing-22,23,WHITE,600,27,1,'center');
+        paragraph(ctx,functional[i],x,rowY+101,spacing-22,20,'#C2DCE8',400,25,3,'center');
+      }else paragraph(ctx,label,x,rowY+67,spacing-22,square?23:24,WHITE,600,28,3,'center');
+    });
+    const panelTop=square?624:620;
+    line(ctx,cx-222,panelTop-18,cx+222,panelTop-18,'rgba(130,193,215,.2)',1);
+    if(square){
+      if(phase==='capabilities'){
+        tracked(ctx,'WHY NOW',cx,panelTop+12,13,color,1.8,'center');
+        paragraph(ctx,spot.whyNow||scene.claim,cx,panelTop+52,570,24,'#D5E9F3',400,31,4,'center');
+      }else{
+        tracked(ctx,'WBG WORK',cx,panelTop+9,13,color,1.8,'center');
+        const anchor=spot.wbgAnchor?.shortName||spot.wbgAnchor?.name||scene.wbgAnchor?.shortName||'Development priorities';
+        paragraph(ctx,anchor,cx,panelTop+43,560,25,WHITE,600,30,2,'center');
+        tracked(ctx,'POTENTIAL APPLICATION',cx,panelTop+108,12,MUTED,1.4,'center');
+        paragraph(ctx,spot.application||scene.implication,cx,panelTop+141,560,22,'#D5E9F3',400,28,3,'center');
+      }
+      const source=spot.sourceLabel||'Company product evidence · November 2026';
+      paragraph(ctx,source,cx,888,455,13,'#8AA8B9',400,17,2,'center');
+      text(ctx,'Public-source profile · Application is a proposal',540,967,12,'#91ACBA',400,'center');
+    }else{
+      tracked(ctx,'WHY NOW',cx,panelTop+12,13,color,1.8,'center');
+      paragraph(ctx,spot.whyNow||scene.claim,cx,panelTop+55,590,27,'#D5E9F3',400,35,4,'center');
+      paragraph(ctx,spot.sourceLabel||'Company product evidence · November 2026',cx,883,560,14,'#8AA8B9',400,19,2,'center');
+      const x=1280,w=548;
+      tracked(ctx,LENS[scene.lens]||LENS.all,x,210,14,MUTED,1.8);
+      tracked(ctx,'WBG WORK',x,258,14,color,1.8);
+      const anchor=spot.wbgAnchor?.shortName||spot.wbgAnchor?.name||scene.wbgAnchor?.shortName||'Development priorities';
+      let y=paragraph(ctx,anchor,x,310,w,37,WHITE,600,45,3);y+=22;
+      if(spot.wbgAnchor?.description)y=paragraph(ctx,spot.wbgAnchor.description,x,y,w,27,'#C2DCE8',400,36,4);
+      y=Math.max(572,y+45);line(ctx,x,y,x+46,y,'#009FDA',3);y+=46;
+      tracked(ctx,'POTENTIAL APPLICATION',x,y,14,color,1.8);y+=44;
+      paragraph(ctx,spot.application||scene.implication,x,y,w,32,WHITE,400,41,4);
+      line(ctx,x,976,x+w,976,'rgba(139,194,214,.18)',1);line(ctx,x,976,x+w*clamp(t/duration,0,1),976,color,2);
+      text(ctx,'Public-source profile · Application is a proposal',x,1006,14,MUTED);text(ctx,'Evidence checked '+(frame.checkedLabel||'24 Nov 2026'),x,1030,14,'#7F9DAE');
+      tracked(ctx,'A CLOSER LOOK AT THE BUILDERS',670,1025,13,MUTED,1.7,'center');
+    }
+    // The close-up's progress arc doubles as a quiet cue that the film will
+    // return to its wider landscape after this company story.
+    arc(ctx,cx,cy,discR+18,-Math.PI/2,-Math.PI/2+TAU*clamp(t/duration,0,1),rgba(color,.55),1.8);
+    ctx.restore();
+    signature(ctx,square,options.logo);
+    ctx.restore();
+    const profileTarget={id,kind:'label',name:company.name,x:(cx-260)*s+ox,y:(top+13)*s+oy,w:520*s,h:360*s};
+    lastLayout={targets:opacity>.2?[profileTarget]:[],labelCount:opacity>.2?1:0,visibleCompanyIds:opacity>.2?[id]:[],activeCompanyIds:[id],format:square?'square':'wide',width,height,spotlight:{companyId:id,phase,cameraZoom:1+travel*4.3,profileOpacity:opacity}};
+    return lastLayout;
+  }
+  function render(ctx,width,height,frame={},options={}){return frame.scene?.kind==='spotlight'?renderSpotlight(ctx,width,height,frame,options):renderBase(ctx,width,height,frame,options);}
   function hitTest(x,y){for(let i=lastLayout.targets.length-1;i>=0;i--){const t=lastLayout.targets[i];if(x>=t.x&&x<=t.x+t.w&&y>=t.y&&y<=t.y+t.h)return t;}return null;}
-  root.RadarStage={render,hitTest,getLayout:()=>lastLayout,version:'2026.11.24.4'};
+  root.RadarStage={render,hitTest,getLayout:()=>lastLayout,version:'2026.11.24.5'};
 })(typeof window!=='undefined'?window:globalThis);

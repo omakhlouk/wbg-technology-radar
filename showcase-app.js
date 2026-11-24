@@ -18,14 +18,15 @@
   const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const safeURL=value=>{try{const u=new URL(value,location.href);return ['https:','http:'].includes(u.protocol)?u.href:'#';}catch{return '#';}};
   const stamp=value=>`${Math.floor(Math.max(0,value)/60)}:${String(Math.floor(Math.max(0,value)%60)).padStart(2,'0')}`;
-  const frameOptions=()=>({lens:state.lens,chapter:state.chapter,labels:state.labels,selectedId:state.selectedId,secondsPerScene:10});
+  const frameOptions=()=>({lens:state.lens,chapter:state.chapter,labels:state.labels,selectedId:state.selectedId});
   const renderOptions=()=>({format:state.format,labels:state.labels,selectedId:state.selectedId,logo,reducedMotion:!state.motion,lens:state.lens});
   const currentDuration=()=>M.duration(frameOptions());
+  const previewOffset=scene=>scene.kind==='spotlight'?M.sceneDuration(scene)*.25:0;
   function toast(message){$('#toast').textContent=message;$('#toast').classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),4200);}
   function draw(context,width,height,time,modelOptions=frameOptions(),visualOptions=renderOptions(),mirror=state.mirror){
     const frame=M.frameAt(time,modelOptions);
-    context.save();if(mirror){context.translate(width,0);context.scale(-1,1);}
-    const nextLayout=R.render(context,width,height,frame,visualOptions);context.restore();
+    context.save();
+    const nextLayout=R.render(context,width,height,frame,{...visualOptions,mirror});context.restore();
     return {frame,layout:nextLayout};
   }
   function render(){
@@ -37,13 +38,14 @@
     $('#total-time').textContent=stamp(currentDuration());
     if(currentFrame.scene.id!==lastScene){
       lastScene=currentFrame.scene.id;const scene=currentFrame.scene;
-      $('#chapter-name').textContent=scene.title;$('#chapter-lens').textContent=M.lensNames[scene.lens].toUpperCase();
+      $('#chapter-name').textContent=scene.title;$('#chapter-lens').textContent=scene.kind==='spotlight'?'COMPANY CLOSE-UP · '+M.lensNames[scene.lens].toUpperCase():M.lensNames[scene.lens].toUpperCase();
       $('#scene-description').textContent=`Scene ${currentFrame.sceneIndex+1} of ${currentFrame.sceneCount}. ${scene.title}. ${scene.implication} Featured builders: ${scene.companyIds.map(id=>M.byCompany[id].name).join(', ')}.`;
       const selectedScenes=M.scenesFor(state.lens,state.chapter);
       const featured=new Set(selectedScenes.flatMap(s=>s.companyIds)).size;
-      $('#scene-count').textContent=`${selectedScenes.length} ${selectedScenes.length===1?'scene':'scenes'} · ${featured} featured builders`;
+      const spotlights=selectedScenes.filter(s=>s.kind==='spotlight').length;
+      $('#scene-count').textContent=spotlights?`${selectedScenes.length-spotlights} trend scenes · ${spotlights} close-ups`:`${selectedScenes.length} ${selectedScenes.length===1?'scene':'scenes'} · ${featured} featured builders`;
     }
-    $('#label-summary').textContent=state.labels==='none'?'Select a point to see its name.':`${layout.labelCount} names in view. They rotate with the story.`;
+    $('#label-summary').textContent=currentFrame.scene.kind==='spotlight'?'Company close-up · capabilities and WBG relevance.':state.labels==='none'?'Select a point to see its name.':`${layout.labelCount} names in view. They rotate with the story.`;
   }
   function resize(){
     const ratio=state.format==='square'?1:16/9;
@@ -67,8 +69,10 @@
   function setPlaying(value){state.playing=value;lastWall=performance.now();syncControls();render();}
   function setLens(lens){state.lens=lens;state.chapter='auto';state.time=0;state.selectedId=null;lastScene='';syncControls();render();renderChapters();}
   function moveScene(direction){
-    state.chapter='auto';const count=M.scenesFor(state.lens).length;
-    state.time=(((Math.floor(state.time/10)+direction)%count+count)%count)*10;state.selectedId=null;lastScene='';render();
+    const currentId=currentFrame.scene.id;state.chapter='auto';const timeline=M.timelineFor({lens:state.lens});
+    const index=Math.max(0,timeline.findIndex(entry=>entry.scene.id===currentId));
+    const entry=timeline[((index+direction)%timeline.length+timeline.length)%timeline.length];
+    state.time=entry.start+(state.playing?0:previewOffset(entry.scene));state.selectedId=null;lastScene='';render();
   }
   function revealCleanControls(){if(!state.clean)return;document.body.classList.add('controls-visible');clearTimeout(controlsTimer);controlsTimer=setTimeout(()=>document.body.classList.remove('controls-visible'),2200);}
   function setClean(value){state.clean=value;syncControls();resize();if(value)revealCleanControls();}
@@ -97,16 +101,25 @@
   function builderButtons(ids){return `<div class="builder-links">${ids.map(id=>`<button data-company="${esc(id)}">${esc(M.byCompany[id]?.name||id)}</button>`).join('')}</div>`;}
   const boundBuilders=new WeakSet();
   function bindBuilderLinks(){$$('[data-company]').forEach(b=>{if(boundBuilders.has(b))return;boundBuilders.add(b);b.addEventListener('click',()=>showCompany(b.dataset.company));});}
+  function workContext(anchor){
+    if(!anchor)return '';
+    return `<section class="wbg-context"><p class="eyebrow">DOCUMENTED WBG WORK</p><h3>${esc(anchor.name||anchor.shortName)}</h3><p>${esc(anchor.description||'')}</p>${anchor.url?`<a href="${esc(safeURL(anchor.url))}" target="_blank" rel="noopener noreferrer">Read the WBG reference</a>`:''}</section>`;
+  }
+  function spotlightFunctions(spotlight){
+    if(!spotlight)return '';
+    return `<h3>What the company does</h3><ul class="capability-list">${spotlight.functionalities.map(item=>`<li>${esc(item)}</li>`).join('')}</ul><h3>Why now</h3><p>${esc(spotlight.whyNow)}</p>`;
+  }
   function showScene(scene=currentFrame.scene){
-    $('#details-content').innerHTML=`<p class="eyebrow">${esc(M.lensNames[scene.lens])} · SCENE INSIGHTS</p><h2 id="details-title">${esc(scene.title)}</h2><p class="detail-lead">${esc(scene.implication)}</p><h3>What is changing</h3><p>${esc(scene.claim)}</p>${builderButtons(scene.companyIds)}<h3>The opportunity</h3><p>${esc(scene.detail.opportunity)}</p><h3>Evidence to look for</h3><p>${esc(scene.detail.proofToSeek)}</p><h3>A first experiment</h3><p>${esc(scene.detail.firstExperiment)}</p><h3>The connected trends</h3>${scene.trendIds.map(id=>`<p><strong>${esc(M.byTrend[id]?.shortTitle||M.byTrend[id]?.title)}</strong><br>${esc(M.byTrend[id]?.summary)}</p>`).join('')}<h3>Sources and evidence</h3>${sources(scene.sourceIds)}<p class="small-note">Potential WBG and ITS applications are editorial proposals. Inclusion does not imply adoption or endorsement.</p>`;
+    $('#details-content').innerHTML=`<p class="eyebrow">${esc(M.lensNames[scene.lens])} · ${scene.kind==='spotlight'?'COMPANY CLOSE-UP':'SCENE INSIGHTS'}</p><h2 id="details-title">${esc(scene.title)}</h2><p class="detail-lead">${esc(scene.implication)}</p>${spotlightFunctions(scene.spotlight)}${scene.kind==='spotlight'?'':`<h3>What is changing</h3><p>${esc(scene.claim)}</p>`}${builderButtons(scene.companyIds)}${workContext(scene.wbgAnchor||scene.spotlight?.wbgAnchor)}<h3>Potential application</h3><p>${esc(scene.detail.opportunity)}</p><h3>Evidence to look for</h3><p>${esc(scene.detail.proofToSeek)}</p><h3>A first experiment</h3><p>${esc(scene.detail.firstExperiment)}</p><h3>The connected trends</h3>${scene.trendIds.map(id=>`<p><strong>${esc(M.byTrend[id]?.shortTitle||M.byTrend[id]?.title)}</strong><br>${esc(M.byTrend[id]?.summary)}</p>`).join('')}<h3>Sources and evidence</h3>${sources(scene.sourceIds)}<p class="small-note">Program references describe documented WBG work. Suggested applications and company selections are editorial proposals; they do not establish WBG adoption or endorsement.</p>`;
     bindBuilderLinks();openDialog('details-dialog');
   }
   function showCompany(id){
     const company=M.byCompany[id];if(!company)return;state.selectedId=id;
     if(state.lens!=='all'&&!company.lenses.includes(state.lens)){state.lens='all';state.chapter='auto';syncControls();}
-    const relevantScene=M.story.scenes.find(s=>s.companyIds.includes(id));
+    const relevantScene=M.story.scenes.find(s=>s.kind==='spotlight'&&s.companyIds.includes(id))||M.story.scenes.find(s=>s.companyIds.includes(id));
+    const spotlight=relevantScene?.spotlight;
     const domain=M.data.domains.find(d=>d.id===company.domain);
-    $('#details-content').innerHTML=`<p class="eyebrow">BUILDER SPOTLIGHT</p><h2 id="details-title">${esc(company.name)}</h2><div class="detail-tags"><span>${esc(company.category)}</span><span>${esc(domain?.name||'Technology')}</span><span>${esc(company.horizon||'next')}</span></div><p class="detail-lead">${esc(company.summary)}</p><a class="secondary-button" href="${esc(safeURL(company.website))}" target="_blank" rel="noopener noreferrer">Official website</a><h3>Potential relevance</h3><p>${esc(company.proposedUse||company.relevance||'Review the connected trends and source evidence for possible applications.')}</p>${company.distinctive||company.differentiator?`<h3>What distinguishes it</h3><p>${esc(company.distinctive||company.differentiator)}</p>`:''}${company.evaluationQuestion?`<h3>A question to test</h3><p>${esc(company.evaluationQuestion)}</p>`:''}<h3>Public availability</h3><p>${esc(company.availability||'Confirm current availability with the provider.')}</p><h3>Evidence and limits</h3><p>${esc(company.evidenceLabel||'Public company information')}. ${esc(company.evidenceNote||company.note||'Local suitability and performance have not been independently evaluated here.')}</p>${relevantScene?`<h3>In the showcase</h3><button class="secondary-button" data-jump-scene="${esc(relevantScene.id)}">Show “${esc(relevantScene.radarTitle)}”</button>`:''}<h3>Sources</h3>${sources(company.sourceIds||[])}<p class="small-note">Public-source profile. Potential relevance is our interpretation.</p>`;
+    $('#details-content').innerHTML=`<p class="eyebrow">BUILDER SPOTLIGHT</p><h2 id="details-title">${esc(company.name)}</h2><div class="detail-tags"><span>${esc(company.category)}</span><span>${esc(domain?.name||'Technology')}</span><span>${esc(company.horizon||'next')}</span></div><p class="detail-lead">${esc(company.summary)}</p><a class="secondary-button" href="${esc(safeURL(company.website))}" target="_blank" rel="noopener noreferrer">Official website</a>${spotlightFunctions(spotlight)}${workContext(spotlight?.wbgAnchor)}<h3>Potential relevance</h3><p>${esc(company.proposedUse||company.relevance||'Review the connected trends and source evidence for possible applications.')}</p>${company.distinctive||company.differentiator?`<h3>What distinguishes it</h3><p>${esc(company.distinctive||company.differentiator)}</p>`:''}${company.evaluationQuestion?`<h3>A question to test</h3><p>${esc(company.evaluationQuestion)}</p>`:''}<h3>Public availability</h3><p>${esc(company.availability||'Confirm current availability with the provider.')}</p><h3>Evidence and limits</h3><p>${esc(company.evidenceLabel||'Public company information')}. ${esc(company.evidenceNote||company.note||'Local suitability and performance have not been independently evaluated here.')}</p>${relevantScene?`<h3>In the showcase</h3><button class="secondary-button" data-jump-scene="${esc(relevantScene.id)}">Show “${esc(relevantScene.radarTitle)}”</button>`:''}<h3>Sources</h3>${sources(company.sourceIds||[])}<p class="small-note">Public-source profile. Potential relevance is our interpretation.</p>`;
     $('[data-jump-scene]')?.addEventListener('click',()=>{selectScene(relevantScene.id);closeAllDialogs();restorePlayback=false;setPlaying(false);});
     openDialog('details-dialog');render();
   }
@@ -118,12 +131,13 @@
     bindBuilderLinks();
   }
   function renderChapters(){
-    $('#chapter-grid').innerHTML=M.scenesFor(state.lens).map((scene,i)=>`<button class="chapter-card" data-scene="${esc(scene.id)}" aria-current="${currentFrame?.scene.id===scene.id}"><small>${esc(M.lensNames[scene.lens].toUpperCase())} · ${stamp(i*10)}</small><strong>${esc(scene.title)}</strong><span>${scene.companyIds.map(id=>esc(M.byCompany[id].name)).join(' · ')}</span></button>`).join('');
+    $('#chapter-grid').innerHTML=M.timelineFor({lens:state.lens}).map(({scene,start,duration})=>`<button class="chapter-card ${scene.kind==='spotlight'?'spotlight-card':''}" data-scene="${esc(scene.id)}" aria-current="${currentFrame?.scene.id===scene.id}"><small>${scene.kind==='spotlight'?'COMPANY CLOSE-UP':esc(M.lensNames[scene.lens].toUpperCase())} · ${stamp(start)} · ${duration}s</small><strong>${esc(scene.title)}</strong><span>${scene.companyIds.map(id=>esc(M.byCompany[id].name)).join(' · ')}</span></button>`).join('');
     $$('[data-scene]').forEach(b=>b.addEventListener('click',()=>{selectScene(b.dataset.scene);restorePlayback=false;closeAllDialogs();setPlaying(false);}));
   }
   function selectScene(id){
-    const scenes=M.scenesFor(state.lens),index=scenes.findIndex(s=>s.id===id);
-    if(index<0){state.lens='all';state.time=M.story.scenes.findIndex(s=>s.id===id)*10;}else state.time=index*10;
+    let entry=M.timelineFor({lens:state.lens}).find(item=>item.scene.id===id);
+    if(!entry){state.lens='all';entry=M.timelineFor({lens:'all'}).find(item=>item.scene.id===id);}
+    if(!entry)return;state.time=entry.start+previewOffset(entry.scene);
     state.chapter='auto';state.selectedId=null;lastScene='';syncControls();render();
   }
   function pointAt(event){
@@ -176,7 +190,8 @@
   });
   $('#record-button').addEventListener('click',async()=>{
     if(recordAbort)return;const length=$('#export-length').value;
-    const model={...frameOptions(),selectedId:null,secondsPerScene:length==='preview'?2:10};
+    const model={...frameOptions(),selectedId:null};
+    if(length==='preview')model.secondsPerScene=2;
     if(length==='scene')model.chapter=currentFrame.scene.id;
     const visual={...renderOptions(),selectedId:null},mirror=state.mirror,size=outputSize();
     const durationSec=M.duration(model);recordAbort=new AbortController();$('#record-button').disabled=true;$('#snapshot-button').disabled=true;$('#export-length').disabled=true;
@@ -215,6 +230,8 @@
     const mark=new Image();mark.src='wbg-logo-white.svg';
     try{await mark.decode();logo=mark;}catch{/* The renderer includes a text brand fallback. */}
     if(document.fonts?.ready)await document.fonts.ready;
+    if(!state.playing&&state.chapter!=='auto')state.time=previewOffset(M.scenesFor(state.lens,state.chapter)[0]);
+    for(const option of $('#lens-select').options)option.textContent=`${M.lensNames[option.value]} · ${stamp(M.duration({lens:option.value}))}`;
     syncControls();resize();$('#stage-loading').hidden=true;
     if(state.clean)revealCleanControls();requestAnimationFrame(tick);
   }

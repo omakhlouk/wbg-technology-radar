@@ -3,7 +3,7 @@
     "title": "WBG Technology & Innovation Radar",
     "checked": "2026-11-23",
     "edition": "November 2026 · Expanded edition",
-    "version": "2026.11.23.3",
+    "version": "2026.11.24.5",
     "description": "Technology intelligence for development outcomes, ITS capabilities and the wider frontier.",
     "automaticUpdates": false,
     "previousEdition": {
@@ -22,7 +22,9 @@
       "Urban mobility, housing and municipal waste.",
       "Gender, disability accessibility and fragility-specific service delivery.",
       "Country-by-country deployment, procurement and total-cost evidence."
-    ]
+    ],
+    "spotlightsChecked": "2026-11-24",
+    "refreshScope": "Five company spotlights, twelve concrete WBG anchors and selected source refreshes. The full 102-company landscape has not been exhaustively re-researched on this date."
   },
   "domains": [
     {
@@ -1603,9 +1605,10 @@
       "sourceIds": [
         "factory-home",
         "factory-azure",
-        "factory-company-news"
+        "factory-company-news",
+        "wbg-govtech-country-work"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "availability": "Commercial platform; deployment options depend on configuration",
       "note": "",
       "distinctive": "Software agents paired with documented Azure deployment, Azure DevOps and Microsoft workflow integration; useful to compare within an existing enterprise engineering environment.",
@@ -2660,7 +2663,7 @@
       "name": "Sarvam AI",
       "website": "https://www.sarvam.ai/",
       "category": "Multilingual AI models",
-      "summary": "Develops Indian-language speech, translation, document and language-model services; Saaras V4 supports multiple transcription formats.",
+      "summary": "Develops Indian-language speech, dictation, translation and document APIs; its November releases add edited dictation and structured extraction with source locations.",
       "domain": "inclusion",
       "ring": "experiment",
       "lenses": [
@@ -2677,9 +2680,13 @@
       "sourceIds": [
         "sarvam",
         "sarvam-v4",
-        "sarvam-location"
+        "sarvam-location",
+        "sarvam-dictate-20261123",
+        "sarvam-extract-20261124",
+        "sarvam-saaras-docs",
+        "wbg-dpi-program-2026"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "availability": "Commercial offering; verify local availability",
       "note": "Evaluate the actual target languages and scripts; vendor benchmark leadership is not proof of local task performance.",
       "horizon": "now",
@@ -3711,9 +3718,11 @@
       "evidenceNote": "The September catalyst report describes a discovery rather than a scaled product; humans still transferred samples between instruments.",
       "sourceIds": [
         "lila-tech",
-        "lila-catalyst-20260925"
+        "lila-catalyst-20260925",
+        "lila-catalyst-preprint-20260925",
+        "wbg-esmap-electrolyzers-2026"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "discoveryPriority": 8,
       "evidenceLabel": "Research and partner-led scientific programs.",
       "note": "The September catalyst report describes a discovery rather than a scaled product; humans still transferred samples between instruments.",
@@ -4008,9 +4017,11 @@
       "sourceIds": [
         "satsure-home",
         "satsure-about",
-        "satsure-public-sector"
+        "satsure-public-sector",
+        "satsure-utilities-v5",
+        "wbg-gems-2026"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "addedInEdition": "2026.11.23.2",
       "evidenceLabel": "Company product information",
       "evidenceNote": "Current analytics offerings are distinct from any planned satellite launches; no owned operational constellation or lending outcome is inferred.",
@@ -4757,9 +4768,11 @@
       "sourceIds": [
         "reducto-developers",
         "reducto-pricing",
-        "reducto-location"
+        "reducto-location",
+        "wbg-documents-reports",
+        "wbg-govtech-country-work"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "addedInEdition": "2026.11.23.3"
     },
     {
@@ -5251,7 +5264,7 @@
       "url": "https://factory.com/news/microsoft-collaboration",
       "publisher": "factory.com",
       "date": "2026-11-18",
-      "checked": "2026-11-23",
+      "checked": "2026-11-24",
       "note": "",
       "kind": "Primary source"
     },
@@ -5421,7 +5434,7 @@
       "url": "https://www.worldbank.org/ext/en/energizingafrica/faq",
       "publisher": "World Bank Group",
       "date": null,
-      "checked": "2026-11-23",
+      "checked": "2026-11-24",
       "note": "",
       "kind": "Institutional source"
     },
@@ -6042,7 +6055,7 @@
       "date": "2026-09-25",
       "note": "Company research report discloses manual sample transfers and remaining commercial scale-up work.",
       "publisher": "www.lila.ai",
-      "checked": "2026-11-23",
+      "checked": "2026-11-24",
       "kind": "Primary source"
     },
     {
@@ -6181,7 +6194,7 @@
       "url": "https://www.satsure.co/",
       "publisher": "SatSure",
       "date": null,
-      "checked": "2026-11-23",
+      "checked": "2026-11-24",
       "kind": "Primary source",
       "note": ""
     },
@@ -6501,7 +6514,7 @@
       "url": "https://www.worldbank.org/en/about/annual-report/jobs-strategy",
       "publisher": "World Bank Group",
       "date": null,
-      "checked": "2026-11-23",
+      "checked": "2026-11-24",
       "kind": "Institutional source",
       "note": "Current strategy context, not evidence that any listed company is a WBG partner."
     },
@@ -6721,7 +6734,7 @@
       "url": "https://reducto.ai/developers",
       "publisher": "Reducto",
       "date": null,
-      "checked": "2026-11-23",
+      "checked": "2026-11-24",
       "kind": "Primary source",
       "note": "Official API capability descriptions; performance claims not independently verified."
     },
@@ -6914,6 +6927,146 @@
       "checked": "2026-11-23",
       "kind": "Primary source",
       "note": "Used for country headquarters only."
+    },
+    {
+      "id": "sarvam-dictate-20261123",
+      "title": "Introducing Sarvam Dictate",
+      "url": "https://www.sarvam.ai/blogs/sarvam-dictate",
+      "publisher": "Sarvam AI",
+      "date": "2026-11-23",
+      "checked": "2026-11-24",
+      "kind": "Primary source",
+      "note": "Vendor release; no benchmark superiority is asserted."
+    },
+    {
+      "id": "sarvam-extract-20261124",
+      "title": "Introducing Sarvam Extract",
+      "url": "https://www.sarvam.ai/blogs/extract-api",
+      "publisher": "Sarvam AI",
+      "date": "2026-11-24",
+      "checked": "2026-11-24",
+      "kind": "Primary source",
+      "note": "Vendor release verified on publication day; local accuracy remains to be tested."
+    },
+    {
+      "id": "sarvam-saaras-docs",
+      "title": "Saaras speech recognition documentation",
+      "url": "https://docs.sarvam.ai/api/api-guides-tutorials/models/saaras",
+      "publisher": "Sarvam AI",
+      "date": null,
+      "checked": "2026-11-24",
+      "kind": "Primary source",
+      "note": "Documents 22 Indian languages plus English and multiple transcription output modes."
+    },
+    {
+      "id": "satsure-utilities-v5",
+      "title": "SatSure: Utilities and Critical Infrastructure",
+      "url": "https://www.satsure.co/solutions/utilities-and-critical-infrastructure/",
+      "publisher": "SatSure",
+      "date": null,
+      "checked": "2026-11-24",
+      "kind": "Primary source",
+      "note": "Company capability descriptions; no quantitative performance claim or WBG deployment is inferred."
+    },
+    {
+      "id": "wbg-dpi-program-2026",
+      "title": "Global Digital Public Infrastructure Program: From Foundations to Scale",
+      "url": "https://www.worldbank.org/en/results/2026/05/06/global-digital-public-infrastructure-program",
+      "publisher": "World Bank Group",
+      "date": "2026-05-06",
+      "checked": "2026-11-24",
+      "kind": "Institutional source",
+      "note": "Institutional context; not evidence that Sarvam is a WBG supplier or partner."
+    },
+    {
+      "id": "wbg-gems-2026",
+      "title": "GEMS: Geo-Enabling initiative for Monitoring and Supervision",
+      "url": "https://www.worldbank.org/en/brief/2021/06/24/geo-enabling-initiative-for-monitoring-and-supervision-gems",
+      "publisher": "World Bank Group",
+      "date": "2021-06-24",
+      "checked": "2026-11-24",
+      "kind": "Institutional source",
+      "note": "Page carries implementation information as of October 2026. GEMS uses low-cost open-source tools and field evidence; no SatSure integration is asserted."
+    },
+    {
+      "id": "wbg-digital-strategy-20261020",
+      "title": "World Bank Group Launches First Digital Strategy to Expand Access and Create Jobs",
+      "url": "https://www.worldbank.org/en/news/press-release/2026/10/20/world-bank-group-launches-first-digital-strategy-to-expand-access-and-create-jobs",
+      "publisher": "World Bank Group",
+      "date": "2026-10-20",
+      "checked": "2026-11-24",
+      "kind": "Institutional source",
+      "note": "Supports four priorities: connectivity, affordability, services and skills, and readiness for AI."
+    },
+    {
+      "id": "wbg-agriconnect-honduras-20261119",
+      "title": "Honduras, the World Bank Group, and CABEI Launch Plan to Give 400,000 Farmers Access to Financing and Data",
+      "url": "https://www.worldbank.org/en/news/press-release/2026/11/19/gobierno-de-honduras-grupo-banco-mundial-bcie-lanzan-plan-agriconnect",
+      "publisher": "World Bank Group",
+      "date": "2026-11-19",
+      "checked": "2026-11-24",
+      "kind": "Institutional source",
+      "note": "A current country example connecting agricultural finance, market access and digital tools."
+    },
+    {
+      "id": "wbg-govtech-country-work",
+      "title": "GovTech country work and innovation challenges",
+      "url": "https://www.worldbank.org/en/programs/govtech/projects",
+      "publisher": "World Bank Group",
+      "date": null,
+      "checked": "2026-11-24",
+      "kind": "Institutional source",
+      "note": "Includes core-system modernization and the 2026 Morocco public audit / procurement controls challenges; not a partnership claim for any radar company."
+    },
+    {
+      "id": "wbg-govtech-ai-bootcamp-2026",
+      "title": "GovTech AI Bootcamp for Governance and Public Administration",
+      "url": "https://www.worldbank.org/en/programs/govtech/govtech-bootcamp-for-ai-in-governance-and-public-administration",
+      "publisher": "World Bank Group",
+      "date": null,
+      "checked": "2026-11-24",
+      "kind": "Institutional source",
+      "note": "Ten teams selected for the forthcoming 7–11 December 2026 bootcamp; not reported as a completed event."
+    },
+    {
+      "id": "wbg-documents-reports",
+      "title": "Documents & Reports: official disclosure collection",
+      "url": "https://www.worldbank.org/en/publication/documents-reports",
+      "publisher": "World Bank Group",
+      "date": null,
+      "checked": "2026-11-24",
+      "kind": "Institutional source",
+      "note": "Provides the public project-document context for a proposed extraction experiment."
+    },
+    {
+      "id": "wbg-public-institutions-ai-2026",
+      "title": "Public Institutions in the Age of AI: Emerging Practices",
+      "url": "https://www.worldbank.org/en/programs/govtech/ai-in-governance",
+      "publisher": "World Bank Group",
+      "date": null,
+      "checked": "2026-11-24",
+      "kind": "Institutional source",
+      "note": "Institutional guidance on putting responsible AI into practice, with country examples."
+    },
+    {
+      "id": "wbg-esmap-electrolyzers-2026",
+      "title": "Electrolyzers for Hydrogen Production: Technical and Economic Characteristics — Executive Summary",
+      "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099022426180019815",
+      "publisher": "World Bank / ESMAP",
+      "date": "2026-02-24",
+      "checked": "2026-11-24",
+      "kind": "Institutional source",
+      "note": "Official metadata describes technology selection for developers, investors and policymakers. This is an analytical connection to LILA, not a WBG use or partnership claim."
+    },
+    {
+      "id": "lila-catalyst-preprint-20260925",
+      "title": "AI-guided high-throughput discovery of iridium- and ruthenium-free palladium-oxide catalysts for durable acidic oxygen evolution",
+      "url": "https://arxiv.org/abs/2609.30133",
+      "publisher": "LILA Sciences research team / arXiv",
+      "date": "2026-09-25",
+      "checked": "2026-11-24",
+      "kind": "Primary source",
+      "note": "Author preprint; human-supervised laboratory research, not a certified or scaled electrolyzer product."
     }
   ],
   "highlights": [
@@ -6946,6 +7099,16 @@
     }
   ],
   "signals": [
+    {
+      "title": "Speech and documents become structured workflow inputs",
+      "date": "2026-11-24",
+      "text": "Sarvam released Extract on 24 November after Dictate on 23 November. Explore service access and document workflows with field-level evidence and human review.",
+      "sourceIds": [
+        "sarvam-extract-20261124",
+        "sarvam-dictate-20261123"
+      ],
+      "trendId": "local-language-ai"
+    },
     {
       "title": "Factory expands Azure and Microsoft workflow integration",
       "date": "2026-11-18",

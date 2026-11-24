@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#000000">
-  <meta name="description" content="An animated WBG technology radar for presentations and hologram displays. Explore 37 trends, 102 builders and a two-minute story connecting emerging technology to development and institutional value.">
+  <meta name="description" content="An animated WBG technology radar for presentations and hologram displays. Explore 37 trends, 102 builders and a three-minute story with five company close-ups connecting emerging technology to development and institutional value.">
   <title>WBG Technology Radar — Hologram &amp; Video Showcase</title>
   <link rel="stylesheet" href="showcase.css">
 </head>
@@ -33,7 +33,7 @@
         <button id="restart-button" class="icon-button" aria-label="Restart showcase"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></svg></button>
         <div class="current-scene"><span id="chapter-lens">WBG DEVELOPMENT</span><button id="chapters-open" title="Choose a scene"><span id="chapter-name">Public services in people's own language</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button></div>
       </div>
-      <div class="progress-zone"><label class="sr-only" for="timeline">Showcase position</label><input id="timeline" type="range" min="0" max="120" step="0.1" value="0"><div class="timeline-meta"><span id="elapsed-time">0:00</span><span id="scene-count">12 scenes · 63 featured builders</span><span id="total-time">2:00</span></div></div>
+      <div class="progress-zone"><label class="sr-only" for="timeline">Showcase position</label><input id="timeline" type="range" min="0" max="180" step="0.1" value="0"><div class="timeline-meta"><span id="elapsed-time">0:00</span><span id="scene-count">12 trend scenes · 5 close-ups</span><span id="total-time">3:00</span></div></div>
       <div class="format-switch" aria-label="Display format"><button data-format="wide" aria-pressed="true">Screen <small>16:9</small></button><button data-format="square" aria-pressed="false">Hologram <small>1:1</small></button></div>
     </section>
     <footer class="studio-footer studio-chrome"><p><span id="label-summary">Named signals rotate with each scene.</span> Select a name for its evidence.</p><div><button id="mobile-names-open" class="mobile-tool">Find a startup</button><button id="mobile-insights-open" class="mobile-tool">Insights</button><button id="help-open">How to read it</button><a href="research.html">Research library</a><span class="footer-date">November 2026</span></div></footer>
@@ -41,10 +41,10 @@
   <button id="leave-clean" class="leave-clean" aria-label="Exit cinema view">Exit cinema view <kbd>Esc</kbd></button>
   <div id="toast" class="toast" role="status"></div>
   <dialog id="chapters-dialog" class="studio-dialog large-dialog" aria-labelledby="chapters-title">
-    <header><div><p class="eyebrow">THE TWO-MINUTE STORY</p><h2 id="chapters-title">Choose a scene.</h2><p>One technology shift. A practical implication. The builders to watch.</p></div><button class="close-dialog" data-close="chapters-dialog" aria-label="Close scenes">×</button></header>
+    <header><div><p class="eyebrow">THE THREE-MINUTE STORY</p><h2 id="chapters-title">Choose a scene.</h2><p>Twelve technology shifts and five company close-ups, connected to documented WBG work.</p></div><button class="close-dialog" data-close="chapters-dialog" aria-label="Close scenes">×</button></header>
     <div class="lens-tabs" aria-label="Showcase perspective"><button data-lens="all" aria-pressed="true">Full showcase</button><button data-lens="wbg" aria-pressed="false">WBG development</button><button data-lens="its" aria-pressed="false">ITS &amp; enterprise</button><button data-lens="frontier" aria-pressed="false">Frontier</button></div>
     <div id="chapter-grid" class="chapter-grid"></div>
-    <footer><button id="resume-sequence" class="primary-button">Play this sequence</button><span>Each scene runs for 10 seconds and the sequence loops.</span></footer>
+    <footer><button id="resume-sequence" class="primary-button">Play this sequence</button><span>Trend scenes run for 10 seconds; company close-ups run for 12. The sequence loops.</span></footer>
   </dialog>
   <dialog id="names-dialog" class="studio-dialog large-dialog" aria-labelledby="names-title">
     <header><div><p class="eyebrow">102 STARTUPS &amp; ECOSYSTEM BUILDERS</p><h2 id="names-title">Find a name on the radar.</h2><p>Featured names stay prominent; the surrounding names change with each scene.</p></div><button class="close-dialog" data-close="names-dialog" aria-label="Close startup search">×</button></header>
@@ -54,21 +54,21 @@
   <dialog id="details-dialog" class="studio-dialog detail-dialog" aria-labelledby="details-title"><button class="close-dialog sticky-close" data-close="details-dialog" aria-label="Close insights">×</button><div id="details-content"></div></dialog>
   <dialog id="settings-dialog" class="studio-dialog settings-dialog" aria-labelledby="settings-title">
     <header><div><p class="eyebrow">DISPLAY SETTINGS</p><h2 id="settings-title">Set the stage.</h2></div><button class="close-dialog" data-close="settings-dialog" aria-label="Close display settings">×</button></header>
-    <div class="setting-row"><div><label for="lens-select">Perspective</label><p>Choose the complete story or one area of interest.</p></div><select id="lens-select"><option value="all">Full showcase · 2:00</option><option value="wbg">WBG development · 1:00</option><option value="its">ITS &amp; enterprise · 0:40</option><option value="frontier">Frontier · 0:20</option></select></div>
+    <div class="setting-row"><div><label for="lens-select">Perspective</label><p>Choose the complete story or one area of interest.</p></div><select id="lens-select"><option value="all">Full showcase · 3:00</option><option value="wbg">WBG development · 1:24</option><option value="its">ITS &amp; enterprise · 1:04</option><option value="frontier">Frontier · 0:32</option></select></div>
     <div class="setting-row"><div><label for="labels-select">Names on the radar</label><p>Priority builders stay readable. Other names rotate in groups.</p></div><select id="labels-select"><option value="focus">Featured + surrounding names</option><option value="all">More names</option><option value="none">Points only</option></select></div>
     <div class="setting-row"><div><label for="mirror-toggle">Mirror for a reflected display</label><p>Reverses the image and text. Leave off for a direct-view display.</p></div><input id="mirror-toggle" type="checkbox" role="switch"></div>
     <div class="setting-row"><div><label for="motion-toggle">Animated sweep and glow</label><p>Turn off for a still radar. Scene playback remains separately controllable.</p></div><input id="motion-toggle" type="checkbox" role="switch" checked></div>
     <div class="setting-actions"><button id="copy-link" class="secondary-button">Copy clean display link</button><button id="fullscreen-button" class="primary-button">Enter full screen</button></div>
   </dialog>
   <dialog id="export-dialog" class="studio-dialog export-dialog" aria-labelledby="export-title">
-    <header><div><p class="eyebrow">READY FOR YOUR DISPLAY</p><h2 id="export-title">Take the radar into the room.</h2><p>Download the complete two-minute film, or record your selected perspective.</p></div><button class="close-dialog" data-close="export-dialog" aria-label="Close video tools">×</button></header>
+    <header><div><p class="eyebrow">READY FOR YOUR DISPLAY</p><h2 id="export-title">Take the radar into the room.</h2><p>Download the complete three-minute film, or record your selected perspective.</p></div><button class="close-dialog" data-close="export-dialog" aria-label="Close video tools">×</button></header>
     <div class="film-downloads">
-      <a class="film-download" href="radar-hologram-1080.mp4" download><span class="format-icon square-icon" aria-hidden="true"></span><strong>Hologram film</strong><span>1080 × 1080 · 2:00 · MP4</span><small>Pure black · circular safe area</small></a>
-      <a class="film-download" href="radar-widescreen-1080.mp4" download><span class="format-icon wide-icon" aria-hidden="true"></span><strong>Presentation film</strong><span>1920 × 1080 · 2:00 · MP4</span><small>Named radar + changing insights</small></a>
+      <a class="film-download" href="radar-hologram-1080.mp4?v=2026.11.24.5" download><span class="format-icon square-icon" aria-hidden="true"></span><strong>Hologram film</strong><span>1080 × 1080 · 3:00 · MP4</span><small>Pure black · circular safe area</small></a>
+      <a class="film-download" href="radar-widescreen-1080.mp4?v=2026.11.24.5" download><span class="format-icon wide-icon" aria-hidden="true"></span><strong>Presentation film</strong><span>1920 × 1080 · 3:00 · MP4</span><small>Named radar + changing insights</small></a>
     </div>
     <p class="small-note">The square film is a front-facing composition. Match the display manufacturer's resolution, orientation and file requirements.</p>
     <details class="custom-export"><summary>Create a custom recording</summary><p>Uses your current perspective, name density, display format and mirror setting. Controls are excluded.</p>
-      <label for="export-length">Sequence length</label><select id="export-length"><option value="full">Complete selected sequence</option><option value="preview">Fast preview · 2 seconds per scene</option><option value="scene">Current scene · 10 seconds</option></select>
+      <label for="export-length">Sequence length</label><select id="export-length"><option value="full">Complete selected sequence</option><option value="preview">Fast preview · 2 seconds per scene</option><option value="scene">Current scene · native timing</option></select>
       <div class="setting-actions"><button id="snapshot-button" class="secondary-button">Save a still image</button><button id="record-button" class="primary-button">Record video</button></div>
       <p id="record-note" class="small-note">Recording runs in real time. Keep this tab visible; recording pauses while it is in the background.</p>
       <div id="record-progress" class="record-progress" hidden><progress id="record-meter" max="1" value="0"></progress><div><span id="record-status" role="status">Preparing…</span><button id="cancel-record" class="text-button">Cancel</button></div></div>
@@ -80,8 +80,8 @@
     <p>Each point is a builder. Its color identifies a technology domain; its distance from the center reflects an editorial assessment of the opportunity.</p>
     <div class="ring-explanations"><div><strong>Now</strong><p>A capability is available to explore in a bounded setting.</p></div><div><strong>Next</strong><p>Practical evidence, integration or deployment is still developing.</p></div><div><strong>Horizon</strong><p>Broader relevance depends on important technical or operational milestones.</p></div></div>
     <p>The sweep is an animation. The radar is a researched edition, not a live data feed. Position and inclusion do not establish WBG adoption, procurement suitability or endorsement.</p>
-    <h3>Made to be watched</h3><p>The two-minute sequence highlights 63 builders across 12 scenes. The wider radar contains 102 profiles; names rotate so they can be read without shrinking the type.</p>
-    <h3>Recording and holograms</h3><p>Choose <strong>Hologram 1:1</strong> for a circular composition on pure black. Use <strong>Cinema view</strong> to hide the controls, or download the MP4 directly. The square film does not create a four-face pyramid projection; that layout depends on your hardware.</p>
+    <h3>Made to be watched</h3><p>The three-minute sequence highlights 63 builders across 12 trend scenes and five company close-ups. Sarvam AI, SatSure, Factory, Reducto and LILA Sciences receive a closer look at their capabilities and potential WBG relevance. The wider radar contains 102 profiles; names rotate so they can be read without shrinking the type.</p>
+    <h3>WBG references and branding</h3><p>Each scene names documented WBG work. The company applications are proposed connections, with the supporting institutional and company sources available in Scene insights. Selected evidence was refreshed on 24 November 2026; the broader research baseline is 23 November.</p><p>The official WBG vector mark retains its original logotype. The films use Arial Regular and Bold, the WBG secondary typeface, with corporate blue accents and protected logo clear space.</p><h3>Recording and holograms</h3><p>Choose <strong>Hologram 1:1</strong> for a circular composition on pure black. Use <strong>Cinema view</strong> to hide the controls, or download the MP4 directly. The square film does not create a four-face pyramid projection; that layout depends on your hardware.</p>
     <p class="shortcuts"><kbd>Space</kbd> Play / pause <kbd>←</kbd><kbd>→</kbd> Change scene <kbd>R</kbd> Restart <kbd>F</kbd> Full screen <kbd>Esc</kbd> Exit cinema</p>
     <footer><a href="research.html" class="secondary-button">Open the research library</a><a href="showcase-data.json" download>Download the storyboard</a></footer>
   </dialog>
