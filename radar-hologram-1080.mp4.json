@@ -1,0 +1,23 @@
+{
+  "file": "radar-hologram-1080.mp4",
+  "format": "square",
+  "width": 1080,
+  "height": 1080,
+  "fps": 30,
+  "durationSeconds": 180,
+  "bytes": 5423741,
+  "sha256": "6c7ab6c6b42ac7067bbb6ca32ffaf5b5a095b53c99709856ceb28eb027c0a0a5",
+  "fontFamily": "Liberation Sans (Arial-compatible fallback)",
+  "sharedRenderer": "radar-core.js",
+  "filmRenderer": "radar-film.js",
+  "dataVersion": "2026.11.24.7",
+  "companyCount": 134,
+  "trendCount": 41,
+  "inputs": {
+    "data.js": "339923ea47162adaf4d335b36119bfc5f0169c9cac669c248c40e81645506911",
+    "radar-core.js": "3c0521b077712303084565f21d89672ea8158f9fc1ae13e23d79b3dfa087837e",
+    "radar-film.js": "d83b0dde1eb440c0f623b52ba77f347e10fa3750d529cd5d85ff9575fe3b26f5",
+    "wbg-logo-white.svg": "755489ceb22228ef1a909e2ae6beba4d8dd17bdc0911c699ff805f7fc513a5fc"
+  },
+  "createdAt": "2026-11-24T19:18:09.110Z"
+}

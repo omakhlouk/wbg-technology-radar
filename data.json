@@ -2,30 +2,87 @@
   "meta": {
     "title": "WBG Technology & Innovation Radar",
     "checked": "2026-11-23",
-    "edition": "November 2026 · Expanded edition",
-    "version": "2026.11.24.5",
+    "edition": "November 2026 · Expanded research",
+    "version": "2026.11.24.7",
     "description": "Technology intelligence for development outcomes, ITS capabilities and the wider frontier.",
     "automaticUpdates": false,
     "previousEdition": {
-      "trends": 32,
-      "companies": 89,
-      "version": "2026.11.23.2"
+      "companies": 102,
+      "trends": 37,
+      "version": "2026.11.24.5"
     },
     "horizonMeaning": {
       "now": "Products or methods are available to explore in a bounded setting; suitability still needs local validation.",
       "next": "Practical use is emerging, with integration, reliability or deployment evidence still developing.",
       "horizon": "Broader relevance depends on substantial technical, economic or operational milestones."
     },
-    "coverageSummary": "A curated starting point, not an exhaustive market map. Coverage connects WBG development priorities with institutional technology needs and consequential frontier advances. It is strongest in AI and enterprise software, digital public services, climate and Earth observation, energy and infrastructure, health and learning, financial inclusion, skills and productive firms. The directory includes startups, scaleups and explicitly identified public-good builders because relevant digital infrastructure is not built by companies alone.",
+    "coverageSummary": "A curated, source-linked landscape of 134 companies, products and public-good builders across 41 trends. Coverage spans development priorities, institutional technology and frontier research. Company claims, proposed applications and documented WBG work are distinguished; this is a research snapshot, not an exhaustive market census or an endorsement.",
     "coverageGaps": [
-      "Tourism and value-added manufacturing beyond a small number of examples.",
-      "Urban mobility, housing and municipal waste.",
-      "Gender, disability accessibility and fragility-specific service delivery.",
-      "Country-by-country deployment, procurement and total-cost evidence."
+      "Country-level availability, procurement requirements and full lifecycle costs.",
+      "Independent outcome evidence for individual products and deployments.",
+      "Housing, municipal waste, urban mobility and disability accessibility.",
+      "Tourism and value-added manufacturing remain selective.",
+      "Fragile and conflict-affected delivery settings and distributional outcomes."
     ],
     "spotlightsChecked": "2026-11-24",
-    "refreshScope": "Five company spotlights, twelve concrete WBG anchors and selected source refreshes. The full 102-company landscape has not been exhaustively re-researched on this date.",
-    "interfaceVersion": "2026.11.24.6"
+    "refreshScope": "Targeted 24 November review: 32 profiles added and 12 existing profiles refreshed, supported by 68 reviewed source records; 4 trends added and 15 updated. Five film profiles use the same capability and application fields as the live radar. Other records retain their earlier review dates.",
+    "interfaceVersion": "2026.11.24.7",
+    "lastRefresh": "2026-11-24",
+    "refreshedAt": "2026-11-24",
+    "updatedCount": 12,
+    "additionsCount": 32,
+    "refreshedCompanyCount": 44,
+    "sourceReviewCount": 68,
+    "trendAdditionsCount": 4,
+    "trendUpdatesCount": 15,
+    "spotlightEnrichedCount": 5,
+    "datePolicy": "Source dates describe publication or announced events. Review dates indicate a source check. Undated pages and month-only events retain that precision.",
+    "refreshedCompanyIds": [
+      "amini",
+      "apollo-agriculture",
+      "arcade",
+      "baseten",
+      "boomitra",
+      "coderabbit",
+      "cropin",
+      "cursor",
+      "daytona",
+      "e2b",
+      "fido-tech",
+      "fieldai",
+      "fireworks-ai",
+      "floodbase",
+      "flower-labs",
+      "harness-cosmos",
+      "hiddenlayer",
+      "husk",
+      "iceye",
+      "kilimo",
+      "letta",
+      "llamaindex",
+      "maad",
+      "modal",
+      "mosip-inji",
+      "nango",
+      "nithio",
+      "okra-solar",
+      "patronus-ai",
+      "pqshield",
+      "pula",
+      "qodo",
+      "rori",
+      "satsure",
+      "simprints",
+      "sparkmeter-earthspark",
+      "sunculture",
+      "temporal",
+      "tessl",
+      "viam",
+      "witnessai",
+      "zama",
+      "zep",
+      "zipline"
+    ]
   },
   "domains": [
     {
@@ -83,29 +140,38 @@
         "frontier"
       ],
       "summary": "AI systems that plan, edit, test and maintain software using the same development tools as engineers.",
-      "whyNow": "The product scope is expanding from code suggestions to longer tasks and ongoing maintenance. Replit announced Missions on 17 November 2026: agents plan, build, test and iterate within user-set budgets and boundaries.",
+      "whyNow": "The scope now includes event-triggered engineering, review and verification. Qodo introduced session-level review on 18 November 2026; Harness acquired selected Augment assets to connect coding with delivery.",
       "application": "Use a supervised agent to repair a sandbox application, generate tests or modernize a small internal service; engineers retain review and release authority.",
       "experiment": "Compare an agent-assisted team with the existing process on 10 small repository tasks, using the same acceptance criteria and code review.",
       "measure": "Accepted task completion, reviewer time, introduced defects, elapsed time and cost per accepted change.",
       "watchouts": [
-        "Incorrect changes that pass weak tests",
-        "Secrets and production access",
-        "Code ownership and dependency hygiene",
-        "Review capacity becoming the bottleneck"
+        "Reviewing business intent across multiple changes",
+        "Repository and secret access",
+        "Independent acceptance tests",
+        "Quality and cost per accepted change"
       ],
       "companyIds": [
         "cognition",
         "factory",
         "replit",
-        "mechanical-orchard"
+        "mechanical-orchard",
+        "qodo",
+        "harness-cosmos",
+        "cursor",
+        "coderabbit",
+        "tessl"
       ],
       "sourceIds": [
         "cognition-about",
         "factory-home",
         "replit-missions",
-        "factory-azure"
+        "factory-azure",
+        "qodo-session-review-20261118",
+        "harness-augment-assets-20261008",
+        "cursor-agents-20261124",
+        "tessl-context-20261124"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "applicationsByLens": {
         "its": "Test a software agent on a real maintenance backlog within existing source-control, identity, test and review controls.",
         "frontier": "Examine how longer-running software agents change the economics of building and maintaining products, and where review becomes the limiting factor."
@@ -115,7 +181,10 @@
       "domainsByLens": {
         "its": "its-software",
         "frontier": "frontier-work"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-govtech-country-work"
+      ]
     },
     {
       "id": "enterprise-agents",
@@ -166,7 +235,12 @@
         "its": "its-knowledge",
         "wbg": "wbg-services",
         "frontier": "frontier-work"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-documents-reports",
+        "wbg-govtech-ai-bootcamp-2026",
+        "wbg-govtech-country-work"
+      ]
     },
     {
       "id": "context-memory",
@@ -178,15 +252,15 @@
         "its"
       ],
       "summary": "Systems that preserve relevant facts, relationships and prior decisions across tasks, sometimes recording when a fact was true and where it came from.",
-      "whyNow": "Agents handling continuing work need more than a long conversation history. Current graph and stateful-agent products make it possible to test retrieval of changing facts and remembered decisions.",
+      "whyNow": "Temporal context graphs and shared memory across concurrent conversations make longer-lived assistants practical to test. The key question is whether they retain the right facts and retire obsolete ones.",
       "application": "Create a project assistant that distinguishes an approved current decision from a superseded draft and cites the underlying document.",
       "experiment": "Build a small, permissioned project corpus with deliberately conflicting dated records; compare standard retrieval with temporal or structured memory.",
       "measure": "Correct handling of superseded facts, source accuracy, deletion behavior, access-control fidelity and retrieval cost.",
       "watchouts": [
-        "Stale or poisoned memory",
-        "Personal data retained too long",
-        "Unsupported inferred relationships",
-        "Cross-project information leakage"
+        "False or stale memory",
+        "Access boundaries across users",
+        "Deletion and correction propagation",
+        "Unclear evidence provenance"
       ],
       "companyIds": [
         "glean",
@@ -199,15 +273,20 @@
       "sourceIds": [
         "syntes-home",
         "zep-memory",
-        "letta-state"
+        "letta-state",
+        "zep-graphiti-20261124",
+        "letta-conversations-20260121"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "horizon": "now",
       "evidenceLabel": "Source-linked technology research",
       "domainsByLens": {
         "its": "its-knowledge",
         "frontier": "frontier-foundations"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-govtech-ai-bootcamp-2026"
+      ]
     },
     {
       "id": "agent-interoperability",
@@ -220,15 +299,15 @@
         "frontier"
       ],
       "summary": "Common interfaces through which agents find tools, access systems and delegate tasks while preserving identity and authorization.",
-      "whyNow": "MCP published a revised specification on 28 July 2026, and A2A provides a protocol for communication between independent agents. Runtime and integration vendors are packaging these capabilities.",
+      "whyNow": "Tool connectivity is being paired with identity, permission scopes and runtime controls. Arcade’s September 2026 release gathers planned tool authorizations before a long task starts.",
       "application": "Connect a portfolio-research assistant to approved document search and a calculation service, with separate permissions and an auditable record for every tool call.",
       "experiment": "Connect two approved read-only systems and one specialist agent; verify identity propagation, denied actions, cancellation and complete audit records.",
       "measure": "Integration effort, successful task handoffs, unauthorized-action rejection and diagnosability of failures.",
       "watchouts": [
-        "Protocol compatibility mistaken for trust",
-        "Excessive scopes",
-        "Malicious tool descriptions or results",
-        "Credential and supply-chain exposure"
+        "Connector availability versus actual permission",
+        "Uncontrolled internal calls",
+        "Write scope and user identity",
+        "Audit coverage"
       ],
       "companyIds": [
         "composio",
@@ -236,16 +315,21 @@
         "langchain",
         "noma-security",
         "aembit",
-        "n8n"
+        "n8n",
+        "nango",
+        "witnessai"
       ],
       "sourceIds": [
         "mcp-spec",
         "a2a-spec",
         "composio-docs",
         "arcade-developers",
-        "langsmith-server"
+        "langsmith-server",
+        "arcade-preauthorization-20260902",
+        "nango-product-20261124",
+        "witnessai-platform-20261124"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "applicationsByLens": {
         "its": "Connect approved search, analytics and specialist tools without giving an agent broad credentials or rebuilding each integration.",
         "frontier": "Follow whether common protocols produce interchangeable tools and agents across vendors while preserving identity, cancellation and clear accountability."
@@ -255,7 +339,10 @@
       "domainsByLens": {
         "its": "its-trust",
         "frontier": "frontier-foundations"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-public-institutions-ai-2026"
+      ]
     },
     {
       "id": "agent-evaluation",
@@ -268,15 +355,15 @@
         "wbg"
       ],
       "summary": "Tools that record an agent's actions and test whether complete tasks meet defined standards for quality, safety and cost.",
-      "whyNow": "Multi-step agents can produce a convincing answer after taking an incorrect action. Current platforms make traces, evaluation datasets and release checks part of the development workflow.",
+      "whyNow": "Assessment increasingly covers whole work traces, related code changes and tool use. New session-review products complement established trace benchmarks and application attack testing.",
       "application": "Evaluate a complaints-supervision assistant for evidence fidelity, multilingual quality, correct tool use and proper escalation before deployment.",
       "experiment": "Create 50 expert-reviewed cases, including ambiguous and adversarial examples, and compare two candidate systems using identical rubrics.",
       "measure": "End-to-end success, false confidence, permission violations, latency, cost and agreement between automated scores and expert review.",
       "watchouts": [
-        "Test sets that do not represent actual users",
-        "Evaluator bias",
-        "Sensitive information in traces",
-        "Optimizing a score without improving outcomes"
+        "Scoring only the final answer",
+        "Evaluator errors and reward gaming",
+        "Missing domain expertise",
+        "Regression coverage after tool or model changes"
       ],
       "companyIds": [
         "langchain",
@@ -284,21 +371,32 @@
         "braintrust",
         "galileo",
         "noma-security",
-        "credo-ai"
+        "credo-ai",
+        "qodo",
+        "tessl",
+        "patronus-ai",
+        "hiddenlayer"
       ],
       "sourceIds": [
         "arize-home",
         "braintrust-home",
-        "galileo-product"
+        "galileo-product",
+        "qodo-session-review-20261118",
+        "tessl-context-20261124",
+        "patronus-trail-20250513",
+        "hiddenlayer-platform-20261124"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "horizon": "now",
       "evidenceLabel": "Source-linked technology research",
       "domainsByLens": {
         "its": "its-trust",
         "wbg": "wbg-services",
         "frontier": "frontier-foundations"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-public-institutions-ai-2026"
+      ]
     },
     {
       "id": "lean-ai-native",
@@ -338,7 +436,10 @@
       "domainsByLens": {
         "its": "its-knowledge",
         "frontier": "frontier-work"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-govtech-ai-bootcamp-2026"
+      ]
     },
     {
       "id": "agentic-security",
@@ -388,34 +489,42 @@
         "frontier"
       ],
       "summary": "AI models that translate perception and instructions into robot actions, aiming to transfer skills across tasks or hardware.",
-      "whyNow": "Physical Intelligence made robotics models available through an API beta in October 2026; Figure and Skild are developing broader robot-control capabilities. Demonstrations still need to be distinguished from reliable field operation.",
+      "whyNow": "Autonomy is moving from model demonstrations into selected physical-site deployments. FieldAI announced a Kajima construction deployment in November 2026; Viam provides hardware integration and fleet-operation infrastructure.",
       "application": "Explore future applications in infrastructure inspection, repetitive handling and worker safety, including how costs and labor impacts differ in developing economies.",
       "experiment": "With a robotics partner, specify one constrained inspection or handling task and benchmark against an established specialized solution.",
       "measure": "Successful cycles without intervention, safety incidents, recovery time, total operating cost and performance in unfamiliar conditions.",
       "watchouts": [
-        "Physical safety",
-        "Weak transfer from demonstrations to field settings",
-        "Maintenance and connectivity requirements",
-        "Unequal economic and employment effects"
+        "Safety under changing site conditions",
+        "Task success beyond demonstrations",
+        "Hardware and integration cost",
+        "Operational ownership and human intervention"
       ],
       "companyIds": [
         "figure",
         "physical-intelligence",
         "skild",
-        "wayve"
+        "wayve",
+        "viam",
+        "fieldai"
       ],
       "sourceIds": [
         "figure-helix02",
         "pi-api",
-        "skild-home"
+        "skild-home",
+        "viam-platform-20261124",
+        "fieldai-platform-20261124",
+        "fieldai-kajima-20261105"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "horizon": "next",
       "evidenceLabel": "Source-linked technology research",
       "domainsByLens": {
         "frontier": "frontier-physical",
         "wbg": "wbg-infrastructure"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-digital-strategy-20261020"
+      ]
     },
     {
       "id": "world-models",
@@ -452,7 +561,10 @@
       "evidenceLabel": "Source-linked technology research",
       "domainsByLens": {
         "frontier": "frontier-physical"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-digital-strategy-20261020"
+      ]
     },
     {
       "id": "fault-tolerant-quantum",
@@ -513,7 +625,8 @@
       "companyIds": [
         "sarvam",
         "lelapa",
-        "viamo"
+        "viamo",
+        "rori"
       ],
       "sourceIds": [
         "wbg-wdr",
@@ -527,7 +640,10 @@
         "wbg": "wbg-services",
         "its": "its-models",
         "frontier": "frontier-models"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-dpi-program-2026"
+      ]
     },
     {
       "id": "geospatial-intelligence",
@@ -552,7 +668,8 @@
         "chloris",
         "satsure",
         "premise",
-        "aidash"
+        "aidash",
+        "iceye"
       ],
       "sourceIds": [
         "wbg-geo",
@@ -564,7 +681,11 @@
       "evidenceLabel": "Source-linked technology research",
       "domainsByLens": {
         "wbg": "wbg-climate"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-energy",
+        "wbg-gems-2026"
+      ]
     },
     {
       "id": "climate-adaptation",
@@ -575,8 +696,8 @@
       "lenses": [
         "wbg"
       ],
-      "summary": "Connect forecasts and hazard models to operational triggers, adaptation options and pre-arranged finance.",
-      "whyNow": "Weather, flood and asset-risk providers increasingly package data into usable workflows. WBG’s September 2026 resilience guidance emphasizes connecting scientific data to local decisions.",
+      "summary": "Connect hazard observations and forecasts to response decisions, resilient assets and pre-arranged finance.",
+      "whyNow": "2026 announcements connect flood observation, predictive models, insurance workflows and farm protection. The practical question is whether better signals reach a funded decision or payout in time.",
       "application": "prioritise exposed schools and clinics, rehearse early-action protocols or assess parametric cover for a defined hazard.",
       "experiment": "Back-test a single hazard and district using historical events, local loss data and the exact decision or payout trigger.",
       "measure": "Measure warning lead time, missed events, false alarms, exposure coverage and basis risk.",
@@ -588,20 +709,28 @@
         "floodbase",
         "climate-x",
         "pula",
-        "aidash"
+        "aidash",
+        "iceye",
+        "sunculture"
       ],
       "sourceIds": [
         "wbg-climate",
         "tomorrow-noaa",
         "floodbase",
-        "climatex-sep"
+        "climatex-sep",
+        "iceye-floodid-20260827",
+        "floodbase-liberty-20260224",
+        "sunculture-payout-20260413"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "horizon": "now",
       "evidenceLabel": "Source-linked technology research",
       "domainsByLens": {
         "wbg": "wbg-climate"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-agriconnect-honduras-20261119"
+      ]
     },
     {
       "id": "sovereign-data-ai",
@@ -625,7 +754,8 @@
         "amini",
         "sarvam",
         "mistral-ai",
-        "cohere"
+        "cohere",
+        "flower-labs"
       ],
       "sourceIds": [
         "wbg-digital",
@@ -638,7 +768,11 @@
       "domainsByLens": {
         "wbg": "wbg-services",
         "its": "its-cloud"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-documents-reports",
+        "wbg-govtech-country-work"
+      ]
     },
     {
       "id": "inclusive-digital-services",
@@ -665,7 +799,10 @@
         "satsure",
         "moniepoint",
         "m-kopa",
-        "mojaloop"
+        "mojaloop",
+        "apollo-agriculture",
+        "simprints",
+        "mosip-inji"
       ],
       "sourceIds": [
         "wbg-dpi",
@@ -678,7 +815,12 @@
       "evidenceLabel": "Source-linked technology research",
       "domainsByLens": {
         "wbg": "wbg-services"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-digital-strategy-20261020",
+        "wbg-dpi-program-2026",
+        "wbg-jobs-strategy"
+      ]
     },
     {
       "id": "agriculture-intelligence",
@@ -689,8 +831,8 @@
       "lenses": [
         "wbg"
       ],
-      "summary": "Combine crop imagery, field records, weather and specialist knowledge to support agronomy, supply planning and risk protection.",
-      "whyNow": "Cropin launched OrbitAI in July 2026; Plantix exposes crop-diagnosis APIs; WBG’s September AgriConnect plan reinforces the need for usable digital agriculture.",
+      "summary": "Combine crop and weather evidence with the finance, inputs and services needed to act on a farm.",
+      "whyNow": "Providers increasingly combine agronomic information with credit, input delivery, irrigation and insurance. New conversational systems need evidence that recommendations produce better local decisions.",
       "application": "improve extension triage, crop monitoring and smallholder risk management with local agronomists and farmer feedback.",
       "experiment": "Choose one crop and district; compare an assisted advisory workflow with the current practice through a season, using approved recommendations.",
       "measure": "Measure advice accuracy, adoption, service cost and agronomic outcomes with a suitable comparison group.",
@@ -702,21 +844,31 @@
         "plantix",
         "pula",
         "boomitra",
-        "satsure"
+        "satsure",
+        "apollo-agriculture",
+        "kilimo",
+        "sunculture"
       ],
       "sourceIds": [
         "wbg-agriconnect",
         "wbg-agri",
         "cropin",
         "plantix",
-        "pula"
+        "pula",
+        "cropin-orbitai-20260714",
+        "pula-products-20261124",
+        "apollo-agriculture-20261124",
+        "kilimo-method-20261124"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "horizon": "now",
       "evidenceLabel": "Source-linked technology research",
       "domainsByLens": {
         "wbg": "wbg-food"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-agriconnect-honduras-20261119"
+      ]
     },
     {
       "id": "frontline-health",
@@ -727,8 +879,8 @@
       "lenses": [
         "wbg"
       ],
-      "summary": "Support frontline clinics with diagnostic assistance, connected workflows and better access to medicines.",
-      "whyNow": "The WBG Health Target Implementation Plan 2026 centres on digitally enabled primary care. Vendors now address both clinical interpretation and the operational gaps around clinics and supplies.",
+      "summary": "Support health workers with usable patient information, accessible diagnostics and dependable medicine delivery.",
+      "whyNow": "Service access depends on logistics and continuity of patient records as well as clinical software. Current deployments and expansion agreements provide concrete workflows to assess.",
       "application": "assess supervised screening, clinic digitisation or pooled procurement against a locally defined care bottleneck.",
       "experiment": "Pick one pathway and measure the whole journey: referral, diagnosis, treatment access and follow-up, alongside a clinician-reviewed evaluation.",
       "measure": "Measure time to appropriate care, missed follow-up, service availability and total cost; evaluate clinical sensitivity and specificity where relevant.",
@@ -738,21 +890,28 @@
       "companyIds": [
         "qure-ai",
         "ilara-health",
-        "axmed"
+        "axmed",
+        "simprints",
+        "zipline"
       ],
       "sourceIds": [
         "wbg-health",
         "wbg-healthfaq",
         "qure-study",
         "ilara-undp",
-        "axmed"
+        "axmed",
+        "zipline-civ-20260922",
+        "simprints-ghana-20260303"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "horizon": "now",
       "evidenceLabel": "Source-linked technology research",
       "domainsByLens": {
         "wbg": "wbg-health"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-health"
+      ]
     },
     {
       "id": "distributed-energy",
@@ -764,31 +923,44 @@
         "wbg"
       ],
       "summary": "Use demand forecasting, remote operations and financing infrastructure to expand solar, storage and minigrids.",
-      "whyNow": "Mission 300 combines infrastructure, distributed renewables, utility performance and private investment. Husk and Nithio show how software can support operations and capital allocation.",
+      "whyNow": "Mission 300 increases the relevance of distributed systems, while provider continuity and open metering options become material operating questions. New financing initiatives are emerging, including funds still being raised.",
       "application": "improve minigrid site assessment, benchmark operating reliability or assess whether financing reaches underserved households and businesses.",
       "experiment": "Compare forecast and repayment performance on a documented pilot portfolio; stress-test tariffs, defaults, downtime and productive-use demand.",
       "measure": "Measure reliability, delivered energy cost, service affordability, repayment fairness and additional connections.",
       "watchouts": [
-        "Data quality, tariff affordability, regulation, currency risk and maintenance can matter more than model sophistication. A repayment score should not become an unchallengeable exclusion mechanism."
+        "Tariff affordability and maintenance capacity",
+        "Currency and repayment risks",
+        "Dependence on a single equipment or cloud provider",
+        "Groundwater and other productive-use externalities"
       ],
       "companyIds": [
         "husk",
         "nithio",
         "sun-king",
-        "aidash"
+        "aidash",
+        "okra-solar",
+        "sparkmeter-earthspark",
+        "sunculture"
       ],
       "sourceIds": [
         "wbg-energy",
         "husk",
         "nithio-undp",
-        "sunking"
+        "sunking",
+        "wbg-mission300-progress-20260616",
+        "nithio-fuel-20261014",
+        "sparkmeter-transition-2026",
+        "okra-products-20261124"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "horizon": "now",
       "evidenceLabel": "Source-linked technology research",
       "domainsByLens": {
         "wbg": "wbg-infrastructure"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-energy"
+      ]
     },
     {
       "id": "intelligent-water",
@@ -800,7 +972,7 @@
         "wbg"
       ],
       "summary": "Sensors and analytics help operators find losses and manage demand; distributed technologies can supplement drinking-water supply in specific settings.",
-      "whyNow": "FIDO’s October 2026 update adds offline leak correlation and confidence indicators. WBG Digital Water already includes active leakage detection and predictive maintenance in its utility toolkit.",
+      "whyNow": "Providers connect sensor alerts to repair teams and farm decisions to basin accounting. Useful evidence measures completed repairs and net water outcomes, not only algorithmic detection.",
       "application": "test a leak-to-repair workflow with a utility; separately assess distributed drinking-water supply only where lifecycle economics make sense.",
       "experiment": "Instrument a small zone, verify suspected leaks in the field and compare water recovered with the full intervention cost.",
       "measure": "Measure verified water recovered, false positives, repair time, energy use and cost per cubic metre.",
@@ -811,20 +983,26 @@
         "fido-tech",
         "wint",
         "source-global",
-        "egov-digit"
+        "egov-digit",
+        "kilimo"
       ],
       "sourceIds": [
         "wbg-water",
         "fido-oct",
         "wint",
-        "source"
+        "source",
+        "fido-northumbrian-20261012",
+        "kilimo-method-20261124"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "horizon": "now",
       "evidenceLabel": "Source-linked technology research",
       "domainsByLens": {
         "wbg": "wbg-infrastructure"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-gems-2026"
+      ]
     },
     {
       "id": "nature-mrv",
@@ -836,7 +1014,7 @@
         "wbg"
       ],
       "summary": "Combine satellites, models and field samples to estimate carbon stocks and changes and support independent verification.",
-      "whyNow": "The September 2026 ICVCM–World Bank work on digital MRV recognises potential gains in traceability and monitoring while preserving verification and integrity requirements.",
+      "whyNow": "Issued soil-carbon credits are reaching buyers, alongside growing digital measurement capabilities. Transaction volume should be assessed separately from additionality, permanence, land rights and independent assurance.",
       "application": "compare evidence for forest restoration or soil-carbon projects, with transparent uncertainty and community data rights.",
       "experiment": "Blind-test two providers against independent field measurements and a clearly specified accounting boundary; keep verification separate from project sales.",
       "measure": "Measure uncertainty, reproducibility, coverage, total monitoring cost and agreement with independent reference data.",
@@ -852,9 +1030,10 @@
         "wbg-mrv",
         "chloris",
         "sylvera",
-        "boomitra"
+        "boomitra",
+        "boomitra-delivery-20261110"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "horizon": "next",
       "evidenceLabel": "Source-linked technology research",
       "domainsByLens": {
@@ -920,7 +1099,8 @@
       "companyIds": [
         "liquid-ai",
         "cactus",
-        "ollama"
+        "ollama",
+        "llamaindex"
       ],
       "sourceIds": [
         "liquid-lfm3",
@@ -1024,7 +1204,10 @@
       "evidenceLabel": "Source-linked technology research",
       "domainsByLens": {
         "frontier": "frontier-science"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-esmap-electrolyzers-2026"
+      ]
     },
     {
       "id": "ai-engineering-simulation",
@@ -1066,7 +1249,10 @@
       "domainsByLens": {
         "frontier": "frontier-science",
         "wbg": "wbg-infrastructure"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-esmap-electrolyzers-2026"
+      ]
     },
     {
       "id": "efficient-compute-hardware",
@@ -1135,7 +1321,8 @@
       "companyIds": [
         "satsure",
         "buildots",
-        "premise"
+        "premise",
+        "fieldai"
       ],
       "sourceIds": [
         "buildots-product",
@@ -1149,7 +1336,10 @@
       "evidenceLabel": "Source-linked technology research",
       "domainsByLens": {
         "wbg": "wbg-infrastructure"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-gems-2026"
+      ]
     },
     {
       "id": "resilient-digital-operations",
@@ -1231,7 +1421,10 @@
         "its": "its-software",
         "wbg": "wbg-services",
         "frontier": "frontier-work"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-govtech-country-work"
+      ]
     },
     {
       "id": "foundation-forecasting",
@@ -1286,7 +1479,7 @@
         "wbg"
       ],
       "summary": "Digital practice and teacher analytics that adapt to a learner's progress in bounded skills such as mathematics or early literacy.",
-      "whyNow": "Programs and evaluations now provide concrete evidence about curriculum-aligned adaptive tools, while offline-capable designs widen the set of implementation conditions worth testing.",
+      "whyNow": "Messaging-based tutoring can reach ordinary phones, and a 2026–27 Ghana trial is testing one approach at greater scale. Independent learning evidence should guide deployment, not conversational fluency.",
       "application": "Help teachers target practice and support without assuming that every child has a connected personal device or that a general chatbot is an effective tutor.",
       "experiment": "Choose a curriculum-matched learning unit and compare equivalent instructional time using independent assessments, with documented teacher support and device access.",
       "measure": "Independent learning improvement, continued use, teacher workload, participation gaps, implementation fidelity and full recurring cost per learner.",
@@ -1298,20 +1491,26 @@
       ],
       "companyIds": [
         "eduten",
-        "eidu"
+        "eidu",
+        "rori"
       ],
       "sourceIds": [
         "eduten-about",
         "eduten-unicef",
         "eidu-platform",
-        "eidu-developer"
+        "eidu-developer",
+        "rori-product-20261124",
+        "rori-evaluation-20261124"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "addedInEdition": "2026.11.23.2",
       "evidenceLabel": "Source-linked technology research",
       "domainsByLens": {
         "wbg": "wbg-health"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-health"
+      ]
     },
     {
       "id": "supply-chain-intelligence",
@@ -1335,7 +1534,9 @@
         "Automated compliance judgments without review"
       ],
       "companyIds": [
-        "altana"
+        "altana",
+        "zipline",
+        "maad"
       ],
       "sourceIds": [
         "altana-government",
@@ -1346,7 +1547,11 @@
       "evidenceLabel": "Source-linked technology research",
       "domainsByLens": {
         "wbg": "wbg-decisions"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-digital-strategy-20261020",
+        "wbg-jobs-strategy"
+      ]
     },
     {
       "id": "skills-to-work",
@@ -1392,7 +1597,10 @@
       ],
       "verified": "2026-11-23",
       "evidenceLabel": "Commercial capabilities; development and institutional fit require evaluation",
-      "addedInEdition": "2026.11.23.3"
+      "addedInEdition": "2026.11.23.3",
+      "wbgContextSourceIds": [
+        "wbg-health"
+      ]
     },
     {
       "id": "productive-small-firms",
@@ -1408,7 +1616,7 @@
         "wbg": "wbg-decisions"
       },
       "summary": "Accessible devices, digital payments, records and sales channels help small businesses participate in markets and manage daily operations.",
-      "whyNow": "The WBG jobs agenda emphasizes productive firms and entrepreneurship. Existing providers illustrate different routes: integrated merchant tools, hospitality distribution and device financing designed around irregular earnings.",
+      "whyNow": "The WBG’s November 2026 MSME analysis emphasizes digital records, market connections and access to finance. Integrated merchant services offer operational use cases with measurable costs and benefits.",
       "application": "Examine the bottleneck for a particular group of firms before choosing technology: accepting payments, maintaining stock records, reaching guests or obtaining a usable connected device.",
       "experiment": "Follow a small consenting cohort through one complete operating cycle. Compare time, errors, net costs and business outcomes with its previous practice, including continued manual or offline options.",
       "measure": "Active use, reconciliation or stock errors, staff time, net selling costs and earnings after fees and financing; separate growth from seasonal demand changes.",
@@ -1421,7 +1629,8 @@
       "companyIds": [
         "moniepoint",
         "hotelrunner",
-        "m-kopa"
+        "m-kopa",
+        "maad"
       ],
       "sourceIds": [
         "wbg-jobs-faq",
@@ -1430,11 +1639,17 @@
         "hotelrunner-about",
         "hotelrunner-pms",
         "mkopa-products",
-        "mkopa-2026-milestone"
+        "mkopa-2026-milestone",
+        "maad-platform-20261124",
+        "wbg-msme-20261117"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "evidenceLabel": "Existing commercial services; proposed development applications",
-      "addedInEdition": "2026.11.23.3"
+      "addedInEdition": "2026.11.23.3",
+      "wbgContextSourceIds": [
+        "wbg-digital-strategy-20261020",
+        "wbg-jobs-strategy"
+      ]
     },
     {
       "id": "interoperable-public-infrastructure",
@@ -1450,7 +1665,7 @@
         "wbg": "wbg-services"
       },
       "summary": "Shared registries, service components and interoperable payment infrastructure allow institutions to build connected services without recreating every foundation.",
-      "whyNow": "The WBG Global DPI Program treats identity, payments and secure data sharing as reusable foundations. Public-good ecosystems provide reference implementations that make architecture and operating choices tangible.",
+      "whyNow": "Credential standards and implementation tools continue to mature; recent release candidates make browser-based verification tangible. Inclusive delivery still needs governance, alternatives and reliable local operations.",
       "application": "Assess how a public service can use shared identity, records and payment capabilities while retaining clear institutional responsibility, exception handling and accessible channels.",
       "experiment": "Build one synthetic service journey in a sandbox: verify a record, calculate an authorized charge or benefit, route a simulated payment and reconcile the result. Deliberately test missing records and interrupted transactions.",
       "measure": "Reusable components, integration effort, reconciliation accuracy, exception recovery and ability to switch or extend providers; never infer country readiness from a working demo.",
@@ -1462,18 +1677,26 @@
       ],
       "companyIds": [
         "egov-digit",
-        "mojaloop"
+        "mojaloop",
+        "simprints",
+        "mosip-inji"
       ],
       "sourceIds": [
         "wbg-dpi",
         "egov-digit-platform",
         "egov-about",
         "mojaloop-mission",
-        "mojaloop-merchant-2026"
+        "mojaloop-merchant-2026",
+        "mosip-inji-20261124",
+        "inji-verify-rc-20261114",
+        "simprints-products-20261124"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "evidenceLabel": "Open-source public-good platforms; local deployment requires implementation and governance",
-      "addedInEdition": "2026.11.23.3"
+      "addedInEdition": "2026.11.23.3",
+      "wbgContextSourceIds": [
+        "wbg-dpi-program-2026"
+      ]
     },
     {
       "id": "document-intelligence",
@@ -1491,7 +1714,7 @@
         "wbg": "wbg-decisions"
       },
       "summary": "Turn scans, tables, forms and long reports into structured records that preserve their location and meaning in the original document.",
-      "whyNow": "Dedicated document tools expose layout, structured fields and source coordinates. Unstructured introduced its rebuilt Transform parser in October 2026, while Reducto and Mistral document services provide concrete alternatives to test on difficult files.",
+      "whyNow": "LlamaIndex released OCRia-1.5 on 18 November 2026 and a local CPU parser on 23 November. This supports testing a fast first pass plus stronger processing for difficult pages.",
       "application": "Make project reports and supporting annexes easier to search and compare without detaching a figure, date or statement from its original table, page and document version.",
       "applicationsByLens": {
         "its": "Improve the document pipeline feeding institutional search and agents, including difficult PDFs and tables, with traceable extraction and retained source permissions.",
@@ -1500,23 +1723,30 @@
       "experiment": "Use 50 public reports with scanned pages, multilingual text and complex tables. Build a human-checked reference set of fields and supporting page regions, then compare two extraction approaches on the same files.",
       "measure": "Correct fields with correct units and periods; preserved table relationships; unsupported values; usable source locations; reviewer time and cost per accepted record.",
       "watchouts": [
-        "Correct text assigned to the wrong column",
-        "Source permissions lost during indexing",
-        "Unsupported languages or degraded scans",
-        "Confidence scores mistaken for verified correctness"
+        "Losing table headers and units",
+        "Incorrect source-region alignment",
+        "Handwriting and scan quality",
+        "Separate code and model licenses"
       ],
       "companyIds": [
         "unstructured",
         "reducto",
-        "mistral-ai"
+        "mistral-ai",
+        "llamaindex"
       ],
       "sourceIds": [
         "unstructured-transform-2026",
         "reducto-developers",
-        "mistral-ocr41"
+        "mistral-ocr41",
+        "llamaindex-ocria15-20261118",
+        "llamaindex-nano-20261123"
       ],
-      "verified": "2026-11-23",
-      "addedInEdition": "2026.11.23.3"
+      "verified": "2026-11-24",
+      "addedInEdition": "2026.11.23.3",
+      "wbgContextSourceIds": [
+        "wbg-documents-reports",
+        "wbg-govtech-country-work"
+      ]
     },
     {
       "id": "ai-portfolio-governance",
@@ -1550,7 +1780,177 @@
         "credo-platform"
       ],
       "verified": "2026-11-23",
-      "addedInEdition": "2026.11.23.3"
+      "addedInEdition": "2026.11.23.3",
+      "wbgContextSourceIds": [
+        "wbg-public-institutions-ai-2026"
+      ]
+    },
+    {
+      "id": "agent-execution-infrastructure",
+      "title": "Execution environments for long-running agents",
+      "shortTitle": "Agent execution",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "summary": "Durable workflows preserve progress; isolated machines give agents controlled places to execute code.",
+      "whyNow": "Temporal, E2B and Daytona expose execution infrastructure separately from the model, making recovery and containment explicit design choices.",
+      "application": "Run a supervised workflow with recoverable state, disposable code execution and a clear approval boundary.",
+      "experiment": "Interrupt a 20-step sandbox workflow, restart it and inspect which actions resume, repeat or remain blocked.",
+      "measure": "Recovery success, duplicate side effects, resource cost and containment of denied network activity.",
+      "watchouts": [
+        "Idempotency of external writes",
+        "Secrets and network egress",
+        "Sandbox lifecycle and residual files"
+      ],
+      "companyIds": [
+        "temporal",
+        "e2b",
+        "daytona",
+        "modal"
+      ],
+      "sourceIds": [
+        "temporal-ai-20261124",
+        "e2b-runtime-20261124",
+        "daytona-runtime-20261124"
+      ],
+      "verified": "2026-11-24",
+      "applicationsByLens": {
+        "its": "Run a supervised workflow with recoverable state, disposable code execution and a clear approval boundary.",
+        "frontier": "Run a supervised workflow with recoverable state, disposable code execution and a clear approval boundary."
+      },
+      "horizon": "now",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "its": "its-cloud",
+        "frontier": "frontier-foundations"
+      }
+    },
+    {
+      "id": "specialized-inference",
+      "title": "Model infrastructure for specific workloads",
+      "shortTitle": "Specialized inference",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "summary": "Model serving, adaptation and routing are becoming a separate layer of enterprise AI design.",
+      "whyNow": "Baseten, Modal and Fireworks combine serving and adaptation with infrastructure controls; the useful comparison is performance on a real workload.",
+      "application": "Evaluate a small set of model and serving combinations for one measurable institutional task.",
+      "experiment": "Run a fixed, expert-reviewed dataset across general and specialized models with identical acceptance criteria.",
+      "measure": "Cost per accepted result, tail latency, throughput, quality and deployment constraints.",
+      "watchouts": [
+        "Benchmark mismatch",
+        "Hidden training and operations cost",
+        "Residency and model-license requirements"
+      ],
+      "companyIds": [
+        "modal",
+        "baseten",
+        "fireworks-ai"
+      ],
+      "sourceIds": [
+        "modal-platform-20261124",
+        "baseten-platform-20261124",
+        "fireworks-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "applicationsByLens": {
+        "its": "Evaluate a small set of model and serving combinations for one measurable institutional task.",
+        "frontier": "Evaluate a small set of model and serving combinations for one measurable institutional task."
+      },
+      "horizon": "now",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "its": "its-cloud",
+        "frontier": "frontier-compute"
+      }
+    },
+    {
+      "id": "privacy-preserving-computation",
+      "title": "Learning and computing across data boundaries",
+      "shortTitle": "Privacy-preserving computation",
+      "domain": "trust",
+      "ring": "assess",
+      "lenses": [
+        "its",
+        "wbg",
+        "frontier"
+      ],
+      "summary": "Federated learning and encrypted computation offer different ways to collaborate without routinely centralizing raw data.",
+      "whyNow": "Flower provides distributed learning infrastructure; Zama demonstrates encrypted execution in financial applications. Their privacy guarantees and costs differ.",
+      "application": "Explore multi-institution analysis using synthetic data and an explicit threat model before considering restricted information.",
+      "experiment": "Compare a centralized baseline with a federated or encrypted design on one narrowly defined task.",
+      "measure": "Utility loss, computation cost, leakage tests, operational complexity and participant control.",
+      "watchouts": [
+        "Federation is not privacy by itself",
+        "Key management and disclosure policy",
+        "Non-uniform participant data"
+      ],
+      "companyIds": [
+        "flower-labs",
+        "zama"
+      ],
+      "sourceIds": [
+        "flower-framework-20261124",
+        "zama-protocol-20261124"
+      ],
+      "verified": "2026-11-24",
+      "applicationsByLens": {
+        "its": "Explore multi-institution analysis using synthetic data and an explicit threat model before considering restricted information.",
+        "wbg": "Explore multi-institution analysis using synthetic data and an explicit threat model before considering restricted information.",
+        "frontier": "Explore multi-institution analysis using synthetic data and an explicit threat model before considering restricted information."
+      },
+      "horizon": "next",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "its": "its-data",
+        "wbg": "wbg-services",
+        "frontier": "frontier-foundations"
+      }
+    },
+    {
+      "id": "post-quantum-migration",
+      "title": "Migration to quantum-resistant cryptography",
+      "shortTitle": "Post-quantum security",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "summary": "Organizations can assess cryptographic dependencies and test standardized post-quantum and hybrid implementations now.",
+      "whyNow": "NIST finalized its first three standards in 2024; vendors including PQShield provide implementation paths, making migration distinct from waiting for useful quantum computers.",
+      "application": "Prioritize long-lived sensitive information and assess where cryptographic dependencies can be changed safely.",
+      "experiment": "Pilot a compatible hybrid key-exchange implementation on a non-production service.",
+      "measure": "Interoperability, latency, key and certificate handling, rollback and inventory coverage.",
+      "watchouts": [
+        "Implementation validation",
+        "Legacy-system compatibility",
+        "Unclear asset ownership"
+      ],
+      "companyIds": [
+        "pqshield"
+      ],
+      "sourceIds": [
+        "nist-pqc-standards-20240813",
+        "pqshield-cryptolib-20261124"
+      ],
+      "verified": "2026-11-24",
+      "applicationsByLens": {
+        "its": "Prioritize long-lived sensitive information and assess where cryptographic dependencies can be changed safely.",
+        "frontier": "Prioritize long-lived sensitive information and assess where cryptographic dependencies can be changed safely."
+      },
+      "horizon": "now",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "its": "its-trust",
+        "frontier": "frontier-compute"
+      }
     }
   ],
   "companies": [
@@ -1584,7 +1984,10 @@
       "domainsByLens": {
         "its": "its-software",
         "frontier": "frontier-work"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-govtech-country-work"
+      ]
     },
     {
       "id": "factory",
@@ -1602,7 +2005,7 @@
         "software-agents"
       ],
       "region": "",
-      "proposedUse": "Evaluate a bounded software-maintenance task in an Azure sandbox, including pull-request review in Azure DevOps and workload isolation.",
+      "proposedUse": "Compare agent-assisted maintenance in an Azure sandbox with the current engineering process, retaining tests and pull-request review.",
       "sourceIds": [
         "factory-home",
         "factory-azure",
@@ -1620,7 +2023,18 @@
       "domainsByLens": {
         "its": "its-software",
         "frontier": "frontier-work"
-      }
+      },
+      "capabilities": [
+        "Investigate a reported issue",
+        "Write and test a fix",
+        "Open a pull request for review"
+      ],
+      "filmApplication": "Clear a bounded software-maintenance backlog with engineer review.",
+      "wbgContextSourceIds": [
+        "wbg-govtech-country-work"
+      ],
+      "recentDevelopment": "Announced Azure deployment and Azure DevOps integration on 18 November 2026.",
+      "evidenceDate": "2026-11-18"
     },
     {
       "id": "replit",
@@ -1654,7 +2068,10 @@
       "domainsByLens": {
         "its": "its-software",
         "frontier": "frontier-work"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-govtech-country-work"
+      ]
     },
     {
       "id": "seekr",
@@ -1683,7 +2100,10 @@
       "evidenceNote": "",
       "domainsByLens": {
         "its": "its-knowledge"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-govtech-ai-bootcamp-2026"
+      ]
     },
     {
       "id": "dust",
@@ -1712,7 +2132,10 @@
       "evidenceNote": "",
       "domainsByLens": {
         "its": "its-knowledge"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-govtech-ai-bootcamp-2026"
+      ]
     },
     {
       "id": "glean",
@@ -1742,7 +2165,10 @@
       "evidenceNote": "",
       "domainsByLens": {
         "its": "its-knowledge"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-govtech-ai-bootcamp-2026"
+      ]
     },
     {
       "id": "syntes",
@@ -1773,18 +2199,22 @@
       "evidenceNote": "",
       "domainsByLens": {
         "its": "its-knowledge"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-govtech-ai-bootcamp-2026"
+      ]
     },
     {
       "id": "zep",
       "name": "Zep",
       "website": "https://www.getzep.com/",
       "category": "Agent memory infrastructure",
-      "summary": "Provides temporal knowledge-graph infrastructure for agent memory, recording relationships, changing facts and provenance.",
+      "summary": "Builds temporal context graphs so agents can retrieve relationships and distinguish current facts from superseded information.",
       "domain": "trust",
       "ring": "assess",
       "lenses": [
-        "its"
+        "its",
+        "frontier"
       ],
       "trendIds": [
         "context-memory"
@@ -1792,28 +2222,39 @@
       "region": "",
       "proposedUse": "Test whether project assistants correctly distinguish current decisions from superseded information.",
       "sourceIds": [
-        "zep-memory"
+        "zep-memory",
+        "zep-graphiti-20261124"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "availability": "Commercial platform and open-source components",
       "note": "",
       "horizon": "now",
       "evidenceLabel": "Company product information",
       "evidenceNote": "",
       "domainsByLens": {
-        "its": "its-knowledge"
-      }
+        "its": "its-knowledge",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Temporal graphs retain when facts become valid or obsolete",
+        "Hybrid retrieval combines graph, vector and text search",
+        "Graphiti supports pluggable graph and model backends"
+      ],
+      "limitation": "Entity resolution, permissions and deletion must be tested; retaining a fact’s history does not prove it is true.",
+      "evidenceDate": null,
+      "entityType": "Company / open-source builder"
     },
     {
       "id": "letta",
       "name": "Letta",
       "website": "https://www.letta.com/",
       "category": "Stateful agent infrastructure",
-      "summary": "Builds stateful agents with persistent memory, tool configuration and identity across conversations and interfaces.",
+      "summary": "Builds persistent agents whose memory and context can continue across conversations, tools and working sessions.",
       "domain": "trust",
       "ring": "assess",
       "lenses": [
-        "its"
+        "its",
+        "frontier"
       ],
       "trendIds": [
         "context-memory"
@@ -1821,17 +2262,28 @@
       "region": "",
       "proposedUse": "Prototype a long-running project assistant with inspectable memory and explicit retention rules.",
       "sourceIds": [
-        "letta-state"
+        "letta-state",
+        "letta-agent-20261124",
+        "letta-conversations-20260121"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "availability": "Developer platform",
       "note": "",
       "horizon": "now",
       "evidenceLabel": "Company product information",
       "evidenceNote": "",
       "domainsByLens": {
-        "its": "its-knowledge"
-      }
+        "its": "its-knowledge",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Persistent agent identity and memory across sessions",
+        "Concurrent conversations sharing agent memory",
+        "Inspectable context and memory workflows"
+      ],
+      "limitation": "Shared memory needs ownership, isolation, retention and correction rules before it handles institutional material.",
+      "evidenceDate": "2026-01-21",
+      "entityType": "Company / open-source builder"
     },
     {
       "id": "composio",
@@ -1869,7 +2321,7 @@
       "name": "Arcade",
       "website": "https://www.arcade.dev/",
       "category": "Agent tool authorization and runtime",
-      "summary": "Provides agent tool execution, per-action authorization and MCP gateways across connected services.",
+      "summary": "Enforces user-scoped authorization and runtime policies as agents call business tools, including pre-authorization for planned multi-service work.",
       "domain": "trust",
       "ring": "assess",
       "lenses": [
@@ -1882,18 +2334,28 @@
       "region": "",
       "proposedUse": "Test user-scoped authorization and explicit write permissions for workflow agents.",
       "sourceIds": [
-        "arcade-developers"
+        "arcade-developers",
+        "arcade-platform-20261124",
+        "arcade-preauthorization-20260902"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "availability": "Developer platform",
       "note": "",
-      "horizon": "next",
+      "horizon": "now",
       "evidenceLabel": "Company product information",
       "evidenceNote": "",
       "domainsByLens": {
         "its": "its-trust",
         "frontier": "frontier-foundations"
-      }
+      },
+      "capabilities": [
+        "User-delegated authorization for connected tools",
+        "Per-action policies and audit records",
+        "Bundled pre-authorization before multi-service tasks"
+      ],
+      "limitation": "Approval to connect a service is separate from approval for each consequential action; validate the actual action scope.",
+      "evidenceDate": "2026-09-02",
+      "entityType": "Private company"
     },
     {
       "id": "langchain",
@@ -1958,7 +2420,10 @@
       "domainsByLens": {
         "its": "its-trust",
         "wbg": "wbg-services"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-public-institutions-ai-2026"
+      ]
     },
     {
       "id": "braintrust",
@@ -1989,7 +2454,10 @@
       "domainsByLens": {
         "its": "its-trust",
         "wbg": "wbg-services"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-public-institutions-ai-2026"
+      ]
     },
     {
       "id": "galileo",
@@ -2020,7 +2488,10 @@
       "domainsByLens": {
         "its": "its-trust",
         "wbg": "wbg-services"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-public-institutions-ai-2026"
+      ]
     },
     {
       "id": "ravenopus",
@@ -2053,7 +2524,10 @@
       "domainsByLens": {
         "its": "its-knowledge",
         "frontier": "frontier-work"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-govtech-ai-bootcamp-2026"
+      ]
     },
     {
       "id": "polsia",
@@ -2232,7 +2706,10 @@
       "evidenceNote": "",
       "domainsByLens": {
         "frontier": "frontier-physical"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-digital-strategy-20261020"
+      ]
     },
     {
       "id": "physical-intelligence",
@@ -2261,7 +2738,10 @@
       "evidenceNote": "",
       "domainsByLens": {
         "frontier": "frontier-physical"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-digital-strategy-20261020"
+      ]
     },
     {
       "id": "skild",
@@ -2290,7 +2770,10 @@
       "evidenceNote": "",
       "domainsByLens": {
         "frontier": "frontier-physical"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-digital-strategy-20261020"
+      ]
     },
     {
       "id": "odyssey",
@@ -2319,7 +2802,10 @@
       "evidenceNote": "",
       "domainsByLens": {
         "frontier": "frontier-physical"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-digital-strategy-20261020"
+      ]
     },
     {
       "id": "wayve",
@@ -2349,7 +2835,10 @@
       "evidenceNote": "",
       "domainsByLens": {
         "frontier": "frontier-physical"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-digital-strategy-20261020"
+      ]
     },
     {
       "id": "waabi",
@@ -2378,7 +2867,10 @@
       "evidenceNote": "",
       "domainsByLens": {
         "frontier": "frontier-physical"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-digital-strategy-20261020"
+      ]
     },
     {
       "id": "psiquantum",
@@ -2474,7 +2966,7 @@
       "name": "Amini",
       "website": "https://www.amini.ai/",
       "category": "Locally governed data and AI infrastructure",
-      "summary": "Builds a stack covering record digitisation, governed data, local compute and AI applications for Global South governments and enterprises.",
+      "summary": "Builds locally operated data, compute and AI infrastructure for governments and enterprises in the Global South.",
       "domain": "trust",
       "ring": "assess",
       "lenses": [
@@ -2488,20 +2980,33 @@
       "location": "Nairobi office evidenced on company site",
       "proposedUse": "govern and digitise fragmented ministry records before introducing an AI service.",
       "sourceIds": [
-        "amini"
+        "amini",
+        "amini-resources-20261124"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "availability": "Commercial offering; verify local availability",
-      "note": "Validate deployed references, interoperability, power requirements and lifetime operating costs.",
+      "note": "Confirm country operating references, energy requirements, interoperability and the division of responsibility between infrastructure partners.",
       "distinctive": "An Africa-focused data and compute proposition linking locally relevant datasets, infrastructure and AI applications.",
       "evaluationQuestion": "Which local datasets, hosting arrangements and operating capabilities are available for the specific country use case?",
       "horizon": "next",
-      "evidenceLabel": "Company product information",
-      "evidenceNote": "Validate deployed references, interoperability, power requirements and lifetime operating costs.",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Confirm country operating references, energy requirements, interoperability and the division of responsibility between infrastructure partners.",
       "domainsByLens": {
         "wbg": "wbg-services",
         "its": "its-cloud"
-      }
+      },
+      "capabilities": [
+        "Digitize institutional records",
+        "Govern local data and AI workloads",
+        "Design local compute and application infrastructure"
+      ],
+      "recentDevelopment": "A May 2026 partnership announcement with Foxconn and Bull broadens the local-compute proposition.",
+      "evidenceDate": "2026-05-12",
+      "wbgContextSourceIds": [
+        "wbg-data",
+        "wbg-digital-strategy-20261020"
+      ],
+      "reviewStatus": "Primary sources reviewed"
     },
     {
       "id": "pixxel",
@@ -2594,14 +3099,17 @@
       "evidenceNote": "Compare local skill and lead time against national meteorological services and independent data.",
       "domainsByLens": {
         "wbg": "wbg-climate"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-agriconnect-honduras-20261119"
+      ]
     },
     {
       "id": "floodbase",
       "name": "Floodbase",
       "website": "https://www.floodbase.com/",
       "category": "Flood data and risk finance",
-      "summary": "Produces flood monitoring and intelligence to design, monitor and trigger parametric flood insurance.",
+      "summary": "Combines observations and hydrological information to map floods and support parametric insurance triggers.",
       "domain": "climate",
       "ring": "assess",
       "lenses": [
@@ -2614,19 +3122,33 @@
       "location": null,
       "proposedUse": "assess whether event triggers improve financial protection for a defined exposed area.",
       "sourceIds": [
-        "floodbase"
+        "floodbase",
+        "floodbase-product-20261124",
+        "floodbase-liberty-20260224"
       ],
-      "verified": "2026-11-23",
-      "availability": "Commercial offering; verify local availability",
-      "note": "Quantify basis risk: the trigger can differ from actual household or asset loss.",
+      "verified": "2026-11-24",
+      "availability": "Commercial data and insurance-support services; the new instant-quoting application is US-specific.",
+      "note": "Assess basis risk and local loss data. A payout trigger can differ from a household’s actual loss.",
       "distinctive": "Flood mapping and risk data with applications in parametric insurance, connecting an observed hazard to a financial instrument.",
       "evaluationQuestion": "How closely would the proposed trigger match observed local losses, including events that a model or satellite view misses?",
       "horizon": "now",
-      "evidenceLabel": "Company product information",
-      "evidenceNote": "Quantify basis risk: the trigger can differ from actual household or asset loss.",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Assess basis risk and local loss data. A payout trigger can differ from a household’s actual loss.",
       "domainsByLens": {
         "wbg": "wbg-climate"
-      }
+      },
+      "capabilities": [
+        "Historical and event flood maps",
+        "Policy trigger monitoring",
+        "Risk-data API integration"
+      ],
+      "recentDevelopment": "Launched a US commercial parametric-quoting application with Liberty Mutual in February 2026.",
+      "evidenceDate": "2026-02-24",
+      "wbgContextSourceIds": [
+        "wbg-agriconnect-honduras-20261119",
+        "wbg-climate"
+      ],
+      "reviewStatus": "Primary sources reviewed"
     },
     {
       "id": "climate-x",
@@ -2657,7 +3179,10 @@
       "evidenceNote": "Treat loss and cost estimates as modelled scenarios; inspect local asset data and assumptions.",
       "domainsByLens": {
         "wbg": "wbg-climate"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-agriconnect-honduras-20261119"
+      ]
     },
     {
       "id": "sarvam",
@@ -2677,7 +3202,7 @@
       ],
       "region": "India / South Asia",
       "location": "Bengaluru, India",
-      "proposedUse": "evaluate language accessibility in service enquiries and document workflows.",
+      "proposedUse": "Test voice-assisted service enquiries in a target Indian language, measuring completion, correction effort and access to human support.",
       "sourceIds": [
         "sarvam",
         "sarvam-v4",
@@ -2696,7 +3221,18 @@
       "domainsByLens": {
         "wbg": "wbg-services",
         "its": "its-models"
-      }
+      },
+      "capabilities": [
+        "Recognize local-language speech",
+        "Turn dictation into usable text",
+        "Extract fields with source locations"
+      ],
+      "filmApplication": "Explore voice-assisted public-service enquiries with a clear route to human support.",
+      "wbgContextSourceIds": [
+        "wbg-dpi-program-2026"
+      ],
+      "recentDevelopment": "Released Dictate and Extract APIs on 23–24 November 2026, connecting speech and documents to usable text and structured fields.",
+      "evidenceDate": "2026-11-24"
     },
     {
       "id": "lelapa",
@@ -2727,7 +3263,10 @@
       "evidenceNote": "Supported languages and quality vary; build a locally representative evaluation set.",
       "domainsByLens": {
         "wbg": "wbg-services"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-dpi-program-2026"
+      ]
     },
     {
       "id": "viamo",
@@ -2760,7 +3299,10 @@
       "evidenceNote": "'No internet' describes the caller’s device access, not an internet-free backend; verify country and language availability.",
       "domainsByLens": {
         "wbg": "wbg-services"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-dpi-program-2026"
+      ]
     },
     {
       "id": "smile-id",
@@ -2790,7 +3332,10 @@
       "evidenceNote": "Check country coverage, demographic false-rejection rates, legal basis and a non-biometric fallback.",
       "domainsByLens": {
         "wbg": "wbg-services"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-dpi-program-2026"
+      ]
     },
     {
       "id": "yoti",
@@ -2851,7 +3396,11 @@
       "evidenceNote": "Assess effective costs, affordability, explainability, complaints and over-indebtedness alongside access.",
       "domainsByLens": {
         "wbg": "wbg-services"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-digital-strategy-20261020",
+        "wbg-jobs-strategy"
+      ]
     },
     {
       "id": "newlogic",
@@ -2901,17 +3450,31 @@
       "location": "Bengaluru, India / Palo Alto, US (announcement locations)",
       "proposedUse": "support evidence-linked crop monitoring and extension workflows.",
       "sourceIds": [
-        "cropin"
+        "cropin",
+        "cropin-orbitai-20260714",
+        "cropin-intelligence-20261124"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "availability": "Commercial offering; verify local availability",
-      "note": "Distinguish currently available agents from planned domains and independently validate recommendations.",
+      "note": "Validate each crop, region and workflow. Announced adjacent-sector applications are not evidence of operational deployments.",
       "horizon": "now",
-      "evidenceLabel": "Company product information",
-      "evidenceNote": "Distinguish currently available agents from planned domains and independently validate recommendations.",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Validate each crop, region and workflow. Announced adjacent-sector applications are not evidence of operational deployments.",
       "domainsByLens": {
         "wbg": "wbg-food"
-      }
+      },
+      "capabilities": [
+        "Crop, yield and water-stress models",
+        "Field and satellite evidence",
+        "Conversational workflow support through OrbitAI"
+      ],
+      "recentDevelopment": "OrbitAI was announced with Google Cloud in July 2026. The current product page distinguishes established agriculture capabilities from upcoming energy and infrastructure uses.",
+      "evidenceDate": "2026-07-14",
+      "wbgContextSourceIds": [
+        "wbg-agriconnect",
+        "wbg-agriconnect-honduras-20261119"
+      ],
+      "reviewStatus": "Primary sources reviewed"
     },
     {
       "id": "plantix",
@@ -2941,14 +3504,17 @@
       "evidenceNote": "Verify supported crops, image quality and local treatment guidance before field use.",
       "domainsByLens": {
         "wbg": "wbg-food"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-agriconnect-honduras-20261119"
+      ]
     },
     {
       "id": "pula",
       "name": "Pula",
       "website": "https://www.pula-advisors.com/",
       "category": "Agricultural risk protection",
-      "summary": "Designs agricultural insurance and data services for smallholder farmers, governments and businesses.",
+      "summary": "Combines agricultural insurance design, local field data and farmer registration for smallholder risk protection.",
       "domain": "resources",
       "ring": "experiment",
       "lenses": [
@@ -2963,17 +3529,31 @@
       "proposedUse": "examine insurance delivery, basis risk and data quality within a smallholder resilience program.",
       "sourceIds": [
         "pula",
-        "pula-ifc"
+        "pula-ifc",
+        "pula-products-20261124"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "availability": "Commercial offering; verify local availability",
-      "note": "Check payout design, farmer understanding and whether coverage reaches excluded groups.",
+      "note": "Area-yield products rely on local benchmarks and crop-cut measurements. Test basis risk, inclusion and farmer understanding.",
       "horizon": "now",
-      "evidenceLabel": "Company product information",
-      "evidenceNote": "Check payout design, farmer understanding and whether coverage reaches excluded groups.",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Area-yield products rely on local benchmarks and crop-cut measurements. Test basis risk, inclusion and farmer understanding.",
       "domainsByLens": {
         "wbg": "wbg-food"
-      }
+      },
+      "capabilities": [
+        "Area-yield insurance",
+        "Hybrid livestock cover",
+        "Farm mapping and traceability"
+      ],
+      "recentDevelopment": "Current services extend beyond crop insurance to livestock, export traceability and government data services.",
+      "evidenceDate": null,
+      "wbgContextSourceIds": [
+        "pula-ifc",
+        "wbg-agriconnect",
+        "wbg-agriconnect-honduras-20261119"
+      ],
+      "reviewStatus": "Primary sources reviewed"
     },
     {
       "id": "qure-ai",
@@ -3004,7 +3584,10 @@
       "evidenceNote": "Validate clinical performance and applicable approvals for the intended population and workflow.",
       "domainsByLens": {
         "wbg": "wbg-health"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-health"
+      ]
     },
     {
       "id": "ilara-health",
@@ -3035,7 +3618,10 @@
       "evidenceNote": "Evaluate equipment maintenance, staff adoption, financing terms and patient-data governance.",
       "domainsByLens": {
         "wbg": "wbg-health"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-health"
+      ]
     },
     {
       "id": "axmed",
@@ -3065,7 +3651,10 @@
       "evidenceNote": "Confirm local regulatory requirements, supplier quality, delivered cost and fulfilment performance.",
       "domainsByLens": {
         "wbg": "wbg-health"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-health"
+      ]
     },
     {
       "id": "husk",
@@ -3085,24 +3674,40 @@
       "location": null,
       "proposedUse": "assess minigrid operating models and productive-use demand in an energy-access program.",
       "sourceIds": [
-        "husk"
+        "husk",
+        "husk-der-20251125",
+        "husk-ifc-47529"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "availability": "Commercial offering; verify local availability",
-      "note": "Compare actual reliability, tariffs, maintenance capacity and financial performance at comparable sites.",
+      "note": "Expansion targets are plans. Compare operating tariffs, downtime and maintenance performance at similar sites.",
       "horizon": "now",
-      "evidenceLabel": "Company product information",
-      "evidenceNote": "Compare actual reliability, tariffs, maintenance capacity and financial performance at comparable sites.",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Expansion targets are plans. Compare operating tariffs, downtime and maintenance performance at similar sites.",
       "domainsByLens": {
         "wbg": "wbg-infrastructure"
-      }
+      },
+      "capabilities": [
+        "Minigrid demand forecasting",
+        "Solar and storage dispatch",
+        "Commercial and household energy services"
+      ],
+      "recentDevelopment": "Its November 2025 strategy extends minigrids into a broader distributed-energy platform. IFC separately discloses a signed Husk Nigeria financing project.",
+      "evidenceDate": "2025-11-25",
+      "wbgContextSourceIds": [
+        "husk-ifc-47529",
+        "wbg-energy",
+        "wbg-mission300-progress-20260616"
+      ],
+      "wbgRelationship": "An IFC project disclosure documents financing for Husk Nigeria; other proposed applications here are analytical.",
+      "reviewStatus": "Primary sources reviewed"
     },
     {
       "id": "nithio",
       "name": "Nithio",
       "website": "https://nithio.com/",
       "category": "Energy financing analytics",
-      "summary": "Uses repayment and geospatial data with risk analytics to support financing for distributed clean-energy businesses.",
+      "summary": "Uses repayment and geospatial analytics to finance distributed energy and assess climate-asset portfolios.",
       "domain": "resources",
       "ring": "assess",
       "lenses": [
@@ -3116,17 +3721,31 @@
       "proposedUse": "study whether better risk information expands affordable capital for underserved energy customers.",
       "sourceIds": [
         "nithio",
-        "nithio-undp"
+        "nithio-undp",
+        "nithio-risk-20261124",
+        "nithio-fuel-20261014"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "availability": "Commercial offering; verify local availability",
-      "note": "Test model fairness, portfolio stress scenarios and the relationship between finance cost and consumer affordability.",
+      "note": "The fund target is not capital already raised. Validate stress performance, fairness and consumer affordability.",
       "horizon": "now",
-      "evidenceLabel": "Company product information",
-      "evidenceNote": "Test model fairness, portfolio stress scenarios and the relationship between finance cost and consumer affordability.",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "The fund target is not capital already raised. Validate stress performance, fairness and consumer affordability.",
       "domainsByLens": {
         "wbg": "wbg-infrastructure"
-      }
+      },
+      "capabilities": [
+        "Customer repayment analysis",
+        "Portfolio cash-flow assessment",
+        "Debt for energy and mobility providers"
+      ],
+      "recentDevelopment": "Announced FUEL fundraising in October 2026, targeting a $150m e-mobility debt fund and a first close in 2027.",
+      "evidenceDate": "2026-10-14",
+      "wbgContextSourceIds": [
+        "wbg-energy",
+        "wbg-mission300-progress-20260616"
+      ],
+      "reviewStatus": "Primary sources reviewed"
     },
     {
       "id": "sun-king",
@@ -3156,7 +3775,10 @@
       "evidenceNote": "Payment plans differ by country; evaluate lifetime customer cost and service continuity.",
       "domainsByLens": {
         "wbg": "wbg-infrastructure"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-energy"
+      ]
     },
     {
       "id": "fido-tech",
@@ -3177,17 +3799,30 @@
       "proposedUse": "run a bounded leak-detection and repair pilot with a municipal water utility.",
       "sourceIds": [
         "fido",
-        "fido-oct"
+        "fido-oct",
+        "fido-northumbrian-20261012"
       ],
-      "verified": "2026-11-23",
+      "verified": "2026-11-24",
       "availability": "Commercial offering; verify local availability",
-      "note": "Use verified repair and recovery results rather than relying on a vendor’s model-accuracy headline.",
+      "note": "Treat reported project savings as provider evidence. Measure local water losses, confirmed leaks and time from alert to repair.",
       "horizon": "now",
-      "evidenceLabel": "Company product information",
-      "evidenceNote": "Use verified repair and recovery results rather than relying on a vendor’s model-accuracy headline.",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Treat reported project savings as provider evidence. Measure local water losses, confirmed leaks and time from alert to repair.",
       "domainsByLens": {
         "wbg": "wbg-infrastructure"
-      }
+      },
+      "capabilities": [
+        "Acoustic leak assessment",
+        "Field-team prioritization",
+        "Monitoring through repair workflows"
+      ],
+      "recentDevelopment": "An October 2026 company account describes continuous monitoring with Northumbrian Water using more than 1,000 sensors.",
+      "evidenceDate": "2026-10-12",
+      "wbgContextSourceIds": [
+        "wbg-gems-2026",
+        "wbg-water"
+      ],
+      "reviewStatus": "Primary sources reviewed"
     },
     {
       "id": "wint",
@@ -3217,7 +3852,10 @@
       "evidenceNote": "Assess installation effort, false alarms and operational controls before any automatic shutoff.",
       "domainsByLens": {
         "wbg": "wbg-infrastructure"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-gems-2026"
+      ]
     },
     {
       "id": "source-global",
@@ -3331,17 +3969,30 @@
       "location": null,
       "proposedUse": "assess the measurement cost and uncertainty of soil-carbon monitoring in a defined farming context.",
       "sourceIds": [
-        "boomitra"
+        "boomitra",
+        "boomitra-delivery-20261110"
       ],
-      "verified": "2026-11-23",
-      "availability": "Commercial offering; verify local availability",
-      "note": "Separate developer incentives from verification; satellite estimates require calibration and do not eliminate ground sampling needs.",
+      "verified": "2026-11-24",
+      "availability": "Operating project developer and credit supplier; new project eligibility requires assessment.",
+      "note": "Company-reported transactions do not independently establish additionality or permanence. Separate credit transfers from retirements and protect landholder rights.",
       "horizon": "next",
-      "evidenceLabel": "Company product information",
-      "evidenceNote": "Separate developer incentives from verification; satellite estimates require calibration and do not eliminate ground sampling needs.",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Company-reported transactions do not independently establish additionality or permanence. Separate credit transfers from retirements and protect landholder rights.",
       "domainsByLens": {
         "wbg": "wbg-climate"
-      }
+      },
+      "capabilities": [
+        "Satellite and soil-sample monitoring",
+        "Regenerative agriculture projects",
+        "Carbon-credit project development"
+      ],
+      "recentDevelopment": "In November 2026, Boomitra reported sale and delivery of 2.6 million issued credits from its Northern Mexico project.",
+      "evidenceDate": "2026-11-10",
+      "wbgContextSourceIds": [
+        "wbg-carbon",
+        "wbg-mrv"
+      ],
+      "reviewStatus": "Primary sources reviewed"
     },
     {
       "id": "fna",
@@ -3692,7 +4343,10 @@
       "domainsByLens": {
         "frontier": "frontier-foundations",
         "its": "its-trust"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-public-institutions-ai-2026"
+      ]
     },
     {
       "id": "lila-sciences",
@@ -3714,7 +4368,7 @@
       "whatToExplore": "Trace a cycle from candidate selection to measurement and the next decision; count human interventions and examine negative results.",
       "evaluationQuestion": "What improvement survives independent replication and the move from laboratory samples to industrial conditions?",
       "milestone": "Independent reproduction, industrial durability and reduced manual handling across a campaign.",
-      "proposedUse": "Explore the changing economics and organization of materials and energy research.",
+      "proposedUse": "Track independently reproduced catalyst results that could alter electrolyzer cost and durability assumptions before investment decisions.",
       "availability": "Research and partner-led scientific programs.",
       "evidenceNote": "The September catalyst report describes a discovery rather than a scaled product; humans still transferred samples between instruments.",
       "sourceIds": [
@@ -3731,7 +4385,18 @@
       "addedInEdition": "2026.11.23.2",
       "domainsByLens": {
         "frontier": "frontier-science"
-      }
+      },
+      "capabilities": [
+        "Propose material candidates",
+        "Run and measure experiments",
+        "Use results to choose again"
+      ],
+      "filmApplication": "Track catalyst advances that could change future electrolyzer costs and durability.",
+      "wbgContextSourceIds": [
+        "wbg-esmap-electrolyzers-2026"
+      ],
+      "recentDevelopment": "September 2026 catalyst research describes a human-supervised loop linking AI choices to physical laboratory measurements.",
+      "evidenceDate": "2026-09-25"
     },
     {
       "id": "periodic-labs",
@@ -3767,7 +4432,10 @@
       "addedInEdition": "2026.11.23.2",
       "domainsByLens": {
         "frontier": "frontier-science"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-esmap-electrolyzers-2026"
+      ]
     },
     {
       "id": "cuspai",
@@ -3804,7 +4472,10 @@
       "addedInEdition": "2026.11.23.2",
       "domainsByLens": {
         "frontier": "frontier-science"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-esmap-electrolyzers-2026"
+      ]
     },
     {
       "id": "physicsx",
@@ -3841,7 +4512,10 @@
       "addedInEdition": "2026.11.23.2",
       "domainsByLens": {
         "frontier": "frontier-science"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-esmap-electrolyzers-2026"
+      ]
     },
     {
       "id": "beyondmath",
@@ -3878,7 +4552,10 @@
       "addedInEdition": "2026.11.23.2",
       "domainsByLens": {
         "frontier": "frontier-science"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-esmap-electrolyzers-2026"
+      ]
     },
     {
       "id": "lightmatter",
@@ -4012,23 +4689,37 @@
         "agriculture-intelligence"
       ],
       "region": "India",
-      "proposedUse": "Test whether historical crop and land-use evidence can help a participating rural lender review thin-file agricultural borrowers, or help a project team identify corridor segments needing a field visit. Assess false exclusions and retain human decisions.",
+      "proposedUse": "Compare satellite alerts with dated field records along one road or power corridor, measuring confirmed findings and false flags.",
       "availability": "Commercial geospatial analytics and APIs. Geography, historical coverage, refresh frequency and licensing require confirmation for the selected task.",
-      "note": "Current analytics offerings are distinct from any planned satellite launches; no owned operational constellation or lending outcome is inferred.",
+      "note": "A grant or memorandum establishes intent and resources, not operational coverage. Validate current imagery access and local accuracy.",
       "sourceIds": [
         "satsure-home",
         "satsure-about",
         "satsure-public-sector",
         "satsure-utilities-v5",
-        "wbg-gems-2026"
+        "wbg-gems-2026",
+        "satsure-news-20261124"
       ],
       "verified": "2026-11-24",
       "addedInEdition": "2026.11.23.2",
-      "evidenceLabel": "Company product information",
-      "evidenceNote": "Current analytics offerings are distinct from any planned satellite launches; no owned operational constellation or lending outcome is inferred.",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "A grant or memorandum establishes intent and resources, not operational coverage. Validate current imagery access and local accuracy.",
       "domainsByLens": {
         "wbg": "wbg-climate"
-      }
+      },
+      "capabilities": [
+        "Detect changes along corridors",
+        "Monitor construction progress",
+        "Prioritize vegetation risks"
+      ],
+      "recentDevelopment": "Its June 2026 newsroom reports a Dhaarini development grant and a Bhutan partnership memorandum.",
+      "evidenceDate": "2026-06-25",
+      "wbgContextSourceIds": [
+        "wbg-gems-2026",
+        "wbg-geo"
+      ],
+      "reviewStatus": "Primary sources reviewed",
+      "filmApplication": "Combine satellite alerts with field evidence to prioritize project inspections."
     },
     {
       "id": "buildots",
@@ -4062,7 +4753,10 @@
       "evidenceNote": "Visual progress estimates support supervision; they do not establish workmanship, environmental and social compliance, payment eligibility or completion certification.",
       "domainsByLens": {
         "wbg": "wbg-infrastructure"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-gems-2026"
+      ]
     },
     {
       "id": "premise",
@@ -4096,7 +4790,10 @@
       "evidenceNote": "A contributor marketplace is not automatically a representative survey sample. Avoid collecting unnecessary personal data or treating geotagged observations as conclusive evidence.",
       "domainsByLens": {
         "wbg": "wbg-infrastructure"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-gems-2026"
+      ]
     },
     {
       "id": "aidash",
@@ -4131,7 +4828,11 @@
       "evidenceNote": "Potential contribution concerns reliability of existing infrastructure. It is not direct evidence of additional electricity connections, and satellite refresh does not equal continuous real-time observation.",
       "domainsByLens": {
         "wbg": "wbg-climate"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-energy",
+        "wbg-gems-2026"
+      ]
     },
     {
       "id": "altana",
@@ -4164,7 +4865,11 @@
       "evidenceNote": "Its February 2026 FedRAMP High announcement applies to the specified AWS GovCloud offering; it does not establish WBG approval or equivalent availability in every hosting environment.",
       "domainsByLens": {
         "wbg": "wbg-decisions"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-digital-strategy-20261020",
+        "wbg-jobs-strategy"
+      ]
     },
     {
       "id": "eduten",
@@ -4198,7 +4903,10 @@
       "evidenceNote": "UNICEF's evaluation describes an adaptive-learning version, not an open-ended generative-AI tutor. Published pilot findings do not automatically transfer to another education system.",
       "domainsByLens": {
         "wbg": "wbg-health"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-health"
+      ]
     },
     {
       "id": "eidu",
@@ -4232,7 +4940,10 @@
       "evidenceNote": "Public legal information lists EIDU GmbH and EIDU Global Education Initiatives e.V.; treat it as an ecosystem organization and do not invent a venture stage. 'Offline-capable' does not mean every function operates indefinitely without synchronization.",
       "domainsByLens": {
         "wbg": "wbg-health"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-health"
+      ]
     },
     {
       "id": "resolve-ai",
@@ -4338,7 +5049,10 @@
       "domainsByLens": {
         "its": "its-software",
         "frontier": "frontier-work"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-govtech-country-work"
+      ]
     },
     {
       "id": "anomalo",
@@ -4409,7 +5123,10 @@
       "evidenceNote": "Identity controls reduce particular access risks; they do not establish that an agent's reasoning or data handling is safe.",
       "domainsByLens": {
         "its": "its-trust"
-      }
+      },
+      "wbgContextSourceIds": [
+        "wbg-public-institutions-ai-2026"
+      ]
     },
     {
       "id": "nixtla",
@@ -4483,7 +5200,10 @@
       ],
       "verified": "2026-11-23",
       "entityType": "scaleup",
-      "addedInEdition": "2026.11.23.3"
+      "addedInEdition": "2026.11.23.3",
+      "wbgContextSourceIds": [
+        "wbg-health"
+      ]
     },
     {
       "id": "gloat",
@@ -4554,7 +5274,11 @@
       ],
       "verified": "2026-11-23",
       "entityType": "scaleup",
-      "addedInEdition": "2026.11.23.3"
+      "addedInEdition": "2026.11.23.3",
+      "wbgContextSourceIds": [
+        "wbg-digital-strategy-20261020",
+        "wbg-jobs-strategy"
+      ]
     },
     {
       "id": "hotelrunner",
@@ -4589,7 +5313,11 @@
       ],
       "verified": "2026-11-23",
       "entityType": "scaleup",
-      "addedInEdition": "2026.11.23.3"
+      "addedInEdition": "2026.11.23.3",
+      "wbgContextSourceIds": [
+        "wbg-digital-strategy-20261020",
+        "wbg-jobs-strategy"
+      ]
     },
     {
       "id": "m-kopa",
@@ -4625,7 +5353,11 @@
       ],
       "verified": "2026-11-23",
       "entityType": "scaleup",
-      "addedInEdition": "2026.11.23.3"
+      "addedInEdition": "2026.11.23.3",
+      "wbgContextSourceIds": [
+        "wbg-digital-strategy-20261020",
+        "wbg-jobs-strategy"
+      ]
     },
     {
       "id": "egov-digit",
@@ -4662,7 +5394,10 @@
       ],
       "verified": "2026-11-23",
       "entityType": "ecosystem",
-      "addedInEdition": "2026.11.23.3"
+      "addedInEdition": "2026.11.23.3",
+      "wbgContextSourceIds": [
+        "wbg-dpi-program-2026"
+      ]
     },
     {
       "id": "mojaloop",
@@ -4699,7 +5434,10 @@
       ],
       "verified": "2026-11-23",
       "entityType": "ecosystem",
-      "addedInEdition": "2026.11.23.3"
+      "addedInEdition": "2026.11.23.3",
+      "wbgContextSourceIds": [
+        "wbg-dpi-program-2026"
+      ]
     },
     {
       "id": "unstructured",
@@ -4736,7 +5474,11 @@
         "unstructured-location"
       ],
       "verified": "2026-11-23",
-      "addedInEdition": "2026.11.23.3"
+      "addedInEdition": "2026.11.23.3",
+      "wbgContextSourceIds": [
+        "wbg-documents-reports",
+        "wbg-govtech-country-work"
+      ]
     },
     {
       "id": "reducto",
@@ -4761,7 +5503,7 @@
         "document-intelligence"
       ],
       "region": "United States",
-      "proposedUse": "Extract a bounded set of indicators from public project reports into a reviewer-checked comparison table, linking every value to the source page rather than accepting a fluent summary as evidence.",
+      "proposedUse": "Extract predefined indicators from public project reports into a comparison table, checking each value, unit and period against its source.",
       "availability": "Commercial API; enterprise pricing lists VPC and on-premises deployments. Confirm endpoint, model, region and retention settings for the intended configuration.",
       "note": "Coordinates and citations locate output; they do not prove the extracted value or its interpretation is correct. Platform performance claims require a local reference set.",
       "evidenceLabel": "Primary product and deployment documentation",
@@ -4774,7 +5516,17 @@
         "wbg-govtech-country-work"
       ],
       "verified": "2026-11-24",
-      "addedInEdition": "2026.11.23.3"
+      "addedInEdition": "2026.11.23.3",
+      "capabilities": [
+        "Read complex tables and layouts",
+        "Extract fields into a schema",
+        "Link results to source regions"
+      ],
+      "filmApplication": "Compare project indicators with a source page for every extracted value.",
+      "wbgContextSourceIds": [
+        "wbg-documents-reports",
+        "wbg-govtech-country-work"
+      ]
     },
     {
       "id": "credo-ai",
@@ -4809,7 +5561,10 @@
         "credo-location"
       ],
       "verified": "2026-11-23",
-      "addedInEdition": "2026.11.23.3"
+      "addedInEdition": "2026.11.23.3",
+      "wbgContextSourceIds": [
+        "wbg-public-institutions-ai-2026"
+      ]
     },
     {
       "id": "n8n",
@@ -4846,7 +5601,10 @@
         "n8n-press"
       ],
       "verified": "2026-11-23",
-      "addedInEdition": "2026.11.23.3"
+      "addedInEdition": "2026.11.23.3",
+      "wbgContextSourceIds": [
+        "wbg-govtech-ai-bootcamp-2026"
+      ]
     },
     {
       "id": "mistral-ai",
@@ -4886,7 +5644,11 @@
         "mistral-location"
       ],
       "verified": "2026-11-23",
-      "addedInEdition": "2026.11.23.3"
+      "addedInEdition": "2026.11.23.3",
+      "wbgContextSourceIds": [
+        "wbg-documents-reports",
+        "wbg-govtech-country-work"
+      ]
     },
     {
       "id": "cohere",
@@ -4925,7 +5687,1387 @@
         "cohere-about"
       ],
       "verified": "2026-11-23",
-      "addedInEdition": "2026.11.23.3"
+      "addedInEdition": "2026.11.23.3",
+      "wbgContextSourceIds": [
+        "wbg-documents-reports",
+        "wbg-govtech-country-work"
+      ]
+    },
+    {
+      "id": "iceye",
+      "name": "ICEYE",
+      "website": "https://www.iceye.com/",
+      "category": "Satellite flood intelligence",
+      "summary": "Combines radar-satellite observations and local information to estimate flood extent, depth and impacts.",
+      "domain": "climate",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-climate"
+      },
+      "trendIds": [
+        "geospatial-intelligence",
+        "climate-adaptation"
+      ],
+      "region": "Global; predictive integration initially described for US users",
+      "capabilities": [
+        "Cloud-penetrating radar imagery",
+        "GIS-ready flood observations",
+        "Predictive flood modelling"
+      ],
+      "proposedUse": "Assess observed flooding around exposed public assets and connect reliable information to response protocols.",
+      "availability": "Commercial data and solutions; coverage and service times depend on contract.",
+      "note": "Validate local depth accuracy and missed events; separate observed maps from forecasts.",
+      "sourceIds": [
+        "iceye-floodid-20260827",
+        "iceye-government-flood-20261124"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Validate local depth accuracy and missed events; separate observed maps from forecasts.",
+      "recentDevelopment": "Announced a FloodID partnership with The Water Institute in August 2026 to connect forecasting and observation.",
+      "evidenceDate": "2026-08-27",
+      "entityType": "scaleup",
+      "organizationType": "Company",
+      "wbgContextSourceIds": [
+        "wbg-climate",
+        "wbg-geo"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "okra-solar",
+      "name": "Okra Solar",
+      "website": "https://www.okrasolar.com/",
+      "category": "Solar mesh-grid technology",
+      "summary": "Connects distributed solar and storage systems into managed local electricity networks.",
+      "domain": "resources",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-infrastructure"
+      },
+      "trendIds": [
+        "distributed-energy"
+      ],
+      "region": "Emerging-market last-mile electricity",
+      "capabilities": [
+        "Network and demand planning",
+        "Modular household power kits",
+        "Remote network operation"
+      ],
+      "proposedUse": "Compare mesh-grid economics with minigrids and individual solar systems in a defined settlement.",
+      "availability": "Commercial hardware, software and implementation partnerships.",
+      "note": "Verify tariffs, appliance power, service continuity and replacement-part support locally.",
+      "sourceIds": [
+        "okra-products-20261124",
+        "okra-planning-20261124"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Verify tariffs, appliance power, service continuity and replacement-part support locally.",
+      "recentDevelopment": "Current lineup includes differentiated household units and a connectivity option for areas without mobile coverage.",
+      "evidenceDate": null,
+      "entityType": "scaleup",
+      "organizationType": "Company",
+      "wbgContextSourceIds": [
+        "wbg-mission300-progress-20260616"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "sparkmeter-earthspark",
+      "name": "SparkMeter / EarthSpark",
+      "website": "https://www.sparkmeter.io/",
+      "category": "Minigrid metering and open infrastructure",
+      "summary": "Provides meters, billing integration and remote grid management through EarthSpark Meter Ops.",
+      "domain": "resources",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-infrastructure"
+      },
+      "trendIds": [
+        "distributed-energy"
+      ],
+      "region": "Minigrid operators, including underserved markets",
+      "capabilities": [
+        "Remote metering and tariffs",
+        "Payments and asset management",
+        "Open software development path"
+      ],
+      "proposedUse": "Assess utility continuity and supplier-exit options alongside metering performance.",
+      "availability": "Managed services continue; ThunderCloud 2.0 was released as pre-production open source.",
+      "note": "The emerging-market business moved to EarthSpark in September 2025. Open source is not yet a drop-in production replacement.",
+      "sourceIds": [
+        "sparkmeter-current-20261124",
+        "sparkmeter-transition-2026"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "The emerging-market business moved to EarthSpark in September 2025. Open source is not yet a drop-in production replacement.",
+      "recentDevelopment": "July 2026 software release and September key-escrow options address dependence on a single supplier.",
+      "evidenceDate": "2026-09-10",
+      "entityType": "ecosystem",
+      "organizationType": "Nonprofit / public-good ecosystem",
+      "wbgContextSourceIds": [
+        "wbg-mission300-progress-20260616"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "apollo-agriculture",
+      "name": "Apollo Agriculture",
+      "website": "https://www.apolloagriculture.com/",
+      "category": "Smallholder finance and farm inputs",
+      "summary": "Combines farm-input credit decisions, local agrodealer fulfilment, training and insurance.",
+      "domain": "resources",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-food"
+      },
+      "trendIds": [
+        "agriculture-intelligence",
+        "inclusive-digital-services"
+      ],
+      "region": "Kenya and Zambia",
+      "capabilities": [
+        "Machine-learning credit decisions",
+        "Digital input ordering",
+        "Local dealer distribution"
+      ],
+      "proposedUse": "Examine whether combined finance and input delivery improves access for underserved smallholders.",
+      "availability": "Commercial services in reviewed markets; eligibility and seasonal terms apply.",
+      "note": "Compare total credit costs and adverse-season outcomes. Vendor yield comparisons are not treated as causal evidence.",
+      "sourceIds": [
+        "apollo-agriculture-20261124"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Compare total credit costs and adverse-season outcomes. Vendor yield comparisons are not treated as causal evidence.",
+      "recentDevelopment": "",
+      "evidenceDate": null,
+      "entityType": "scaleup",
+      "organizationType": "Company",
+      "wbgContextSourceIds": [
+        "wbg-agriconnect"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "simprints",
+      "name": "Simprints",
+      "website": "https://www.simprints.com/",
+      "category": "Privacy-focused service identification",
+      "summary": "Builds open-source biometric identification that integrates with frontline data systems and can operate offline.",
+      "domain": "inclusion",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-services"
+      },
+      "trendIds": [
+        "inclusive-digital-services",
+        "frontline-health",
+        "interoperable-public-infrastructure"
+      ],
+      "region": "Low-resource health and aid settings",
+      "capabilities": [
+        "Android workflow integration",
+        "Offline enrolment and verification",
+        "Deduplication and backend options"
+      ],
+      "proposedUse": "Explore continuity of patient records with voluntary participation and a usable non-biometric route.",
+      "availability": "Nonprofit technology and deployment services; project setup and governance required.",
+      "note": "Require consent, alternatives, security and local error evaluation; infant work is not universal proven accuracy.",
+      "sourceIds": [
+        "simprints-products-20261124",
+        "simprints-ghana-20260303"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Require consent, alternatives, security and local error evaluation; infant work is not universal proven accuracy.",
+      "recentDevelopment": "March 2026 reporting describes infant-identity development and deployment work in Ghana.",
+      "evidenceDate": "2026-03-03",
+      "entityType": "ecosystem",
+      "organizationType": "Nonprofit / public-good ecosystem",
+      "wbgContextSourceIds": [
+        "wbg-dpi",
+        "wbg-health"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "mosip-inji",
+      "name": "MOSIP / Inji",
+      "website": "https://www.mosip.io/inji",
+      "category": "Public-good digital credentials",
+      "summary": "Provides interoperable components to issue, hold and verify credentials through wallets or paper QR codes.",
+      "domain": "inclusion",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-services"
+      },
+      "trendIds": [
+        "interoperable-public-infrastructure",
+        "inclusive-digital-services"
+      ],
+      "region": "Global open-source ecosystem",
+      "capabilities": [
+        "Credential issuance and revocation",
+        "Wallet and paper support",
+        "Online and offline verification"
+      ],
+      "proposedUse": "Prototype a portable service credential using synthetic data and accessible fallback channels.",
+      "availability": "Open-source modules; the November Inji Verify release is a release candidate.",
+      "note": "Open-source code does not provide national operating governance or automatic production readiness.",
+      "sourceIds": [
+        "mosip-inji-20261124",
+        "inji-verify-rc-20261114"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Open-source code does not provide national operating governance or automatic production readiness.",
+      "recentDevelopment": "Inji Verify 1.0.0-rc.1 adds browser Digital Credentials API support and an embeddable verification library.",
+      "evidenceDate": "2026-11-14",
+      "entityType": "ecosystem",
+      "organizationType": "Nonprofit / public-good ecosystem",
+      "wbgContextSourceIds": [
+        "wbg-dpi"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "rori",
+      "name": "Rori / Rising Academies",
+      "website": "https://rori.ai/",
+      "category": "Math tutoring through WhatsApp",
+      "summary": "Delivers structured mathematics practice, feedback and adaptive progression through a familiar messaging channel.",
+      "domain": "inclusion",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-health"
+      },
+      "trendIds": [
+        "adaptive-learning",
+        "local-language-ai"
+      ],
+      "region": "African education programmes",
+      "capabilities": [
+        "Short structured lessons",
+        "Adaptive mathematics practice",
+        "Conversational learner feedback"
+      ],
+      "proposedUse": "Evaluate a curriculum-matched tutoring programme with teachers and independent learning assessment.",
+      "availability": "Public tutor and institutional programmes; confirm language, child privacy and device requirements.",
+      "note": "The Ghana 2026–27 trial is ongoing. Promising earlier findings do not establish results for every education system.",
+      "sourceIds": [
+        "rori-product-20261124",
+        "rori-evaluation-20261124"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "The Ghana 2026–27 trial is ongoing. Promising earlier findings do not establish results for every education system.",
+      "recentDevelopment": "A new evaluation began in September 2026 across 100 Ghanaian government schools.",
+      "evidenceDate": "2026-09",
+      "entityType": "scaleup",
+      "organizationType": "Company",
+      "wbgContextSourceIds": [
+        "wbg-jobs-strategy"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "zipline",
+      "name": "Zipline",
+      "website": "https://www.zipline.com/",
+      "category": "Autonomous medical logistics",
+      "summary": "Operates drone-based distribution of medicines and essential supplies with health-system partners.",
+      "domain": "inclusion",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-health"
+      },
+      "trendIds": [
+        "frontline-health",
+        "supply-chain-intelligence"
+      ],
+      "region": "Africa and other contracted markets",
+      "capabilities": [
+        "Automated fulfilment and flight",
+        "Health-facility supply delivery",
+        "Distribution-network operations"
+      ],
+      "proposedUse": "Compare emergency delivery, stock availability and total cost against existing health logistics.",
+      "availability": "Operating commercial service; country permissions and contracts determine availability.",
+      "note": "The Côte d’Ivoire ten-hub network is a planned expansion, not a completed deployment.",
+      "sourceIds": [
+        "zipline-civ-20260922"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "The Côte d’Ivoire ten-hub network is a planned expansion, not a completed deployment.",
+      "recentDevelopment": "A September 2026 agreement expands the planned Côte d’Ivoire network from one hub to ten.",
+      "evidenceDate": "2026-09-22",
+      "entityType": "scaleup",
+      "organizationType": "Company",
+      "wbgContextSourceIds": [
+        "wbg-health",
+        "wbg-jobs-strategy"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "maad",
+      "name": "Maad",
+      "website": "https://maad.io/",
+      "category": "Retail distribution and merchant intelligence",
+      "summary": "Connects distribution, merchant orders, payments and market information for consumer-goods supply chains.",
+      "domain": "enterprise",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-decisions"
+      },
+      "trendIds": [
+        "productive-small-firms",
+        "supply-chain-intelligence"
+      ],
+      "region": "Senegal operations reviewed",
+      "capabilities": [
+        "Demand and stock signals",
+        "Warehouse and route coordination",
+        "Merchant working-capital services"
+      ],
+      "proposedUse": "Study stockouts, distribution cost and working-capital access for small retailers.",
+      "availability": "Commercial platform and distribution services; reviewed country scope is Senegal.",
+      "note": "Evaluate net merchant margins, credit costs and data rights; sales testimonials do not establish general income effects.",
+      "sourceIds": [
+        "maad-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Evaluate net merchant margins, credit costs and data rights; sales testimonials do not establish general income effects.",
+      "recentDevelopment": "Current platform describes an intelligence agent accessible through web and WhatsApp.",
+      "evidenceDate": null,
+      "entityType": "scaleup",
+      "organizationType": "Company",
+      "wbgContextSourceIds": [
+        "wbg-msme-20261117"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "kilimo",
+      "name": "Kilimo",
+      "website": "https://kilimo.com/en/",
+      "category": "Basin-level irrigation and water stewardship",
+      "summary": "Combines hydrological analysis, farmer support and irrigation changes to measure water outcomes.",
+      "domain": "resources",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-food"
+      },
+      "trendIds": [
+        "agriculture-intelligence",
+        "intelligent-water"
+      ],
+      "region": "Latin America and US projects reviewed",
+      "capabilities": [
+        "Basin assessment",
+        "Irrigation decision support",
+        "Water-benefit accounting"
+      ],
+      "proposedUse": "Assess basin water outcomes from improved irrigation, including downstream users and rebound effects.",
+      "availability": "Commercial and partner-led projects; availability depends on the basin.",
+      "note": "Lower farm withdrawals do not automatically equal net basin savings. Check baselines and independent verification.",
+      "sourceIds": [
+        "kilimo-method-20261124",
+        "kilimo-projects-20261124"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Lower farm withdrawals do not automatically equal net basin savings. Check baselines and independent verification.",
+      "recentDevelopment": "",
+      "evidenceDate": null,
+      "entityType": "scaleup",
+      "organizationType": "Company",
+      "wbgContextSourceIds": [
+        "wbg-agriconnect",
+        "wbg-water"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "sunculture",
+      "name": "SunCulture",
+      "website": "https://sunculture.io/",
+      "category": "Solar irrigation with finance and protection",
+      "summary": "Provides solar-powered irrigation and related financing and climate-risk services for farmers.",
+      "domain": "resources",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-food"
+      },
+      "trendIds": [
+        "agriculture-intelligence",
+        "distributed-energy",
+        "climate-adaptation"
+      ],
+      "region": "Sub-Saharan Africa; Kenyan insurance evidence reviewed",
+      "capabilities": [
+        "Solar water pumping",
+        "Farmer finance",
+        "Weather-triggered protection"
+      ],
+      "proposedUse": "Examine how productive-use energy and risk protection affect farm resilience and affordability.",
+      "availability": "Commercial pumps and country-specific services; credit and water-access conditions apply.",
+      "note": "Check groundwater pressure and total repayment cost. The cited payout season was 2025, reported in April 2026.",
+      "sourceIds": [
+        "sunculture-pumps-20261124",
+        "sunculture-payout-20260413"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Check groundwater pressure and total repayment cost. The cited payout season was 2025, reported in April 2026.",
+      "recentDevelopment": "Reported its first completed Kenyan insurance payout cycle in April 2026.",
+      "evidenceDate": "2026-04-13",
+      "entityType": "scaleup",
+      "organizationType": "Company",
+      "wbgContextSourceIds": [
+        "wbg-agriconnect",
+        "wbg-mission300-progress-20260616"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "temporal",
+      "name": "Temporal",
+      "website": "https://temporal.io/",
+      "category": "Durable workflow execution",
+      "summary": "Preserves workflow state so multi-step agents can resume after service failures and wait for human decisions.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "agent-execution-infrastructure"
+      ],
+      "region": "",
+      "proposedUse": "Run a document-review workflow that survives outages and resumes after a supervisor approves the next step.",
+      "sourceIds": [
+        "temporal-ai-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Open-source platform and commercial cloud",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-cloud",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Persistent workflow history and recoverable execution",
+        "Retries around external services and model calls",
+        "Human approvals inside long-running workflows"
+      ],
+      "limitation": "Durable execution preserves progress; it does not make a mistaken model decision correct.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 5,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "e2b",
+      "name": "E2B",
+      "website": "https://e2b.dev/",
+      "category": "Isolated agent execution",
+      "summary": "Provides an isolated machine for an agent to execute code, work with files and use software.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "agent-execution-infrastructure"
+      ],
+      "region": "",
+      "proposedUse": "Let a supervised analysis agent process approved spreadsheets in a disposable environment.",
+      "sourceIds": [
+        "e2b-runtime-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial cloud and open-source runtime",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-cloud",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Per-session microVMs with shell, files and browser",
+        "Snapshots and sandbox lifecycle APIs",
+        "Network policy and deployment in supported customer clouds"
+      ],
+      "limitation": "Review outbound network rules, secrets, retention and the actual isolation boundary before connecting sensitive systems.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 5,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "daytona",
+      "name": "Daytona",
+      "website": "https://www.daytona.io/",
+      "category": "Agent sandboxes",
+      "summary": "Creates programmable execution environments for AI-generated code and parallel agent tasks.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "agent-execution-infrastructure"
+      ],
+      "region": "",
+      "proposedUse": "Run coding and data-cleaning experiments with disposable workspaces and explicit resource budgets.",
+      "sourceIds": [
+        "daytona-runtime-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Developer platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-cloud",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Create and remove sandboxes through SDKs",
+        "Execute code with streamed output",
+        "Run parallel, stateful agent environments"
+      ],
+      "limitation": "Isolation and fast startup do not validate the code or authorize external actions.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 3,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "llamaindex",
+      "name": "LlamaIndex",
+      "website": "https://www.llamaindex.ai/",
+      "category": "Document parsing and evidence",
+      "summary": "Extracts document text, tables and fields with page locations; offers both hosted parsing and a lightweight local CPU pipeline.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "wbg",
+        "frontier"
+      ],
+      "trendIds": [
+        "document-intelligence",
+        "on-device-ai"
+      ],
+      "region": "",
+      "proposedUse": "Parse supervision reports with clickable evidence and benchmark a local first pass before sending difficult pages to a larger model.",
+      "sourceIds": [
+        "llamaindex-product-20261124",
+        "llamaindex-ocria15-20261118",
+        "llamaindex-nano-20261123"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial platform; local parser and separately licensed model weights",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-knowledge",
+        "wbg": "wbg-decisions",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "LlamaParse extracts structured document content",
+        "Bounding boxes link output to source regions",
+        "OCRia-nano-1 runs locally through LiteParse"
+      ],
+      "limitation": "Nano has no chart-to-table model; complex tables, handwriting and degraded scans need separate evaluation.",
+      "evidenceDate": "2026-11-23",
+      "entityType": "Private company",
+      "discoveryPriority": 5,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "nango",
+      "name": "Nango",
+      "website": "https://nango.dev/",
+      "category": "Agent integration infrastructure",
+      "summary": "Connects agents to business APIs with authentication, synchronization, tool execution and action logs.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "agent-interoperability"
+      ],
+      "region": "",
+      "proposedUse": "Connect a sandbox intake agent to an approved ticketing API and verify every requested write.",
+      "sourceIds": [
+        "nango-product-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial developer platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-knowledge",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Managed API authorization and token lifecycle",
+        "Tools, event triggers and data synchronization",
+        "Scoped permissions and action audit trails"
+      ],
+      "limitation": "A supported connector does not establish institutional permission to read or modify a system.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 3,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "qodo",
+      "name": "Qodo",
+      "website": "https://www.qodo.ai/",
+      "category": "Code review and software quality",
+      "summary": "Reviews code changes against repository context and team rules, with new session-level review across an agent’s pull requests.",
+      "domain": "enterprise",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "software-agents",
+        "agent-evaluation"
+      ],
+      "region": "",
+      "proposedUse": "Compare reviewer effort and defects on agent-written prototype changes against the current review process.",
+      "sourceIds": [
+        "qodo-product-20261124",
+        "qodo-session-review-20261118"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial platform; selected features beta or research preview",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-software",
+        "frontier": "frontier-work"
+      },
+      "capabilities": [
+        "Context-aware pull-request review and cross-repository checks",
+        "Team rules and guarded approval workflows",
+        "Agent Session Review assembles decisions and related PRs"
+      ],
+      "limitation": "Session review is a research preview and auto-approval is beta; measure missed defects and retain required reviewers.",
+      "evidenceDate": "2026-11-18",
+      "entityType": "Private company",
+      "discoveryPriority": 5,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "harness-cosmos",
+      "name": "Harness Cosmos",
+      "website": "https://www.harness.io/blog/harness-acquires-augment-code-cosmos",
+      "category": "Event-driven software workflows",
+      "summary": "Coordinates engineering work from tickets through code, tests and review using technology acquired from Augment Code.",
+      "domain": "enterprise",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "software-agents"
+      ],
+      "region": "",
+      "proposedUse": "Test a ticket-to-reviewed-PR workflow for a bounded internal maintenance backlog.",
+      "sourceIds": [
+        "harness-augment-assets-20261008",
+        "augment-cosmos-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial product / acquired technology",
+      "note": "Harness announced the acquisition of selected Augment Code assets, including Cosmos, the Auggie CLI and Code Context Engine, on 8 October 2026.",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "Harness announced the acquisition of selected Augment Code assets, including Cosmos, the Auggie CLI and Code Context Engine, on 8 October 2026.",
+      "domainsByLens": {
+        "its": "its-software",
+        "frontier": "frontier-work"
+      },
+      "capabilities": [
+        "Events and schedules trigger engineering workflows",
+        "Specialized agents plan, review and verify changes",
+        "Code context informs follow-up work after failed checks"
+      ],
+      "limitation": "Integration, code access and merge policy remain organization-specific; the selected assets now sit with Harness.",
+      "evidenceDate": "2026-10-08",
+      "entityType": "Ecosystem product",
+      "discoveryPriority": 3,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "website": "https://cursor.com/",
+      "category": "Coding agents",
+      "summary": "Combines desktop and command-line development with cloud agents that implement and test changes in separate environments.",
+      "domain": "enterprise",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "software-agents"
+      ],
+      "region": "",
+      "proposedUse": "Compare agent-assisted prototype work with existing IDE tools using accepted changes and review time.",
+      "sourceIds": [
+        "cursor-agents-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial product",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-software",
+        "frontier": "frontier-work"
+      },
+      "capabilities": [
+        "Codebase context and interactive development",
+        "Parallel cloud agents with their own environments",
+        "Reviewable code changes and demonstrations"
+      ],
+      "limitation": "Generated code still needs repository-specific tests, security review and controlled release access.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 4,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "coderabbit",
+      "name": "CodeRabbit",
+      "website": "https://www.coderabbit.ai/",
+      "category": "Code review and verification",
+      "summary": "Reviews pull requests and helps teams prioritize, understand, secure and verify agent-generated changes.",
+      "domain": "enterprise",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "software-agents"
+      ],
+      "region": "",
+      "proposedUse": "Add independent review to an internal pilot repository and track actionable findings per reviewer minute.",
+      "sourceIds": [
+        "coderabbit-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-software",
+        "frontier": "frontier-work"
+      },
+      "capabilities": [
+        "Automated PR review with concrete suggestions",
+        "Change prioritization and codebase risk visibility",
+        "Verification workflows alongside code review"
+      ],
+      "limitation": "Automated review can miss business intent or create noisy findings; evaluate against a labelled defect set.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 3,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "tessl",
+      "name": "Tessl",
+      "website": "https://tessl.io/",
+      "category": "Agent skills and context governance",
+      "summary": "Provides a shared registry for agent skills and context, with evaluations and checks as those instructions change.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "software-agents",
+        "agent-evaluation"
+      ],
+      "region": "",
+      "proposedUse": "Create a tested registry of engineering skills and compare agent task success before promoting a new version.",
+      "sourceIds": [
+        "tessl-context-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial developer platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-software",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Searchable organization and private skill registries",
+        "Before-and-after evaluation of context changes",
+        "Policy checks and reusable review workflows"
+      ],
+      "limitation": "A shared skill can spread errors as well as good practice; keep ownership and regression evidence per version.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 4,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "patronus-ai",
+      "name": "Patronus AI",
+      "website": "https://www.patronus.ai/",
+      "category": "Agent behavior research",
+      "summary": "Studies agent failures and develops task environments, trace benchmarks and training data for better behavior.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "agent-evaluation"
+      ],
+      "region": "",
+      "proposedUse": "Use trace-level failure categories when constructing an evaluation set for a supervised knowledge agent.",
+      "sourceIds": [
+        "patronus-lab-20261124",
+        "patronus-trail-20250513"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Research outputs and commercial research engagement",
+      "note": "Current positioning is a behavioral research lab; avoid describing the company only as an evaluation dashboard.",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "Current positioning is a behavioral research lab; avoid describing the company only as an evaluation dashboard.",
+      "domainsByLens": {
+        "its": "its-trust",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Environment-based assessment of agent judgment",
+        "TRAIL benchmark for locating failures in traces",
+        "Research and data across coding and knowledge tasks"
+      ],
+      "limitation": "Research benchmarks are not a turnkey guarantee of reliability on institutional workflows.",
+      "evidenceDate": null,
+      "entityType": "Research company",
+      "discoveryPriority": 4,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "hiddenlayer",
+      "name": "HiddenLayer",
+      "website": "https://www.hiddenlayer.com/",
+      "category": "AI security testing and defense",
+      "summary": "Inventories AI assets, inspects model supply chains, simulates attacks and monitors runtime threats.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "agent-evaluation"
+      ],
+      "region": "",
+      "proposedUse": "Test an AI application against an agreed attack set and connect findings to existing security response.",
+      "sourceIds": [
+        "hiddenlayer-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-trust",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "AI application and model discovery",
+        "Model supply-chain analysis and attack simulation",
+        "Runtime monitoring with security-tool integrations"
+      ],
+      "limitation": "Detection coverage and false-positive rates depend on model, application and deployment integration.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 3,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "witnessai",
+      "name": "WitnessAI",
+      "website": "https://witness.ai/",
+      "category": "AI runtime governance",
+      "summary": "Provides visibility and policies for employee AI use, applications and supported agent tool activity.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "agent-interoperability"
+      ],
+      "region": "",
+      "proposedUse": "Compare policy enforcement on legitimate and disallowed tool calls in a controlled workflow.",
+      "sourceIds": [
+        "witnessai-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-trust",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Observe employee and agent AI activity",
+        "Control supported tool access and sensitive data flows",
+        "Runtime defense and policy-based governance"
+      ],
+      "limitation": "Only traffic and action paths that reach the deployed controls can be governed.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 3,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "modal",
+      "name": "Modal",
+      "website": "https://modal.com/",
+      "category": "Elastic AI compute",
+      "summary": "Runs model inference, training jobs and agent sandboxes on programmable cloud infrastructure.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "specialized-inference",
+        "agent-execution-infrastructure"
+      ],
+      "region": "",
+      "proposedUse": "Benchmark a permitted open-model workload by cost per accepted result and sustained throughput.",
+      "sourceIds": [
+        "modal-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial cloud platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-cloud",
+        "frontier": "frontier-compute"
+      },
+      "capabilities": [
+        "Autoscaling dedicated inference and model APIs",
+        "GPU training and fine-tuning jobs",
+        "Isolated environments for agent execution"
+      ],
+      "limitation": "Provider regions, workload costs and network boundaries must fit the institution’s deployment requirements.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 3,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "baseten",
+      "name": "Baseten",
+      "website": "https://www.baseten.co/",
+      "category": "Specialized model infrastructure",
+      "summary": "Combines dedicated model serving, training, execution sandboxes and controls over model access.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "specialized-inference"
+      ],
+      "region": "",
+      "proposedUse": "Evaluate a narrow document classifier or extraction model against a general-model baseline.",
+      "sourceIds": [
+        "baseten-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-cloud",
+        "frontier": "frontier-compute"
+      },
+      "capabilities": [
+        "Dedicated inference for specialized models",
+        "Custom training through code and SDKs",
+        "Model-access, routing and usage controls"
+      ],
+      "limitation": "Specialization only helps when task quality, latency and total operating cost improve on a representative workload.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 3,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "fireworks-ai",
+      "name": "Fireworks AI",
+      "website": "https://fireworks.ai/",
+      "category": "Open-model inference and adaptation",
+      "summary": "Runs, routes and trains open models so organizations can tailor model systems to particular tasks.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "specialized-inference"
+      ],
+      "region": "",
+      "proposedUse": "Compare routing among open models on an expert-reviewed retrieval or classification workload.",
+      "sourceIds": [
+        "fireworks-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-cloud",
+        "frontier": "frontier-compute"
+      },
+      "capabilities": [
+        "Hosted inference for open and custom models",
+        "Model ensembling and per-task routing",
+        "Training to adapt models to domain workloads"
+      ],
+      "limitation": "Provider claims about speed or savings need workload-specific validation and appropriate data residency.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 4,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "flower-labs",
+      "name": "Flower Labs",
+      "website": "https://flower.ai/",
+      "category": "Federated learning infrastructure",
+      "summary": "Supports collaborative model training and evaluation across organizations while keeping training data distributed.",
+      "domain": "trust",
+      "ring": "assess",
+      "lenses": [
+        "its",
+        "wbg",
+        "frontier"
+      ],
+      "trendIds": [
+        "privacy-preserving-computation",
+        "sovereign-data-ai"
+      ],
+      "region": "",
+      "proposedUse": "Test a jointly trained model with synthetic partner datasets before considering restricted institutional data.",
+      "sourceIds": [
+        "flower-framework-20261124",
+        "flower-product-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Open-source framework and commercial services",
+      "note": "",
+      "horizon": "next",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-data",
+        "wbg": "wbg-services",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Federated training and evaluation with common ML frameworks",
+        "Secure aggregation and differential-privacy options",
+        "Deployment across separate institutional environments"
+      ],
+      "limitation": "Federation alone does not guarantee privacy; updates, consent and re-identification risks still need controls.",
+      "evidenceDate": null,
+      "entityType": "Company / open-source builder",
+      "discoveryPriority": 4,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "zama",
+      "name": "Zama",
+      "website": "https://www.zama.org/",
+      "category": "Encrypted computation for finance",
+      "summary": "Uses fully homomorphic encryption to support confidential transactions and assets on public blockchains.",
+      "domain": "trust",
+      "ring": "assess",
+      "lenses": [
+        "wbg",
+        "frontier"
+      ],
+      "trendIds": [
+        "privacy-preserving-computation"
+      ],
+      "region": "",
+      "proposedUse": "Study disclosure, auditability and performance trade-offs in a financial-infrastructure research sandbox.",
+      "sourceIds": [
+        "zama-protocol-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Protocol and developer ecosystem",
+      "note": "",
+      "horizon": "next",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "wbg": "wbg-decisions",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Computation on encrypted transaction information",
+        "Confidential transfers and tokenized assets",
+        "Programmable disclosure and compliance features"
+      ],
+      "limitation": "Cryptographic confidentiality does not establish legal suitability, economic value or unrestricted production performance.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 3,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "pqshield",
+      "name": "PQShield",
+      "website": "https://pqshield.com/",
+      "category": "Post-quantum cryptography",
+      "summary": "Builds software and hardware cryptography for migration to standardized quantum-resistant security.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "post-quantum-migration"
+      ],
+      "region": "",
+      "proposedUse": "Assess crypto-agility and pilot hybrid key exchange on a non-production service.",
+      "sourceIds": [
+        "pqshield-cryptolib-20261124",
+        "nist-pqc-standards-20240813"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial software and hardware IP",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-trust",
+        "frontier": "frontier-compute"
+      },
+      "capabilities": [
+        "Software libraries for post-quantum and hybrid algorithms",
+        "Integration with authentication and secure communication",
+        "Hardware and embedded cryptographic implementations"
+      ],
+      "limitation": "Migration requires compatibility testing, dependency inventory and validation of the exact implementation.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 4,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "viam",
+      "name": "Viam",
+      "website": "https://www.viam.com/",
+      "category": "Physical AI deployment platform",
+      "summary": "Connects robotics hardware to software, data capture, remote operations and controlled fleet updates.",
+      "domain": "frontier",
+      "ring": "assess",
+      "lenses": [
+        "wbg",
+        "frontier"
+      ],
+      "trendIds": [
+        "physical-ai"
+      ],
+      "region": "",
+      "proposedUse": "Explore sensor and inspection data collection for an infrastructure pilot with explicit operating limits.",
+      "sourceIds": [
+        "viam-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Open-source runtime and commercial platform",
+      "note": "",
+      "horizon": "next",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "wbg": "wbg-infrastructure",
+        "frontier": "frontier-physical"
+      },
+      "capabilities": [
+        "Common APIs across sensors and robotic components",
+        "On-device controls and declared movement limits",
+        "Remote diagnostics and staged fleet rollouts"
+      ],
+      "limitation": "Safety claims depend on hardware, environment and configured limits; a platform is not task certification.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 4,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "fieldai",
+      "name": "FieldAI",
+      "website": "https://www.fieldai.com/",
+      "category": "Robot autonomy for physical sites",
+      "summary": "Develops robot autonomy for unstructured construction, industrial and infrastructure environments.",
+      "domain": "frontier",
+      "ring": "assess",
+      "lenses": [
+        "wbg",
+        "frontier"
+      ],
+      "trendIds": [
+        "physical-ai",
+        "project-supervision"
+      ],
+      "region": "",
+      "proposedUse": "Assess repeatable site-inspection missions and the quality of evidence they provide to project supervision.",
+      "sourceIds": [
+        "fieldai-platform-20261124",
+        "fieldai-kajima-20261105"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial deployments and partnerships",
+      "note": "",
+      "horizon": "next",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "wbg": "wbg-infrastructure",
+        "frontier": "frontier-physical"
+      },
+      "capabilities": [
+        "Robot navigation across changing physical environments",
+        "Risk-aware models combining learned and physical information",
+        "Deployment across supported robot forms and industrial sites"
+      ],
+      "limitation": "Site access, safety, hardware and task-level performance require local validation; avoid universal autonomy claims.",
+      "evidenceDate": "2026-11-05",
+      "entityType": "Private company",
+      "discoveryPriority": 5,
+      "addedInEdition": "2026.11.24.7"
     }
   ],
   "sources": [
@@ -7068,6 +9210,686 @@
       "checked": "2026-11-24",
       "kind": "Primary source",
       "note": "Author preprint; human-supervised laboratory research, not a certified or scaled electrolyzer product."
+    },
+    {
+      "id": "amini-resources-20261124",
+      "title": "Amini: current infrastructure proposition and 2026 announcements",
+      "url": "https://www.amini.ai/resources",
+      "publisher": "Amini",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "The page gives conflicting dates for the Barbados digital-twin story; that date is deliberately not used. The Foxconn/Bull announcement is listed as 12 May 2026.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "floodbase-liberty-20260224",
+      "title": "Floodbase and Liberty Mutual: parametric quoting application",
+      "url": "https://www.floodbase.com/blog-posts/floodbase-and-liberty-mutual-launch-instant-parametric-flood-quoting-capability-for-us-commercial-market",
+      "publisher": "Floodbase",
+      "date": "2026-02-24",
+      "checked": "2026-11-24",
+      "note": "The announced instant-quoting product is for the US commercial market.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "floodbase-product-20261124",
+      "title": "Floodbase: flood-insurance data product",
+      "url": "https://www.floodbase.com/product/parametric-flood-insurance",
+      "publisher": "Floodbase",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Vendor capabilities; no independent validation of performance is asserted.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "husk-der-20251125",
+      "title": "Husk: distributed-energy platform announcement",
+      "url": "https://www.huskpowersystems.com/news-insights-articles/husk-launches-ai-enabled-distributed-energy-resources-%28der%29-platform-dedicated-to-powering-prosperity-for-30-million-in-the-global-south",
+      "publisher": "Husk",
+      "date": "2025-11-25",
+      "checked": "2026-11-24",
+      "note": "Expansion and fundraising targets are forward-looking, not delivered outcomes.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "husk-ifc-47529",
+      "title": "IFC disclosure: Husk Nigeria minigrids",
+      "url": "https://disclosures.ifc.org/project-detail/ESRS/47529/husk-minigrids",
+      "publisher": "IFC",
+      "date": "2024-05-24",
+      "checked": "2026-11-24",
+      "note": "Page last updated 31 May 2025; shows signed 13 May 2025 and pending disbursement. Do not describe the entire proposed connection plan as delivered.",
+      "kind": "Institutional source"
+    },
+    {
+      "id": "nithio-fuel-20261014",
+      "title": "Nithio: FUEL fundraising launch",
+      "url": "https://nithio.com/nithio-launches-fuel-a-usd-150-million-pan-african-e-mobility-debt-fund/",
+      "publisher": "Nithio",
+      "date": "2026-10-14",
+      "checked": "2026-11-24",
+      "note": "USD 150 million is the fund target; first close of USD 100 million is targeted for 2027.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "nithio-risk-20261124",
+      "title": "Nithio: climate-finance analytics",
+      "url": "https://nithio.com/climate-solutions/",
+      "publisher": "Nithio",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Repayment and geospatial models support investment analysis; performance needs local validation.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "cropin-orbitai-20260714",
+      "title": "Cropin: OrbitAI launch with Google Cloud",
+      "url": "https://www.cropin.com/press-release/cropin-and-google-cloud-launch-orbitai-the-worlds-first-agentic-ai-platform-for-food-and-agriculture/",
+      "publisher": "Cropin",
+      "date": "2026-07-14",
+      "checked": "2026-11-24",
+      "note": "Company announcement; market-first and scale claims are not repeated as independently verified facts.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "cropin-intelligence-20261124",
+      "title": "Cropin: domain models and deployment scope",
+      "url": "https://www.cropin.com/intelligent-agriculture-cloud-cropin-intelligence/",
+      "publisher": "Cropin",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "The product page identifies energy and infrastructure applications as upcoming.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "pula-products-20261124",
+      "title": "Pula: insurance, traceability and data services",
+      "url": "https://www.pula-advisors.com/productsandservices",
+      "publisher": "Pula",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Yield insurance uses agro-ecological zones and field crop-cut measurements; do not describe it as satellite-only insurance.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "boomitra-delivery-20261110",
+      "title": "Boomitra: issued soil-carbon credit sales",
+      "url": "https://boomitra.com/boomitra-soil-carbon-credits-northern-mexico/",
+      "publisher": "Boomitra",
+      "date": "2026-11-10",
+      "checked": "2026-11-24",
+      "note": "Company reports delivery of 2.6 million issued credits. Buyer transfers, retirement and future contracted delivery are different statuses.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "satsure-news-20261124",
+      "title": "SatSure: 2026 Earth-intelligence announcements",
+      "url": "https://www.satsure.co/newsroom/",
+      "publisher": "SatSure",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "June 2026 Dhaarini grant and Bhutan MoU are listed. An MoU is not evidence of an operational deployment.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "fido-northumbrian-20261012",
+      "title": "FIDO: water-network monitoring project",
+      "url": "https://fido.tech/news/fido-tech-northumbrian-water-win-joint-emma-award/",
+      "publisher": "FIDO Tech",
+      "date": "2026-10-12",
+      "checked": "2026-11-24",
+      "note": "Company account of a UK utility project, not an independent effectiveness evaluation.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "iceye-floodid-20260827",
+      "title": "ICEYE: predictive-flood partnership",
+      "url": "https://www.iceye.com/newsroom/press-releases/iceye-and-the-water-institute-partner-to-advance-the-next-generation-of-predictive-flood-intelligence?hs_amp=true",
+      "publisher": "ICEYE",
+      "date": "2026-08-27",
+      "checked": "2026-11-24",
+      "note": "Announcement describes integration of FloodID and its development team; its stated initial audience is US organizations.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "iceye-government-flood-20261124",
+      "title": "ICEYE: government flood-insight capabilities",
+      "url": "https://www.iceye.com/solutions/government/flood-insights",
+      "publisher": "ICEYE",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Observed extent/depth and predictive models are distinct products and evidence types.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "okra-products-20261124",
+      "title": "Okra Solar: mesh-grid products",
+      "url": "https://www.okrasolar.com/",
+      "publisher": "Okra Solar",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Current products include Sprout, Leaf and OkraNet. Availability and site suitability require project confirmation.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "okra-planning-20261124",
+      "title": "Okra Solar: demand and network planning",
+      "url": "https://www.okrasolar.com/project-development",
+      "publisher": "Okra Solar",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Describes surveys, demand scoring, network simulation and portfolio planning.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "sparkmeter-current-20261124",
+      "title": "SparkMeter: current operating organization and product",
+      "url": "https://www.sparkmeter.io/",
+      "publisher": "EarthSpark Meter Ops",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "SparkMeter is a product line of EarthSpark Meter Ops, an EarthSpark International affiliate.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "sparkmeter-transition-2026",
+      "title": "SparkMeter: continuity, open source and key escrow",
+      "url": "https://www.sparkmeter.io/news",
+      "publisher": "EarthSpark Meter Ops",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Dated entries document the September 2025 acquisition, July 2026 pre-production ThunderCloud 2.0 release and September 2026 key-escrow options.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "apollo-agriculture-20261124",
+      "title": "Apollo Agriculture: financing and input delivery",
+      "url": "https://www.apolloagriculture.com/about",
+      "publisher": "Apollo Agriculture",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Provider description of Kenya/Zambia services; promotional yield comparisons are omitted.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "simprints-products-20261124",
+      "title": "Simprints: biometric identification products",
+      "url": "https://www.simprints.com/our-work/our-products/",
+      "publisher": "Simprints",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Open-source Android integration, offline operation and backend options.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "simprints-ghana-20260303",
+      "title": "Simprints: infant identity work in Ghana",
+      "url": "https://www.simprints.com/closing-the-identity-gap-a-new-film-feature-on-our-ai-powered-biometrics-in-ghana/",
+      "publisher": "Simprints",
+      "date": "2026-03-03",
+      "checked": "2026-11-24",
+      "note": "Describes developing and scaling infant models; do not infer universal from-birth accuracy or authorization.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "mosip-inji-20261124",
+      "title": "MOSIP: Inji credential stack",
+      "url": "https://www.mosip.io/inji",
+      "publisher": "MOSIP",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Public-good architecture for issuance, wallets and verification, including paper QR credentials.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "inji-verify-rc-20261114",
+      "title": "Inji Verify 1.0.0-rc.1 release",
+      "url": "https://community.mosip.io/t/release-announcement-inji-verify-version-1-0-0-rc-1-is-here/2974",
+      "publisher": "MOSIP community / Inji product team",
+      "date": "2026-11-14",
+      "checked": "2026-11-24",
+      "note": "Release candidate; not described as a generally available stable release.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "rori-product-20261124",
+      "title": "Rori: WhatsApp mathematics tutor",
+      "url": "https://rori.ai/about",
+      "publisher": "Rising Academies / Rori",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Product and pedagogy description from the developer.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "rori-evaluation-20261124",
+      "title": "Rising Academies: evaluation programme",
+      "url": "https://www.risingacademies.com/impact",
+      "publisher": "Rising Academies",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "The September 2026 Ghana trial is ongoing through 2026–27; results are not yet inferred.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "zipline-civ-20260922",
+      "title": "Zipline: Côte d’Ivoire expansion agreement",
+      "url": "https://www.zipline.com/newsroom/cote-d-ivoire-and-zipline-to-expand-ai-powered-health-logistics-infrastructure-to-10-distribution-hubs-reaching-12-million-people",
+      "publisher": "Zipline",
+      "date": "2026-09-22",
+      "checked": "2026-11-24",
+      "note": "Published 22 September; announcement dateline 21 September. Ten hubs and projected coverage refer to planned expansion.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "maad-platform-20261124",
+      "title": "Maad: distribution, merchant data and logistics",
+      "url": "https://maad.io/partners",
+      "publisher": "Maad",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Describes Senegal operations and product functions; vendor scale and income testimonials are not repeated.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "kilimo-method-20261124",
+      "title": "Kilimo: watershed and irrigation operating model",
+      "url": "https://kilimo.com/en/",
+      "publisher": "Kilimo",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Company methodology; water-benefit accounting must be assessed for the specific basin.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "kilimo-projects-20261124",
+      "title": "Kilimo: country project portfolio",
+      "url": "https://kilimo.com/en/projects/",
+      "publisher": "Kilimo",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Lists projects in Argentina, Chile, Brazil, Mexico and the US.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "sunculture-payout-20260413",
+      "title": "SunCulture: first Kenyan climate-insurance payout cycle",
+      "url": "https://sunculture.io/blog/2026/04/13/sunculture-advances-climate-resilience-with-first-insurance-payout-cycle-in-kenya/",
+      "publisher": "SunCulture",
+      "date": "2026-04-13",
+      "checked": "2026-11-24",
+      "note": "The payout event covered October–December 2025. Uganda expansion was a plan in this source.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "sunculture-pumps-20261124",
+      "title": "SunCulture: solar-irrigation offering",
+      "url": "https://sunculture.io/partner-with-us/",
+      "publisher": "SunCulture",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Commercial solar pumps; site, water-access and credit conditions vary.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "wbg-msme-20261117",
+      "title": "WBG: MSME finance and digital tools",
+      "url": "https://www.worldbank.org/en/news/press-release/2026/11/17/msmes-in-developing-countries-face-4-trillion-finance-gap",
+      "publisher": "World Bank Group",
+      "date": "2026-11-17",
+      "checked": "2026-11-24",
+      "note": "Institutional context; not a partnership or endorsement of companies in this radar.",
+      "kind": "Institutional source"
+    },
+    {
+      "id": "wbg-mission300-progress-20260616",
+      "title": "WBG: Mission 300 progress and operating model",
+      "url": "https://www.worldbank.org/en/news/press-release/2026/06/16/under-mission-300-a-new-way-of-doing-business-connects-over-50-million-people-to-electricity-across-africa?trk=article-ssr-frontend-pulse_little-text-block",
+      "publisher": "World Bank Group",
+      "date": "2026-06-16",
+      "checked": "2026-11-24",
+      "note": "Institutional programme context, separate from provider deployment claims.",
+      "kind": "Institutional source"
+    },
+    {
+      "id": "temporal-ai-20261124",
+      "title": "Temporal for AI applications and agents",
+      "url": "https://temporal.io/solutions/ai",
+      "publisher": "Temporal",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "e2b-runtime-20261124",
+      "title": "E2B agent cloud and isolated machines",
+      "url": "https://e2b.dev/",
+      "publisher": "E2B",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "daytona-runtime-20261124",
+      "title": "Daytona infrastructure for AI-generated code",
+      "url": "https://www.daytona.io/",
+      "publisher": "Daytona",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "llamaindex-product-20261124",
+      "title": "LlamaParse document parsing and extraction",
+      "url": "https://www.llamaindex.ai/",
+      "publisher": "LlamaIndex",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "llamaindex-ocria15-20261118",
+      "title": "Introducing OCRia-1.5",
+      "url": "https://www.llamaindex.ai/blog/introducing-ocria-1-5",
+      "publisher": "LlamaIndex",
+      "date": "2026-11-18",
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "llamaindex-nano-20261123",
+      "title": "Introducing OCRia-nano-1",
+      "url": "https://www.llamaindex.ai/blog/introducing-ocria-nano-1",
+      "publisher": "LlamaIndex",
+      "date": "2026-11-23",
+      "checked": "2026-11-24",
+      "note": "Model weights and LiteParse have separate licenses; Nano preserves charts as images.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "nango-product-20261124",
+      "title": "Nango integrations for agents",
+      "url": "https://nango.dev/",
+      "publisher": "Nango",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "qodo-product-20261124",
+      "title": "Qodo code review and software quality platform",
+      "url": "https://www.qodo.ai/",
+      "publisher": "Qodo",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "qodo-session-review-20261118",
+      "title": "Auto Approval Workflows and Agent Session Review",
+      "url": "https://www.qodo.ai/blog/introducing-auto-approval-workflows-and-agent-session-review/",
+      "publisher": "Qodo",
+      "date": "2026-11-18",
+      "checked": "2026-11-24",
+      "note": "Auto Approval Workflows is Beta; Agent Session Review is Research Preview.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "harness-augment-assets-20261008",
+      "title": "Harness acquires selected Augment Code assets including Cosmos",
+      "url": "https://www.harness.io/blog/harness-acquires-augment-code-cosmos",
+      "publisher": "Harness",
+      "date": "2026-10-08",
+      "checked": "2026-11-24",
+      "note": "Announcement updated 16 November 2026; transaction covers selected assets and team, not a claim about every Augment asset.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "augment-cosmos-20261124",
+      "title": "Augment Code Cosmos and Context Engine",
+      "url": "https://www.augmentcode.com/",
+      "publisher": "Augment Code",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "cursor-agents-20261124",
+      "title": "Cursor desktop, CLI and cloud agents",
+      "url": "https://cursor.com/",
+      "publisher": "Cursor",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "coderabbit-platform-20261124",
+      "title": "CodeRabbit agentic change management",
+      "url": "https://www.coderabbit.ai/",
+      "publisher": "CodeRabbit",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "tessl-context-20261124",
+      "title": "Tessl skill registry and workflow evaluation",
+      "url": "https://tessl.io/",
+      "publisher": "Tessl",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "patronus-lab-20261124",
+      "title": "Patronus AI behavioral research lab",
+      "url": "https://www.patronus.ai/",
+      "publisher": "Patronus AI",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "patronus-trail-20250513",
+      "title": "TRAIL: Trace Reasoning and Agentic Issue Localization",
+      "url": "https://www.patronus.ai/research/trail",
+      "publisher": "Patronus AI",
+      "date": "2025-05-13",
+      "checked": "2026-11-24",
+      "note": "The dated benchmark remains useful; it is not a November 2026 product launch.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "hiddenlayer-platform-20261124",
+      "title": "HiddenLayer AI Security Platform",
+      "url": "https://www.hiddenlayer.com/",
+      "publisher": "HiddenLayer",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "witnessai-platform-20261124",
+      "title": "WitnessAI security and governance for employees and agents",
+      "url": "https://witness.ai/",
+      "publisher": "WitnessAI",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "modal-platform-20261124",
+      "title": "Modal production AI infrastructure",
+      "url": "https://modal.com/",
+      "publisher": "Modal",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "baseten-platform-20261124",
+      "title": "Baseten inference, training and execution platform",
+      "url": "https://www.baseten.co/",
+      "publisher": "Baseten",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "fireworks-platform-20261124",
+      "title": "Fireworks specialized intelligence platform",
+      "url": "https://fireworks.ai/",
+      "publisher": "Fireworks AI",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "flower-framework-20261124",
+      "title": "Flower framework documentation",
+      "url": "https://flower.ai/docs/framework/",
+      "publisher": "Flower Labs",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "flower-product-20261124",
+      "title": "Flower collaborative AI platform",
+      "url": "https://flower.ai/",
+      "publisher": "Flower Labs",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "zama-protocol-20261124",
+      "title": "Zama confidential onchain finance protocol",
+      "url": "https://www.zama.org/",
+      "publisher": "Zama",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "pqshield-cryptolib-20261124",
+      "title": "PQCryptoLib-Core software PQC library",
+      "url": "https://pqshield.com/products/pqc-cor/",
+      "publisher": "PQShield",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "nist-pqc-standards-20240813",
+      "title": "NIST releases three finalized post-quantum encryption standards",
+      "url": "https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards",
+      "publisher": "NIST",
+      "date": "2024-08-13",
+      "checked": "2026-11-24",
+      "note": "Source updated 29 August 2025; standards availability should not be presented as a new 2026 announcement.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "viam-platform-20261124",
+      "title": "Viam physical AI infrastructure",
+      "url": "https://www.viam.com/",
+      "publisher": "Viam",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "fieldai-platform-20261124",
+      "title": "FieldAI general robot intelligence",
+      "url": "https://www.fieldai.com/",
+      "publisher": "FieldAI",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "fieldai-kajima-20261105",
+      "title": "Kajima deployment of general-purpose robot autonomy on construction sites",
+      "url": "https://www.fieldai.com/news/kajima-full-scale-deployment-of-robots-with-general-purpose-autonomy-software-on-construction-sites",
+      "publisher": "FieldAI",
+      "date": "2026-11-05",
+      "checked": "2026-11-24",
+      "note": "The announcement title and date were available; linked Kajima PDF returned 403 and its detailed deployment claims were not independently read.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "arcade-platform-20261124",
+      "title": "Arcade actions runtime and MCP governance",
+      "url": "https://www.arcade.dev/",
+      "publisher": "Arcade",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "arcade-preauthorization-20260902",
+      "title": "Pre-authorize agent tools before a long-running task",
+      "url": "https://www.arcade.dev/blog/pre-authorize-agent-tools/",
+      "publisher": "Arcade",
+      "date": "2026-09-02",
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "zep-graphiti-20261124",
+      "title": "Graphiti temporal context graphs",
+      "url": "https://www.getzep.com/platform/graphiti/",
+      "publisher": "Zep",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "letta-agent-20261124",
+      "title": "Letta persistent agents and memory",
+      "url": "https://www.letta.com/agent/",
+      "publisher": "Letta",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "letta-conversations-20260121",
+      "title": "Shared agent memory across concurrent conversations",
+      "url": "https://www.letta.com/blog/conversations/",
+      "publisher": "Letta",
+      "date": "2026-01-21",
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
     }
   ],
   "highlights": [
@@ -7111,6 +9933,15 @@
       "trendId": "local-language-ai"
     },
     {
+      "title": "A local first pass for document processing",
+      "date": "2026-11-23",
+      "text": "LlamaIndex released OCRia-nano-1 for local CPU parsing through LiteParse. Complex charts and degraded scans still require separate handling.",
+      "sourceIds": [
+        "llamaindex-nano-20261123"
+      ],
+      "trendId": "document-intelligence"
+    },
+    {
       "title": "Factory expands Azure and Microsoft workflow integration",
       "date": "2026-11-18",
       "text": "A concrete path to assess coding agents inside existing Azure, identity and review workflows; institutional approval and local validation are still required.",
@@ -7143,6 +9974,24 @@
       ],
       "trendId": "resilient-digital-operations",
       "text": "A recent domain-specific operational model release makes incident replay a timely evaluation; vendor claims still need local testing."
+    },
+    {
+      "title": "Reviewing the coding agent’s complete session",
+      "date": "2026-11-18",
+      "text": "Qodo introduced Agent Session Review as a research preview, connecting related pull requests, agent decisions and evidence for a human review.",
+      "sourceIds": [
+        "qodo-session-review-20261118"
+      ],
+      "trendId": "software-agents"
+    },
+    {
+      "title": "Document extraction keeps source locations",
+      "date": "2026-11-18",
+      "text": "OCRia-1.5 adds improved document structure and bounding-box placement in LlamaParse; evaluation should include whether readers can verify each extracted field.",
+      "sourceIds": [
+        "llamaindex-ocria15-20261118"
+      ],
+      "trendId": "document-intelligence"
     },
     {
       "title": "Replit introduces Missions",
@@ -7179,6 +10028,24 @@
       "text": "Credo AI announced connected records for agents, MCP servers and deployment platforms. A useful test is whether a component change identifies the right affected applications and review evidence."
     },
     {
+      "title": "Digital records matter for small-firm finance",
+      "date": "2026-11-17",
+      "text": "New WBG reporting connects MSME finance constraints with digital visibility, market access and financial infrastructure.",
+      "sourceIds": [
+        "wbg-msme-20261117"
+      ],
+      "trendId": "productive-small-firms"
+    },
+    {
+      "title": "Digital credentials move into the browser",
+      "date": "2026-11-14",
+      "text": "Inji Verify’s latest release candidate adds browser-based credential requests and reusable verification components. Stable-release readiness remains a separate check.",
+      "sourceIds": [
+        "inji-verify-rc-20261114"
+      ],
+      "trendId": "interoperable-public-infrastructure"
+    },
+    {
       "date": "2026-11-11",
       "title": "Voice agents expand enterprise deployment choices",
       "text": "ElevenLabs and NVIDIA announced expanded deployment work. Language performance and architecture still require case-specific checks.",
@@ -7186,6 +10053,15 @@
         "elevenlabs-nvidia-20261111"
       ],
       "trendId": "conversational-voice-agents"
+    },
+    {
+      "title": "Construction autonomy enters selected deployments",
+      "date": "2026-11-05",
+      "text": "FieldAI published a Kajima construction deployment announcement. Site-level capability and safety should be checked before extrapolating to other infrastructure projects.",
+      "sourceIds": [
+        "fieldai-kajima-20261105"
+      ],
+      "trendId": "physical-ai"
     },
     {
       "date": "2026-10-29",
@@ -7292,6 +10168,15 @@
       "trendId": "world-models"
     },
     {
+      "title": "Augment technology joins the Harness portfolio",
+      "date": "2026-10-08",
+      "text": "Harness acquired selected Augment Code assets including Cosmos, Auggie CLI and the Code Context Engine. The radar identifies Cosmos as an ecosystem product.",
+      "sourceIds": [
+        "harness-augment-assets-20261008"
+      ],
+      "trendId": "software-agents"
+    },
+    {
       "date": "2026-10-05",
       "title": "Private enterprise AI combines knowledge and reusable agents",
       "summary": "Cohere announced North 2 with reusable agent capabilities and multiple deployment arrangements. Evaluate permissions, quality and total operating cost on a defined institutional task.",
@@ -7362,6 +10247,15 @@
       "trendId": "experimental-scientific-ai"
     },
     {
+      "title": "Authorize planned tool access before a long task",
+      "date": "2026-09-02",
+      "text": "Arcade added bundled pre-authorization for planned tool calls while retaining user-scoped authorization and per-action enforcement.",
+      "sourceIds": [
+        "arcade-preauthorization-20260902"
+      ],
+      "trendId": "agent-interoperability"
+    },
+    {
       "title": "AgriConnect sets a digital implementation direction",
       "date": "2026-09-01",
       "text": "The 2026 implementation plan includes AgTech and interoperable digital public infrastructure among its delivery pillars.",
@@ -7369,6 +10263,24 @@
         "wbg-agriconnect"
       ],
       "trendId": "agriculture-intelligence"
+    },
+    {
+      "title": "A larger test for tutoring on everyday phones",
+      "date": "2026-09",
+      "text": "Rising Academies began a 100-school Ghana evaluation of Rori. This is a trial in progress, not a published result.",
+      "sourceIds": [
+        "rori-evaluation-20261124"
+      ],
+      "trendId": "adaptive-learning"
+    },
+    {
+      "title": "Open metering raises the continuity question",
+      "date": "2026-07-31",
+      "text": "EarthSpark opened the next-generation SparkMeter software for development. Supplier-exit options now sit beside tariff, hardware and service performance in procurement questions.",
+      "sourceIds": [
+        "sparkmeter-transition-2026"
+      ],
+      "trendId": "distributed-energy"
     },
     {
       "title": "MCP publishes a revised specification",

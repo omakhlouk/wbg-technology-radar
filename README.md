@@ -1,37 +1,88 @@
 # WBG Technology & Innovation Radar
 
-An interactive technology radar for WBG development, ITS capabilities and the wider frontier, with a separate hologram film.
+A single interactive radar and a guided film rendered from the same research records, sector definitions, coordinates and drawing code.
 
-This edition includes **37 trends, 102 startups and ecosystem builders, 17 use cases and 214 source entries**. The broad landscape was checked on **23 November 2026**; the company close-ups and selected WBG references were refreshed on **24 November 2026**.
+## Open, share, display
 
-## Explore, share and display
+- [Interactive radar](https://omakhlouk.github.io/wbg-technology-radar/#radar)
+- [Guided film and downloads](https://omakhlouk.github.io/wbg-technology-radar/?view=film#film)
+- [Hologram MP4 — 1080 × 1080](https://omakhlouk.github.io/wbg-technology-radar/radar-hologram-1080.mp4?v=2026.11.24.7)
+- [Presentation MP4 — 1920 × 1080](https://omakhlouk.github.io/wbg-technology-radar/radar-widescreen-1080.mp4?v=2026.11.24.7)
+- [QR PNG](radar-qr.png), [QR SVG](radar-qr.svg), [QR poster](radar-qr-poster.png)
 
-- [Interactive radar](https://omakhlouk.github.io/wbg-technology-radar/)
-- [Hologram and video studio](https://omakhlouk.github.io/wbg-technology-radar/showcase.html)
-- [Clean square hologram view](https://omakhlouk.github.io/wbg-technology-radar/showcase.html?mode=hologram&clean=1&play=1)
-- [Hologram MP4: 1080 × 1080, 180 seconds](https://omakhlouk.github.io/wbg-technology-radar/radar-hologram-1080.mp4?v=2026.11.24.5)
-- [Presentation MP4: 1920 × 1080, 180 seconds](https://omakhlouk.github.io/wbg-technology-radar/radar-widescreen-1080.mp4?v=2026.11.24.5)
-- [QR code PNG](radar-qr.png) · [QR code SVG](radar-qr.svg)
-- [WBG-branded QR poster](radar-qr-poster.png)
+Both films are 180-second, 30 fps H.264 MP4s without audio. The square film has a black surround and circular composition for a front-facing hologram display. Device-specific layouts, mirroring and rotation must follow the actual display specification.
 
-The homepage is a customizable explorer. Click a radar area for its topics, companies and WBG references; click a named company or trend for its profile, official website and evidence. Switch between WBG, ITS and Frontier, filter by topic or horizon, search, adjust name labels, expand the radar, compare companies and save a shortlist. The matching-results list exposes every filtered record. **Copy this view** preserves the current filters; **Share / QR** offers a verified code that always opens the full interactive homepage.
+The QR opens the public interactive radar. The existing public URL and QR remain valid.
 
-Earlier `research.html` links and root cinema URLs remain compatible. The two film addresses are unchanged.
+## This edition — 24 November 2026
 
-The separate showcase tells a three-minute story with 12 trend scenes, 5 company close-ups and 63 featured builders. The camera zooms into Sarvam AI, SatSure, Factory, Reducto and LILA Sciences to explain functions and potential relevance to documented WBG work. Six scenes address WBG development priorities, four address ITS capabilities and two cover scientific and physical AI. Readable labels rotate through all 102 names across the full loop. The square film uses a pure black background and a circular safe area. It is a front-facing composition; match the display manufacturer's required format.
+134 company and ecosystem-builder profiles; 41 technology trends; 17 proposed use cases; 282 source records; 42 recent signals.
 
-The studio provides scene selection, playback, named-company search, evidence and insight dialogs, full-screen cinema view, mirroring, PNG export and custom browser recordings. Browsers use MP4/H264 when supported and WebM otherwise. The two provided films are H264 MP4, 30fps, without audio. Storyboard reviewed 24 November 2026; the underlying research cutoff remains 23 November, with the targeted research refresh recorded separately. Every scene names a WBG reference; company applications remain proposed connections.
+The latest research pass adds 32 profiles, expands 12 existing profiles, and includes 68 newly reviewed source records. The inherited broad research date remains 23 November 2026. Publication dates and profile/source review dates are distinct. The five film spotlights have canonical capabilities, concise potential applications and WBG source links.
 
-## Hosting
+This is a curated, source-linked snapshot, not an exhaustive or automatically updated market census. Each profile retains its own review date. Company availability, announced plans, research previews and established products are differentiated. WBG references provide institutional context; proposed applications do not claim WBG adoption or endorsement.
 
-GitHub Pages publishes the files in the root of the `main` branch. In Settings → Pages, the publishing source is **Deploy from a branch**, **main**, **/(root)**. Subsequent commits to the website files update the site automatically. No application server, API key or visitor account is needed.
+The three perspectives are:
 
-The research library retains WBG, ITS and Frontier perspectives, source-linked profiles, comparison, use cases, recent signals and a local shortlist. Radar positions describe editorial assessments rather than WBG adoption. Public-good organizations are labelled separately. This is a curated edition, not an exhaustive or continuously refreshed market map.
+1. WBG development: public services, climate and Earth, agriculture and food, health/skills/jobs, energy/infrastructure, finance/firms/trade.
+2. ITS and enterprise: software, knowledge/agents, data/forecasting, trust/identity, cloud/reliability, models/interfaces.
+3. Frontier: work/agents, models/interfaces, agent foundations, physical/spatial AI, science/simulation, compute/quantum.
 
-## Source and maintenance
+## Interface
 
-[Download the source and deployment instructions](source-release.zip). The archive includes the original `dist/` layout, all checked research, the storyboard, data compilers and video renderer. The full-quality MP4s are separate downloads above; `RESTORE_FILMS.md` explains where to place them before deploying the complete site elsewhere. The files at this repository root are the directly published copy; logo paths are adjusted for the flat layout. To rebuild the film, use `scripts/render_showcase_video.mjs` with Node.js, `@napi-rs/canvas`, FFmpeg and `--font-dir` pointing to licensed local Arial Regular and Bold files. The films use actual Arial and the official vector WBG logotype. Font binaries are excluded from the public package.
+The interface follows the supplied TI direction: a dark navy radar canvas, a restrained blue glow, pale content surfaces, the existing WBG wordmark, and an Arial-based font stack. Details appear on selection rather than surrounding the radar with permanent explanation panels.
 
-The original Azure address is a separate deployment. Publishing here does not change the Azure site.
+Select a sector or point, switch perspective or company/trend mode, search, open filters, adjust name density, save records, or use Explore for every record. Source links and related WBG work appear inside each profile. Explore also exposes use cases and recent signals. Export downloads the currently filtered data as CSV. Shortlists are stored only in the visitor's browser.
 
-Release: `2026.11.24.6-github-c48b9043a253`. `build.json` records hashes of the reviewed website assets.
+Positions remain fixed when filters change. The overview deliberately shows a limited number of names; all records remain reachable through the directory. The film uses the same layout and includes five company close-ups: Sarvam AI, SatSure, Factory, Reducto and LILA Sciences.
+
+## Architecture
+
+- `data.json`: canonical research, definitions, company/trend relationships and source records.
+- `data.js`: the same data serialized for static browser loading.
+- `radar-core.js`: shared deterministic layout, filtering, drawing and hit testing.
+- `radar-film.js`: the 180-second camera tour using RadarCore and canonical company fields.
+- `app.js`, `index.html`, `styles.css`: interactive explorer, profiles, directory and film player.
+- `scripts/render-radar.mjs`: offline Node-canvas capture plus FFmpeg encoding.
+- `scripts/verify-radar.mjs`: research integrity, layout and film-provenance checks.
+- `research/`: source research and provenance for the refresh.
+- `build.json`: published release and asset hashes.
+- MP4 sidecar JSON files: input fingerprints, format, duration and output SHA-256.
+
+The previous separate showcase model, renderer and duplicate company dataset have been removed. Existing `showcase.html` and `research.html` URLs redirect to the unified application.
+
+## Run and export
+
+The site is buildless and has no server-side application, visitor sign-in or API key. Serve the repository root using an ordinary static web server. For example:
+
+```sh
+python3 -m http.server 8080
+```
+
+For video generation, install Node.js, FFmpeg and the package dependencies:
+
+```sh
+npm install
+node scripts/render-radar.mjs --format square --crf 21 --preset faster
+node scripts/render-radar.mjs --format wide --crf 21 --preset faster
+node scripts/verify-radar.mjs
+```
+
+To review still frames before encoding:
+
+```sh
+node scripts/render-radar.mjs --format square --preview
+node scripts/render-radar.mjs --format wide --preview
+```
+
+Pass `--font-dir /path/to/licensed/Arial` to use local Arial font binaries. No commercial fonts are distributed in this repository. The delivered films use Liberation Sans as an Arial-metric-compatible fallback; their sidecar metadata records this. The WBG logo remains its original vector wordmark.
+
+Always regenerate both MP4s after changing canonical data, radar geometry, the film timeline or the logo. The provenance verifier rejects a film whose input fingerprints do not match the current files.
+
+## Publication
+
+GitHub Pages publishes the root of the `main` branch. Commit a consistent release only after the data, website and both films pass verification. Preserve the existing public address and QR destination.
+
+The source archive contains the current source and research; videos are provided separately to keep the archive practical. Restore both MP4s and their metadata from the public links if deploying the archive elsewhere.
+
+Release: `2026.11.24.7`.

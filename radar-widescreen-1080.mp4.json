@@ -1,0 +1,23 @@
+{
+  "file": "radar-widescreen-1080.mp4",
+  "format": "wide",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "durationSeconds": 180,
+  "bytes": 7548871,
+  "sha256": "6e6ff1b8dca4c31061fcd28dd641b870a78d23ca3c35c6731b5a53ea955bc905",
+  "fontFamily": "Liberation Sans (Arial-compatible fallback)",
+  "sharedRenderer": "radar-core.js",
+  "filmRenderer": "radar-film.js",
+  "dataVersion": "2026.11.24.7",
+  "companyCount": 134,
+  "trendCount": 41,
+  "inputs": {
+    "data.js": "339923ea47162adaf4d335b36119bfc5f0169c9cac669c248c40e81645506911",
+    "radar-core.js": "3c0521b077712303084565f21d89672ea8158f9fc1ae13e23d79b3dfa087837e",
+    "radar-film.js": "d83b0dde1eb440c0f623b52ba77f347e10fa3750d529cd5d85ff9575fe3b26f5",
+    "wbg-logo-white.svg": "755489ceb22228ef1a909e2ae6beba4d8dd17bdc0911c699ff805f7fc513a5fc"
+  },
+  "createdAt": "2026-11-24T19:18:35.442Z"
+}

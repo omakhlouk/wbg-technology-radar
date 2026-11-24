@@ -1,135 +1,46 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#002244">
-  <meta name="description" content="An interactive WBG technology radar. Explore areas, trends and startups, follow company websites and World Bank Group articles, and build your own view of the landscape.">
-  <title>Technology & Innovation Radar | World Bank Group</title>
-  <script src="entry-route.js?v=2026.11.24.6"></script>
-  <link rel="stylesheet" href="styles.css?v=2026.11.24.6">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050e1e">
+<meta name="description" content="Explore technologies, companies and evidence relevant to World Bank Group development priorities and enterprise work.">
+<title>Technology radar | World Bank Group</title>
+<link rel="stylesheet" href="styles.css?v=2026.11.24.7">
+<script defer src="data.js?v=2026.11.24.7"></script>
+<script defer src="radar-core.js?v=2026.11.24.7"></script><script defer src="radar-film.js?v=2026.11.24.7"></script><script defer src="app.js?v=2026.11.24.7"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to the radar</a>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="#radar" aria-label="World Bank Group innovation radar home">
-        <img class="brand-logo" src="wbg-logo.svg" alt="World Bank Group" width="178" height="42">
-        <span class="brand-unit">ITS <span>Technology &amp; Innovation</span></span>
-      </a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <button type="button" data-view="radar" class="nav-link active" aria-current="page">Radar</button>
-        <a class="nav-link mobile-film-link" href="showcase.html">Hologram video</a>
-        <button type="button" data-view="trends" class="nav-link">Trends</button>
-        <button type="button" data-view="usecases" class="nav-link">Use cases</button>
-        <button type="button" data-view="startups" class="nav-link">Startups</button>
-        <button type="button" data-view="signals" class="nav-link">Recent signals</button>
-      </nav>
-      <div class="header-tools">
-        <a class="header-film-link" href="showcase.html"><span data-icon="play"></span><span>Hologram video</span></a>
-        <button type="button" class="header-share-button" data-action="open-share"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h6v6H3Zm12 0h6v6h-6ZM3 15h6v6H3Zm12 0h2v2h-2Zm4-2h2v4h-2Zm-4 6h4v2h-4Zm6 0v2M11 3v2m0 6h2v2h-2Zm-8 0h2m6 6v4m2-10h4"/></svg><span>Share / QR</span></button>
-        <button type="button" class="shortlist-header icon-label" data-action="open-shortlist" aria-label="Open saved companies"><span data-icon="bookmark"></span><span class="header-shortlist-label">Shortlist</span><span id="shortlist-count" class="count-pill">0</span></button>
-      </div>
-    </div>
-  </header>
-
-  <main id="main-content" class="main-shell">
-    <section class="page-intro" aria-labelledby="page-title">
-      <div class="intro-copy">
-        <h1 id="page-title">Technology &amp; Innovation Radar</h1>
-      </div>
-      <div class="edition-block">
-        <div class="edition-tag"><span data-icon="calendar"></span><span>Research updated · <span id="edition-date">23 November 2026</span></span></div>
-        <div class="edition-stats" aria-label="Radar coverage">
-          <div><strong id="trend-total">—</strong><span>trends</span></div>
-          <div><strong id="company-total">—</strong><span>companies &amp; builders</span></div>
-          <div><strong id="domain-total">6</strong><span>areas</span></div>
-        </div>
-        <button type="button" class="text-button how-button" data-action="tour"><span data-icon="help"></span>How to read the radar</button>
-      </div>
-    </section>
-
-    <section id="lens-section" class="lens-section" aria-label="Choose your perspective"><div id="lens-cards" class="lens-cards"></div><div class="all-lens-control"><button type="button" data-lens="all" aria-pressed="false">View all</button><span id="active-lens-caption" class="sr-only"></span></div></section>
-    <section id="filter-section" class="filter-section" aria-label="Explore and filter">
-      <div class="filter-topline">
-        <label class="search-field"><span data-icon="search"></span><span class="sr-only">Search trends and companies</span><input id="search-input" type="search" placeholder="Search trends, companies, use cases…" autocomplete="off"><kbd>/</kbd></label>
-      </div>
-      <div class="filter-bottomline">
-        <div class="filter-selects">
-          <label class="select-wrap"><span class="sr-only">Filter by domain</span><select id="domain-select"><option value="all">All domains</option></select><span data-icon="chevron"></span></label>
-          <label class="select-wrap"><span class="sr-only">Filter by horizon</span><select id="ring-select"><option value="all">All horizons</option><option value="now">Now</option><option value="next">Next</option><option value="horizon">Horizon</option></select><span data-icon="chevron"></span></label>
-          <button type="button" class="filter-chip" id="saved-filter" data-action="toggle-shortlist" aria-pressed="false"><span data-icon="bookmark"></span>Saved only</button>
-          <button type="button" class="clear-button" id="clear-filters" data-action="clear-filters" hidden>Clear filters</button>
-        </div>
-        <div class="result-summary" id="result-summary" aria-live="polite"></div>
-      </div>
-    </section>
-
-    <section id="radar-view" class="view-section" aria-label="Interactive technology radar">
-      <div id="lens-context" class="lens-context"></div>
-      <div class="radar-layout" id="radar-layout">
-        <section class="radar-panel" aria-labelledby="radar-heading">
-          <div class="radar-panel-top">
-            <div><h2 id="radar-heading">Click an area or name</h2></div>
-            <div class="radar-panel-actions"><div class="radar-type-toggle" aria-label="What to plot"><button type="button" data-type="companies" class="active" aria-pressed="true">Companies</button><button type="button" data-type="trends" aria-pressed="false">Trends</button></div><button type="button" id="radar-size-button" class="radar-size-button" data-action="toggle-radar-size" aria-pressed="false" aria-controls="radar-layout"><span data-icon="expand"></span><span>Expand radar</span></button></div>
-          </div>
-          <div class="radar-customize-bar">
-            <label class="radar-label-control" for="label-select"><span>Names</span><span class="select-wrap"><select id="label-select"><option value="smart">Smart labels</option><option value="all">More labels</option><option value="focus">Selected only</option></select><span data-icon="chevron"></span></span></label>
-            <button type="button" id="copy-view-button" class="radar-copy-button" data-action="copy-view"><span data-icon="link"></span>Copy this view</button>
-          </div>
-          <div class="radar-graphic" id="radar-graphic"></div>
-          <div id="radar-domain-legend" class="radar-domain-legend" aria-label="Radar domains"></div>
-          <div class="radar-toolbar">
-            <div class="radar-hint sr-only"><span data-icon="cursor"></span><span id="radar-interaction-hint">Select a signal to explore it. Select a domain to focus.</span></div>
-            <button type="button" id="motion-button" class="motion-button" data-action="toggle-motion" aria-pressed="false"><span data-icon="pause"></span><span>Pause motion</span></button>
-          </div>
-          <div class="ring-legend"><button type="button" data-ring="now"><i class="ring-swatch experiment"></i><span><strong>Now</strong><small>Available to explore</small></span></button><button type="button" data-ring="next"><i class="ring-swatch assess"></i><span><strong>Next</strong><small>Evidence developing</small></span></button><button type="button" data-ring="horizon"><i class="ring-swatch watch"></i><span><strong>Horizon</strong><small>Milestones ahead</small></span></button></div>
-        </section>
-        <aside id="detail-panel" class="detail-panel" aria-label="Selected signal details"></aside>
-      </div>
-      <div class="radar-bottomnote"><span data-icon="info"></span><span>Now, Next and Horizon describe emerging opportunities. Read the evidence and availability in each record; positions do not certify readiness or record WBG adoption.</span><button type="button" data-view="about">How positions are assigned</button></div>
-      <section class="radar-results" aria-labelledby="radar-results-heading">
-        <div class="section-heading radar-results-heading"><div><h2 id="radar-results-heading">Matching companies &amp; trends</h2><p id="radar-results-summary" aria-live="polite">Choose a point or explore the names below.</p></div><button type="button" class="text-button" data-action="export-csv"><span data-icon="download"></span>Export company list</button></div>
-        <div id="radar-results-list" class="radar-results-list"></div>
-      </section>
-      <section id="featured-usecases" class="featured-usecases" aria-label="Use cases connected to this perspective"></section>
-      <section class="below-radar" aria-labelledby="connections-heading"><div class="section-heading"><div><h2 id="connections-heading">Explore by area</h2></div></div><div id="domain-grid" class="domain-grid"></div></section>
-    </section>
-
-    <section id="trends-view" class="view-section" hidden aria-labelledby="trends-heading">
-      <div class="section-heading view-heading"><div><h2 id="trends-heading">Trends</h2></div></div>
-      <div id="trends-grid" class="trends-grid"></div>
-    </section>
-
-    <section id="startups-view" class="view-section" hidden aria-labelledby="startups-heading">
-      <div class="section-heading view-heading"><div><h2 id="startups-heading">Startups &amp; ecosystem builders</h2><p id="directory-description">Explore capabilities, public evidence and potential applications. Save companies to your shortlist or compare up to three.</p></div><div class="directory-actions"><button type="button" class="secondary-button" data-action="export-csv"><span data-icon="download"></span>Export this list</button></div></div>
-      <div id="companies-grid" class="companies-grid"></div>
-      <p class="directory-footnote">Company descriptions summarize public evidence. Proposed applications are our analysis; commercial claims and suitability have not been independently tested.</p>
-    </section>
-
-    <section id="usecases-view" class="view-section" hidden aria-labelledby="usecases-heading"><div class="section-heading view-heading"><div><h2 id="usecases-heading">Use cases</h2></div></div><div id="usecases-grid" class="usecases-grid"></div></section>
-
-    <section id="signals-view" class="view-section" hidden aria-labelledby="signals-heading"><div class="section-heading view-heading"><div><h2 id="signals-heading">Recent signals</h2></div></div><div id="signals-list" class="signals-list"></div></section>
-
-    <section id="about-view" class="view-section about-view" hidden aria-labelledby="about-heading"></section>
-  </main>
-
-  <footer class="site-footer"><div class="footer-brand"><img src="wbg-logo-white.svg" alt="World Bank Group" width="225" height="44"><span>ITS · Technology &amp; Innovation</span></div><p>Public-source research · Potential applications, not endorsements<br><span id="footer-date">Checked 23 November 2026</span></p><div class="footer-actions"><a class="text-button" href="showcase.html">Hologram video &amp; recording</a><button type="button" class="text-button" data-action="open-share">Share the radar / QR code</button><button type="button" class="text-button" data-view="about">About &amp; sources</button><button type="button" class="text-button" data-action="export-json"><span data-icon="download"></span>Download research data</button></div></footer>
-  <aside id="compare-tray" class="compare-tray" aria-label="Companies selected for comparison" hidden></aside>
-  <div id="radar-tooltip" class="radar-tooltip" role="tooltip" hidden></div>
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <dialog id="detail-dialog" class="detail-dialog" aria-labelledby="dialog-title"><div id="dialog-content"></div></dialog>
-  <dialog id="tour-dialog" class="tour-dialog" aria-labelledby="tour-title"><div id="tour-content"></div></dialog>
-  <dialog id="compare-dialog" class="compare-dialog" aria-labelledby="compare-title"><div id="compare-content"></div></dialog>
-  <dialog id="share-dialog" class="share-dialog" aria-labelledby="share-title">
-    <header class="share-dialog-head"><div><h2 id="share-title">Share the radar</h2><p>Scan the QR code or send a link to your current view.</p></div><button type="button" class="dialog-close" data-action="close-share" aria-label="Close sharing"><span data-icon="close"></span></button></header>
-    <div class="share-dialog-body">
-      <div class="share-qr-panel"><img src="radar-qr.png" width="300" height="300" alt="QR code to open the public WBG Technology and Innovation Radar"><strong>Open the interactive radar</strong><p>This QR code always opens the full radar. No sign-in required.</p><div class="qr-downloads"><a href="radar-qr.png" download>QR · PNG</a><a href="radar-qr.svg" download>QR · SVG</a><a href="radar-qr-poster.png" download>Branded poster</a></div></div>
-      <div class="share-options"><section class="share-view-field"><h3>Share your current view</h3><p>Keep your perspective, search and filters when you share a link.</p><label for="share-url">Link to this view</label><input id="share-url" type="url" readonly value="https://omakhlouk.github.io/wbg-technology-radar/" spellcheck="false"><button type="button" class="primary-button" data-action="copy-view"><span data-icon="link"></span>Copy this view</button></section><section class="share-film-panel"><h3>Hologram video</h3><p>The three-minute film includes five company close-ups, with a black background and a circular composition.</p><a class="secondary-button" href="radar-hologram-1080.mp4?v=2026.11.24.5" download><span data-icon="download"></span>Download hologram MP4</a><a class="text-button" href="showcase.html">Open the video studio</a></section></div>
-    </div>
-  </dialog>
-  <script src="data.js?v=2026.11.24.6"></script>
-  <script src="showcase-data.js?v=2026.11.24.6"></script>
-  <script src="app.js?v=2026.11.24.6"></script>
-</body>
-</html>
+<a class="skip-link" href="#main-content">Skip to radar</a>
+<header class="site-header">
+<a class="brand" href="#radar" aria-label="World Bank Group Technology and Innovation radar"><img src="wbg-logo-white.svg" alt="World Bank Group" width="154" height="34"><span class="brand-unit">Technology &amp; Innovation</span></a>
+<nav aria-label="Main navigation"><button data-view="radar" class="nav-link active" aria-current="page">Radar</button><button data-view="directory" class="nav-link">Explore</button><button data-action="about" class="nav-link">About</button></nav>
+<div class="header-actions"><button class="film-link" data-action="film"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg><span>Watch film</span></button><button class="share-button" data-action="share">Share</button></div>
+</header>
+<main id="main-content">
+<section class="radar-hero" id="radar-view" aria-label="Interactive technology radar">
+<div class="hero-heading"><div><span class="eyebrow">November 2026</span><h1>Technology radar</h1></div><span id="edition-count" class="edition-count"></span></div>
+<div class="radar-controls">
+<div class="perspectives" role="group" aria-label="Perspective"><button data-lens="wbg" class="active" aria-pressed="true">WBG development</button><button data-lens="its" aria-pressed="false">ITS &amp; enterprise</button><button data-lens="frontier" aria-pressed="false">Frontier</button></div>
+<div class="control-actions"><label class="search-control"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg><input id="radar-search" type="search" placeholder="Find a company or trend" aria-label="Find a company or trend" autocomplete="off"></label><button class="icon-button" data-action="filters" aria-controls="filter-row" aria-expanded="false" aria-label="Show filters"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="10" cy="18" r="2"/></svg></button></div>
+</div>
+<div id="filter-row" class="filter-row" hidden>
+<label>Area<select id="domain-filter"><option value="all">All areas</option></select></label><label>Horizon<select id="horizon-filter"><option value="all">All horizons</option><option value="now">Now</option><option value="next">Next</option><option value="horizon">Horizon</option></select></label><label>Names<select id="label-filter"><option value="smart">Selected names</option><option value="more">More names</option><option value="none">Points only</option></select></label><button data-action="reset" class="text-button">Reset view</button>
+</div>
+<div class="stage-topline"><div class="type-toggle" role="group" aria-label="Radar content"><button data-kind="companies" class="active" aria-pressed="true">Companies</button><button data-kind="trends" aria-pressed="false">Trends</button></div><div class="stage-utilities"><span id="filter-status" aria-live="polite"></span><button data-action="clear-domain" id="clear-domain" hidden>All areas</button><button class="icon-button" data-action="fullscreen" aria-label="Expand radar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button></div></div>
+<div class="radar-stage" id="radar-stage"><canvas id="radar-canvas" role="img" aria-label="Technology radar. Select a point or area, or use the accessible results list below."></canvas><div class="radar-tooltip" id="radar-tooltip" hidden></div><div class="empty-radar" id="empty-radar" hidden><h2>No matches in this view</h2><p>Try another term or perspective.</p><button class="light-button" data-action="reset">Reset filters</button></div></div>
+<div class="stage-footer"><button class="text-button" data-action="method">Now · Next · Horizon <span aria-hidden="true">ⓘ</span></button><span class="interaction-hint">Select an area or a name</span><button class="text-button" data-action="motion" id="motion-control">Pause motion</button></div>
+</section>
+<section class="research-section" id="research-section" aria-labelledby="results-heading">
+<div class="section-heading"><div><h2 id="results-heading">Explore the landscape</h2><p id="results-summary"></p></div><div class="research-actions"><button data-action="saved" id="saved-button" class="quiet-button" aria-pressed="false">Saved <span id="saved-count">0</span></button><button data-action="export" class="quiet-button">Export</button></div></div>
+<div class="directory-toolbar" id="directory-toolbar" hidden><label class="light-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg><input id="directory-search" type="search" placeholder="Search the full landscape" aria-label="Search the full landscape"></label><select id="directory-lens" aria-label="Directory perspective"><option value="all">All perspectives</option><option value="wbg">WBG development</option><option value="its">ITS &amp; enterprise</option><option value="frontier">Frontier</option></select><select id="directory-kind" aria-label="Record type"><option value="companies">Companies</option><option value="trends">Trends</option><option value="usecases">Use cases</option><option value="signals">Recent signals</option></select></div>
+<div class="cards-grid" id="results-grid"></div><div class="results-bottom"><button id="load-more" class="outline-button" data-action="more">Show more</button><button id="browse-all" class="quiet-button" data-view="directory">Explore all companies and trends</button></div>
+</section>
+<section class="film-section" id="film-section" hidden aria-label="Radar film">
+<div class="film-heading"><button data-view="radar" class="text-button">Back to radar</button><h1>The radar, in motion.</h1><p>The same landscape, with time to look closer.</p></div>
+<div class="film-layout"><div class="film-player"><canvas id="film-canvas" aria-label="Animated guided tour of the technology radar"></canvas><div class="film-controls"><button id="film-play" data-action="film-play">Pause</button><input id="film-seek" type="range" min="0" max="180" step="0.1" value="0" aria-label="Film position"><span id="film-time">0:00 / 3:00</span><button data-action="film-fullscreen" aria-label="Fullscreen film"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button></div></div>
+<aside class="film-downloads"><h2>Take it to the room.</h2><p>Download the film for your display.</p><a class="primary-button" id="download-square" href="radar-hologram-1080.mp4?v=2026.11.24.7" download>Hologram MP4</a><span>1080 × 1080 · 3 minutes</span><a class="outline-button" id="download-wide" href="radar-widescreen-1080.mp4?v=2026.11.24.7" download>Presentation MP4</a><span>1920 × 1080 · 3 minutes</span><a class="quiet-button" href="radar-qr-poster.png" download>Download QR poster</a></aside></div><div class="film-chapters" id="film-chapters" aria-label="Film chapters"></div>
+</section>
+</main>
+<footer class="site-footer"><img src="wbg-logo.svg" alt="World Bank Group" width="148" height="35"><p>Technology &amp; Innovation</p><div><button data-action="about">Research &amp; sources</button><a href="https://www.worldbank.org/en/about/legal" target="_blank" rel="noopener noreferrer">Legal</a><button data-action="share">Share radar</button></div></footer>
+<div class="drawer-backdrop" id="drawer-backdrop" hidden></div><aside class="detail-drawer" id="detail-drawer" role="dialog" aria-modal="true" aria-labelledby="detail-title" hidden><button class="drawer-close icon-button" data-action="close" aria-label="Close details">×</button><div id="detail-content"></div></aside>
+<dialog id="general-dialog"><button class="dialog-close icon-button" data-action="close-dialog" aria-label="Close dialog">×</button><div id="dialog-content"></div></dialog><div class="toast" id="toast" role="status" hidden></div>
+</body></html>

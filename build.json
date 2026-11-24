@@ -1,45 +1,105 @@
 {
-  "release": "2026.11.24.6-github-c48b9043a253",
+  "release": "2026.11.24.7",
+  "edition": "2026.11.24.7",
+  "sourceRelease": "2026.11.24.7",
+  "generatedAt": "2026-11-24T19:25:25Z",
   "researchChecked": "2026-11-23",
-  "sourceRelease": "2026.11.24.6-6db4a60de7d3",
+  "latestResearchRefresh": "2026-11-24",
+  "spotlightsChecked": "2026-11-24",
+  "researchScope": "Targeted 24 November review: 32 profiles added and 12 existing profiles refreshed, supported by 68 reviewed source records; 4 trends added and 15 updated. Five film profiles use the same capability and application fields as the live radar. Other records retain their earlier review dates.",
   "counts": {
-    "trends": 37,
-    "companies": 102,
-    "sources": 214,
-    "opportunities": 17
+    "companies": 134,
+    "trends": 41,
+    "sources": 282,
+    "opportunities": 17,
+    "signals": 42
+  },
+  "refresh": {
+    "additionsCount": 32,
+    "updatedCount": 12,
+    "refreshedCompanyCount": 44,
+    "sourceReviewCount": 68,
+    "trendAdditionsCount": 4,
+    "trendUpdatesCount": 15,
+    "spotlightEnrichedCount": 5
+  },
+  "sharedRenderer": "radar-core.js",
+  "canonicalData": "data.json",
+  "film": {
+    "renderer": "radar-film.js",
+    "durationSeconds": 180,
+    "fps": 30,
+    "scenes": 12,
+    "spotlights": [
+      "sarvam",
+      "satsure",
+      "factory",
+      "reducto",
+      "lila-sciences"
+    ],
+    "fontFamily": "Liberation Sans (Arial-compatible fallback)",
+    "outputs": [
+      {
+        "file": "radar-hologram-1080.mp4",
+        "format": "square",
+        "width": 1080,
+        "height": 1080,
+        "bytes": 5423741,
+        "sha256": "6c7ab6c6b42ac7067bbb6ca32ffaf5b5a095b53c99709856ceb28eb027c0a0a5"
+      },
+      {
+        "file": "radar-widescreen-1080.mp4",
+        "format": "wide",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 7548871,
+        "sha256": "6e6ff1b8dca4c31061fcd28dd641b870a78d23ca3c35c6731b5a53ea955bc905"
+      }
+    ]
+  },
+  "sourceArchive": {
+    "file": "source-release.zip",
+    "includes": "Current application, shared renderers, canonical research, source research, assets, export/verification scripts, README, package metadata, film sidecar provenance and this manifest.",
+    "excludes": [
+      "MP4 video bytes",
+      ".git",
+      ".qa",
+      ".openai",
+      "dist",
+      "node_modules",
+      "obsolete showcase source"
+    ],
+    "checksumPolicy": "This manifest excludes its own checksum and the source archive checksum to avoid circular fingerprints."
   },
   "sha256": {
+    ".gitignore": "e266b6ea6e547ee4dd49133c954e8aa3f8fc11d05013dc15ede11e6a6cc31d3f",
     ".nojekyll": "550c5cf1ff55b9e06674ba9498583fe537a9a47f825959dccd6ad36f41b7d885",
-    "app.js": "018a97013f22588b4897b4f2656e229fab5d4db02e4efa5f5d3bd32a3d866c5b",
-    "data.js": "3e9ae412c7b8712469e8f9810ff787f2d0a3b0c7f9ce641bee47c066cf207ed0",
-    "data.json": "c492e57ab9476025b00114948df0af4cf4492fc5d5fdcc65d4b8c3906999388e",
-    "entry-route.js": "cada8cc90f0479a7d55589921fde74a9cab55e46651550ffeba865c3384b7c27",
-    "index.html": "6eec8d817388e87ffd2740f1c37a023ef97b86351dce55250140b32f062ea3b5",
-    "radar-hologram-1080.mp4": "29adb24eaeb30af0bc812ba3796dc1d6c525680496d6cead4fa13fc6d71ddccd",
+    "README.md": "fa26a25dd89fce692cc4c4a570212fc5c511ac58944a17c59bbe65e588c2f31e",
+    "app.js": "4b70e116c341d98cdd20adb5f52163aa2f5ce9c601b3fd7843116f497a325603",
+    "data.js": "339923ea47162adaf4d335b36119bfc5f0169c9cac669c248c40e81645506911",
+    "data.json": "88f115826ce60de6f7c400df21447548ecf50a272a59f9bffade329831fa1dbf",
+    "index.html": "088ec99d16b84fa6b31ab6fa5e07fdced739c27fc73fcb280e5cbec94befc896",
+    "package.json": "48cb60b8401066655eb337322988fb11ce0fa3147d468def99072af1d73f3535",
+    "radar-core.js": "3c0521b077712303084565f21d89672ea8158f9fc1ae13e23d79b3dfa087837e",
+    "radar-film.js": "d83b0dde1eb440c0f623b52ba77f347e10fa3750d529cd5d85ff9575fe3b26f5",
+    "radar-hologram-1080.mp4": "6c7ab6c6b42ac7067bbb6ca32ffaf5b5a095b53c99709856ceb28eb027c0a0a5",
+    "radar-hologram-1080.mp4.json": "5b2ff83947605d9b575066987c27c1a7aee4261ed4e1e100d218e80cf6a0edbe",
     "radar-qr-poster.png": "717beaa0322b43f21e0b283f1f8342e7476f2ae4cd7fa1e0b920f4cf8188fbaf",
     "radar-qr-poster.svg": "ca57ee537dd4a66616bec530518c433313590b7db8828b9ac0c26bb4eb6e6299",
     "radar-qr.png": "fadad491985026a312460baf1bbb9abc4314cfb6e48a08cb0666d4389abeb2e9",
     "radar-qr.svg": "1eaca24e0792e8edfd674c7160e17d12cfc8cbcc3096491ed8c9a8dcda9f1ee1",
-    "radar-widescreen-1080.mp4": "1eb98505fa097c83244770f50a73129a505cdd804ed03f5e71b6159be250852f",
-    "research.html": "7c34a855096e1e339eeea2516b8d4b5f7b428d74a92fc1e952f778367fce0c92",
-    "showcase-app.js": "6b6e39f0ce2b679318ead2c74c0c0ab4289a32313bcb923f849844035c865087",
-    "showcase-data.js": "f3fd94df1301a83a32fc908af369ff0606ba831090e20f3a85cb93aa99f131d4",
-    "showcase-data.json": "bd7a72f76c4d1455d3880d1c28bca37613fee9a18e94aca79dbccfa08e50fe53",
-    "showcase-export.js": "7ab9e8445f59c9b940714f4a483ca76f7d8f1d46011eacc417533a4976816696",
-    "showcase-model.js": "e4980a1b079c78559477b13c3ebe8f2e475297ca388f0bcf1d941c0378b14c2b",
-    "showcase-renderer.js": "3b4c6916efbe08d90c24c1346e1c49903e96c426c8bdda3e8ad37a570eda10e1",
-    "showcase.css": "fc802c8caeabb4d03db76b0cc8b61f0f613b8c04292731e4e86af55af007168d",
-    "showcase.html": "fe5d285baa437764bd5f5aac6940a29dba4d6c7a466d483cfe901694eab6f672",
-    "styles.css": "36d5c507a72151a801d8862b354c7f100d7c43ae13887fa09b645cea48fd4f6c",
+    "radar-widescreen-1080.mp4": "6e6ff1b8dca4c31061fcd28dd641b870a78d23ca3c35c6731b5a53ea955bc905",
+    "radar-widescreen-1080.mp4.json": "d94e18f09a29673c4648f5b24da3b5f6d82c32bc4422169b2c3144683c312d2b",
+    "research.html": "f3d2b51c1d7c97224be73247f11700779b6f74c1eae552ce9f1e43cf46cfb9ca",
+    "research/development-refresh-20261124.json": "55aa01e0860de144fda0c08b059711153bc8b24ee3fc315c02506ee85a581fe9",
+    "research/frontier-refresh-20261124.json": "fe0aaab16e5af416f4abda849cd4ca5490fe59e4ab1632e64b075a147bc0b1b3",
+    "research/merge-20261124.py": "629c92312db1dc83dce3ddf786e16f79dfb54f8456bc3ef09894909c7be51a4c",
+    "research/merge-result-20261124.json": "e105822284ebd40438f76d0c5c5f595c8ce1437f8b90cc3bf82494300d347f63",
+    "scripts/render-radar.mjs": "4da2a241461c9516b86f84e9bb0541de01804efbb836499b3f8ced9ac94957d3",
+    "scripts/verify-radar.mjs": "0008066099c12121991709cebf588a3cef81fb25ebf375b23f7da78c316df34c",
+    "showcase.html": "e57657c2e98441db5ea240b882e5d8b13efa6a1fe13b93e5f8176b3f1dd5df14",
+    "styles.css": "2b3b03af588b4d45f783a4d63b397b0bd299eebf37c7474e861f3e9af80b7f62",
     "wbg-logo-white.svg": "755489ceb22228ef1a909e2ae6beba4d8dd17bdc0911c699ff805f7fc513a5fc",
     "wbg-logo.svg": "b9f548bee627ab585009d7a06d6b2d2e948b9d8e6556ccf226c18f49595da9a9"
-  },
-  "showcase": {
-    "scenes": 17,
-    "durationSeconds": 180,
-    "featuredBuilders": 63,
-    "storyboardChecked": "2026-11-24",
-    "spotlights": 5,
-    "trendScenes": 12
   }
 }
