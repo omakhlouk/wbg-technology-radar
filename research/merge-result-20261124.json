@@ -1,0 +1,19 @@
+{
+  "companies": 134,
+  "trends": 41,
+  "sources": 282,
+  "signals": 42,
+  "additions": 32,
+  "updates": 12,
+  "reviewedSources": 68,
+  "inheritedChecked": "2026-11-23",
+  "lastRefresh": "2026-11-24",
+  "spotlights": [
+    "sarvam",
+    "satsure",
+    "factory",
+    "reducto",
+    "lila-sciences"
+  ],
+  "validation": "All IDs, relationship references, URL structure, date values and film text lengths passed."
+}
