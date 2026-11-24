@@ -1,7 +1,7 @@
 {
-  "release": "2026.11.24.6-github-e12a2ceb6865",
+  "release": "2026.11.24.6-github-129377c10bcc",
   "researchChecked": "2026-11-23",
-  "sourceRelease": "2026.11.24.6-173544e27cd0",
+  "sourceRelease": "2026.11.24.6-1c438666f19d",
   "counts": {
     "trends": 37,
     "companies": 102,
@@ -10,7 +10,7 @@
   },
   "sha256": {
     ".nojekyll": "550c5cf1ff55b9e06674ba9498583fe537a9a47f825959dccd6ad36f41b7d885",
-    "app.js": "4a42e88605233b2102af9e8e88087c80906a37bc2c2cfe8c1855e6468f995064",
+    "app.js": "018a97013f22588b4897b4f2656e229fab5d4db02e4efa5f5d3bd32a3d866c5b",
     "data.js": "3e9ae412c7b8712469e8f9810ff787f2d0a3b0c7f9ce641bee47c066cf207ed0",
     "data.json": "c492e57ab9476025b00114948df0af4cf4492fc5d5fdcc65d4b8c3906999388e",
     "entry-route.js": "cada8cc90f0479a7d55589921fde74a9cab55e46651550ffeba865c3384b7c27",
