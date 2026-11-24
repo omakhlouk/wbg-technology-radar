@@ -10,6 +10,7 @@
   const companyMap = new Map(companies.map(item => [item.id, item]));
   const domainMap = new Map(domains.map(item => [item.id, item]));
   const sourceMap = new Map(sources.map(item => [item.id, item]));
+  const showcaseScenes = Array.isArray(window.RADAR_SHOWCASE?.scenes) ? window.RADAR_SHOWCASE.scenes : [];
   const opportunities = Array.isArray(DATA.opportunities) ? DATA.opportunities : [];
   const opportunityMap = new Map(opportunities.map(item => [item.id, item]));
   const signals = (Array.isArray(DATA.signals) ? DATA.signals : []).map((item, index) => ({ ...item, id: item.id || `signal-${index}`, lenses: item.lenses || trendMap.get(item.trendId)?.lenses || [] }));
@@ -34,13 +35,19 @@
   const saved = new Set(initialSaved.filter(id => companyMap.has(id)));
   const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches || false;
   const wideRadar = window.matchMedia('(min-width: 1100px)');
-  const state = { view: 'radar', type: 'trends', lens: 'wbg', domain: 'all', ring: 'all', query: '', savedOnly: false, selected: null, preferLensSelection: true, paused: reducedMotion, radarExpanded: false, dialog: null, tourStep: 0 };
+  const state = { view: 'radar', type: 'companies', lens: 'wbg', domain: 'all', ring: 'all', query: '', names: 'smart', savedOnly: false, selected: null, areaOverview: false, urlRecord: null, preferLensSelection: true, paused: reducedMotion, radarExpanded: false, dialog: null, tourStep: 0 };
   const preferredSignals = { wbg: ['project-supervision'], its: ['software-agents'], frontier: ['experimental-scientific-ai', 'physical-ai'], all: ['project-supervision', 'software-agents'] };
+  const preferredCompanies = { wbg: ['sarvam', 'satsure'], its: ['factory', 'cognition'], frontier: ['lila-sciences', 'physical-intelligence'], all: ['sarvam', 'cognition'] };
   const compared = new Set();
   let returnFocus = null;
   let compareReturnFocus = null;
   let domainSelectLens = null;
   let toastTimer = null;
+  let restoringURL = true;
+  let shareReturnFocus = null;
+  const compactRadar = window.matchMedia('(max-width: 780px)');
+  let labelMeasureContext = null;
+  try { labelMeasureContext = document.createElement('canvas').getContext('2d'); } catch (_) { /* SVG and the result list still work without Canvas2D. */ }
 
   const $ = (selector, scope = document) => scope.querySelector(selector);
   const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
@@ -103,6 +110,82 @@
     if (!records.length) return '<p class="detail-meta">Source references are available in the research dataset.</p>';
     const html = `<ul class="source-list">${records.map(source => `<li><a href="${escape(safeURL(source.url))}" target="_blank" rel="noopener noreferrer">${escape(source.title || source.publisher || 'Source')}</a><p><span class="source-publisher">${escape(source.publisher || 'Primary source')}</span>${source.date ? ' · Published ' + escape(shortDate(source.date)) : ' · Publication date not stated'}<br>Checked ${escape(shortDate(source.checked || checked))}</p></li>`).join('')}</ul>`;
     return compact ? `<details class="sources-details"><summary>Sources &amp; evidence <span>(${records.length})</span>${icon('chevron')}</summary>${html}</details>` : html;
+  }
+  function isWBGSource(source) {
+    try { const host = new URL(source.url).hostname; return ['worldbank.org', 'ifc.org', 'esmap.org'].some(domain => host === domain || host.endsWith('.' + domain)); } catch (_) { return false; }
+  }
+  function wbgAnchorsFor(item, type) {
+    if (!item) return [];
+    const result = new Map();
+    const add = anchor => {
+      if (!anchor?.url || !isWBGSource(anchor)) return;
+      const url = safeURL(anchor.url);
+      if (result.has(url)) return;
+      const source = array(anchor.sourceIds).map(id => sourceMap.get(id)).find(Boolean);
+      result.set(url, { name: anchor.name || anchor.title, description: anchor.description || '', url, publisher: source?.publisher || anchor.publisher || 'World Bank Group', checked: source?.checked || anchor.checked || checked });
+    };
+    const relatedIds = new Set(type === 'company' ? array(item.trendIds) : type === 'usecase' ? array(item.trendIds) : [item.id]);
+    const matchingScenes = showcaseScenes.filter(scene => type === 'company' ? array(scene.companyIds).includes(item.id) : array(scene.trendIds).some(id => relatedIds.has(id)));
+    matchingScenes.sort((a,b) => Number(b.kind === 'spotlight') - Number(a.kind === 'spotlight')).forEach(scene => add(scene.wbgAnchor || scene.spotlight?.wbgAnchor));
+    const fallback = [...sourceRecords(item), ...(type === 'company' || type === 'usecase' ? relatedTrends(item).flatMap(sourceRecords) : [])];
+    fallback.filter(isWBGSource).forEach(source => add(source));
+    return [...result.values()];
+  }
+  function wbgContext(anchors, max = 3) {
+    if (!anchors.length) return '';
+    return `<section class="wbg-context"><h3>Documented WBG work</h3><div class="wbg-context-list">${anchors.slice(0,max).map(anchor => `<article><a href="${escape(anchor.url)}" target="_blank" rel="noopener noreferrer">${escape(anchor.name)} ${icon('external')}</a>${anchor.description ? `<p>${escape(anchor.description)}</p>` : ''}<small>${escape(anchor.publisher)} · Checked ${escape(shortDate(anchor.checked))}</small></article>`).join('')}</div><p class="wbg-context-note">Institutional context from public sources. Company applications are proposals.</p></section>`;
+  }
+  function spotlightCapabilities(item) {
+    const spotlight = showcaseScenes.find(scene => scene.spotlight?.companyId === item.id)?.spotlight;
+    if (!spotlight) return '';
+    return `<section class="detail-section"><h3>What the company does</h3><ul>${array(spotlight.functionalities).map(text => `<li>${escape(text)}</li>`).join('')}</ul></section>${textSection('Latest product signal', spotlight.whyNow)}`;
+  }
+  function configuredURL(hash) {
+    const url = new URL(location.href);
+    ['lens','type','domain','horizon','q','names','saved'].forEach(key => url.searchParams.delete(key));
+    if (state.lens !== 'wbg') url.searchParams.set('lens', state.lens);
+    if (state.type !== 'companies') url.searchParams.set('type', state.type);
+    if (state.domain !== 'all') url.searchParams.set('domain', state.domain);
+    if (state.ring !== 'all') url.searchParams.set('horizon', state.ring);
+    if (state.query.trim()) url.searchParams.set('q', state.query.trim());
+    if (state.names !== 'smart') url.searchParams.set('names', state.names);
+    const record = state.dialog || (state.view === 'radar' ? state.urlRecord : null);
+    url.hash = hash === undefined ? record ? `${state.dialog ? '' : 'radar/'}${record.type}/${encodeURIComponent(record.id)}` : state.view : hash;
+    return url;
+  }
+  function syncURL(hash) {
+    if (restoringURL) return;
+    const url = configuredURL(hash);
+    if (url.href !== location.href) history.replaceState(null, '', url.href);
+    if ($('#share-url')) $('#share-url').value = configuredURL().href;
+  }
+  function readURLState() {
+    const params = new URL(location.href).searchParams;
+    state.lens = ['wbg','its','frontier','all'].includes(params.get('lens')) ? params.get('lens') : 'wbg';
+    state.type = params.get('type') === 'trends' ? 'trends' : 'companies';
+    state.names = ['smart','all','focus'].includes(params.get('names')) ? params.get('names') : 'smart';
+    state.ring = Object.hasOwn(rings, params.get('horizon')) ? params.get('horizon') : 'all';
+    state.domain = activeDomains().some(domain => domain.id === params.get('domain')) ? params.get('domain') : 'all';
+    state.query = (params.get('q') || '').slice(0,500);
+    state.areaOverview = state.domain !== 'all';
+    state.urlRecord = null;
+    state.savedOnly = false;
+    $('#search-input').value = state.query;
+  }
+  function openShare() {
+    const dialog = $('#share-dialog');
+    if (!dialog) return;
+    shareReturnFocus = document.activeElement;
+    $('#share-url').value = configuredURL().href;
+    dialog.showModal();
+    $('[data-action="close-share"]', dialog)?.focus({preventScroll:true});
+  }
+  function closeShare() { $('#share-dialog')?.close(); if (shareReturnFocus?.isConnected) shareReturnFocus.focus({preventScroll:true}); }
+  async function copyView() {
+    const url = configuredURL().href;
+    if ($('#share-url')) $('#share-url').value = url;
+    try { await navigator.clipboard.writeText(url); showToast(state.savedOnly ? 'View link copied. Saved companies stay in this browser.' : 'View link copied with your perspective, filters and labels.'); }
+    catch (_) { openShare(); $('#share-url')?.focus(); $('#share-url')?.select(); showToast('Select and copy the view link.'); }
   }
   function companyChips(item) {
     const related = relatedCompanies(item);
@@ -170,6 +253,8 @@
     $$('[data-type]').forEach(button => { const active = button.dataset.type === state.type; button.classList.toggle('active', active); button.setAttribute('aria-pressed', String(active)); });
     $('#domain-select').value = state.domain;
     $('#ring-select').value = state.ring;
+    if ($('#label-select')) $('#label-select').value = state.names;
+    $$('[data-ring]').forEach(button => button.setAttribute('aria-pressed', String(state.ring === button.dataset.ring)));
     $('#saved-filter').classList.toggle('active', state.savedOnly);
     $('#saved-filter').setAttribute('aria-pressed', String(state.savedOnly));
     $('#saved-filter').hidden = state.view === 'about';
@@ -190,16 +275,17 @@
     $('#detail-panel').hidden = state.radarExpanded;
     $('#radar-size-button').setAttribute('aria-pressed', String(state.radarExpanded));
     $('#radar-size-button').innerHTML = icon(state.radarExpanded ? 'sidebar' : 'expand') + `<span>${state.radarExpanded ? 'Show side panel' : 'Expand radar'}</span>`;
-    $('#radar-interaction-hint').textContent = state.radarExpanded ? 'Select a signal to open its full details. Select a domain to focus.' : 'Select a signal to explore it. Select a domain to focus.';
+    $('#radar-interaction-hint').textContent = 'Select an area to explore it. Select any dot or name for capabilities, websites and WBG references.';
     $('#startups-heading').textContent = state.savedOnly ? 'Your builder shortlist' : 'Startups & ecosystem builders';
     $('#directory-description').textContent = state.savedOnly ? 'A working selection saved in this browser. Export it to use in your next conversation or research brief.' : 'Startups, scaleups and public-interest technology builders, connected to the problems they could help address.';
   }
   function showView(view, updateHash = true, scroll = false) {
     if (!['radar', 'trends', 'startups', 'usecases', 'signals', 'about'].includes(view)) view = 'radar';
     state.view = view;
+    if (updateHash) state.urlRecord = null;
     $$('.view-section').forEach(section => { section.hidden = section.id !== `${view}-view`; });
     renderCurrentView();
-    if (updateHash) history.replaceState(null, '', `#${view}`);
+    if (updateHash) syncURL(view);
     if (scroll) window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
   }
   function renderCurrentView() {
@@ -211,6 +297,7 @@
     if (state.view === 'usecases') renderUseCases();
     if (state.view === 'signals') renderSignals();
     if (state.view === 'about') renderAbout();
+    syncURL();
   }
 
   function renderLensCards() {
@@ -223,11 +310,13 @@
   }
   function renderLensContext() {
     const spec = lensDescriptions[state.lens];
+    const area = activeDomains().find(domain => domain.id === state.domain);
     const related = opportunities.filter(item => state.lens === 'all' || array(item.lenses).includes(state.lens));
-    $('#lens-context').innerHTML = `<div><h2>${escape(spec.heading)}</h2><p>${escape(spec.context)}</p></div>${related.length ? `<button type="button" class="text-button" data-view="usecases">Explore ${countLabel(related.length, 'use case')}</button>` : ''}`;
+    const countText = `${countLabel(currentItems('companies').length, 'company', 'companies')} · ${countLabel(currentItems('trends').length, 'trend')}`;
+    $('#lens-context').innerHTML = `<div><h2>${escape(area?.name || spec.title)}</h2><p>${escape(area?.description || countText)}</p></div>${related.length ? `<button type="button" class="text-button" data-view="usecases">${countLabel(related.length, 'use case')}</button>` : ''}`;
     const section = $('#featured-usecases');
     section.hidden = !related.length;
-    if (related.length) section.innerHTML = `<div class="section-heading"><div><p class="eyebrow">WHERE THE CONNECTIONS LEAD</p><h2>${state.lens === 'frontier' ? 'Questions the frontier opens up' : 'From capability to a meaningful use case'}</h2></div><button type="button" class="text-button" data-view="usecases">View all use cases</button></div><div class="featured-usecase-grid">${related.slice(0, 3).map(item => `<button type="button" class="featured-usecase-card" data-open-usecase="${escape(item.id)}"><span class="usecase-card-label">${state.lens === 'frontier' ? 'FUTURE POSSIBILITY' : 'POTENTIAL APPLICATION'}</span><h3>${escape(item.title)}</h3><p>${escape(item.outcome || item.problem)}</p><span class="usecase-card-meta">${countLabel(relatedCompanies(item).length, 'builder')} · ${countLabel(relatedTrends(item).length, 'connected trend')}</span></button>`).join('')}</div>`;
+    if (related.length) section.innerHTML = `<div class="section-heading"><div><h2>Related use cases</h2></div><button type="button" class="text-button" data-view="usecases">View all use cases</button></div><div class="featured-usecase-grid">${related.slice(0, 3).map(item => `<button type="button" class="featured-usecase-card" data-open-usecase="${escape(item.id)}"><h3>${escape(item.title)}</h3><p>${escape(item.outcome || item.problem)}</p><span class="usecase-card-meta">${countLabel(relatedCompanies(item).length, 'company', 'companies')} · ${countLabel(relatedTrends(item).length, 'trend')}</span></button>`).join('')}</div>`;
   }
 
   function pointFor(angle, radius) { const rad = angle * Math.PI / 180; return { x: 430 + Math.cos(rad) * radius, y: 320 + Math.sin(rad) * radius }; }
@@ -262,13 +351,84 @@
     return pointLayouts.get(key);
   }
 
+  function radarLabels(items) {
+    if (!items.length) return [];
+    const positions = currentPointLayout(state.type);
+    const size = compactRadar.matches ? 26 : 16;
+    const rowHeight = size + 12;
+    const maxWidth = compactRadar.matches ? 238 : 222;
+    const measure = value => { if(labelMeasureContext){labelMeasureContext.font=`600 ${size}px Arial, Helvetica, sans-serif`;return labelMeasureContext.measureText(value).width;} return value.length*size*.62; };
+    const chosen = items.find(item => item.id === state.selected);
+    const groups = activeDomains().map(domain => items.filter(item => domainIdFor(item) === domain.id).sort((a,b) => String(a.name || a.title).localeCompare(String(b.name || b.title))));
+    const ordered = [];
+    const add = item => { if (item && !ordered.some(existing => existing.id === item.id)) ordered.push(item); };
+    add(chosen);
+    if (state.names !== 'focus') for (let row = 0; row < Math.max(0,...groups.map(group => group.length)); row++) groups.forEach(group => add(group[row]));
+    const limit = state.names === 'focus' ? 1 : state.names === 'all' ? items.length : compactRadar.matches ? 8 : 18;
+    const occupied = [{x:386,y:276,w:88,h:88}, ...activeDomains().map((_,index)=>{const point=pointFor(-90+(index+.5)*360/activeDomains().length,310);return {x:point.x-100,y:point.y-22,w:200,h:44};})];
+    const intersects = (a,b,gap=4) => a.x < b.x+b.w+gap && a.x+a.w+gap > b.x && a.y < b.y+b.h+gap && a.y+a.h+gap > b.y;
+    const result = [];
+    for (const item of ordered) {
+      if (result.length >= limit) break;
+      const pos = positions.get(item.id);
+      if (!pos) continue;
+      const fullName = item.shortTitle || item.name || item.title;
+      let name = fullName;
+      if(measure(name)>maxWidth-18){let shortened=fullName;while(shortened.length>1&&measure(shortened+'…')>maxWidth-18)shortened=shortened.slice(0,-1);name=shortened.trimEnd()+'…';}
+      const width = Math.min(maxWidth, measure(name)+18);
+      const right = pos.x >= 430;
+      const candidates = [];
+      for (const dy of [0,-rowHeight,rowHeight,-rowHeight*2,rowHeight*2,-rowHeight*3,rowHeight*3]) {
+        for (const side of [right?1:-1,right?-1:1]) candidates.push({x:side>0?pos.x+15:pos.x-15-width,y:pos.y-rowHeight/2+dy,w:width,h:rowHeight});
+      }
+      for (let slot=0;slot<36;slot++) {
+        const angle=slot/36*Math.PI*2, x=430+Math.cos(angle)*225, y=320+Math.sin(angle)*225;
+        candidates.push({x:x-width/2,y:y-rowHeight/2,w:width,h:rowHeight});
+      }
+      const nearbyDots = items.filter(other => other.id !== item.id).map(other => positions.get(other.id)).filter(Boolean).map(point => ({x:point.x-8,y:point.y-8,w:16,h:16}));
+      const valid = box => box.x>=52 && box.x+box.w<=808 && box.y>=57 && box.y+box.h<=591 && !occupied.some(other=>intersects(box,other)) && !nearbyDots.some(other=>intersects(box,other,1));
+      const box=candidates.find(valid);
+      if (!box) continue;
+      occupied.push(box);
+      result.push({item,name,fullName,pos,box,size});
+    }
+    return result;
+  }
+  function renderRadarResults(items, labelCount) {
+    const list=$('#radar-results-list'),summary=$('#radar-results-summary');
+    if (!list) return;
+    if (summary) summary.textContent = `${countLabel(items.length,state.type==='companies'?'company':'trend',state.type==='companies'?'companies':'trends')} · ${labelCount} names on the radar. All matching names are listed below.`;
+    list.innerHTML = items.length ? items.slice().sort((a,b)=>String(a.name||a.title).localeCompare(String(b.name||b.title))).map(item=>`<article class="radar-result${state.selected===item.id?' selected':''}"><button type="button" class="radar-result-main" data-point="${escape(item.id)}" aria-label="Open ${escape(item.name||item.title)}"><strong>${escape(item.name||item.shortTitle||item.title)}</strong><span>${escape(state.type==='companies'?item.category||domainFor(item).name:domainFor(item).name)} · ${ringFor(item).name}</span></button>${state.type==='companies'?`<a class="radar-result-website" href="${escape(safeURL(item.website))}" target="_blank" rel="noopener noreferrer" aria-label="Visit ${escape(item.name)} official website">Website ${icon('external')}</a>`:''}</article>`).join('') : '<p class="detail-meta">No matches. Adjust the search or filters to see more.</p>';
+  }
+  function renderAreaPanel() {
+    const area=activeDomains().find(domain=>domain.id===state.domain);
+    if (!area) return;
+    const builders=currentItems('companies'),signals=currentItems('trends');
+    const anchors=new Map();
+    [...signals.flatMap(item=>wbgAnchorsFor(item,'trend')),...builders.flatMap(item=>wbgAnchorsFor(item,'company'))].forEach(anchor=>{if(!anchors.has(anchor.url))anchors.set(anchor.url,anchor);});
+    $('#detail-panel').innerHTML = `<div class="detail-inner area-overview"><div class="detail-topline"><span class="detail-kicker">Area</span></div><h2>${escape(area.name)}</h2>${area.description?`<p class="detail-summary">${escape(area.description)}</p>`:''}<p class="area-counts">${countLabel(builders.length,'company','companies')} · ${countLabel(signals.length,'trend')}</p>${signals.length?`<section class="detail-section"><h3>Trends</h3><div class="trend-chips">${signals.map(item=>`<button type="button" data-open-trend="${escape(item.id)}">${escape(item.shortTitle||item.title)}</button>`).join('')}</div></section>`:''}${builders.length?`<section class="detail-section area-links"><h3>Companies</h3><div class="company-chips">${builders.slice(0,12).map(item=>`<button type="button" data-open-company="${escape(item.id)}">${escape(item.name)}</button>`).join('')}</div></section>`:''}${wbgContext([...anchors.values()],4)}</div><div class="detail-footer"><button type="button" class="secondary-button" data-view="startups">Browse companies</button><button type="button" class="text-button" data-action="copy-view">Copy this view</button></div>`;
+  }
+  function selectDomain(id) {
+    if (!activeDomains().some(domain=>domain.id===id)) return;
+    state.domain=state.domain===id?'all':id;
+    state.areaOverview=state.domain!=='all';
+    state.urlRecord=null;
+    state.selected=null;
+    state.preferLensSelection=true;
+    if(state.radarExpanded) state.radarExpanded=false;
+    renderCurrentView();
+    if(compactRadar.matches && state.areaOverview) {const panel=$('#detail-panel');panel.setAttribute('tabindex','-1');panel.focus({preventScroll:true});panel.scrollIntoView({behavior:reducedMotion?'auto':'smooth',block:'start'});}
+    else $$('[data-domain]').find(element=>element.dataset.domain===id)?.focus({preventScroll:true});
+  }
+
   function renderRadar() {
     renderLensContext();
     const items = currentItems();
-    if (state.preferLensSelection && state.type === 'trends' && items.length) {
-      state.selected = (preferredSignals[state.lens] || []).find(id => items.some(item => item.id === id)) || items[0].id;
+    if (state.preferLensSelection && items.length) {
+      const preferred = state.type === 'companies' ? preferredCompanies : preferredSignals;
+      state.selected = (preferred[state.lens] || []).find(id => items.some(item => item.id === id)) || items[0].id;
       state.preferLensSelection = false;
-    } else if (!items.some(item => item.id === state.selected)) state.selected = items[0]?.id || null;
+    } else if (!items.some(item => item.id === state.selected)) { state.selected = items[0]?.id || null; state.urlRecord = null; }
     const active = items.find(item => item.id === state.selected);
     const contextDomains = activeDomains();
     const sectorWidth = 360 / Math.max(contextDomains.length, 1);
@@ -281,7 +441,7 @@
       const selected = state.domain === domain.id;
       const labelLines = String(domain.shortName || domain.name).split(' & ');
       const labels = labelLines.length > 1 ? [labelLines[0], '& ' + labelLines.slice(1).join(' & ')] : String(domain.shortName || domain.name).length > 18 ? String(domain.shortName || domain.name).split(/\s(?=\S+$)/) : labelLines;
-      return `<path class="sector-hit${selected ? ' selected' : ''}" d="${wedgePath(start, end, 270)}" data-domain="${escape(domain.id)}" role="button" tabindex="0" aria-label="${selected ? 'Clear ' : 'Filter by '}${escape(domain.name)} domain"/><path class="domain-separator" d="M${inner.x} ${inner.y}L${outer.x} ${outer.y}"/><path class="sector-tick" stroke="${color(domain.color)}" d="M${tick1.x} ${tick1.y}L${tick2.x} ${tick2.y}"/><text class="sector-label${selected ? ' selected' : ''}" x="${label.x}" y="${label.y - (labels.length > 1 ? 5 : 0)}" text-anchor="middle" data-domain="${escape(domain.id)}" aria-hidden="true">${labels.map((line, li) => `<tspan x="${label.x}" dy="${li ? 17 : 0}">${escape(line)}</tspan>`).join('')}</text>`;
+      return `<path class="sector-hit${selected ? ' selected' : ''}" d="${wedgePath(start, end, 270)}" data-domain="${escape(domain.id)}" role="button" tabindex="0" aria-pressed="${selected}" aria-label="${selected ? 'Clear ' : 'Filter by '}${escape(domain.name)} domain"/><path class="domain-separator" d="M${inner.x} ${inner.y}L${outer.x} ${outer.y}"/><path class="sector-tick" stroke="${color(domain.color)}" d="M${tick1.x} ${tick1.y}L${tick2.x} ${tick2.y}"/><text class="sector-label${selected ? ' selected' : ''}" x="${label.x}" y="${label.y - (labels.length > 1 ? 5 : 0)}" text-anchor="middle" data-domain="${escape(domain.id)}" aria-hidden="true">${labels.map((line, li) => `<tspan x="${label.x}" dy="${li ? 17 : 0}">${escape(line)}</tspan>`).join('')}</text>`;
     }).join('');
     const points = items.map(item => {
       const pos = currentPointLayout(state.type).get(item.id);
@@ -292,19 +452,16 @@
       const title = item.name || item.title;
       return `<g class="radar-point${selected ? ' selected' : ''}" tabindex="0" role="button" aria-label="${escape(title)}, ${ringFor(item).name}, ${escape(domain.name)}" aria-pressed="${selected}" data-point="${escape(item.id)}" data-tooltip="${escape(item.id)}" transform="translate(${pos.x.toFixed(2)} ${pos.y.toFixed(2)})"><circle class="point-halo" r="${radius+11}" fill="${color(domain.color)}"/>${selected ? `<circle class="point-selected-ring" r="${radius+7}" stroke="${color(domain.color)}"/>` : ''}<circle class="point-core" r="${radius}" fill="${color(domain.color)}"/><title>${escape(title)}</title></g>`;
     }).join('');
-    let selectedLabel = '';
-    if (active) {
-      const pos = currentPointLayout(state.type).get(active.id);
-      if (pos) {
-        const name = active.shortTitle || active.name || active.title;
-        const displayName = name.length > 33 ? name.slice(0, 31) + '…' : name;
-        const x = Math.max(135, Math.min(725, pos.x));
-        selectedLabel = `<text x="${x}" y="${pos.y - 23}" text-anchor="middle" class="selected-label" aria-hidden="true">${escape(displayName)}</text>`;
-      }
-    }
-    $('#radar-graphic').innerHTML = `<svg class="radar-svg" viewBox="40 0 780 660" aria-labelledby="radar-svg-title radar-svg-desc"><title id="radar-svg-title">Interactive ${state.type === 'trends' ? 'technology trend' : 'company'} radar</title><desc id="radar-svg-desc">${items.length} matching signals across ${domains.length} domains. Inner ring: Now. Middle ring: Next. Outer ring: Horizon. Select a point for details or use the ${state.type === 'trends' ? 'Trends' : 'Startup landscape'} view for an accessible list.</desc><defs><linearGradient id="sweep-gradient" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#39bde6" stop-opacity="0"/><stop offset="100%" stop-color="#53d7f3" stop-opacity=".42"/></linearGradient><clipPath id="radar-clip"><circle cx="430" cy="320" r="270"/></clipPath></defs>${ringSVG}${domainSVG}<g clip-path="url(#radar-clip)" pointer-events="none"><g class="radar-sweep"><path class="radar-sweep-fill" d="${wedgePath(-42, 0, 270)}"/><path class="radar-sweep-line" d="M430 320H700"/></g></g><circle cx="430" cy="320" r="40" class="radar-center"/><text class="radar-center-text" x="430" y="317" text-anchor="middle">IN</text><text class="radar-center-text" x="430" y="332" text-anchor="middle">FOCUS</text>${points}${selectedLabel}${items.length ? '' : '<text x="430" y="485" text-anchor="middle" class="radar-empty">No signals match these filters</text>'}<text class="radar-caption" x="430" y="648" text-anchor="middle">NOW · NEXT · HORIZON — FOLLOW THE EVIDENCE</text></svg>`;
+    const labels = radarLabels(items);
+    const names = labels.map(label => {
+      const {item,name,fullName,pos,box,size}=label;
+      const x=Math.max(box.x,Math.min(pos.x,box.x+box.w)), y=Math.max(box.y,Math.min(pos.y,box.y+box.h));
+      return `<g class="radar-name${state.selected===item.id?' selected':''}" role="button" tabindex="0" data-point="${escape(item.id)}" data-tooltip="${escape(item.id)}" aria-label="Open ${escape(fullName)}"><path class="name-leader" d="M${pos.x.toFixed(2)} ${pos.y.toFixed(2)}L${x.toFixed(2)} ${y.toFixed(2)}" stroke="${color(domainFor(item).color)}"/><rect x="${box.x.toFixed(2)}" y="${box.y.toFixed(2)}" width="${box.w.toFixed(2)}" height="${box.h}" rx="4"/><text x="${(box.x+9).toFixed(2)}" y="${(box.y+size+4).toFixed(2)}" font-size="${size}">${escape(name)}</text><title>${escape(fullName)}</title></g>`;
+    }).join('');
+    $('#radar-graphic').innerHTML = `<svg class="radar-svg" viewBox="40 0 780 660" aria-labelledby="radar-svg-title radar-svg-desc"><title id="radar-svg-title">Interactive ${state.type === 'trends' ? 'technology trend' : 'company'} radar</title><desc id="radar-svg-desc">${items.length} matching signals across ${domains.length} domains. Inner ring: Now. Middle ring: Next. Outer ring: Horizon. Select a point for details or use the ${state.type === 'trends' ? 'Trends' : 'Startup landscape'} view for an accessible list.</desc><defs><linearGradient id="sweep-gradient" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#39bde6" stop-opacity="0"/><stop offset="100%" stop-color="#53d7f3" stop-opacity=".42"/></linearGradient><clipPath id="radar-clip"><circle cx="430" cy="320" r="270"/></clipPath></defs>${ringSVG}${domainSVG}<g clip-path="url(#radar-clip)" pointer-events="none"><g class="radar-sweep"><path class="radar-sweep-fill" d="${wedgePath(-42, 0, 270)}"/><path class="radar-sweep-line" d="M430 320H700"/></g></g><circle cx="430" cy="320" r="40" class="radar-center"/><text class="radar-center-text" x="430" y="317" text-anchor="middle">IN</text><text class="radar-center-text" x="430" y="332" text-anchor="middle">FOCUS</text>${points}${names}${items.length ? '' : '<text x="430" y="485" text-anchor="middle" class="radar-empty">No signals match these filters</text>'}<text class="radar-caption" x="430" y="648" text-anchor="middle">NOW · NEXT · HORIZON — FOLLOW THE EVIDENCE</text></svg>`;
     $('#radar-domain-legend').innerHTML = contextDomains.map(domain => `<button type="button" data-domain="${escape(domain.id)}" aria-pressed="${state.domain === domain.id}" class="${state.domain === domain.id ? 'active' : ''}"><i style="background:${color(domain.color)}"></i>${escape(domain.shortName || domain.name)}</button>`).join('');
-    renderDetailPanel(active, state.type);
+    if(state.areaOverview && state.domain!=='all') renderAreaPanel(); else renderDetailPanel(active, state.type);
+    renderRadarResults(items,labels.length);
     hideTooltip();
   }
 
@@ -315,11 +472,11 @@
     }
     const isCompany = type === 'companies';
     const domain = domainFor(item);
-    const intro = `<div class="detail-topline"><span class="detail-kicker">${isCompany ? 'COMPANY SPOTLIGHT' : 'SIGNAL SPOTLIGHT'}</span>${ringPill(item)}</div><div class="detail-intro">${domainLabel(item)}<h2>${escape(isCompany ? item.name : item.title)}</h2><span class="plain-label">${isCompany ? 'PUBLIC CAPABILITY' : 'IN PLAIN LANGUAGE'}</span><p class="detail-summary">${escape(item.summary)}</p>${isCompany ? `<a class="website-link" href="${escape(safeURL(item.website))}" target="_blank" rel="noopener noreferrer">Official website ${icon('external')}</a>` : ''}</div>`;
+    const intro = `<div class="detail-topline"><span class="detail-kicker">${isCompany ? 'Company' : 'Trend'}</span>${ringPill(item)}</div><div class="detail-intro">${domainLabel(item)}<h2>${escape(isCompany ? item.name : item.title)}</h2><span class="plain-label">${isCompany ? 'What it does' : 'What is changing'}</span><p class="detail-summary">${escape(item.summary)}</p>${isCompany ? `<a class="website-link" href="${escape(safeURL(item.website))}" target="_blank" rel="noopener noreferrer">Official website ${icon('external')}</a>` : ''}</div>`;
     const body = isCompany
-      ? `${textSection('Why examine this builder', item.distinctive)}${textSection(applicationHeading(), applicationFor(item), { inference: true })}${textSection('Public availability', item.availability)}${relatedTrends(item).length ? `<section class="detail-section"><h3>Connected trends</h3>${trendChips(item)}</section>` : ''}`
-      : `${textSection('Why now', item.whyNow)}${textSection(applicationHeading(), applicationFor(item), { inference: true })}${relatedCompanies(item).length ? `<section class="detail-section"><h3>Meet the builders</h3>${companyChips(item)}</section>` : ''}`;
-    $('#detail-panel').innerHTML = `<div class="detail-inner">${intro}${body}${sourceList(item, true)}</div><div class="detail-footer"><button type="button" class="secondary-button" ${isCompany ? 'data-open-company' : 'data-open-trend'}="${escape(item.id)}">${isCompany ? 'Explore this company' : 'Read the full signal'}</button>${isCompany ? bookmarkButton(item) : `<button type="button" class="text-button" data-show-related="${escape(item.id)}">${countLabel(relatedCompanies(item).length, 'company', 'companies')}</button>`}</div>`;
+      ? `${spotlightCapabilities(item)}${textSection('Why it matters', item.distinctive)}${textSection(applicationHeading(), applicationFor(item), { inference: true })}${textSection('Public availability', item.availability)}${relatedTrends(item).length ? `<section class="detail-section"><h3>Connected trends</h3>${trendChips(item)}</section>` : ''}`
+      : `${textSection('Why now', item.whyNow)}${textSection(applicationHeading(), applicationFor(item), { inference: true })}${relatedCompanies(item).length ? `<section class="detail-section"><h3>Related companies</h3>${companyChips(item)}</section>` : ''}`;
+    $('#detail-panel').innerHTML = `<div class="detail-inner">${intro}${body}${wbgContext(wbgAnchorsFor(item,isCompany?'company':'trend'),2)}${sourceList(item, true)}</div><div class="detail-footer"><button type="button" class="secondary-button" ${isCompany ? 'data-open-company' : 'data-open-trend'}="${escape(item.id)}">${isCompany ? 'Explore this company' : 'Read the full signal'}</button>${isCompany ? bookmarkButton(item) : `<button type="button" class="text-button" data-show-related="${escape(item.id)}">${countLabel(relatedCompanies(item).length, 'company', 'companies')}</button>`}</div>`;
   }
 
   function renderDomains() {
@@ -340,7 +497,7 @@
   }
   function renderCompanies() {
     const items = currentItems('companies').sort((a, b) => a.name.localeCompare(b.name));
-    $('#companies-grid').innerHTML = items.length ? items.map(item => `<article class="company-card"><div class="company-card-top"><div class="company-monogram" aria-hidden="true">${escape(item.name.replace(/[^a-zA-Z0-9 ]/g, '').split(' ').filter(Boolean).slice(0, 2).map(word => word[0]).join('').slice(0, 2) || item.name.slice(0, 2))}</div><div><h3>${escape(item.name)}</h3><div class="company-category">${escape(item.category || 'Company')}</div></div>${bookmarkButton(item)}</div><p>${escape(item.summary)}</p>${item.distinctive ? `<div class="company-distinctive"><span>WHY IT’S ON THE RADAR</span><p>${escape(item.distinctive)}</p></div>` : ''}<div class="company-card-tags">${domainLabel(item)}${item.region ? `<span class="region-label">${escape(item.region)}</span>` : ''}${ringPill(item)}</div>${item.availability ? `<div class="company-availability">${escape(item.availability)}</div>` : ''}<div class="company-card-footer"><button type="button" class="text-button" data-open-company="${escape(item.id)}">Explore company</button>${compareButton(item)}</div></article>`).join('') : emptyState('companies');
+    $('#companies-grid').innerHTML = items.length ? items.map(item => `<article class="company-card"><div class="company-card-top"><div class="company-monogram" aria-hidden="true">${escape(item.name.replace(/[^a-zA-Z0-9 ]/g, '').split(' ').filter(Boolean).slice(0, 2).map(word => word[0]).join('').slice(0, 2) || item.name.slice(0, 2))}</div><div><h3>${escape(item.name)}</h3><div class="company-category">${escape(item.category || 'Company')}</div></div>${bookmarkButton(item)}</div><p>${escape(item.summary)}</p>${item.distinctive ? `<div class="company-distinctive"><span>WHY IT’S ON THE RADAR</span><p>${escape(item.distinctive)}</p></div>` : ''}<div class="company-card-tags">${domainLabel(item)}${item.region ? `<span class="region-label">${escape(item.region)}</span>` : ''}${ringPill(item)}</div>${item.availability ? `<div class="company-availability">${escape(item.availability)}</div>` : ''}<div class="company-card-footer"><button type="button" class="text-button" data-open-company="${escape(item.id)}">Company details</button><a class="company-website-link" href="${escape(safeURL(item.website))}" target="_blank" rel="noopener noreferrer" aria-label="Visit ${escape(item.name)} official website">Website ${icon('external')}</a>${compareButton(item)}</div></article>`).join('') : emptyState('companies');
   }
 
   function renderUseCases() {
@@ -420,11 +577,11 @@
     if (!dialog.open) returnFocus = document.activeElement;
     state.dialog = { type: 'usecase', id };
     const questions = item.experiment || item.measure ? `<details class="further-inquiry"><summary>Questions that would test the idea ${icon('chevron')}</summary>${textSection('What to learn', item.experiment)}${textSection('Evidence of value', item.measure)}</details>` : '';
-    $('#dialog-content').innerHTML = `<header class="dialog-head"><button type="button" class="dialog-close" data-action="close-detail" aria-label="Close use case">${icon('close')}</button><div class="usecase-card-label">${escape(array(item.lenses).map(lens => lensNames[lens]).filter(Boolean).join(' · '))}</div><h2 id="dialog-title">${escape(item.title)}</h2><p>${escape(item.problem)}</p><span class="proposal-label">Proposed application</span></header><div class="dialog-body"><div class="dialog-main">${textSection('Who this could serve', array(item.users).join('; '))}${textSection('Potential value', item.outcome)}${textSection('How the capabilities connect', item.approach)}${questions}</div><aside class="dialog-sidebar">${relatedCompanies(item).length ? `<h3>BUILDERS TO EXPLORE</h3>${companyChips(item)}` : ''}${relatedTrends(item).length ? `<h3>CONNECTED TRENDS</h3>${trendChips(item)}` : ''}<h3>EVIDENCE BEHIND THE TECHNOLOGIES</h3>${sourceList(item)}<p class="detail-meta">Candidate companies are examples to examine. The application is an interpretation of the linked evidence.</p></aside></div><footer class="dialog-foot"><p>Use-case brief · Potential value, not a confirmed deployment.</p><button type="button" class="text-button" data-action="copy-link">${icon('link')}Copy use-case link</button></footer>`;
+    $('#dialog-content').innerHTML = `<header class="dialog-head"><button type="button" class="dialog-close" data-action="close-detail" aria-label="Close use case">${icon('close')}</button><div class="usecase-card-label">${escape(array(item.lenses).map(lens => lensNames[lens]).filter(Boolean).join(' · '))}</div><h2 id="dialog-title">${escape(item.title)}</h2><p>${escape(item.problem)}</p><span class="proposal-label">Proposed application</span></header><div class="dialog-body"><div class="dialog-main">${textSection('Who this could serve', array(item.users).join('; '))}${textSection('Potential value', item.outcome)}${textSection('How the capabilities connect', item.approach)}${questions}${wbgContext(wbgAnchorsFor(item,'usecase'),4)}</div><aside class="dialog-sidebar">${relatedCompanies(item).length ? `<h3>BUILDERS TO EXPLORE</h3>${companyChips(item)}` : ''}${relatedTrends(item).length ? `<h3>Related trends</h3>${trendChips(item)}` : ''}<h3>EVIDENCE BEHIND THE TECHNOLOGIES</h3>${sourceList(item)}<p class="detail-meta">Candidate companies are examples to examine. The application is an interpretation of the linked evidence.</p></aside></div><footer class="dialog-foot"><p>Use-case brief · Potential value, not a confirmed deployment.</p><button type="button" class="text-button" data-action="copy-link">${icon('link')}Copy use-case link</button></footer>`;
     if (!dialog.open) dialog.showModal();
     dialog.scrollTop = 0;
     $('[data-action="close-detail"]', dialog)?.focus({ preventScroll: true });
-    if (updateHash) history.replaceState(null, '', `#usecase/${encodeURIComponent(id)}`);
+    if (updateHash) syncURL(`usecase/${encodeURIComponent(id)}`);
   }
 
   function openDetail(type, id, updateHash = true) {
@@ -438,33 +595,36 @@
     const watchouts = array(item.watchouts);
     const inquiry = !isCompany && (item.experiment || item.measure) ? `<details class="further-inquiry"><summary>Questions to explore further ${icon('chevron')}</summary>${textSection('A question to test', item.experiment)}${textSection('Evidence that would help', item.measure)}</details>` : '';
     const main = isCompany
-      ? `${textSection('What makes this builder distinctive', item.distinctive)}${textSection(applicationHeading(), applicationFor(item), { inference: true })}${textSection('Public availability', item.availability)}${textSection('A useful question', item.evaluationQuestion)}${item.note ? textSection('Evidence to keep in view', item.note) : ''}`
+      ? `${spotlightCapabilities(item)}${textSection('Why it matters', item.distinctive)}${textSection(applicationHeading(), applicationFor(item), { inference: true })}${textSection('Public availability', item.availability)}${textSection('A useful question', item.evaluationQuestion)}${item.note ? textSection('Evidence to keep in view', item.note) : ''}`
       : `${textSection('What is changing', item.whyNow)}${textSection(applicationHeading(), applicationFor(item), { inference: true })}${watchouts.length ? `<section class="detail-section"><h3>Constraints &amp; milestones</h3><ul>${watchouts.map(text => `<li>${escape(text)}</li>`).join('')}</ul></section>` : ''}${inquiry}`;
-    const related = isCompany ? (relatedTrends(item).length ? `<h3>CONNECTED TRENDS</h3>${trendChips(item)}` : '') : (relatedCompanies(item).length ? `<h3>MEET THE BUILDERS</h3>${companyChips(item)}` : '');
-    $('#dialog-content').innerHTML = `<header class="dialog-head"><button type="button" class="dialog-close" data-action="close-detail" aria-label="Close details">${icon('close')}</button><div class="detail-topline">${domainLabel(item)}${ringPill(item)}</div><h2 id="dialog-title">${escape(isCompany ? item.name : item.title)}</h2><p>${escape(item.summary)}</p>${isCompany ? `<a class="website-link" href="${escape(safeURL(item.website))}" target="_blank" rel="noopener noreferrer">Visit official website ${icon('external')}</a>` : ''}</header><div class="dialog-body"><div class="dialog-main">${main}</div><aside class="dialog-sidebar">${isCompany ? `<div class="company-detail-actions">${bookmarkButton(item, true)}${compareButton(item, true)}</div>` : ''}${related}<h3>SOURCES &amp; EVIDENCE</h3>${isCompany ? `<p class="record-evidence-label">${escape(evidenceFor(item))}</p>` : ''}${sourceList(item)}<p class="detail-meta">Research checked ${escape(dateLabel(item.verified || checked))}.</p></aside></div><footer class="dialog-foot"><p>${isCompany ? 'Company profile · Proposed relevance is our analysis.' : 'Trend assessment · Positioning and implications are editorial judgments.'}</p><button type="button" class="text-button" data-action="copy-link">${icon('link')}Copy record link</button></footer>`;
+    const related = isCompany ? (relatedTrends(item).length ? `<h3>Related trends</h3>${trendChips(item)}` : '') : (relatedCompanies(item).length ? `<h3>Related companies</h3>${companyChips(item)}` : '');
+    $('#dialog-content').innerHTML = `<header class="dialog-head"><button type="button" class="dialog-close" data-action="close-detail" aria-label="Close details">${icon('close')}</button><div class="detail-topline">${domainLabel(item)}${ringPill(item)}</div><h2 id="dialog-title">${escape(isCompany ? item.name : item.title)}</h2><p>${escape(item.summary)}</p>${isCompany ? `<a class="website-link" href="${escape(safeURL(item.website))}" target="_blank" rel="noopener noreferrer">Visit official website ${icon('external')}</a>` : ''}</header><div class="dialog-body"><div class="dialog-main">${main}${wbgContext(wbgAnchorsFor(item,isCompany?'company':'trend'),4)}</div><aside class="dialog-sidebar">${isCompany ? `<div class="company-detail-actions">${bookmarkButton(item, true)}${compareButton(item, true)}</div>` : ''}${related}<h3>SOURCES &amp; EVIDENCE</h3>${isCompany ? `<p class="record-evidence-label">${escape(evidenceFor(item))}</p>` : ''}${sourceList(item)}<p class="detail-meta">Research checked ${escape(dateLabel(item.verified || checked))}.</p></aside></div><footer class="dialog-foot"><p>${isCompany ? 'Company profile · Proposed relevance is our analysis.' : 'Trend assessment · Positioning and implications are editorial judgments.'}</p><button type="button" class="text-button" data-action="copy-link">${icon('link')}Copy record link</button></footer>`;
     if (!dialog.open) dialog.showModal();
     dialog.scrollTop = 0;
     $('button[data-action="close-detail"]', dialog)?.focus({ preventScroll: true });
-    if (updateHash) history.replaceState(null, '', `#${type}/${encodeURIComponent(id)}`);
+    if (updateHash) syncURL(`${type}/${encodeURIComponent(id)}`);
   }
   function closeDetail(updateHash = true) {
     const dialog = $('#detail-dialog');
     if (dialog.open) dialog.close();
     state.dialog = null;
-    if (updateHash) history.replaceState(null, '', `#${state.view}`);
+    if (updateHash) syncURL();
     if (returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
   }
   function selectPoint(id) {
-    const map = state.type === 'companies' ? companyMap : trendMap;
+    const type = state.type === 'companies' ? 'company' : 'trend';
+    const map = type === 'company' ? companyMap : trendMap;
     if (!map.has(id)) return;
-    const restorePointFocus = document.activeElement?.dataset?.point === id;
     state.preferLensSelection = false;
+    state.areaOverview = false;
     state.selected = id;
+    state.urlRecord = {type,id};
     renderRadar();
-    if (restorePointFocus || state.radarExpanded) $$('[data-point]').find(point => point.dataset.point === id)?.focus({ preventScroll: true });
-    history.replaceState(null, '', `#radar/${state.type === 'companies' ? 'company' : 'trend'}/${encodeURIComponent(id)}`);
-    if (state.radarExpanded) openDetail(state.type === 'companies' ? 'company' : 'trend', id);
+    const point = $$('[data-point]').find(element => element.dataset.point === id);
+    point?.focus({preventScroll:true});
+    openDetail(type,id);
   }
+
   function toggleSave(id) {
     if (!companyMap.has(id)) return;
     const restoreSaveFocus = document.activeElement?.dataset?.save === id;
@@ -482,7 +642,7 @@
     } else if (restoreSaveFocus) { ($$('[data-save]').find(button => button.dataset.save === id) || $('.shortlist-header'))?.focus({ preventScroll: true }); }
   }
   function clearFilters() {
-    Object.assign(state, { lens: 'all', domain: 'all', ring: 'all', query: '', savedOnly: false });
+    Object.assign(state, { lens: 'all', domain: 'all', ring: 'all', query: '', savedOnly: false, selected: null, areaOverview: false, urlRecord: null, preferLensSelection: true });
     $('#search-input').value = '';
     renderCurrentView();
   }
@@ -510,7 +670,7 @@
   const tourSteps = [
     { title: 'Start with the question you care about.', body: 'Choose WBG development, ITS & enterprise, or Frontier. Each perspective brings a different context, relevant signals and connected use cases.', art: 'lenses' },
     { title: 'Read the rings in context.', body: 'Now means available to explore in a bounded setting. Next means deployment evidence is developing. Horizon means important milestones remain. Read each record’s availability and sources separately.', art: 'rings' },
-    { title: 'Follow a signal to the builders.', body: 'Select a dot to understand what is changing. Explore the connected companies, then compare up to three to see differences in capability, availability and evidence.', art: 'points' },
+    { title: 'Open a company or explore an area.', body: 'Select a dot or a name to see capabilities, its official website and related WBG work. Select a sector to focus the map. Every matching name also appears in the list below the radar.', art: 'points' },
     { title: 'Keep the evidence with the idea.', body: 'Recent signals show dated developments. Use cases connect technologies to meaningful questions. Save a shortlist and export it for a discussion. The research is a dated snapshot.', art: 'evidence' }
   ];
   function tourArt(kind) {
@@ -548,7 +708,7 @@
   async function copyLink() {
     const record = state.dialog;
     if (!record) return;
-    const url = new URL(location.href); url.hash = `${record.type}/${encodeURIComponent(record.id)}`;
+    const url = configuredURL(`${record.type}/${encodeURIComponent(record.id)}`);
     try { await navigator.clipboard.writeText(url.href); showToast('Record link copied.'); }
     catch (_) { showToast('Copy the record link from your browser’s address bar.'); }
   }
@@ -564,38 +724,49 @@
   }
 
   function handleHash() {
-    const parts = location.hash.slice(1).split('/');
-    if (['trend', 'company', 'usecase'].includes(parts[0]) && parts[1]) {
-      let id; try { id = decodeURIComponent(parts.slice(1).join('/')); } catch (_) { id = parts[1]; }
-      const selectedMap = parts[0] === 'company' ? companyMap : parts[0] === 'usecase' ? opportunityMap : trendMap;
-      const exists = selectedMap.has(id);
-      if (!exists) { showView('radar', false); showToast('This record is not available in the current edition.'); return; }
-      const record = selectedMap.get(id);
-      if (state.lens !== 'all' && !array(record.lenses).includes(state.lens)) state.lens = array(record.lenses)[0] || 'all';
-      showView(parts[0] === 'company' ? 'startups' : parts[0] === 'usecase' ? 'usecases' : 'trends', false);
-      openDetail(parts[0], id, false);
-    } else {
-      if ($('#detail-dialog').open) closeDetail(false);
-      if (parts[0] === 'radar' && parts[2]) {
-        state.type = parts[1] === 'company' ? 'companies' : 'trends';
-        try { state.selected = decodeURIComponent(parts.slice(2).join('/')); } catch (_) { state.selected = parts[2]; }
-        state.preferLensSelection = false;
-        const record = (state.type === 'companies' ? companyMap : trendMap).get(state.selected);
-        if (record && state.lens !== 'all' && !array(record.lenses).includes(state.lens)) state.lens = array(record.lenses)[0] || 'all';
+    restoringURL = true;
+    try {
+      readURLState();
+      state.selected = null;
+      state.preferLensSelection = true;
+      const parts = location.hash.slice(1).split('/');
+      if (['trend', 'company', 'usecase'].includes(parts[0]) && parts[1]) {
+        let id; try { id = decodeURIComponent(parts.slice(1).join('/')); } catch (_) { id = parts[1]; }
+        const selectedMap = parts[0] === 'company' ? companyMap : parts[0] === 'usecase' ? opportunityMap : trendMap;
+        const record = selectedMap.get(id);
+        if (!record) { if ($('#detail-dialog').open) closeDetail(false); showView('radar',false); showToast('This record is not available in the current edition.'); return; }
+        if (state.lens !== 'all' && !array(record.lenses).includes(state.lens)) { state.lens = array(record.lenses)[0] || 'all'; state.domain = 'all'; state.areaOverview = false; }
+        showView(parts[0] === 'company' ? 'startups' : parts[0] === 'usecase' ? 'usecases' : 'trends', false);
+        openDetail(parts[0],id,false);
+      } else {
+        if ($('#detail-dialog').open) closeDetail(false);
+        if (parts[0] === 'radar' && parts[2]) {
+          const type = parts[1] === 'company' ? 'company' : 'trend';
+          state.type = type === 'company' ? 'companies' : 'trends';
+          let id; try { id = decodeURIComponent(parts.slice(2).join('/')); } catch (_) { id = parts[2]; }
+          const record = (type === 'company' ? companyMap : trendMap).get(id);
+          if (record) {
+            state.selected = id; state.urlRecord = {type,id}; state.areaOverview = false; state.preferLensSelection = false;
+            if (state.lens !== 'all' && !array(record.lenses).includes(state.lens)) state.lens = array(record.lenses)[0] || 'all';
+            if (state.domain !== 'all' && domainIdFor(record)!==state.domain) state.domain='all';
+            if (state.ring !== 'all' && horizonOf(record)!==state.ring) state.ring='all';
+            if (!matches(record,state.type)) { state.query=''; $('#search-input').value=''; }
+          }
+        }
+        showView(parts[0] || 'radar',false);
       }
-      showView(parts[0] || 'radar', false);
-    }
+    } finally { restoringURL=false; syncURL(); }
   }
 
   document.addEventListener('click', event => {
     const target = event.target.closest('button, [data-domain], [data-point]');
     if (!target) return;
     if (target.dataset.view) { if ($('#detail-dialog').open) closeDetail(false); showView(target.dataset.view, true, true); return; }
-    if (target.dataset.lens) { state.lens = target.dataset.lens; state.domain = 'all'; state.ring = 'all'; state.selected = null; state.preferLensSelection = true; renderCurrentView(); return; }
-    if (target.dataset.type) { state.type = target.dataset.type; state.selected = null; renderCurrentView(); return; }
-    if (target.dataset.domain) { state.domain = state.domain === target.dataset.domain ? 'all' : target.dataset.domain; renderCurrentView(); return; }
-    if (target.dataset.exploreDomain) { state.domain = target.dataset.exploreDomain; state.query = ''; state.ring = 'all'; state.savedOnly = false; $('#search-input').value = ''; showView('trends', true, true); return; }
-    if (target.dataset.ring) { state.ring = state.ring === target.dataset.ring ? 'all' : target.dataset.ring; renderCurrentView(); return; }
+    if (target.dataset.lens) { state.lens = target.dataset.lens; state.domain = 'all'; state.ring = 'all'; state.selected = null; state.urlRecord = null; state.areaOverview = false; state.preferLensSelection = true; renderCurrentView(); return; }
+    if (target.dataset.type) { state.type = target.dataset.type; state.selected = null; state.urlRecord = null; state.preferLensSelection = true; renderCurrentView(); return; }
+    if (target.dataset.domain) { selectDomain(target.dataset.domain); return; }
+    if (target.dataset.exploreDomain) { state.domain = target.dataset.exploreDomain; state.areaOverview = true; state.urlRecord = null; state.query = ''; state.ring = 'all'; state.savedOnly = false; $('#search-input').value = ''; showView('radar', true, true); return; }
+    if (target.dataset.ring) { state.ring = state.ring === target.dataset.ring ? 'all' : target.dataset.ring; state.urlRecord = null; renderCurrentView(); return; }
     if (target.dataset.point) { selectPoint(target.dataset.point); return; }
     if (target.dataset.openTrend) { openDetail('trend', target.dataset.openTrend); return; }
     if (target.dataset.openCompany) { openDetail('company', target.dataset.openCompany); return; }
@@ -617,18 +788,22 @@
     if (action === 'export-csv') exportCSV();
     if (action === 'export-json') exportJSON();
     if (action === 'copy-link') copyLink();
+    if (action === 'open-share') openShare();
+    if (action === 'close-share') closeShare();
+    if (action === 'copy-view') copyView();
     if (action === 'open-compare') openComparison();
     if (action === 'close-compare') closeComparison();
     if (action === 'clear-compare') { compared.clear(); renderCompareTray(); if (state.view === 'startups') renderCompanies(); }
     if (action === 'export-compare') exportCSV([...compared].map(id => companyMap.get(id)).filter(Boolean));
   });
   document.addEventListener('keydown', event => {
-    if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('[data-point], [data-domain]')) { event.preventDefault(); event.target.dataset.point ? selectPoint(event.target.dataset.point) : (state.domain = state.domain === event.target.dataset.domain ? 'all' : event.target.dataset.domain, renderCurrentView()); }
+    if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('[data-point], [data-domain]')) { event.preventDefault(); event.target.dataset.point ? selectPoint(event.target.dataset.point) : selectDomain(event.target.dataset.domain); }
     if (event.key === '/' && !event.ctrlKey && !event.metaKey && !event.altKey && !event.target.matches('input, textarea, select, [contenteditable="true"]') && !$('#detail-dialog').open && !$('#tour-dialog').open && !$('#compare-dialog').open) { event.preventDefault(); if (state.view === 'about') showView('radar'); $('#search-input').focus(); }
   });
-  $('#search-input').addEventListener('input', event => { state.query = event.target.value; renderCurrentView(); });
-  $('#domain-select').addEventListener('change', event => { state.domain = event.target.value; renderCurrentView(); });
-  $('#ring-select').addEventListener('change', event => { state.ring = event.target.value; renderCurrentView(); });
+  $('#search-input').addEventListener('input', event => { state.query = event.target.value; state.urlRecord = null; renderCurrentView(); });
+  $('#domain-select').addEventListener('change', event => { state.domain = event.target.value; state.areaOverview = state.domain !== 'all'; state.urlRecord = null; state.selected = null; renderCurrentView(); });
+  $('#ring-select').addEventListener('change', event => { state.ring = event.target.value; state.urlRecord = null; renderCurrentView(); });
+  $('#label-select')?.addEventListener('change', event => { state.names = ['smart','all','focus'].includes(event.target.value) ? event.target.value : 'smart'; renderCurrentView(); });
   $('#radar-graphic').addEventListener('pointerover', event => { const point = event.target.closest('[data-tooltip]'); if (point) showTooltip(point.dataset.tooltip, event.clientX, event.clientY); });
   $('#radar-graphic').addEventListener('pointermove', event => { const point = event.target.closest('[data-tooltip]'); if (point) showTooltip(point.dataset.tooltip, event.clientX, event.clientY); });
   $('#radar-graphic').addEventListener('pointerout', event => { if (event.target.closest('[data-tooltip]')) hideTooltip(); });
@@ -641,13 +816,16 @@
   $('#compare-dialog').addEventListener('cancel', event => { event.preventDefault(); closeComparison(); });
   $('#compare-dialog').addEventListener('click', event => { if (event.target === $('#compare-dialog')) { const bounds = event.target.getBoundingClientRect(); if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeComparison(); } });
   window.addEventListener('hashchange', handleHash);
+  window.addEventListener('popstate', handleHash);
+  compactRadar.addEventListener('change', () => { if(state.view==='radar') renderRadar(); });
+  $('#share-dialog')?.addEventListener('cancel', event => { event.preventDefault(); closeShare(); });
   wideRadar.addEventListener('change', event => { if (!event.matches && state.radarExpanded) { state.radarExpanded = false; updateControls(); } });
 
   $('#trend-total').textContent = trends.length;
   $('#company-total').textContent = companies.length;
   $('#domain-total').textContent = domains.length;
   $('#edition-date').textContent = dateLabel(checked);
-  $('#footer-date').textContent = `Checked ${dateLabel(checked)}`;
+  $('#footer-date').textContent = `Landscape checked ${dateLabel(checked)}${DATA.meta?.spotlightsChecked ? ' · Selected updates ' + dateLabel(DATA.meta.spotlightsChecked) : ''}`;
   hydrateIcons();
   renderLensCards();
   renderDomains();

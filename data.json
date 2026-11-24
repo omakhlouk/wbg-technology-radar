@@ -24,7 +24,8 @@
       "Country-by-country deployment, procurement and total-cost evidence."
     ],
     "spotlightsChecked": "2026-11-24",
-    "refreshScope": "Five company spotlights, twelve concrete WBG anchors and selected source refreshes. The full 102-company landscape has not been exhaustively re-researched on this date."
+    "refreshScope": "Five company spotlights, twelve concrete WBG anchors and selected source refreshes. The full 102-company landscape has not been exhaustively re-researched on this date.",
+    "interfaceVersion": "2026.11.24.6"
   },
   "domains": [
     {

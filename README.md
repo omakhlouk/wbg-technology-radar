@@ -1,18 +1,24 @@
 # WBG Technology & Innovation Radar
 
-A cinematic technology radar for WBG development, ITS capabilities and the wider frontier.
+An interactive technology radar for WBG development, ITS capabilities and the wider frontier, with a separate hologram film.
 
 This edition includes **37 trends, 102 startups and ecosystem builders, 17 use cases and 214 source entries**. The broad landscape was checked on **23 November 2026**; the company close-ups and selected WBG references were refreshed on **24 November 2026**.
 
-## Open the radar and films
+## Explore, share and display
 
-- [Public showcase](https://omakhlouk.github.io/wbg-technology-radar/)
-- [Clean square hologram view](https://omakhlouk.github.io/wbg-technology-radar/?mode=hologram&clean=1&play=1)
+- [Interactive radar](https://omakhlouk.github.io/wbg-technology-radar/)
+- [Hologram and video studio](https://omakhlouk.github.io/wbg-technology-radar/showcase.html)
+- [Clean square hologram view](https://omakhlouk.github.io/wbg-technology-radar/showcase.html?mode=hologram&clean=1&play=1)
 - [Hologram MP4: 1080 × 1080, 180 seconds](https://omakhlouk.github.io/wbg-technology-radar/radar-hologram-1080.mp4?v=2026.11.24.5)
 - [Presentation MP4: 1920 × 1080, 180 seconds](https://omakhlouk.github.io/wbg-technology-radar/radar-widescreen-1080.mp4?v=2026.11.24.5)
-- [Complete research library](https://omakhlouk.github.io/wbg-technology-radar/research.html)
+- [QR code PNG](radar-qr.png) · [QR code SVG](radar-qr.svg)
+- [WBG-branded QR poster](radar-qr-poster.png)
 
-The showcase tells a three-minute story with 12 trend scenes, 5 company close-ups and 63 featured builders. The camera zooms into Sarvam AI, SatSure, Factory, Reducto and LILA Sciences to explain functions and potential relevance to documented WBG work. Six scenes address WBG development priorities, four address ITS capabilities and two cover scientific and physical AI. Readable labels rotate through all 102 names across the full loop. The square film uses a pure black background and a circular safe area. It is a front-facing composition; match the display manufacturer's required format.
+The homepage is a customizable explorer. Click a radar area for its topics, companies and WBG references; click a named company or trend for its profile, official website and evidence. Switch between WBG, ITS and Frontier, filter by topic or horizon, search, adjust name labels, expand the radar, compare companies and save a shortlist. The matching-results list exposes every filtered record. **Copy this view** preserves the current filters; **Share / QR** offers a verified code that always opens the full interactive homepage.
+
+Earlier `research.html` links and root cinema URLs remain compatible. The two film addresses are unchanged.
+
+The separate showcase tells a three-minute story with 12 trend scenes, 5 company close-ups and 63 featured builders. The camera zooms into Sarvam AI, SatSure, Factory, Reducto and LILA Sciences to explain functions and potential relevance to documented WBG work. Six scenes address WBG development priorities, four address ITS capabilities and two cover scientific and physical AI. Readable labels rotate through all 102 names across the full loop. The square film uses a pure black background and a circular safe area. It is a front-facing composition; match the display manufacturer's required format.
 
 The studio provides scene selection, playback, named-company search, evidence and insight dialogs, full-screen cinema view, mirroring, PNG export and custom browser recordings. Browsers use MP4/H264 when supported and WebM otherwise. The two provided films are H264 MP4, 30fps, without audio. Storyboard reviewed 24 November 2026; the underlying research cutoff remains 23 November, with the targeted research refresh recorded separately. Every scene names a WBG reference; company applications remain proposed connections.
 
@@ -28,4 +34,4 @@ The research library retains WBG, ITS and Frontier perspectives, source-linked p
 
 The original Azure address is a separate deployment. Publishing here does not change the Azure site.
 
-Release: `2026.11.24.5-github-7a468b6d8747`. `build.json` records hashes of the reviewed website assets.
+Release: `2026.11.24.6-github-e12a2ceb6865`. `build.json` records hashes of the reviewed website assets.
