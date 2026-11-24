@@ -1,0 +1,1910 @@
+{
+  "checked": "2026-11-24",
+  "companies": [
+    {
+      "id": "temporal",
+      "name": "Temporal",
+      "website": "https://temporal.io/",
+      "category": "Durable workflow execution",
+      "summary": "Preserves workflow state so multi-step agents can resume after service failures and wait for human decisions.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "agent-execution-infrastructure"
+      ],
+      "region": "",
+      "proposedUse": "Run a document-review workflow that survives outages and resumes after a supervisor approves the next step.",
+      "sourceIds": [
+        "temporal-ai-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Open-source platform and commercial cloud",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-cloud",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Persistent workflow history and recoverable execution",
+        "Retries around external services and model calls",
+        "Human approvals inside long-running workflows"
+      ],
+      "limitation": "Durable execution preserves progress; it does not make a mistaken model decision correct.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 5,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "e2b",
+      "name": "E2B",
+      "website": "https://e2b.dev/",
+      "category": "Isolated agent execution",
+      "summary": "Provides an isolated machine for an agent to execute code, work with files and use software.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "agent-execution-infrastructure"
+      ],
+      "region": "",
+      "proposedUse": "Let a supervised analysis agent process approved spreadsheets in a disposable environment.",
+      "sourceIds": [
+        "e2b-runtime-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial cloud and open-source runtime",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-cloud",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Per-session microVMs with shell, files and browser",
+        "Snapshots and sandbox lifecycle APIs",
+        "Network policy and deployment in supported customer clouds"
+      ],
+      "limitation": "Review outbound network rules, secrets, retention and the actual isolation boundary before connecting sensitive systems.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 5,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "daytona",
+      "name": "Daytona",
+      "website": "https://www.daytona.io/",
+      "category": "Agent sandboxes",
+      "summary": "Creates programmable execution environments for AI-generated code and parallel agent tasks.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "agent-execution-infrastructure"
+      ],
+      "region": "",
+      "proposedUse": "Run coding and data-cleaning experiments with disposable workspaces and explicit resource budgets.",
+      "sourceIds": [
+        "daytona-runtime-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Developer platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-cloud",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Create and remove sandboxes through SDKs",
+        "Execute code with streamed output",
+        "Run parallel, stateful agent environments"
+      ],
+      "limitation": "Isolation and fast startup do not validate the code or authorize external actions.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 3,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "llamaindex",
+      "name": "LlamaIndex",
+      "website": "https://www.llamaindex.ai/",
+      "category": "Document parsing and evidence",
+      "summary": "Extracts document text, tables and fields with page locations; offers both hosted parsing and a lightweight local CPU pipeline.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "wbg",
+        "frontier"
+      ],
+      "trendIds": [
+        "document-intelligence",
+        "on-device-ai"
+      ],
+      "region": "",
+      "proposedUse": "Parse supervision reports with clickable evidence and benchmark a local first pass before sending difficult pages to a larger model.",
+      "sourceIds": [
+        "llamaindex-product-20261124",
+        "llamaindex-ocria15-20261118",
+        "llamaindex-nano-20261123"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial platform; local parser and separately licensed model weights",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-knowledge",
+        "wbg": "wbg-decisions",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "LlamaParse extracts structured document content",
+        "Bounding boxes link output to source regions",
+        "OCRia-nano-1 runs locally through LiteParse"
+      ],
+      "limitation": "Nano has no chart-to-table model; complex tables, handwriting and degraded scans need separate evaluation.",
+      "evidenceDate": "2026-11-23",
+      "entityType": "Private company",
+      "discoveryPriority": 5,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "nango",
+      "name": "Nango",
+      "website": "https://nango.dev/",
+      "category": "Agent integration infrastructure",
+      "summary": "Connects agents to business APIs with authentication, synchronization, tool execution and action logs.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "agent-interoperability"
+      ],
+      "region": "",
+      "proposedUse": "Connect a sandbox intake agent to an approved ticketing API and verify every requested write.",
+      "sourceIds": [
+        "nango-product-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial developer platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-knowledge",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Managed API authorization and token lifecycle",
+        "Tools, event triggers and data synchronization",
+        "Scoped permissions and action audit trails"
+      ],
+      "limitation": "A supported connector does not establish institutional permission to read or modify a system.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 3,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "qodo",
+      "name": "Qodo",
+      "website": "https://www.qodo.ai/",
+      "category": "Code review and software quality",
+      "summary": "Reviews code changes against repository context and team rules, with new session-level review across an agent’s pull requests.",
+      "domain": "enterprise",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "software-agents",
+        "agent-evaluation"
+      ],
+      "region": "",
+      "proposedUse": "Compare reviewer effort and defects on agent-written prototype changes against the current review process.",
+      "sourceIds": [
+        "qodo-product-20261124",
+        "qodo-session-review-20261118"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial platform; selected features beta or research preview",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-software",
+        "frontier": "frontier-work"
+      },
+      "capabilities": [
+        "Context-aware pull-request review and cross-repository checks",
+        "Team rules and guarded approval workflows",
+        "Agent Session Review assembles decisions and related PRs"
+      ],
+      "limitation": "Session review is a research preview and auto-approval is beta; measure missed defects and retain required reviewers.",
+      "evidenceDate": "2026-11-18",
+      "entityType": "Private company",
+      "discoveryPriority": 5,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "harness-cosmos",
+      "name": "Harness Cosmos",
+      "website": "https://www.harness.io/blog/harness-acquires-augment-code-cosmos",
+      "category": "Event-driven software workflows",
+      "summary": "Coordinates engineering work from tickets through code, tests and review using technology acquired from Augment Code.",
+      "domain": "enterprise",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "software-agents"
+      ],
+      "region": "",
+      "proposedUse": "Test a ticket-to-reviewed-PR workflow for a bounded internal maintenance backlog.",
+      "sourceIds": [
+        "harness-augment-assets-20261008",
+        "augment-cosmos-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial product / acquired technology",
+      "note": "Harness announced the acquisition of selected Augment Code assets, including Cosmos, the Auggie CLI and Code Context Engine, on 8 October 2026.",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "Harness announced the acquisition of selected Augment Code assets, including Cosmos, the Auggie CLI and Code Context Engine, on 8 October 2026.",
+      "domainsByLens": {
+        "its": "its-software",
+        "frontier": "frontier-work"
+      },
+      "capabilities": [
+        "Events and schedules trigger engineering workflows",
+        "Specialized agents plan, review and verify changes",
+        "Code context informs follow-up work after failed checks"
+      ],
+      "limitation": "Integration, code access and merge policy remain organization-specific; the selected assets now sit with Harness.",
+      "evidenceDate": "2026-10-08",
+      "entityType": "Ecosystem product",
+      "discoveryPriority": 3,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "website": "https://cursor.com/",
+      "category": "Coding agents",
+      "summary": "Combines desktop and command-line development with cloud agents that implement and test changes in separate environments.",
+      "domain": "enterprise",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "software-agents"
+      ],
+      "region": "",
+      "proposedUse": "Compare agent-assisted prototype work with existing IDE tools using accepted changes and review time.",
+      "sourceIds": [
+        "cursor-agents-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial product",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-software",
+        "frontier": "frontier-work"
+      },
+      "capabilities": [
+        "Codebase context and interactive development",
+        "Parallel cloud agents with their own environments",
+        "Reviewable code changes and demonstrations"
+      ],
+      "limitation": "Generated code still needs repository-specific tests, security review and controlled release access.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 4,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "coderabbit",
+      "name": "CodeRabbit",
+      "website": "https://www.coderabbit.ai/",
+      "category": "Code review and verification",
+      "summary": "Reviews pull requests and helps teams prioritize, understand, secure and verify agent-generated changes.",
+      "domain": "enterprise",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "software-agents"
+      ],
+      "region": "",
+      "proposedUse": "Add independent review to an internal pilot repository and track actionable findings per reviewer minute.",
+      "sourceIds": [
+        "coderabbit-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-software",
+        "frontier": "frontier-work"
+      },
+      "capabilities": [
+        "Automated PR review with concrete suggestions",
+        "Change prioritization and codebase risk visibility",
+        "Verification workflows alongside code review"
+      ],
+      "limitation": "Automated review can miss business intent or create noisy findings; evaluate against a labelled defect set.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 3,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "tessl",
+      "name": "Tessl",
+      "website": "https://tessl.io/",
+      "category": "Agent skills and context governance",
+      "summary": "Provides a shared registry for agent skills and context, with evaluations and checks as those instructions change.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "software-agents",
+        "agent-evaluation"
+      ],
+      "region": "",
+      "proposedUse": "Create a tested registry of engineering skills and compare agent task success before promoting a new version.",
+      "sourceIds": [
+        "tessl-context-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial developer platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-software",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Searchable organization and private skill registries",
+        "Before-and-after evaluation of context changes",
+        "Policy checks and reusable review workflows"
+      ],
+      "limitation": "A shared skill can spread errors as well as good practice; keep ownership and regression evidence per version.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 4,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "patronus-ai",
+      "name": "Patronus AI",
+      "website": "https://www.patronus.ai/",
+      "category": "Agent behavior research",
+      "summary": "Studies agent failures and develops task environments, trace benchmarks and training data for better behavior.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "agent-evaluation"
+      ],
+      "region": "",
+      "proposedUse": "Use trace-level failure categories when constructing an evaluation set for a supervised knowledge agent.",
+      "sourceIds": [
+        "patronus-lab-20261124",
+        "patronus-trail-20250513"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Research outputs and commercial research engagement",
+      "note": "Current positioning is a behavioral research lab; avoid describing the company only as an evaluation dashboard.",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "Current positioning is a behavioral research lab; avoid describing the company only as an evaluation dashboard.",
+      "domainsByLens": {
+        "its": "its-trust",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Environment-based assessment of agent judgment",
+        "TRAIL benchmark for locating failures in traces",
+        "Research and data across coding and knowledge tasks"
+      ],
+      "limitation": "Research benchmarks are not a turnkey guarantee of reliability on institutional workflows.",
+      "evidenceDate": null,
+      "entityType": "Research company",
+      "discoveryPriority": 4,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "hiddenlayer",
+      "name": "HiddenLayer",
+      "website": "https://www.hiddenlayer.com/",
+      "category": "AI security testing and defense",
+      "summary": "Inventories AI assets, inspects model supply chains, simulates attacks and monitors runtime threats.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "agent-evaluation"
+      ],
+      "region": "",
+      "proposedUse": "Test an AI application against an agreed attack set and connect findings to existing security response.",
+      "sourceIds": [
+        "hiddenlayer-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-trust",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "AI application and model discovery",
+        "Model supply-chain analysis and attack simulation",
+        "Runtime monitoring with security-tool integrations"
+      ],
+      "limitation": "Detection coverage and false-positive rates depend on model, application and deployment integration.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 3,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "witnessai",
+      "name": "WitnessAI",
+      "website": "https://witness.ai/",
+      "category": "AI runtime governance",
+      "summary": "Provides visibility and policies for employee AI use, applications and supported agent tool activity.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "agent-interoperability"
+      ],
+      "region": "",
+      "proposedUse": "Compare policy enforcement on legitimate and disallowed tool calls in a controlled workflow.",
+      "sourceIds": [
+        "witnessai-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-trust",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Observe employee and agent AI activity",
+        "Control supported tool access and sensitive data flows",
+        "Runtime defense and policy-based governance"
+      ],
+      "limitation": "Only traffic and action paths that reach the deployed controls can be governed.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 3,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "modal",
+      "name": "Modal",
+      "website": "https://modal.com/",
+      "category": "Elastic AI compute",
+      "summary": "Runs model inference, training jobs and agent sandboxes on programmable cloud infrastructure.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "specialized-inference",
+        "agent-execution-infrastructure"
+      ],
+      "region": "",
+      "proposedUse": "Benchmark a permitted open-model workload by cost per accepted result and sustained throughput.",
+      "sourceIds": [
+        "modal-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial cloud platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-cloud",
+        "frontier": "frontier-compute"
+      },
+      "capabilities": [
+        "Autoscaling dedicated inference and model APIs",
+        "GPU training and fine-tuning jobs",
+        "Isolated environments for agent execution"
+      ],
+      "limitation": "Provider regions, workload costs and network boundaries must fit the institution’s deployment requirements.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 3,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "baseten",
+      "name": "Baseten",
+      "website": "https://www.baseten.co/",
+      "category": "Specialized model infrastructure",
+      "summary": "Combines dedicated model serving, training, execution sandboxes and controls over model access.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "specialized-inference"
+      ],
+      "region": "",
+      "proposedUse": "Evaluate a narrow document classifier or extraction model against a general-model baseline.",
+      "sourceIds": [
+        "baseten-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-cloud",
+        "frontier": "frontier-compute"
+      },
+      "capabilities": [
+        "Dedicated inference for specialized models",
+        "Custom training through code and SDKs",
+        "Model-access, routing and usage controls"
+      ],
+      "limitation": "Specialization only helps when task quality, latency and total operating cost improve on a representative workload.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 3,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "fireworks-ai",
+      "name": "Fireworks AI",
+      "website": "https://fireworks.ai/",
+      "category": "Open-model inference and adaptation",
+      "summary": "Runs, routes and trains open models so organizations can tailor model systems to particular tasks.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "specialized-inference"
+      ],
+      "region": "",
+      "proposedUse": "Compare routing among open models on an expert-reviewed retrieval or classification workload.",
+      "sourceIds": [
+        "fireworks-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-cloud",
+        "frontier": "frontier-compute"
+      },
+      "capabilities": [
+        "Hosted inference for open and custom models",
+        "Model ensembling and per-task routing",
+        "Training to adapt models to domain workloads"
+      ],
+      "limitation": "Provider claims about speed or savings need workload-specific validation and appropriate data residency.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 4,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "flower-labs",
+      "name": "Flower Labs",
+      "website": "https://flower.ai/",
+      "category": "Federated learning infrastructure",
+      "summary": "Supports collaborative model training and evaluation across organizations while keeping training data distributed.",
+      "domain": "trust",
+      "ring": "assess",
+      "lenses": [
+        "its",
+        "wbg",
+        "frontier"
+      ],
+      "trendIds": [
+        "privacy-preserving-computation",
+        "sovereign-data-ai"
+      ],
+      "region": "",
+      "proposedUse": "Test a jointly trained model with synthetic partner datasets before considering restricted institutional data.",
+      "sourceIds": [
+        "flower-framework-20261124",
+        "flower-product-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Open-source framework and commercial services",
+      "note": "",
+      "horizon": "next",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-data",
+        "wbg": "wbg-services",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Federated training and evaluation with common ML frameworks",
+        "Secure aggregation and differential-privacy options",
+        "Deployment across separate institutional environments"
+      ],
+      "limitation": "Federation alone does not guarantee privacy; updates, consent and re-identification risks still need controls.",
+      "evidenceDate": null,
+      "entityType": "Company / open-source builder",
+      "discoveryPriority": 4,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "zama",
+      "name": "Zama",
+      "website": "https://www.zama.org/",
+      "category": "Encrypted computation for finance",
+      "summary": "Uses fully homomorphic encryption to support confidential transactions and assets on public blockchains.",
+      "domain": "trust",
+      "ring": "assess",
+      "lenses": [
+        "wbg",
+        "frontier"
+      ],
+      "trendIds": [
+        "privacy-preserving-computation"
+      ],
+      "region": "",
+      "proposedUse": "Study disclosure, auditability and performance trade-offs in a financial-infrastructure research sandbox.",
+      "sourceIds": [
+        "zama-protocol-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Protocol and developer ecosystem",
+      "note": "",
+      "horizon": "next",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "wbg": "wbg-decisions",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Computation on encrypted transaction information",
+        "Confidential transfers and tokenized assets",
+        "Programmable disclosure and compliance features"
+      ],
+      "limitation": "Cryptographic confidentiality does not establish legal suitability, economic value or unrestricted production performance.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 3,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "pqshield",
+      "name": "PQShield",
+      "website": "https://pqshield.com/",
+      "category": "Post-quantum cryptography",
+      "summary": "Builds software and hardware cryptography for migration to standardized quantum-resistant security.",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "post-quantum-migration"
+      ],
+      "region": "",
+      "proposedUse": "Assess crypto-agility and pilot hybrid key exchange on a non-production service.",
+      "sourceIds": [
+        "pqshield-cryptolib-20261124",
+        "nist-pqc-standards-20240813"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial software and hardware IP",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-trust",
+        "frontier": "frontier-compute"
+      },
+      "capabilities": [
+        "Software libraries for post-quantum and hybrid algorithms",
+        "Integration with authentication and secure communication",
+        "Hardware and embedded cryptographic implementations"
+      ],
+      "limitation": "Migration requires compatibility testing, dependency inventory and validation of the exact implementation.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 4,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "viam",
+      "name": "Viam",
+      "website": "https://www.viam.com/",
+      "category": "Physical AI deployment platform",
+      "summary": "Connects robotics hardware to software, data capture, remote operations and controlled fleet updates.",
+      "domain": "frontier",
+      "ring": "assess",
+      "lenses": [
+        "wbg",
+        "frontier"
+      ],
+      "trendIds": [
+        "physical-ai"
+      ],
+      "region": "",
+      "proposedUse": "Explore sensor and inspection data collection for an infrastructure pilot with explicit operating limits.",
+      "sourceIds": [
+        "viam-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Open-source runtime and commercial platform",
+      "note": "",
+      "horizon": "next",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "wbg": "wbg-infrastructure",
+        "frontier": "frontier-physical"
+      },
+      "capabilities": [
+        "Common APIs across sensors and robotic components",
+        "On-device controls and declared movement limits",
+        "Remote diagnostics and staged fleet rollouts"
+      ],
+      "limitation": "Safety claims depend on hardware, environment and configured limits; a platform is not task certification.",
+      "evidenceDate": null,
+      "entityType": "Private company",
+      "discoveryPriority": 4,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "fieldai",
+      "name": "FieldAI",
+      "website": "https://www.fieldai.com/",
+      "category": "Robot autonomy for physical sites",
+      "summary": "Develops robot autonomy for unstructured construction, industrial and infrastructure environments.",
+      "domain": "frontier",
+      "ring": "assess",
+      "lenses": [
+        "wbg",
+        "frontier"
+      ],
+      "trendIds": [
+        "physical-ai",
+        "project-supervision"
+      ],
+      "region": "",
+      "proposedUse": "Assess repeatable site-inspection missions and the quality of evidence they provide to project supervision.",
+      "sourceIds": [
+        "fieldai-platform-20261124",
+        "fieldai-kajima-20261105"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial deployments and partnerships",
+      "note": "",
+      "horizon": "next",
+      "evidenceLabel": "Primary product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "wbg": "wbg-infrastructure",
+        "frontier": "frontier-physical"
+      },
+      "capabilities": [
+        "Robot navigation across changing physical environments",
+        "Risk-aware models combining learned and physical information",
+        "Deployment across supported robot forms and industrial sites"
+      ],
+      "limitation": "Site access, safety, hardware and task-level performance require local validation; avoid universal autonomy claims.",
+      "evidenceDate": "2026-11-05",
+      "entityType": "Private company",
+      "discoveryPriority": 5,
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "arcade",
+      "name": "Arcade",
+      "website": "https://www.arcade.dev/",
+      "category": "Agent tool authorization and runtime",
+      "summary": "Enforces user-scoped authorization and runtime policies as agents call business tools, including pre-authorization for planned multi-service work.",
+      "domain": "trust",
+      "ring": "assess",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "agent-interoperability"
+      ],
+      "region": "",
+      "proposedUse": "Test user-scoped authorization and explicit write permissions for workflow agents.",
+      "sourceIds": [
+        "arcade-developers",
+        "arcade-platform-20261124",
+        "arcade-preauthorization-20260902"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Developer platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Company product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-trust",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "User-delegated authorization for connected tools",
+        "Per-action policies and audit records",
+        "Bundled pre-authorization before multi-service tasks"
+      ],
+      "limitation": "Approval to connect a service is separate from approval for each consequential action; validate the actual action scope.",
+      "evidenceDate": "2026-09-02",
+      "entityType": "Private company"
+    },
+    {
+      "id": "zep",
+      "name": "Zep",
+      "website": "https://www.getzep.com/",
+      "category": "Agent memory infrastructure",
+      "summary": "Builds temporal context graphs so agents can retrieve relationships and distinguish current facts from superseded information.",
+      "domain": "trust",
+      "ring": "assess",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "context-memory"
+      ],
+      "region": "",
+      "proposedUse": "Test whether project assistants correctly distinguish current decisions from superseded information.",
+      "sourceIds": [
+        "zep-memory",
+        "zep-graphiti-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial platform and open-source components",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Company product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-knowledge",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Temporal graphs retain when facts become valid or obsolete",
+        "Hybrid retrieval combines graph, vector and text search",
+        "Graphiti supports pluggable graph and model backends"
+      ],
+      "limitation": "Entity resolution, permissions and deletion must be tested; retaining a fact’s history does not prove it is true.",
+      "evidenceDate": null,
+      "entityType": "Company / open-source builder"
+    },
+    {
+      "id": "letta",
+      "name": "Letta",
+      "website": "https://www.letta.com/",
+      "category": "Stateful agent infrastructure",
+      "summary": "Builds persistent agents whose memory and context can continue across conversations, tools and working sessions.",
+      "domain": "trust",
+      "ring": "assess",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "trendIds": [
+        "context-memory"
+      ],
+      "region": "",
+      "proposedUse": "Prototype a long-running project assistant with inspectable memory and explicit retention rules.",
+      "sourceIds": [
+        "letta-state",
+        "letta-agent-20261124",
+        "letta-conversations-20260121"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Developer platform",
+      "note": "",
+      "horizon": "now",
+      "evidenceLabel": "Company product information",
+      "evidenceNote": "",
+      "domainsByLens": {
+        "its": "its-knowledge",
+        "frontier": "frontier-foundations"
+      },
+      "capabilities": [
+        "Persistent agent identity and memory across sessions",
+        "Concurrent conversations sharing agent memory",
+        "Inspectable context and memory workflows"
+      ],
+      "limitation": "Shared memory needs ownership, isolation, retention and correction rules before it handles institutional material.",
+      "evidenceDate": "2026-01-21",
+      "entityType": "Company / open-source builder"
+    }
+  ],
+  "trends": [
+    {
+      "id": "agent-execution-infrastructure",
+      "title": "Execution environments for long-running agents",
+      "shortTitle": "Agent execution",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "summary": "Durable workflows preserve progress; isolated machines give agents controlled places to execute code.",
+      "whyNow": "Temporal, E2B and Daytona expose execution infrastructure separately from the model, making recovery and containment explicit design choices.",
+      "application": "Run a supervised workflow with recoverable state, disposable code execution and a clear approval boundary.",
+      "experiment": "Interrupt a 20-step sandbox workflow, restart it and inspect which actions resume, repeat or remain blocked.",
+      "measure": "Recovery success, duplicate side effects, resource cost and containment of denied network activity.",
+      "watchouts": [
+        "Idempotency of external writes",
+        "Secrets and network egress",
+        "Sandbox lifecycle and residual files"
+      ],
+      "companyIds": [
+        "temporal",
+        "e2b",
+        "daytona",
+        "modal"
+      ],
+      "sourceIds": [
+        "temporal-ai-20261124",
+        "e2b-runtime-20261124",
+        "daytona-runtime-20261124"
+      ],
+      "verified": "2026-11-24",
+      "applicationsByLens": {
+        "its": "Run a supervised workflow with recoverable state, disposable code execution and a clear approval boundary.",
+        "frontier": "Run a supervised workflow with recoverable state, disposable code execution and a clear approval boundary."
+      },
+      "horizon": "now",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "its": "its-cloud",
+        "frontier": "frontier-foundations"
+      }
+    },
+    {
+      "id": "specialized-inference",
+      "title": "Model infrastructure for specific workloads",
+      "shortTitle": "Specialized inference",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "summary": "Model serving, adaptation and routing are becoming a separate layer of enterprise AI design.",
+      "whyNow": "Baseten, Modal and Fireworks combine serving and adaptation with infrastructure controls; the useful comparison is performance on a real workload.",
+      "application": "Evaluate a small set of model and serving combinations for one measurable institutional task.",
+      "experiment": "Run a fixed, expert-reviewed dataset across general and specialized models with identical acceptance criteria.",
+      "measure": "Cost per accepted result, tail latency, throughput, quality and deployment constraints.",
+      "watchouts": [
+        "Benchmark mismatch",
+        "Hidden training and operations cost",
+        "Residency and model-license requirements"
+      ],
+      "companyIds": [
+        "modal",
+        "baseten",
+        "fireworks-ai"
+      ],
+      "sourceIds": [
+        "modal-platform-20261124",
+        "baseten-platform-20261124",
+        "fireworks-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "applicationsByLens": {
+        "its": "Evaluate a small set of model and serving combinations for one measurable institutional task.",
+        "frontier": "Evaluate a small set of model and serving combinations for one measurable institutional task."
+      },
+      "horizon": "now",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "its": "its-cloud",
+        "frontier": "frontier-compute"
+      }
+    },
+    {
+      "id": "privacy-preserving-computation",
+      "title": "Learning and computing across data boundaries",
+      "shortTitle": "Privacy-preserving computation",
+      "domain": "trust",
+      "ring": "assess",
+      "lenses": [
+        "its",
+        "wbg",
+        "frontier"
+      ],
+      "summary": "Federated learning and encrypted computation offer different ways to collaborate without routinely centralizing raw data.",
+      "whyNow": "Flower provides distributed learning infrastructure; Zama demonstrates encrypted execution in financial applications. Their privacy guarantees and costs differ.",
+      "application": "Explore multi-institution analysis using synthetic data and an explicit threat model before considering restricted information.",
+      "experiment": "Compare a centralized baseline with a federated or encrypted design on one narrowly defined task.",
+      "measure": "Utility loss, computation cost, leakage tests, operational complexity and participant control.",
+      "watchouts": [
+        "Federation is not privacy by itself",
+        "Key management and disclosure policy",
+        "Non-uniform participant data"
+      ],
+      "companyIds": [
+        "flower-labs",
+        "zama"
+      ],
+      "sourceIds": [
+        "flower-framework-20261124",
+        "zama-protocol-20261124"
+      ],
+      "verified": "2026-11-24",
+      "applicationsByLens": {
+        "its": "Explore multi-institution analysis using synthetic data and an explicit threat model before considering restricted information.",
+        "wbg": "Explore multi-institution analysis using synthetic data and an explicit threat model before considering restricted information.",
+        "frontier": "Explore multi-institution analysis using synthetic data and an explicit threat model before considering restricted information."
+      },
+      "horizon": "next",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "its": "its-data",
+        "wbg": "wbg-services",
+        "frontier": "frontier-foundations"
+      }
+    },
+    {
+      "id": "post-quantum-migration",
+      "title": "Migration to quantum-resistant cryptography",
+      "shortTitle": "Post-quantum security",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "summary": "Organizations can assess cryptographic dependencies and test standardized post-quantum and hybrid implementations now.",
+      "whyNow": "NIST finalized its first three standards in 2024; vendors including PQShield provide implementation paths, making migration distinct from waiting for useful quantum computers.",
+      "application": "Prioritize long-lived sensitive information and assess where cryptographic dependencies can be changed safely.",
+      "experiment": "Pilot a compatible hybrid key-exchange implementation on a non-production service.",
+      "measure": "Interoperability, latency, key and certificate handling, rollback and inventory coverage.",
+      "watchouts": [
+        "Implementation validation",
+        "Legacy-system compatibility",
+        "Unclear asset ownership"
+      ],
+      "companyIds": [
+        "pqshield"
+      ],
+      "sourceIds": [
+        "nist-pqc-standards-20240813",
+        "pqshield-cryptolib-20261124"
+      ],
+      "verified": "2026-11-24",
+      "applicationsByLens": {
+        "its": "Prioritize long-lived sensitive information and assess where cryptographic dependencies can be changed safely.",
+        "frontier": "Prioritize long-lived sensitive information and assess where cryptographic dependencies can be changed safely."
+      },
+      "horizon": "now",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "its": "its-trust",
+        "frontier": "frontier-compute"
+      }
+    },
+    {
+      "id": "software-agents",
+      "title": "Software agents across the development cycle",
+      "shortTitle": "Software agents",
+      "domain": "enterprise",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "summary": "AI systems that plan, edit, test and maintain software using the same development tools as engineers.",
+      "whyNow": "The scope now includes event-triggered engineering, review and verification. Qodo introduced session-level review on 18 November 2026; Harness acquired selected Augment assets to connect coding with delivery.",
+      "application": "Use a supervised agent to repair a sandbox application, generate tests or modernize a small internal service; engineers retain review and release authority.",
+      "experiment": "Compare an agent-assisted team with the existing process on 10 small repository tasks, using the same acceptance criteria and code review.",
+      "measure": "Accepted task completion, reviewer time, introduced defects, elapsed time and cost per accepted change.",
+      "watchouts": [
+        "Reviewing business intent across multiple changes",
+        "Repository and secret access",
+        "Independent acceptance tests",
+        "Quality and cost per accepted change"
+      ],
+      "companyIds": [
+        "cognition",
+        "factory",
+        "replit",
+        "mechanical-orchard",
+        "qodo",
+        "harness-cosmos",
+        "cursor",
+        "coderabbit",
+        "tessl"
+      ],
+      "sourceIds": [
+        "cognition-about",
+        "factory-home",
+        "replit-missions",
+        "factory-azure",
+        "qodo-session-review-20261118",
+        "harness-augment-assets-20261008",
+        "cursor-agents-20261124",
+        "tessl-context-20261124"
+      ],
+      "verified": "2026-11-24",
+      "applicationsByLens": {
+        "its": "Test a software agent on a real maintenance backlog within existing source-control, identity, test and review controls.",
+        "frontier": "Examine how longer-running software agents change the economics of building and maintaining products, and where review becomes the limiting factor."
+      },
+      "horizon": "now",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "its": "its-software",
+        "frontier": "frontier-work"
+      }
+    },
+    {
+      "id": "context-memory",
+      "title": "Context graphs and persistent agent memory",
+      "shortTitle": "Context & memory",
+      "domain": "trust",
+      "ring": "assess",
+      "lenses": [
+        "its"
+      ],
+      "summary": "Systems that preserve relevant facts, relationships and prior decisions across tasks, sometimes recording when a fact was true and where it came from.",
+      "whyNow": "Temporal context graphs and shared memory across concurrent conversations make longer-lived assistants practical to test. The key question is whether they retain the right facts and retire obsolete ones.",
+      "application": "Create a project assistant that distinguishes an approved current decision from a superseded draft and cites the underlying document.",
+      "experiment": "Build a small, permissioned project corpus with deliberately conflicting dated records; compare standard retrieval with temporal or structured memory.",
+      "measure": "Correct handling of superseded facts, source accuracy, deletion behavior, access-control fidelity and retrieval cost.",
+      "watchouts": [
+        "False or stale memory",
+        "Access boundaries across users",
+        "Deletion and correction propagation",
+        "Unclear evidence provenance"
+      ],
+      "companyIds": [
+        "glean",
+        "syntes",
+        "zep",
+        "letta",
+        "sierra",
+        "cohere"
+      ],
+      "sourceIds": [
+        "syntes-home",
+        "zep-memory",
+        "letta-state",
+        "zep-graphiti-20261124",
+        "letta-conversations-20260121"
+      ],
+      "verified": "2026-11-24",
+      "horizon": "now",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "its": "its-knowledge",
+        "frontier": "frontier-foundations"
+      }
+    },
+    {
+      "id": "agent-interoperability",
+      "title": "Interoperable agents and permissioned tools",
+      "shortTitle": "Agent interoperability",
+      "domain": "trust",
+      "ring": "assess",
+      "lenses": [
+        "its",
+        "frontier"
+      ],
+      "summary": "Common interfaces through which agents find tools, access systems and delegate tasks while preserving identity and authorization.",
+      "whyNow": "Tool connectivity is being paired with identity, permission scopes and runtime controls. Arcade’s September 2026 release gathers planned tool authorizations before a long task starts.",
+      "application": "Connect a portfolio-research assistant to approved document search and a calculation service, with separate permissions and an auditable record for every tool call.",
+      "experiment": "Connect two approved read-only systems and one specialist agent; verify identity propagation, denied actions, cancellation and complete audit records.",
+      "measure": "Integration effort, successful task handoffs, unauthorized-action rejection and diagnosability of failures.",
+      "watchouts": [
+        "Connector availability versus actual permission",
+        "Uncontrolled internal calls",
+        "Write scope and user identity",
+        "Audit coverage"
+      ],
+      "companyIds": [
+        "composio",
+        "arcade",
+        "langchain",
+        "noma-security",
+        "aembit",
+        "n8n",
+        "nango",
+        "witnessai"
+      ],
+      "sourceIds": [
+        "mcp-spec",
+        "a2a-spec",
+        "composio-docs",
+        "arcade-developers",
+        "langsmith-server",
+        "arcade-preauthorization-20260902",
+        "nango-product-20261124",
+        "witnessai-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "applicationsByLens": {
+        "its": "Connect approved search, analytics and specialist tools without giving an agent broad credentials or rebuilding each integration.",
+        "frontier": "Follow whether common protocols produce interchangeable tools and agents across vendors while preserving identity, cancellation and clear accountability."
+      },
+      "horizon": "next",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "its": "its-trust",
+        "frontier": "frontier-foundations"
+      }
+    },
+    {
+      "id": "agent-evaluation",
+      "title": "Evaluation and observability for agent behavior",
+      "shortTitle": "Agent assurance",
+      "domain": "trust",
+      "ring": "experiment",
+      "lenses": [
+        "its",
+        "wbg"
+      ],
+      "summary": "Tools that record an agent's actions and test whether complete tasks meet defined standards for quality, safety and cost.",
+      "whyNow": "Assessment increasingly covers whole work traces, related code changes and tool use. New session-review products complement established trace benchmarks and application attack testing.",
+      "application": "Evaluate a complaints-supervision assistant for evidence fidelity, multilingual quality, correct tool use and proper escalation before deployment.",
+      "experiment": "Create 50 expert-reviewed cases, including ambiguous and adversarial examples, and compare two candidate systems using identical rubrics.",
+      "measure": "End-to-end success, false confidence, permission violations, latency, cost and agreement between automated scores and expert review.",
+      "watchouts": [
+        "Scoring only the final answer",
+        "Evaluator errors and reward gaming",
+        "Missing domain expertise",
+        "Regression coverage after tool or model changes"
+      ],
+      "companyIds": [
+        "langchain",
+        "arize",
+        "braintrust",
+        "galileo",
+        "noma-security",
+        "credo-ai",
+        "qodo",
+        "tessl",
+        "patronus-ai",
+        "hiddenlayer"
+      ],
+      "sourceIds": [
+        "arize-home",
+        "braintrust-home",
+        "galileo-product",
+        "qodo-session-review-20261118",
+        "tessl-context-20261124",
+        "patronus-trail-20250513",
+        "hiddenlayer-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "horizon": "now",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "its": "its-trust",
+        "wbg": "wbg-services",
+        "frontier": "frontier-foundations"
+      }
+    },
+    {
+      "id": "document-intelligence",
+      "title": "Document intelligence that preserves usable evidence",
+      "shortTitle": "Document intelligence",
+      "domain": "trust",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "its",
+        "wbg"
+      ],
+      "domainsByLens": {
+        "its": "its-knowledge",
+        "wbg": "wbg-decisions"
+      },
+      "summary": "Turn scans, tables, forms and long reports into structured records that preserve their location and meaning in the original document.",
+      "whyNow": "LlamaIndex released OCRia-1.5 on 18 November 2026 and a local CPU parser on 23 November. This supports testing a fast first pass plus stronger processing for difficult pages.",
+      "application": "Make project reports and supporting annexes easier to search and compare without detaching a figure, date or statement from its original table, page and document version.",
+      "applicationsByLens": {
+        "its": "Improve the document pipeline feeding institutional search and agents, including difficult PDFs and tables, with traceable extraction and retained source permissions.",
+        "wbg": "Compare indicators across public project reports and annexes while retaining page-level evidence and flagging changes in definitions, reporting periods and units."
+      },
+      "experiment": "Use 50 public reports with scanned pages, multilingual text and complex tables. Build a human-checked reference set of fields and supporting page regions, then compare two extraction approaches on the same files.",
+      "measure": "Correct fields with correct units and periods; preserved table relationships; unsupported values; usable source locations; reviewer time and cost per accepted record.",
+      "watchouts": [
+        "Losing table headers and units",
+        "Incorrect source-region alignment",
+        "Handwriting and scan quality",
+        "Separate code and model licenses"
+      ],
+      "companyIds": [
+        "unstructured",
+        "reducto",
+        "mistral-ai",
+        "llamaindex"
+      ],
+      "sourceIds": [
+        "unstructured-transform-2026",
+        "reducto-developers",
+        "mistral-ocr41",
+        "llamaindex-ocria15-20261118",
+        "llamaindex-nano-20261123"
+      ],
+      "verified": "2026-11-24",
+      "addedInEdition": "2026.11.23.3"
+    },
+    {
+      "id": "physical-ai",
+      "title": "General-purpose robot policies",
+      "shortTitle": "Physical AI",
+      "domain": "frontier",
+      "ring": "watch",
+      "lenses": [
+        "frontier"
+      ],
+      "summary": "AI models that translate perception and instructions into robot actions, aiming to transfer skills across tasks or hardware.",
+      "whyNow": "Autonomy is moving from model demonstrations into selected physical-site deployments. FieldAI announced a Kajima construction deployment in November 2026; Viam provides hardware integration and fleet-operation infrastructure.",
+      "application": "Explore future applications in infrastructure inspection, repetitive handling and worker safety, including how costs and labor impacts differ in developing economies.",
+      "experiment": "With a robotics partner, specify one constrained inspection or handling task and benchmark against an established specialized solution.",
+      "measure": "Successful cycles without intervention, safety incidents, recovery time, total operating cost and performance in unfamiliar conditions.",
+      "watchouts": [
+        "Safety under changing site conditions",
+        "Task success beyond demonstrations",
+        "Hardware and integration cost",
+        "Operational ownership and human intervention"
+      ],
+      "companyIds": [
+        "figure",
+        "physical-intelligence",
+        "skild",
+        "wayve",
+        "viam",
+        "fieldai"
+      ],
+      "sourceIds": [
+        "figure-helix02",
+        "pi-api",
+        "skild-home",
+        "viam-platform-20261124",
+        "fieldai-platform-20261124",
+        "fieldai-kajima-20261105"
+      ],
+      "verified": "2026-11-24",
+      "horizon": "next",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "frontier": "frontier-physical",
+        "wbg": "wbg-infrastructure"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "id": "temporal-ai-20261124",
+      "title": "Temporal for AI applications and agents",
+      "url": "https://temporal.io/solutions/ai",
+      "publisher": "Temporal",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "e2b-runtime-20261124",
+      "title": "E2B agent cloud and isolated machines",
+      "url": "https://e2b.dev/",
+      "publisher": "E2B",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "daytona-runtime-20261124",
+      "title": "Daytona infrastructure for AI-generated code",
+      "url": "https://www.daytona.io/",
+      "publisher": "Daytona",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "llamaindex-product-20261124",
+      "title": "LlamaParse document parsing and extraction",
+      "url": "https://www.llamaindex.ai/",
+      "publisher": "LlamaIndex",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "llamaindex-ocria15-20261118",
+      "title": "Introducing OCRia-1.5",
+      "url": "https://www.llamaindex.ai/blog/introducing-ocria-1-5",
+      "publisher": "LlamaIndex",
+      "date": "2026-11-18",
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "llamaindex-nano-20261123",
+      "title": "Introducing OCRia-nano-1",
+      "url": "https://www.llamaindex.ai/blog/introducing-ocria-nano-1",
+      "publisher": "LlamaIndex",
+      "date": "2026-11-23",
+      "checked": "2026-11-24",
+      "note": "Model weights and LiteParse have separate licenses; Nano preserves charts as images.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "nango-product-20261124",
+      "title": "Nango integrations for agents",
+      "url": "https://nango.dev/",
+      "publisher": "Nango",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "qodo-product-20261124",
+      "title": "Qodo code review and software quality platform",
+      "url": "https://www.qodo.ai/",
+      "publisher": "Qodo",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "qodo-session-review-20261118",
+      "title": "Auto Approval Workflows and Agent Session Review",
+      "url": "https://www.qodo.ai/blog/introducing-auto-approval-workflows-and-agent-session-review/",
+      "publisher": "Qodo",
+      "date": "2026-11-18",
+      "checked": "2026-11-24",
+      "note": "Auto Approval Workflows is Beta; Agent Session Review is Research Preview.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "harness-augment-assets-20261008",
+      "title": "Harness acquires selected Augment Code assets including Cosmos",
+      "url": "https://www.harness.io/blog/harness-acquires-augment-code-cosmos",
+      "publisher": "Harness",
+      "date": "2026-10-08",
+      "checked": "2026-11-24",
+      "note": "Announcement updated 16 November 2026; transaction covers selected assets and team, not a claim about every Augment asset.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "augment-cosmos-20261124",
+      "title": "Augment Code Cosmos and Context Engine",
+      "url": "https://www.augmentcode.com/",
+      "publisher": "Augment Code",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "cursor-agents-20261124",
+      "title": "Cursor desktop, CLI and cloud agents",
+      "url": "https://cursor.com/",
+      "publisher": "Cursor",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "coderabbit-platform-20261124",
+      "title": "CodeRabbit agentic change management",
+      "url": "https://www.coderabbit.ai/",
+      "publisher": "CodeRabbit",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "tessl-context-20261124",
+      "title": "Tessl skill registry and workflow evaluation",
+      "url": "https://tessl.io/",
+      "publisher": "Tessl",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "patronus-lab-20261124",
+      "title": "Patronus AI behavioral research lab",
+      "url": "https://www.patronus.ai/",
+      "publisher": "Patronus AI",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "patronus-trail-20250513",
+      "title": "TRAIL: Trace Reasoning and Agentic Issue Localization",
+      "url": "https://www.patronus.ai/research/trail",
+      "publisher": "Patronus AI",
+      "date": "2025-05-13",
+      "checked": "2026-11-24",
+      "note": "The dated benchmark remains useful; it is not a November 2026 product launch.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "hiddenlayer-platform-20261124",
+      "title": "HiddenLayer AI Security Platform",
+      "url": "https://www.hiddenlayer.com/",
+      "publisher": "HiddenLayer",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "witnessai-platform-20261124",
+      "title": "WitnessAI security and governance for employees and agents",
+      "url": "https://witness.ai/",
+      "publisher": "WitnessAI",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "modal-platform-20261124",
+      "title": "Modal production AI infrastructure",
+      "url": "https://modal.com/",
+      "publisher": "Modal",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "baseten-platform-20261124",
+      "title": "Baseten inference, training and execution platform",
+      "url": "https://www.baseten.co/",
+      "publisher": "Baseten",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "fireworks-platform-20261124",
+      "title": "Fireworks specialized intelligence platform",
+      "url": "https://fireworks.ai/",
+      "publisher": "Fireworks AI",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "flower-framework-20261124",
+      "title": "Flower framework documentation",
+      "url": "https://flower.ai/docs/framework/",
+      "publisher": "Flower Labs",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "flower-product-20261124",
+      "title": "Flower collaborative AI platform",
+      "url": "https://flower.ai/",
+      "publisher": "Flower Labs",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "zama-protocol-20261124",
+      "title": "Zama confidential onchain finance protocol",
+      "url": "https://www.zama.org/",
+      "publisher": "Zama",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "pqshield-cryptolib-20261124",
+      "title": "PQCryptoLib-Core software PQC library",
+      "url": "https://pqshield.com/products/pqc-cor/",
+      "publisher": "PQShield",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "nist-pqc-standards-20240813",
+      "title": "NIST releases three finalized post-quantum encryption standards",
+      "url": "https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards",
+      "publisher": "NIST",
+      "date": "2024-08-13",
+      "checked": "2026-11-24",
+      "note": "Source updated 29 August 2025; standards availability should not be presented as a new 2026 announcement.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "viam-platform-20261124",
+      "title": "Viam physical AI infrastructure",
+      "url": "https://www.viam.com/",
+      "publisher": "Viam",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "fieldai-platform-20261124",
+      "title": "FieldAI general robot intelligence",
+      "url": "https://www.fieldai.com/",
+      "publisher": "FieldAI",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "fieldai-kajima-20261105",
+      "title": "Kajima deployment of general-purpose robot autonomy on construction sites",
+      "url": "https://www.fieldai.com/news/kajima-full-scale-deployment-of-robots-with-general-purpose-autonomy-software-on-construction-sites",
+      "publisher": "FieldAI",
+      "date": "2026-11-05",
+      "checked": "2026-11-24",
+      "note": "The announcement title and date were available; linked Kajima PDF returned 403 and its detailed deployment claims were not independently read.",
+      "kind": "Primary source"
+    },
+    {
+      "id": "arcade-platform-20261124",
+      "title": "Arcade actions runtime and MCP governance",
+      "url": "https://www.arcade.dev/",
+      "publisher": "Arcade",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "arcade-preauthorization-20260902",
+      "title": "Pre-authorize agent tools before a long-running task",
+      "url": "https://www.arcade.dev/blog/pre-authorize-agent-tools/",
+      "publisher": "Arcade",
+      "date": "2026-09-02",
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "zep-graphiti-20261124",
+      "title": "Graphiti temporal context graphs",
+      "url": "https://www.getzep.com/platform/graphiti/",
+      "publisher": "Zep",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "letta-agent-20261124",
+      "title": "Letta persistent agents and memory",
+      "url": "https://www.letta.com/agent/",
+      "publisher": "Letta",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    },
+    {
+      "id": "letta-conversations-20260121",
+      "title": "Shared agent memory across concurrent conversations",
+      "url": "https://www.letta.com/blog/conversations/",
+      "publisher": "Letta",
+      "date": "2026-01-21",
+      "checked": "2026-11-24",
+      "note": "",
+      "kind": "Primary source"
+    }
+  ],
+  "signals": [
+    {
+      "title": "A local first pass for document processing",
+      "date": "2026-11-23",
+      "text": "LlamaIndex released OCRia-nano-1 for local CPU parsing through LiteParse. Complex charts and degraded scans still require separate handling.",
+      "sourceIds": [
+        "llamaindex-nano-20261123"
+      ],
+      "trendId": "document-intelligence"
+    },
+    {
+      "title": "Reviewing the coding agent’s complete session",
+      "date": "2026-11-18",
+      "text": "Qodo introduced Agent Session Review as a research preview, connecting related pull requests, agent decisions and evidence for a human review.",
+      "sourceIds": [
+        "qodo-session-review-20261118"
+      ],
+      "trendId": "software-agents"
+    },
+    {
+      "title": "Document extraction keeps source locations",
+      "date": "2026-11-18",
+      "text": "OCRia-1.5 adds improved document structure and bounding-box placement in LlamaParse; evaluation should include whether readers can verify each extracted field.",
+      "sourceIds": [
+        "llamaindex-ocria15-20261118"
+      ],
+      "trendId": "document-intelligence"
+    },
+    {
+      "title": "Construction autonomy enters selected deployments",
+      "date": "2026-11-05",
+      "text": "FieldAI published a Kajima construction deployment announcement. Site-level capability and safety should be checked before extrapolating to other infrastructure projects.",
+      "sourceIds": [
+        "fieldai-kajima-20261105"
+      ],
+      "trendId": "physical-ai"
+    },
+    {
+      "title": "Augment technology joins the Harness portfolio",
+      "date": "2026-10-08",
+      "text": "Harness acquired selected Augment Code assets including Cosmos, Auggie CLI and the Code Context Engine. The radar identifies Cosmos as an ecosystem product.",
+      "sourceIds": [
+        "harness-augment-assets-20261008"
+      ],
+      "trendId": "software-agents"
+    },
+    {
+      "title": "Authorize planned tool access before a long task",
+      "date": "2026-09-02",
+      "text": "Arcade added bundled pre-authorization for planned tool calls while retaining user-scoped authorization and per-action enforcement.",
+      "sourceIds": [
+        "arcade-preauthorization-20260902"
+      ],
+      "trendId": "agent-interoperability"
+    }
+  ],
+  "notes": [
+    "21 new company/product records and 3 expanded existing records; 4 new trends and 6 updated existing trends. All listed sources were read on 24 November 2026.",
+    "Do not label every included entity a startup. Harness Cosmos is an ecosystem product based on selected acquired Augment assets; Flower and several infrastructure companies include open-source projects; Patronus currently describes itself as a research lab.",
+    "Evidence dates are publication dates only when explicitly visible. Null evidenceDate means the current product page is undated, not a new launch on the verification date.",
+    "Proposed WBG and ITS uses are analyst suggestions. None of these source checks establish WBG adoption, procurement approval or technical suitability.",
+    "The Kajima customer PDF returned 403. The FieldAI announcement title/date and current company product page were read; no detailed customer deployment metrics are asserted.",
+    "When merging, rebuild bidirectional trend/company links from company.trendIds. LlamaIndex also links to the existing on-device-ai trend; FieldAI also links to project-supervision.",
+    "Coverage is expanded but is not an exhaustive census, and inherited records not included in this refresh must keep their older checked dates.",
+    "Best new spotlights: LlamaIndex (documents with source evidence and local processing), Temporal/E2B (recoverable workflows and isolated execution), Qodo (review of complete coding sessions), FieldAI (physical-site evidence). Each should use exact same company record in radar and video."
+  ],
+  "sourceRefs": {
+    "temporal-ai-20261124": "turn128728326view0",
+    "e2b-runtime-20261124": "turn651958384view1",
+    "daytona-runtime-20261124": "turn651958384view2",
+    "llamaindex-product-20261124": "turn651958384view3",
+    "llamaindex-ocria15-20261118": "turn128728326view1",
+    "llamaindex-nano-20261123": "turn419480880view2",
+    "nango-product-20261124": "turn651958384view4",
+    "qodo-product-20261124": "turn846398663view0",
+    "qodo-session-review-20261118": "turn704129712view0",
+    "harness-augment-assets-20261008": "turn128728326view2",
+    "augment-cosmos-20261124": "turn846398663view1",
+    "cursor-agents-20261124": "turn846398663view2",
+    "coderabbit-platform-20261124": "turn846398663view3",
+    "tessl-context-20261124": "turn846398663view4",
+    "patronus-lab-20261124": "turn494084816view0",
+    "patronus-trail-20250513": "turn704129712view1",
+    "hiddenlayer-platform-20261124": "turn494084816view1",
+    "witnessai-platform-20261124": "turn494084816view2",
+    "modal-platform-20261124": "turn494084816view3",
+    "baseten-platform-20261124": "turn494084816view4",
+    "fireworks-platform-20261124": "turn494084816view5",
+    "flower-framework-20261124": "turn879847017view0",
+    "flower-product-20261124": "turn891641291view0",
+    "zama-protocol-20261124": "turn891641291view1",
+    "pqshield-cryptolib-20261124": "turn879847017view1",
+    "nist-pqc-standards-20240813": "turn419480880view0",
+    "viam-platform-20261124": "turn891641291view3",
+    "fieldai-platform-20261124": "turn891641291view4",
+    "fieldai-kajima-20261105": "turn704129712view2",
+    "arcade-platform-20261124": "turn817007193search0",
+    "arcade-preauthorization-20260902": "turn817007193search3",
+    "zep-graphiti-20261124": "turn817007193search6",
+    "letta-agent-20261124": "turn817007193search4",
+    "letta-conversations-20260121": "turn817007193search5"
+  }
+}

@@ -1,0 +1,1728 @@
+{
+  "checked": "2026-11-24",
+  "companies": [
+    {
+      "id": "amini",
+      "name": "Amini",
+      "website": "https://www.amini.ai/",
+      "category": "Locally governed data and AI infrastructure",
+      "summary": "Builds locally operated data, compute and AI infrastructure for governments and enterprises in the Global South.",
+      "domain": "trust",
+      "ring": "assess",
+      "lenses": [
+        "wbg",
+        "its"
+      ],
+      "trendIds": [
+        "sovereign-data-ai"
+      ],
+      "region": "Global South",
+      "location": "Nairobi office evidenced on company site",
+      "proposedUse": "govern and digitise fragmented ministry records before introducing an AI service.",
+      "sourceIds": [
+        "amini",
+        "amini-resources-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial offering; verify local availability",
+      "note": "Confirm country operating references, energy requirements, interoperability and the division of responsibility between infrastructure partners.",
+      "distinctive": "An Africa-focused data and compute proposition linking locally relevant datasets, infrastructure and AI applications.",
+      "evaluationQuestion": "Which local datasets, hosting arrangements and operating capabilities are available for the specific country use case?",
+      "horizon": "next",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Confirm country operating references, energy requirements, interoperability and the division of responsibility between infrastructure partners.",
+      "domainsByLens": {
+        "wbg": "wbg-services",
+        "its": "its-cloud"
+      },
+      "capabilities": [
+        "Digitize institutional records",
+        "Govern local data and AI workloads",
+        "Design local compute and application infrastructure"
+      ],
+      "recentDevelopment": "A May 2026 partnership announcement with Foxconn and Bull broadens the local-compute proposition.",
+      "evidenceDate": "2026-05-12",
+      "wbgContextSourceIds": [
+        "wbg-data",
+        "wbg-digital-strategy-20261020"
+      ],
+      "reviewStatus": "Primary sources reviewed"
+    },
+    {
+      "id": "floodbase",
+      "name": "Floodbase",
+      "website": "https://www.floodbase.com/",
+      "category": "Flood data and risk finance",
+      "summary": "Combines observations and hydrological information to map floods and support parametric insurance triggers.",
+      "domain": "climate",
+      "ring": "assess",
+      "lenses": [
+        "wbg"
+      ],
+      "trendIds": [
+        "climate-adaptation"
+      ],
+      "region": "Global",
+      "location": null,
+      "proposedUse": "assess whether event triggers improve financial protection for a defined exposed area.",
+      "sourceIds": [
+        "floodbase-product-20261124",
+        "floodbase-liberty-20260224"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial data and insurance-support services; the new instant-quoting application is US-specific.",
+      "note": "Assess basis risk and local loss data. A payout trigger can differ from a household’s actual loss.",
+      "distinctive": "Flood mapping and risk data with applications in parametric insurance, connecting an observed hazard to a financial instrument.",
+      "evaluationQuestion": "How closely would the proposed trigger match observed local losses, including events that a model or satellite view misses?",
+      "horizon": "now",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Assess basis risk and local loss data. A payout trigger can differ from a household’s actual loss.",
+      "domainsByLens": {
+        "wbg": "wbg-climate"
+      },
+      "capabilities": [
+        "Historical and event flood maps",
+        "Policy trigger monitoring",
+        "Risk-data API integration"
+      ],
+      "recentDevelopment": "Launched a US commercial parametric-quoting application with Liberty Mutual in February 2026.",
+      "evidenceDate": "2026-02-24",
+      "wbgContextSourceIds": [
+        "wbg-climate"
+      ],
+      "reviewStatus": "Primary sources reviewed"
+    },
+    {
+      "id": "husk",
+      "name": "Husk",
+      "website": "https://www.huskpowersystems.com/",
+      "category": "Distributed solar and storage",
+      "summary": "Operates solar and storage assets with software for demand forecasting and distributed-energy operations.",
+      "domain": "resources",
+      "ring": "assess",
+      "lenses": [
+        "wbg"
+      ],
+      "trendIds": [
+        "distributed-energy"
+      ],
+      "region": "Africa and Asia",
+      "location": null,
+      "proposedUse": "assess minigrid operating models and productive-use demand in an energy-access program.",
+      "sourceIds": [
+        "husk-der-20251125",
+        "husk-ifc-47529"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial offering; verify local availability",
+      "note": "Expansion targets are plans. Compare operating tariffs, downtime and maintenance performance at similar sites.",
+      "horizon": "now",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Expansion targets are plans. Compare operating tariffs, downtime and maintenance performance at similar sites.",
+      "domainsByLens": {
+        "wbg": "wbg-infrastructure"
+      },
+      "capabilities": [
+        "Minigrid demand forecasting",
+        "Solar and storage dispatch",
+        "Commercial and household energy services"
+      ],
+      "recentDevelopment": "Its November 2025 strategy extends minigrids into a broader distributed-energy platform. IFC separately discloses a signed Husk Nigeria financing project.",
+      "evidenceDate": "2025-11-25",
+      "wbgContextSourceIds": [
+        "wbg-mission300-progress-20260616",
+        "husk-ifc-47529"
+      ],
+      "wbgRelationship": "An IFC project disclosure documents financing for Husk Nigeria; other proposed applications here are analytical.",
+      "reviewStatus": "Primary sources reviewed"
+    },
+    {
+      "id": "nithio",
+      "name": "Nithio",
+      "website": "https://nithio.com/",
+      "category": "Energy financing analytics",
+      "summary": "Uses repayment and geospatial analytics to finance distributed energy and assess climate-asset portfolios.",
+      "domain": "resources",
+      "ring": "assess",
+      "lenses": [
+        "wbg"
+      ],
+      "trendIds": [
+        "distributed-energy"
+      ],
+      "region": "Africa",
+      "location": null,
+      "proposedUse": "study whether better risk information expands affordable capital for underserved energy customers.",
+      "sourceIds": [
+        "nithio-risk-20261124",
+        "nithio-fuel-20261014"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial offering; verify local availability",
+      "note": "The fund target is not capital already raised. Validate stress performance, fairness and consumer affordability.",
+      "horizon": "now",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "The fund target is not capital already raised. Validate stress performance, fairness and consumer affordability.",
+      "domainsByLens": {
+        "wbg": "wbg-infrastructure"
+      },
+      "capabilities": [
+        "Customer repayment analysis",
+        "Portfolio cash-flow assessment",
+        "Debt for energy and mobility providers"
+      ],
+      "recentDevelopment": "Announced FUEL fundraising in October 2026, targeting a $150m e-mobility debt fund and a first close in 2027.",
+      "evidenceDate": "2026-10-14",
+      "wbgContextSourceIds": [
+        "wbg-mission300-progress-20260616"
+      ],
+      "reviewStatus": "Primary sources reviewed"
+    },
+    {
+      "id": "cropin",
+      "name": "Cropin",
+      "website": "https://www.cropin.com/",
+      "category": "Agricultural intelligence",
+      "summary": "Combines field, satellite and weather data with agricultural models and OrbitAI agents for food-system decisions.",
+      "domain": "resources",
+      "ring": "experiment",
+      "lenses": [
+        "wbg"
+      ],
+      "trendIds": [
+        "agriculture-intelligence"
+      ],
+      "region": "Global, with India origins",
+      "location": "Bengaluru, India / Palo Alto, US (announcement locations)",
+      "proposedUse": "support evidence-linked crop monitoring and extension workflows.",
+      "sourceIds": [
+        "cropin-orbitai-20260714",
+        "cropin-intelligence-20261124"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial offering; verify local availability",
+      "note": "Validate each crop, region and workflow. Announced adjacent-sector applications are not evidence of operational deployments.",
+      "horizon": "now",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Validate each crop, region and workflow. Announced adjacent-sector applications are not evidence of operational deployments.",
+      "domainsByLens": {
+        "wbg": "wbg-food"
+      },
+      "capabilities": [
+        "Crop, yield and water-stress models",
+        "Field and satellite evidence",
+        "Conversational workflow support through OrbitAI"
+      ],
+      "recentDevelopment": "OrbitAI was announced with Google Cloud in July 2026. The current product page distinguishes established agriculture capabilities from upcoming energy and infrastructure uses.",
+      "evidenceDate": "2026-07-14",
+      "wbgContextSourceIds": [
+        "wbg-agriconnect",
+        "wbg-agriconnect-honduras-20261119"
+      ],
+      "reviewStatus": "Primary sources reviewed"
+    },
+    {
+      "id": "pula",
+      "name": "Pula",
+      "website": "https://www.pula-advisors.com/",
+      "category": "Agricultural risk protection",
+      "summary": "Combines agricultural insurance design, local field data and farmer registration for smallholder risk protection.",
+      "domain": "resources",
+      "ring": "experiment",
+      "lenses": [
+        "wbg"
+      ],
+      "trendIds": [
+        "agriculture-intelligence",
+        "climate-adaptation"
+      ],
+      "region": "Africa and Asia",
+      "location": "Nairobi service centre; Swiss operating headquarters described in IFC disclosure",
+      "proposedUse": "examine insurance delivery, basis risk and data quality within a smallholder resilience program.",
+      "sourceIds": [
+        "pula-products-20261124",
+        "pula-ifc"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial offering; verify local availability",
+      "note": "Area-yield products rely on local benchmarks and crop-cut measurements. Test basis risk, inclusion and farmer understanding.",
+      "horizon": "now",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Area-yield products rely on local benchmarks and crop-cut measurements. Test basis risk, inclusion and farmer understanding.",
+      "domainsByLens": {
+        "wbg": "wbg-food"
+      },
+      "capabilities": [
+        "Area-yield insurance",
+        "Hybrid livestock cover",
+        "Farm mapping and traceability"
+      ],
+      "recentDevelopment": "Current services extend beyond crop insurance to livestock, export traceability and government data services.",
+      "evidenceDate": null,
+      "wbgContextSourceIds": [
+        "wbg-agriconnect",
+        "pula-ifc"
+      ],
+      "reviewStatus": "Primary sources reviewed"
+    },
+    {
+      "id": "boomitra",
+      "name": "Boomitra",
+      "website": "https://boomitra.com/",
+      "category": "Soil-carbon measurement",
+      "summary": "Combines satellite imagery, AI and soil-sample data for soil-carbon measurement and carbon-project development.",
+      "domain": "climate",
+      "ring": "assess",
+      "lenses": [
+        "wbg"
+      ],
+      "trendIds": [
+        "nature-mrv",
+        "agriculture-intelligence"
+      ],
+      "region": "Agricultural landscapes / Global South relevance",
+      "location": null,
+      "proposedUse": "assess the measurement cost and uncertainty of soil-carbon monitoring in a defined farming context.",
+      "sourceIds": [
+        "boomitra",
+        "boomitra-delivery-20261110"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Operating project developer and credit supplier; new project eligibility requires assessment.",
+      "note": "Company-reported transactions do not independently establish additionality or permanence. Separate credit transfers from retirements and protect landholder rights.",
+      "horizon": "next",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Company-reported transactions do not independently establish additionality or permanence. Separate credit transfers from retirements and protect landholder rights.",
+      "domainsByLens": {
+        "wbg": "wbg-climate"
+      },
+      "capabilities": [
+        "Satellite and soil-sample monitoring",
+        "Regenerative agriculture projects",
+        "Carbon-credit project development"
+      ],
+      "recentDevelopment": "In November 2026, Boomitra reported sale and delivery of 2.6 million issued credits from its Northern Mexico project.",
+      "evidenceDate": "2026-11-10",
+      "wbgContextSourceIds": [
+        "wbg-mrv",
+        "wbg-carbon"
+      ],
+      "reviewStatus": "Primary sources reviewed"
+    },
+    {
+      "id": "satsure",
+      "name": "SatSure",
+      "website": "https://www.satsure.co/",
+      "category": "Satellite intelligence for finance and infrastructure",
+      "summary": "Turns satellite, aerial and other data into parcel- and corridor-level information for agricultural finance, insurance, infrastructure and natural resources.",
+      "distinctive": "Connects Earth observation with farm-credit and infrastructure decisions, extending the radar beyond imagery providers.",
+      "evaluationQuestion": "Does the derived parcel or corridor signal improve a decision after cloud cover, small plots, local practices and field verification are accounted for?",
+      "domain": "climate",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "trendIds": [
+        "geospatial-intelligence",
+        "project-supervision",
+        "inclusive-digital-services",
+        "agriculture-intelligence"
+      ],
+      "region": "India",
+      "proposedUse": "Test whether historical crop and land-use evidence can help a participating rural lender review thin-file agricultural borrowers, or help a project team identify corridor segments needing a field visit. Assess false exclusions and retain human decisions.",
+      "availability": "Commercial geospatial analytics and APIs. Geography, historical coverage, refresh frequency and licensing require confirmation for the selected task.",
+      "note": "A grant or memorandum establishes intent and resources, not operational coverage. Validate current imagery access and local accuracy.",
+      "sourceIds": [
+        "satsure-home",
+        "satsure-about",
+        "satsure-public-sector",
+        "satsure-utilities-v5",
+        "wbg-gems-2026",
+        "satsure-news-20261124"
+      ],
+      "verified": "2026-11-24",
+      "addedInEdition": "2026.11.23.2",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "A grant or memorandum establishes intent and resources, not operational coverage. Validate current imagery access and local accuracy.",
+      "domainsByLens": {
+        "wbg": "wbg-climate"
+      },
+      "capabilities": [
+        "Farm and land-use monitoring",
+        "Geospatial risk analysis",
+        "Public-sector Earth-intelligence workflows"
+      ],
+      "recentDevelopment": "Its June 2026 newsroom reports a Dhaarini development grant and a Bhutan partnership memorandum.",
+      "evidenceDate": "2026-06-25",
+      "wbgContextSourceIds": [
+        "wbg-gems-2026",
+        "wbg-geo"
+      ],
+      "reviewStatus": "Primary sources reviewed"
+    },
+    {
+      "id": "fido-tech",
+      "name": "FIDO Tech",
+      "website": "https://fido.tech/",
+      "category": "Acoustic water-leak intelligence",
+      "summary": "Analyses acoustic water-network data to identify and locate leaks and support utility fieldwork.",
+      "domain": "resources",
+      "ring": "experiment",
+      "lenses": [
+        "wbg"
+      ],
+      "trendIds": [
+        "intelligent-water"
+      ],
+      "region": "Global utility markets",
+      "location": null,
+      "proposedUse": "run a bounded leak-detection and repair pilot with a municipal water utility.",
+      "sourceIds": [
+        "fido-northumbrian-20261012"
+      ],
+      "verified": "2026-11-24",
+      "availability": "Commercial offering; verify local availability",
+      "note": "Treat reported project savings as provider evidence. Measure local water losses, confirmed leaks and time from alert to repair.",
+      "horizon": "now",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Treat reported project savings as provider evidence. Measure local water losses, confirmed leaks and time from alert to repair.",
+      "domainsByLens": {
+        "wbg": "wbg-infrastructure"
+      },
+      "capabilities": [
+        "Acoustic leak assessment",
+        "Field-team prioritization",
+        "Monitoring through repair workflows"
+      ],
+      "recentDevelopment": "An October 2026 company account describes continuous monitoring with Northumbrian Water using more than 1,000 sensors.",
+      "evidenceDate": "2026-10-12",
+      "wbgContextSourceIds": [
+        "wbg-water"
+      ],
+      "reviewStatus": "Primary sources reviewed"
+    },
+    {
+      "id": "iceye",
+      "name": "ICEYE",
+      "website": "https://www.iceye.com/",
+      "category": "Satellite flood intelligence",
+      "summary": "Combines radar-satellite observations and local information to estimate flood extent, depth and impacts.",
+      "domain": "climate",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-climate"
+      },
+      "trendIds": [
+        "geospatial-intelligence",
+        "climate-adaptation"
+      ],
+      "region": "Global; predictive integration initially described for US users",
+      "capabilities": [
+        "Cloud-penetrating radar imagery",
+        "GIS-ready flood observations",
+        "Predictive flood modelling"
+      ],
+      "proposedUse": "Assess observed flooding around exposed public assets and connect reliable information to response protocols.",
+      "availability": "Commercial data and solutions; coverage and service times depend on contract.",
+      "note": "Validate local depth accuracy and missed events; separate observed maps from forecasts.",
+      "sourceIds": [
+        "iceye-floodid-20260827",
+        "iceye-government-flood-20261124"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Validate local depth accuracy and missed events; separate observed maps from forecasts.",
+      "recentDevelopment": "Announced a FloodID partnership with The Water Institute in August 2026 to connect forecasting and observation.",
+      "evidenceDate": "2026-08-27",
+      "entityType": "scaleup",
+      "organizationType": "Company",
+      "wbgContextSourceIds": [
+        "wbg-climate",
+        "wbg-geo"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "okra-solar",
+      "name": "Okra Solar",
+      "website": "https://www.okrasolar.com/",
+      "category": "Solar mesh-grid technology",
+      "summary": "Connects distributed solar and storage systems into managed local electricity networks.",
+      "domain": "resources",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-infrastructure"
+      },
+      "trendIds": [
+        "distributed-energy"
+      ],
+      "region": "Emerging-market last-mile electricity",
+      "capabilities": [
+        "Network and demand planning",
+        "Modular household power kits",
+        "Remote network operation"
+      ],
+      "proposedUse": "Compare mesh-grid economics with minigrids and individual solar systems in a defined settlement.",
+      "availability": "Commercial hardware, software and implementation partnerships.",
+      "note": "Verify tariffs, appliance power, service continuity and replacement-part support locally.",
+      "sourceIds": [
+        "okra-products-20261124",
+        "okra-planning-20261124"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Verify tariffs, appliance power, service continuity and replacement-part support locally.",
+      "recentDevelopment": "Current lineup includes differentiated household units and a connectivity option for areas without mobile coverage.",
+      "evidenceDate": null,
+      "entityType": "scaleup",
+      "organizationType": "Company",
+      "wbgContextSourceIds": [
+        "wbg-mission300-progress-20260616"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "sparkmeter-earthspark",
+      "name": "SparkMeter / EarthSpark",
+      "website": "https://www.sparkmeter.io/",
+      "category": "Minigrid metering and open infrastructure",
+      "summary": "Provides meters, billing integration and remote grid management through EarthSpark Meter Ops.",
+      "domain": "resources",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-infrastructure"
+      },
+      "trendIds": [
+        "distributed-energy"
+      ],
+      "region": "Minigrid operators, including underserved markets",
+      "capabilities": [
+        "Remote metering and tariffs",
+        "Payments and asset management",
+        "Open software development path"
+      ],
+      "proposedUse": "Assess utility continuity and supplier-exit options alongside metering performance.",
+      "availability": "Managed services continue; ThunderCloud 2.0 was released as pre-production open source.",
+      "note": "The emerging-market business moved to EarthSpark in September 2025. Open source is not yet a drop-in production replacement.",
+      "sourceIds": [
+        "sparkmeter-current-20261124",
+        "sparkmeter-transition-2026"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "The emerging-market business moved to EarthSpark in September 2025. Open source is not yet a drop-in production replacement.",
+      "recentDevelopment": "July 2026 software release and September key-escrow options address dependence on a single supplier.",
+      "evidenceDate": "2026-09-10",
+      "entityType": "ecosystem",
+      "organizationType": "Nonprofit / public-good ecosystem",
+      "wbgContextSourceIds": [
+        "wbg-mission300-progress-20260616"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "apollo-agriculture",
+      "name": "Apollo Agriculture",
+      "website": "https://www.apolloagriculture.com/",
+      "category": "Smallholder finance and farm inputs",
+      "summary": "Combines farm-input credit decisions, local agrodealer fulfilment, training and insurance.",
+      "domain": "resources",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-food"
+      },
+      "trendIds": [
+        "agriculture-intelligence",
+        "inclusive-digital-services"
+      ],
+      "region": "Kenya and Zambia",
+      "capabilities": [
+        "Machine-learning credit decisions",
+        "Digital input ordering",
+        "Local dealer distribution"
+      ],
+      "proposedUse": "Examine whether combined finance and input delivery improves access for underserved smallholders.",
+      "availability": "Commercial services in reviewed markets; eligibility and seasonal terms apply.",
+      "note": "Compare total credit costs and adverse-season outcomes. Vendor yield comparisons are not treated as causal evidence.",
+      "sourceIds": [
+        "apollo-agriculture-20261124"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Compare total credit costs and adverse-season outcomes. Vendor yield comparisons are not treated as causal evidence.",
+      "recentDevelopment": "",
+      "evidenceDate": null,
+      "entityType": "scaleup",
+      "organizationType": "Company",
+      "wbgContextSourceIds": [
+        "wbg-agriconnect"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "simprints",
+      "name": "Simprints",
+      "website": "https://www.simprints.com/",
+      "category": "Privacy-focused service identification",
+      "summary": "Builds open-source biometric identification that integrates with frontline data systems and can operate offline.",
+      "domain": "inclusion",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-services"
+      },
+      "trendIds": [
+        "inclusive-digital-services",
+        "frontline-health"
+      ],
+      "region": "Low-resource health and aid settings",
+      "capabilities": [
+        "Android workflow integration",
+        "Offline enrolment and verification",
+        "Deduplication and backend options"
+      ],
+      "proposedUse": "Explore continuity of patient records with voluntary participation and a usable non-biometric route.",
+      "availability": "Nonprofit technology and deployment services; project setup and governance required.",
+      "note": "Require consent, alternatives, security and local error evaluation; infant work is not universal proven accuracy.",
+      "sourceIds": [
+        "simprints-products-20261124",
+        "simprints-ghana-20260303"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Require consent, alternatives, security and local error evaluation; infant work is not universal proven accuracy.",
+      "recentDevelopment": "March 2026 reporting describes infant-identity development and deployment work in Ghana.",
+      "evidenceDate": "2026-03-03",
+      "entityType": "ecosystem",
+      "organizationType": "Nonprofit / public-good ecosystem",
+      "wbgContextSourceIds": [
+        "wbg-dpi",
+        "wbg-health"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "mosip-inji",
+      "name": "MOSIP / Inji",
+      "website": "https://www.mosip.io/inji",
+      "category": "Public-good digital credentials",
+      "summary": "Provides interoperable components to issue, hold and verify credentials through wallets or paper QR codes.",
+      "domain": "inclusion",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-services"
+      },
+      "trendIds": [
+        "interoperable-public-infrastructure",
+        "inclusive-digital-services"
+      ],
+      "region": "Global open-source ecosystem",
+      "capabilities": [
+        "Credential issuance and revocation",
+        "Wallet and paper support",
+        "Online and offline verification"
+      ],
+      "proposedUse": "Prototype a portable service credential using synthetic data and accessible fallback channels.",
+      "availability": "Open-source modules; the November Inji Verify release is a release candidate.",
+      "note": "Open-source code does not provide national operating governance or automatic production readiness.",
+      "sourceIds": [
+        "mosip-inji-20261124",
+        "inji-verify-rc-20261114"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Open-source code does not provide national operating governance or automatic production readiness.",
+      "recentDevelopment": "Inji Verify 1.0.0-rc.1 adds browser Digital Credentials API support and an embeddable verification library.",
+      "evidenceDate": "2026-11-14",
+      "entityType": "ecosystem",
+      "organizationType": "Nonprofit / public-good ecosystem",
+      "wbgContextSourceIds": [
+        "wbg-dpi"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "rori",
+      "name": "Rori / Rising Academies",
+      "website": "https://rori.ai/",
+      "category": "Math tutoring through WhatsApp",
+      "summary": "Delivers structured mathematics practice, feedback and adaptive progression through a familiar messaging channel.",
+      "domain": "inclusion",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-health"
+      },
+      "trendIds": [
+        "adaptive-learning",
+        "local-language-ai"
+      ],
+      "region": "African education programmes",
+      "capabilities": [
+        "Short structured lessons",
+        "Adaptive mathematics practice",
+        "Conversational learner feedback"
+      ],
+      "proposedUse": "Evaluate a curriculum-matched tutoring programme with teachers and independent learning assessment.",
+      "availability": "Public tutor and institutional programmes; confirm language, child privacy and device requirements.",
+      "note": "The Ghana 2026–27 trial is ongoing. Promising earlier findings do not establish results for every education system.",
+      "sourceIds": [
+        "rori-product-20261124",
+        "rori-evaluation-20261124"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "The Ghana 2026–27 trial is ongoing. Promising earlier findings do not establish results for every education system.",
+      "recentDevelopment": "A new evaluation began in September 2026 across 100 Ghanaian government schools.",
+      "evidenceDate": "2026-09",
+      "entityType": "scaleup",
+      "organizationType": "Company",
+      "wbgContextSourceIds": [
+        "wbg-jobs-strategy"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "zipline",
+      "name": "Zipline",
+      "website": "https://www.zipline.com/",
+      "category": "Autonomous medical logistics",
+      "summary": "Operates drone-based distribution of medicines and essential supplies with health-system partners.",
+      "domain": "inclusion",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-health"
+      },
+      "trendIds": [
+        "frontline-health",
+        "supply-chain-intelligence"
+      ],
+      "region": "Africa and other contracted markets",
+      "capabilities": [
+        "Automated fulfilment and flight",
+        "Health-facility supply delivery",
+        "Distribution-network operations"
+      ],
+      "proposedUse": "Compare emergency delivery, stock availability and total cost against existing health logistics.",
+      "availability": "Operating commercial service; country permissions and contracts determine availability.",
+      "note": "The Côte d’Ivoire ten-hub network is a planned expansion, not a completed deployment.",
+      "sourceIds": [
+        "zipline-civ-20260922"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "The Côte d’Ivoire ten-hub network is a planned expansion, not a completed deployment.",
+      "recentDevelopment": "A September 2026 agreement expands the planned Côte d’Ivoire network from one hub to ten.",
+      "evidenceDate": "2026-09-22",
+      "entityType": "scaleup",
+      "organizationType": "Company",
+      "wbgContextSourceIds": [
+        "wbg-health",
+        "wbg-jobs-strategy"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "maad",
+      "name": "Maad",
+      "website": "https://maad.io/",
+      "category": "Retail distribution and merchant intelligence",
+      "summary": "Connects distribution, merchant orders, payments and market information for consumer-goods supply chains.",
+      "domain": "enterprise",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-decisions"
+      },
+      "trendIds": [
+        "productive-small-firms",
+        "supply-chain-intelligence"
+      ],
+      "region": "Senegal operations reviewed",
+      "capabilities": [
+        "Demand and stock signals",
+        "Warehouse and route coordination",
+        "Merchant working-capital services"
+      ],
+      "proposedUse": "Study stockouts, distribution cost and working-capital access for small retailers.",
+      "availability": "Commercial platform and distribution services; reviewed country scope is Senegal.",
+      "note": "Evaluate net merchant margins, credit costs and data rights; sales testimonials do not establish general income effects.",
+      "sourceIds": [
+        "maad-platform-20261124"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Evaluate net merchant margins, credit costs and data rights; sales testimonials do not establish general income effects.",
+      "recentDevelopment": "Current platform describes an intelligence agent accessible through web and WhatsApp.",
+      "evidenceDate": null,
+      "entityType": "scaleup",
+      "organizationType": "Company",
+      "wbgContextSourceIds": [
+        "wbg-msme-20261117"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "kilimo",
+      "name": "Kilimo",
+      "website": "https://kilimo.com/en/",
+      "category": "Basin-level irrigation and water stewardship",
+      "summary": "Combines hydrological analysis, farmer support and irrigation changes to measure water outcomes.",
+      "domain": "resources",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-food"
+      },
+      "trendIds": [
+        "agriculture-intelligence",
+        "intelligent-water"
+      ],
+      "region": "Latin America and US projects reviewed",
+      "capabilities": [
+        "Basin assessment",
+        "Irrigation decision support",
+        "Water-benefit accounting"
+      ],
+      "proposedUse": "Assess basin water outcomes from improved irrigation, including downstream users and rebound effects.",
+      "availability": "Commercial and partner-led projects; availability depends on the basin.",
+      "note": "Lower farm withdrawals do not automatically equal net basin savings. Check baselines and independent verification.",
+      "sourceIds": [
+        "kilimo-method-20261124",
+        "kilimo-projects-20261124"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Lower farm withdrawals do not automatically equal net basin savings. Check baselines and independent verification.",
+      "recentDevelopment": "",
+      "evidenceDate": null,
+      "entityType": "scaleup",
+      "organizationType": "Company",
+      "wbgContextSourceIds": [
+        "wbg-water",
+        "wbg-agriconnect"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    },
+    {
+      "id": "sunculture",
+      "name": "SunCulture",
+      "website": "https://sunculture.io/",
+      "category": "Solar irrigation with finance and protection",
+      "summary": "Provides solar-powered irrigation and related financing and climate-risk services for farmers.",
+      "domain": "resources",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-food"
+      },
+      "trendIds": [
+        "agriculture-intelligence",
+        "distributed-energy",
+        "climate-adaptation"
+      ],
+      "region": "Sub-Saharan Africa; Kenyan insurance evidence reviewed",
+      "capabilities": [
+        "Solar water pumping",
+        "Farmer finance",
+        "Weather-triggered protection"
+      ],
+      "proposedUse": "Examine how productive-use energy and risk protection affect farm resilience and affordability.",
+      "availability": "Commercial pumps and country-specific services; credit and water-access conditions apply.",
+      "note": "Check groundwater pressure and total repayment cost. The cited payout season was 2025, reported in April 2026.",
+      "sourceIds": [
+        "sunculture-pumps-20261124",
+        "sunculture-payout-20260413"
+      ],
+      "verified": "2026-11-24",
+      "reviewStatus": "Primary sources reviewed",
+      "evidenceLabel": "Primary-source research",
+      "evidenceNote": "Check groundwater pressure and total repayment cost. The cited payout season was 2025, reported in April 2026.",
+      "recentDevelopment": "Reported its first completed Kenyan insurance payout cycle in April 2026.",
+      "evidenceDate": "2026-04-13",
+      "entityType": "scaleup",
+      "organizationType": "Company",
+      "wbgContextSourceIds": [
+        "wbg-agriconnect",
+        "wbg-mission300-progress-20260616"
+      ],
+      "addedInEdition": "2026.11.24.7"
+    }
+  ],
+  "trends": [
+    {
+      "id": "climate-adaptation",
+      "title": "From climate risk maps to anticipatory action",
+      "shortTitle": "Climate adaptation",
+      "domain": "climate",
+      "ring": "assess",
+      "lenses": [
+        "wbg"
+      ],
+      "summary": "Connect hazard observations and forecasts to response decisions, resilient assets and pre-arranged finance.",
+      "whyNow": "2026 announcements connect flood observation, predictive models, insurance workflows and farm protection. The practical question is whether better signals reach a funded decision or payout in time.",
+      "application": "prioritise exposed schools and clinics, rehearse early-action protocols or assess parametric cover for a defined hazard.",
+      "experiment": "Back-test a single hazard and district using historical events, local loss data and the exact decision or payout trigger.",
+      "measure": "Measure warning lead time, missed events, false alarms, exposure coverage and basis risk.",
+      "watchouts": [
+        "Forecast error, poorly mapped assets and basis risk can create false confidence. Long-term scenario loss estimates need transparent assumptions; local institutions must be able to act on alerts."
+      ],
+      "companyIds": [
+        "tomorrow",
+        "floodbase",
+        "climate-x",
+        "pula",
+        "aidash",
+        "iceye",
+        "sunculture"
+      ],
+      "sourceIds": [
+        "wbg-climate",
+        "tomorrow-noaa",
+        "floodbase",
+        "climatex-sep",
+        "iceye-floodid-20260827",
+        "floodbase-liberty-20260224",
+        "sunculture-payout-20260413"
+      ],
+      "verified": "2026-11-24",
+      "horizon": "now",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "wbg": "wbg-climate"
+      }
+    },
+    {
+      "id": "distributed-energy",
+      "title": "Software and finance for distributed energy",
+      "shortTitle": "Distributed energy",
+      "domain": "resources",
+      "ring": "assess",
+      "lenses": [
+        "wbg"
+      ],
+      "summary": "Use demand forecasting, remote operations and financing infrastructure to expand solar, storage and minigrids.",
+      "whyNow": "Mission 300 increases the relevance of distributed systems, while provider continuity and open metering options become material operating questions. New financing initiatives are emerging, including funds still being raised.",
+      "application": "improve minigrid site assessment, benchmark operating reliability or assess whether financing reaches underserved households and businesses.",
+      "experiment": "Compare forecast and repayment performance on a documented pilot portfolio; stress-test tariffs, defaults, downtime and productive-use demand.",
+      "measure": "Measure reliability, delivered energy cost, service affordability, repayment fairness and additional connections.",
+      "watchouts": [
+        "Tariff affordability and maintenance capacity",
+        "Currency and repayment risks",
+        "Dependence on a single equipment or cloud provider",
+        "Groundwater and other productive-use externalities"
+      ],
+      "companyIds": [
+        "husk",
+        "nithio",
+        "sun-king",
+        "aidash",
+        "okra-solar",
+        "sparkmeter-earthspark",
+        "sunculture"
+      ],
+      "sourceIds": [
+        "wbg-energy",
+        "husk",
+        "nithio-undp",
+        "sunking",
+        "wbg-mission300-progress-20260616",
+        "nithio-fuel-20261014",
+        "sparkmeter-transition-2026",
+        "okra-products-20261124"
+      ],
+      "verified": "2026-11-24",
+      "horizon": "now",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "wbg": "wbg-infrastructure"
+      }
+    },
+    {
+      "id": "agriculture-intelligence",
+      "title": "AI that reaches the farm decision",
+      "shortTitle": "Agricultural intelligence",
+      "domain": "resources",
+      "ring": "experiment",
+      "lenses": [
+        "wbg"
+      ],
+      "summary": "Combine crop and weather evidence with the finance, inputs and services needed to act on a farm.",
+      "whyNow": "Providers increasingly combine agronomic information with credit, input delivery, irrigation and insurance. New conversational systems need evidence that recommendations produce better local decisions.",
+      "application": "improve extension triage, crop monitoring and smallholder risk management with local agronomists and farmer feedback.",
+      "experiment": "Choose one crop and district; compare an assisted advisory workflow with the current practice through a season, using approved recommendations.",
+      "measure": "Measure advice accuracy, adoption, service cost and agronomic outcomes with a suitable comparison group.",
+      "watchouts": [
+        "Images and satellite data may not generalise to local crops or plots. Mistaken treatment advice, weather uncertainty, data ownership and insurance basis risk need field testing."
+      ],
+      "companyIds": [
+        "cropin",
+        "plantix",
+        "pula",
+        "boomitra",
+        "satsure",
+        "apollo-agriculture",
+        "kilimo",
+        "sunculture"
+      ],
+      "sourceIds": [
+        "wbg-agriconnect",
+        "wbg-agri",
+        "cropin",
+        "plantix",
+        "pula",
+        "cropin-orbitai-20260714",
+        "pula-products-20261124",
+        "apollo-agriculture-20261124",
+        "kilimo-method-20261124"
+      ],
+      "verified": "2026-11-24",
+      "horizon": "now",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "wbg": "wbg-food"
+      }
+    },
+    {
+      "id": "adaptive-learning",
+      "title": "Adaptive foundational learning with teachers",
+      "shortTitle": "Foundational learning",
+      "domain": "inclusion",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "summary": "Digital practice and teacher analytics that adapt to a learner's progress in bounded skills such as mathematics or early literacy.",
+      "whyNow": "Messaging-based tutoring can reach ordinary phones, and a 2026–27 Ghana trial is testing one approach at greater scale. Independent learning evidence should guide deployment, not conversational fluency.",
+      "application": "Help teachers target practice and support without assuming that every child has a connected personal device or that a general chatbot is an effective tutor.",
+      "experiment": "Choose a curriculum-matched learning unit and compare equivalent instructional time using independent assessments, with documented teacher support and device access.",
+      "measure": "Independent learning improvement, continued use, teacher workload, participation gaps, implementation fidelity and full recurring cost per learner.",
+      "watchouts": [
+        "Curriculum and language mismatch",
+        "Children's data and accessibility",
+        "Implementation effects mistaken for model effects",
+        "Vendor learning-gain claims that do not transfer"
+      ],
+      "companyIds": [
+        "eduten",
+        "eidu",
+        "rori"
+      ],
+      "sourceIds": [
+        "eduten-about",
+        "eduten-unicef",
+        "eidu-platform",
+        "eidu-developer",
+        "rori-product-20261124",
+        "rori-evaluation-20261124"
+      ],
+      "verified": "2026-11-24",
+      "addedInEdition": "2026.11.23.2",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "wbg": "wbg-health"
+      }
+    },
+    {
+      "id": "interoperable-public-infrastructure",
+      "title": "Reusable public infrastructure connects services and payments",
+      "shortTitle": "Interoperable public infrastructure",
+      "domain": "inclusion",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-services"
+      },
+      "summary": "Shared registries, service components and interoperable payment infrastructure allow institutions to build connected services without recreating every foundation.",
+      "whyNow": "Credential standards and implementation tools continue to mature; recent release candidates make browser-based verification tangible. Inclusive delivery still needs governance, alternatives and reliable local operations.",
+      "application": "Assess how a public service can use shared identity, records and payment capabilities while retaining clear institutional responsibility, exception handling and accessible channels.",
+      "experiment": "Build one synthetic service journey in a sandbox: verify a record, calculate an authorized charge or benefit, route a simulated payment and reconcile the result. Deliberately test missing records and interrupted transactions.",
+      "measure": "Reusable components, integration effort, reconciliation accuracy, exception recovery and ability to switch or extend providers; never infer country readiness from a working demo.",
+      "watchouts": [
+        "Operating governance matters as much as code",
+        "Open source does not remove implementation cost",
+        "Exclusion through missing or mismatched records",
+        "Privacy, access controls and payment-scheme rules"
+      ],
+      "companyIds": [
+        "egov-digit",
+        "mojaloop",
+        "mosip-inji",
+        "simprints"
+      ],
+      "sourceIds": [
+        "wbg-dpi",
+        "egov-digit-platform",
+        "egov-about",
+        "mojaloop-mission",
+        "mojaloop-merchant-2026",
+        "mosip-inji-20261124",
+        "inji-verify-rc-20261114",
+        "simprints-products-20261124"
+      ],
+      "verified": "2026-11-24",
+      "evidenceLabel": "Open-source public-good platforms; local deployment requires implementation and governance",
+      "addedInEdition": "2026.11.23.3"
+    },
+    {
+      "id": "frontline-health",
+      "title": "Digitally enabled primary care",
+      "shortTitle": "Frontline health",
+      "domain": "resources",
+      "ring": "assess",
+      "lenses": [
+        "wbg"
+      ],
+      "summary": "Support health workers with usable patient information, accessible diagnostics and dependable medicine delivery.",
+      "whyNow": "Service access depends on logistics and continuity of patient records as well as clinical software. Current deployments and expansion agreements provide concrete workflows to assess.",
+      "application": "assess supervised screening, clinic digitisation or pooled procurement against a locally defined care bottleneck.",
+      "experiment": "Pick one pathway and measure the whole journey: referral, diagnosis, treatment access and follow-up, alongside a clinician-reviewed evaluation.",
+      "measure": "Measure time to appropriate care, missed follow-up, service availability and total cost; evaluate clinical sensitivity and specificity where relevant.",
+      "watchouts": [
+        "Clinical validation and applicable approvals are setting- and product-specific. Bias, privacy, workforce capacity, medicine quality and referral capacity affect real outcomes."
+      ],
+      "companyIds": [
+        "qure-ai",
+        "ilara-health",
+        "axmed",
+        "zipline",
+        "simprints"
+      ],
+      "sourceIds": [
+        "wbg-health",
+        "wbg-healthfaq",
+        "qure-study",
+        "ilara-undp",
+        "axmed",
+        "zipline-civ-20260922",
+        "simprints-ghana-20260303"
+      ],
+      "verified": "2026-11-24",
+      "horizon": "now",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "wbg": "wbg-health"
+      }
+    },
+    {
+      "id": "productive-small-firms",
+      "title": "Digital operating tools for productive small firms",
+      "shortTitle": "Productive small firms",
+      "domain": "enterprise",
+      "ring": "experiment",
+      "horizon": "now",
+      "lenses": [
+        "wbg"
+      ],
+      "domainsByLens": {
+        "wbg": "wbg-decisions"
+      },
+      "summary": "Accessible devices, digital payments, records and sales channels help small businesses participate in markets and manage daily operations.",
+      "whyNow": "The WBG’s November 2026 MSME analysis emphasizes digital records, market connections and access to finance. Integrated merchant services offer operational use cases with measurable costs and benefits.",
+      "application": "Examine the bottleneck for a particular group of firms before choosing technology: accepting payments, maintaining stock records, reaching guests or obtaining a usable connected device.",
+      "experiment": "Follow a small consenting cohort through one complete operating cycle. Compare time, errors, net costs and business outcomes with its previous practice, including continued manual or offline options.",
+      "measure": "Active use, reconciliation or stock errors, staff time, net selling costs and earnings after fees and financing; separate growth from seasonal demand changes.",
+      "watchouts": [
+        "Total fees and financing cost",
+        "Platform dependence and data portability",
+        "Connectivity and support burden",
+        "Adoption does not establish additional jobs"
+      ],
+      "companyIds": [
+        "moniepoint",
+        "hotelrunner",
+        "m-kopa",
+        "maad"
+      ],
+      "sourceIds": [
+        "wbg-jobs-faq",
+        "wbg-digital",
+        "moniepoint-business",
+        "hotelrunner-about",
+        "hotelrunner-pms",
+        "mkopa-products",
+        "mkopa-2026-milestone",
+        "maad-platform-20261124",
+        "wbg-msme-20261117"
+      ],
+      "verified": "2026-11-24",
+      "evidenceLabel": "Existing commercial services; proposed development applications",
+      "addedInEdition": "2026.11.23.3"
+    },
+    {
+      "id": "intelligent-water",
+      "title": "Water systems that detect and respond",
+      "shortTitle": "Intelligent water",
+      "domain": "resources",
+      "ring": "experiment",
+      "lenses": [
+        "wbg"
+      ],
+      "summary": "Sensors and analytics help operators find losses and manage demand; distributed technologies can supplement drinking-water supply in specific settings.",
+      "whyNow": "Providers connect sensor alerts to repair teams and farm decisions to basin accounting. Useful evidence measures completed repairs and net water outcomes, not only algorithmic detection.",
+      "application": "test a leak-to-repair workflow with a utility; separately assess distributed drinking-water supply only where lifecycle economics make sense.",
+      "experiment": "Instrument a small zone, verify suspected leaks in the field and compare water recovered with the full intervention cost.",
+      "measure": "Measure verified water recovered, false positives, repair time, energy use and cost per cubic metre.",
+      "watchouts": [
+        "Detection creates value only if repairs happen. Sensor maintenance, network maps and connectivity are constraints. Atmospheric water is site-dependent and is not a replacement for bulk municipal supply."
+      ],
+      "companyIds": [
+        "fido-tech",
+        "wint",
+        "source-global",
+        "egov-digit",
+        "kilimo"
+      ],
+      "sourceIds": [
+        "wbg-water",
+        "fido-oct",
+        "wint",
+        "source",
+        "fido-northumbrian-20261012",
+        "kilimo-method-20261124"
+      ],
+      "verified": "2026-11-24",
+      "horizon": "now",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "wbg": "wbg-infrastructure"
+      }
+    },
+    {
+      "id": "nature-mrv",
+      "title": "Digital measurement for nature and carbon",
+      "shortTitle": "Nature & carbon evidence",
+      "domain": "climate",
+      "ring": "assess",
+      "lenses": [
+        "wbg"
+      ],
+      "summary": "Combine satellites, models and field samples to estimate carbon stocks and changes and support independent verification.",
+      "whyNow": "Issued soil-carbon credits are reaching buyers, alongside growing digital measurement capabilities. Transaction volume should be assessed separately from additionality, permanence, land rights and independent assurance.",
+      "application": "compare evidence for forest restoration or soil-carbon projects, with transparent uncertainty and community data rights.",
+      "experiment": "Blind-test two providers against independent field measurements and a clearly specified accounting boundary; keep verification separate from project sales.",
+      "measure": "Measure uncertainty, reproducibility, coverage, total monitoring cost and agreement with independent reference data.",
+      "watchouts": [
+        "Digital estimates do not establish additionality, permanence or rights by themselves. Model bias, baselines, sampling and verification independence remain material."
+      ],
+      "companyIds": [
+        "chloris",
+        "sylvera",
+        "boomitra"
+      ],
+      "sourceIds": [
+        "wbg-mrv",
+        "chloris",
+        "sylvera",
+        "boomitra",
+        "boomitra-delivery-20261110"
+      ],
+      "verified": "2026-11-24",
+      "horizon": "next",
+      "evidenceLabel": "Source-linked technology research",
+      "domainsByLens": {
+        "wbg": "wbg-climate"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "id": "amini-resources-20261124",
+      "title": "Amini: current infrastructure proposition and 2026 announcements",
+      "url": "https://www.amini.ai/resources",
+      "publisher": "Amini",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "The page gives conflicting dates for the Barbados digital-twin story; that date is deliberately not used. The Foxconn/Bull announcement is listed as 12 May 2026.",
+      "kind": "Primary source",
+      "retrievalRef": "turn564087602view1"
+    },
+    {
+      "id": "floodbase-liberty-20260224",
+      "title": "Floodbase and Liberty Mutual: parametric quoting application",
+      "url": "https://www.floodbase.com/blog-posts/floodbase-and-liberty-mutual-launch-instant-parametric-flood-quoting-capability-for-us-commercial-market",
+      "publisher": "Floodbase",
+      "date": "2026-02-24",
+      "checked": "2026-11-24",
+      "note": "The announced instant-quoting product is for the US commercial market.",
+      "kind": "Primary source",
+      "retrievalRef": "turn861406339search2"
+    },
+    {
+      "id": "floodbase-product-20261124",
+      "title": "Floodbase: flood-insurance data product",
+      "url": "https://www.floodbase.com/product/parametric-flood-insurance",
+      "publisher": "Floodbase",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Vendor capabilities; no independent validation of performance is asserted.",
+      "kind": "Primary source",
+      "retrievalRef": "turn861406339search4"
+    },
+    {
+      "id": "husk-der-20251125",
+      "title": "Husk: distributed-energy platform announcement",
+      "url": "https://www.huskpowersystems.com/news-insights-articles/husk-launches-ai-enabled-distributed-energy-resources-%28der%29-platform-dedicated-to-powering-prosperity-for-30-million-in-the-global-south",
+      "publisher": "Husk",
+      "date": "2025-11-25",
+      "checked": "2026-11-24",
+      "note": "Expansion and fundraising targets are forward-looking, not delivered outcomes.",
+      "kind": "Primary source",
+      "retrievalRef": "turn861406339search5"
+    },
+    {
+      "id": "husk-ifc-47529",
+      "title": "IFC disclosure: Husk Nigeria minigrids",
+      "url": "https://disclosures.ifc.org/project-detail/ESRS/47529/husk-minigrids",
+      "publisher": "IFC",
+      "date": "2024-05-24",
+      "checked": "2026-11-24",
+      "note": "Page last updated 31 May 2025; shows signed 13 May 2025 and pending disbursement. Do not describe the entire proposed connection plan as delivered.",
+      "kind": "Institutional source",
+      "retrievalRef": "turn861406339search6"
+    },
+    {
+      "id": "nithio-fuel-20261014",
+      "title": "Nithio: FUEL fundraising launch",
+      "url": "https://nithio.com/nithio-launches-fuel-a-usd-150-million-pan-african-e-mobility-debt-fund/",
+      "publisher": "Nithio",
+      "date": "2026-10-14",
+      "checked": "2026-11-24",
+      "note": "USD 150 million is the fund target; first close of USD 100 million is targeted for 2027.",
+      "kind": "Primary source",
+      "retrievalRef": "turn879560163search0"
+    },
+    {
+      "id": "nithio-risk-20261124",
+      "title": "Nithio: climate-finance analytics",
+      "url": "https://nithio.com/climate-solutions/",
+      "publisher": "Nithio",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Repayment and geospatial models support investment analysis; performance needs local validation.",
+      "kind": "Primary source",
+      "retrievalRef": "turn876381234search8"
+    },
+    {
+      "id": "cropin-orbitai-20260714",
+      "title": "Cropin: OrbitAI launch with Google Cloud",
+      "url": "https://www.cropin.com/press-release/cropin-and-google-cloud-launch-orbitai-the-worlds-first-agentic-ai-platform-for-food-and-agriculture/",
+      "publisher": "Cropin",
+      "date": "2026-07-14",
+      "checked": "2026-11-24",
+      "note": "Company announcement; market-first and scale claims are not repeated as independently verified facts.",
+      "kind": "Primary source",
+      "retrievalRef": "turn789771960search0"
+    },
+    {
+      "id": "cropin-intelligence-20261124",
+      "title": "Cropin: domain models and deployment scope",
+      "url": "https://www.cropin.com/intelligent-agriculture-cloud-cropin-intelligence/",
+      "publisher": "Cropin",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "The product page identifies energy and infrastructure applications as upcoming.",
+      "kind": "Primary source",
+      "retrievalRef": "turn789771960search1"
+    },
+    {
+      "id": "pula-products-20261124",
+      "title": "Pula: insurance, traceability and data services",
+      "url": "https://www.pula-advisors.com/productsandservices",
+      "publisher": "Pula",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Yield insurance uses agro-ecological zones and field crop-cut measurements; do not describe it as satellite-only insurance.",
+      "kind": "Primary source",
+      "retrievalRef": "turn789771960search3"
+    },
+    {
+      "id": "boomitra-delivery-20261110",
+      "title": "Boomitra: issued soil-carbon credit sales",
+      "url": "https://boomitra.com/boomitra-soil-carbon-credits-northern-mexico/",
+      "publisher": "Boomitra",
+      "date": "2026-11-10",
+      "checked": "2026-11-24",
+      "note": "Company reports delivery of 2.6 million issued credits. Buyer transfers, retirement and future contracted delivery are different statuses.",
+      "kind": "Primary source",
+      "retrievalRef": "turn581794613view2"
+    },
+    {
+      "id": "satsure-news-20261124",
+      "title": "SatSure: 2026 Earth-intelligence announcements",
+      "url": "https://www.satsure.co/newsroom/",
+      "publisher": "SatSure",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "June 2026 Dhaarini grant and Bhutan MoU are listed. An MoU is not evidence of an operational deployment.",
+      "kind": "Primary source",
+      "retrievalRef": "turn754412499search0"
+    },
+    {
+      "id": "fido-northumbrian-20261012",
+      "title": "FIDO: water-network monitoring project",
+      "url": "https://fido.tech/news/fido-tech-northumbrian-water-win-joint-emma-award/",
+      "publisher": "FIDO Tech",
+      "date": "2026-10-12",
+      "checked": "2026-11-24",
+      "note": "Company account of a UK utility project, not an independent effectiveness evaluation.",
+      "kind": "Primary source",
+      "retrievalRef": "turn754412499search1"
+    },
+    {
+      "id": "iceye-floodid-20260827",
+      "title": "ICEYE: predictive-flood partnership",
+      "url": "https://www.iceye.com/newsroom/press-releases/iceye-and-the-water-institute-partner-to-advance-the-next-generation-of-predictive-flood-intelligence?hs_amp=true",
+      "publisher": "ICEYE",
+      "date": "2026-08-27",
+      "checked": "2026-11-24",
+      "note": "Announcement describes integration of FloodID and its development team; its stated initial audience is US organizations.",
+      "kind": "Primary source",
+      "retrievalRef": "turn876381234search10"
+    },
+    {
+      "id": "iceye-government-flood-20261124",
+      "title": "ICEYE: government flood-insight capabilities",
+      "url": "https://www.iceye.com/solutions/government/flood-insights",
+      "publisher": "ICEYE",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Observed extent/depth and predictive models are distinct products and evidence types.",
+      "kind": "Primary source",
+      "retrievalRef": "turn876381234search11"
+    },
+    {
+      "id": "okra-products-20261124",
+      "title": "Okra Solar: mesh-grid products",
+      "url": "https://www.okrasolar.com/",
+      "publisher": "Okra Solar",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Current products include Sprout, Leaf and OkraNet. Availability and site suitability require project confirmation.",
+      "kind": "Primary source",
+      "retrievalRef": "turn876381234search1"
+    },
+    {
+      "id": "okra-planning-20261124",
+      "title": "Okra Solar: demand and network planning",
+      "url": "https://www.okrasolar.com/project-development",
+      "publisher": "Okra Solar",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Describes surveys, demand scoring, network simulation and portfolio planning.",
+      "kind": "Primary source",
+      "retrievalRef": "turn876381234search2"
+    },
+    {
+      "id": "sparkmeter-current-20261124",
+      "title": "SparkMeter: current operating organization and product",
+      "url": "https://www.sparkmeter.io/",
+      "publisher": "EarthSpark Meter Ops",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "SparkMeter is a product line of EarthSpark Meter Ops, an EarthSpark International affiliate.",
+      "kind": "Primary source",
+      "retrievalRef": "turn876381234search5"
+    },
+    {
+      "id": "sparkmeter-transition-2026",
+      "title": "SparkMeter: continuity, open source and key escrow",
+      "url": "https://www.sparkmeter.io/news",
+      "publisher": "EarthSpark Meter Ops",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Dated entries document the September 2025 acquisition, July 2026 pre-production ThunderCloud 2.0 release and September 2026 key-escrow options.",
+      "kind": "Primary source",
+      "retrievalRef": "turn581794613view1"
+    },
+    {
+      "id": "apollo-agriculture-20261124",
+      "title": "Apollo Agriculture: financing and input delivery",
+      "url": "https://www.apolloagriculture.com/about",
+      "publisher": "Apollo Agriculture",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Provider description of Kenya/Zambia services; promotional yield comparisons are omitted.",
+      "kind": "Primary source",
+      "retrievalRef": "turn789771960search4"
+    },
+    {
+      "id": "simprints-products-20261124",
+      "title": "Simprints: biometric identification products",
+      "url": "https://www.simprints.com/our-work/our-products/",
+      "publisher": "Simprints",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Open-source Android integration, offline operation and backend options.",
+      "kind": "Primary source",
+      "retrievalRef": "turn988990948search1"
+    },
+    {
+      "id": "simprints-ghana-20260303",
+      "title": "Simprints: infant identity work in Ghana",
+      "url": "https://www.simprints.com/closing-the-identity-gap-a-new-film-feature-on-our-ai-powered-biometrics-in-ghana/",
+      "publisher": "Simprints",
+      "date": "2026-03-03",
+      "checked": "2026-11-24",
+      "note": "Describes developing and scaling infant models; do not infer universal from-birth accuracy or authorization.",
+      "kind": "Primary source",
+      "retrievalRef": "turn988990948search2"
+    },
+    {
+      "id": "mosip-inji-20261124",
+      "title": "MOSIP: Inji credential stack",
+      "url": "https://www.mosip.io/inji",
+      "publisher": "MOSIP",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Public-good architecture for issuance, wallets and verification, including paper QR credentials.",
+      "kind": "Primary source",
+      "retrievalRef": "turn988990948search5"
+    },
+    {
+      "id": "inji-verify-rc-20261114",
+      "title": "Inji Verify 1.0.0-rc.1 release",
+      "url": "https://community.mosip.io/t/release-announcement-inji-verify-version-1-0-0-rc-1-is-here/2974",
+      "publisher": "MOSIP community / Inji product team",
+      "date": "2026-11-14",
+      "checked": "2026-11-24",
+      "note": "Release candidate; not described as a generally available stable release.",
+      "kind": "Primary source",
+      "retrievalRef": "turn988990948search7"
+    },
+    {
+      "id": "rori-product-20261124",
+      "title": "Rori: WhatsApp mathematics tutor",
+      "url": "https://rori.ai/about",
+      "publisher": "Rising Academies / Rori",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Product and pedagogy description from the developer.",
+      "kind": "Primary source",
+      "retrievalRef": "turn879560163search4"
+    },
+    {
+      "id": "rori-evaluation-20261124",
+      "title": "Rising Academies: evaluation programme",
+      "url": "https://www.risingacademies.com/impact",
+      "publisher": "Rising Academies",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "The September 2026 Ghana trial is ongoing through 2026–27; results are not yet inferred.",
+      "kind": "Primary source",
+      "retrievalRef": "turn564087602view3"
+    },
+    {
+      "id": "zipline-civ-20260922",
+      "title": "Zipline: Côte d’Ivoire expansion agreement",
+      "url": "https://www.zipline.com/newsroom/cote-d-ivoire-and-zipline-to-expand-ai-powered-health-logistics-infrastructure-to-10-distribution-hubs-reaching-12-million-people",
+      "publisher": "Zipline",
+      "date": "2026-09-22",
+      "checked": "2026-11-24",
+      "note": "Published 22 September; announcement dateline 21 September. Ten hubs and projected coverage refer to planned expansion.",
+      "kind": "Primary source",
+      "retrievalRef": "turn703243893search1"
+    },
+    {
+      "id": "maad-platform-20261124",
+      "title": "Maad: distribution, merchant data and logistics",
+      "url": "https://maad.io/partners",
+      "publisher": "Maad",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Describes Senegal operations and product functions; vendor scale and income testimonials are not repeated.",
+      "kind": "Primary source",
+      "retrievalRef": "turn703243893search0"
+    },
+    {
+      "id": "kilimo-method-20261124",
+      "title": "Kilimo: watershed and irrigation operating model",
+      "url": "https://kilimo.com/en/",
+      "publisher": "Kilimo",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Company methodology; water-benefit accounting must be assessed for the specific basin.",
+      "kind": "Primary source",
+      "retrievalRef": "turn564087602view2"
+    },
+    {
+      "id": "kilimo-projects-20261124",
+      "title": "Kilimo: country project portfolio",
+      "url": "https://kilimo.com/en/projects/",
+      "publisher": "Kilimo",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Lists projects in Argentina, Chile, Brazil, Mexico and the US.",
+      "kind": "Primary source",
+      "retrievalRef": "turn703243893search5"
+    },
+    {
+      "id": "sunculture-payout-20260413",
+      "title": "SunCulture: first Kenyan climate-insurance payout cycle",
+      "url": "https://sunculture.io/blog/2026/04/13/sunculture-advances-climate-resilience-with-first-insurance-payout-cycle-in-kenya/",
+      "publisher": "SunCulture",
+      "date": "2026-04-13",
+      "checked": "2026-11-24",
+      "note": "The payout event covered October–December 2025. Uganda expansion was a plan in this source.",
+      "kind": "Primary source",
+      "retrievalRef": "turn581794613view0"
+    },
+    {
+      "id": "sunculture-pumps-20261124",
+      "title": "SunCulture: solar-irrigation offering",
+      "url": "https://sunculture.io/partner-with-us/",
+      "publisher": "SunCulture",
+      "date": null,
+      "checked": "2026-11-24",
+      "note": "Commercial solar pumps; site, water-access and credit conditions vary.",
+      "kind": "Primary source",
+      "retrievalRef": "turn703243893search7"
+    },
+    {
+      "id": "wbg-msme-20261117",
+      "title": "WBG: MSME finance and digital tools",
+      "url": "https://www.worldbank.org/en/news/press-release/2026/11/17/msmes-in-developing-countries-face-4-trillion-finance-gap",
+      "publisher": "World Bank Group",
+      "date": "2026-11-17",
+      "checked": "2026-11-24",
+      "note": "Institutional context; not a partnership or endorsement of companies in this radar.",
+      "kind": "Institutional source",
+      "retrievalRef": "turn754412499search3"
+    },
+    {
+      "id": "wbg-mission300-progress-20260616",
+      "title": "WBG: Mission 300 progress and operating model",
+      "url": "https://www.worldbank.org/en/news/press-release/2026/06/16/under-mission-300-a-new-way-of-doing-business-connects-over-50-million-people-to-electricity-across-africa?trk=article-ssr-frontend-pulse_little-text-block",
+      "publisher": "World Bank Group",
+      "date": "2026-06-16",
+      "checked": "2026-11-24",
+      "note": "Institutional programme context, separate from provider deployment claims.",
+      "kind": "Institutional source",
+      "retrievalRef": "turn861406339search10"
+    }
+  ],
+  "signals": [
+    {
+      "title": "Digital credentials move into the browser",
+      "date": "2026-11-14",
+      "text": "Inji Verify’s latest release candidate adds browser-based credential requests and reusable verification components. Stable-release readiness remains a separate check.",
+      "sourceIds": [
+        "inji-verify-rc-20261114"
+      ],
+      "trendId": "interoperable-public-infrastructure"
+    },
+    {
+      "title": "Digital records matter for small-firm finance",
+      "date": "2026-11-17",
+      "text": "New WBG reporting connects MSME finance constraints with digital visibility, market access and financial infrastructure.",
+      "sourceIds": [
+        "wbg-msme-20261117"
+      ],
+      "trendId": "productive-small-firms"
+    },
+    {
+      "title": "A larger test for tutoring on everyday phones",
+      "date": "2026-09",
+      "text": "Rising Academies began a 100-school Ghana evaluation of Rori. This is a trial in progress, not a published result.",
+      "sourceIds": [
+        "rori-evaluation-20261124"
+      ],
+      "trendId": "adaptive-learning"
+    },
+    {
+      "title": "Open metering raises the continuity question",
+      "date": "2026-07-31",
+      "text": "EarthSpark opened the next-generation SparkMeter software for development. Supplier-exit options now sit beside tariff, hardware and service performance in procurement questions.",
+      "sourceIds": [
+        "sparkmeter-transition-2026"
+      ],
+      "trendId": "distributed-energy"
+    }
+  ],
+  "notes": [
+    "Nine existing company records refreshed and eleven added; nine existing trends updated. No claim that all 102 prior records were re-researched.",
+    "Entries with no dated announcement retain evidenceDate=null; source check date is not a product launch date.",
+    "Amini’s resources page gives inconsistent dates for its Barbados digital-twin story. Exclude that story from a dated news timeline unless the original article resolves the conflict.",
+    "SparkMeter is an EarthSpark product line, not an unchanged independent startup. ThunderCloud 2.0 is pre-production in the cited release.",
+    "Nithio FUEL is a fundraising target with first close planned in 2027. Avoid presenting $150m as raised or invested.",
+    "Inji Verify is a release candidate; Zipline expansion coverage is projected; Rori’s 2026–27 evaluation is ongoing.",
+    "Only Husk’s cited IFC disclosure and existing Pula IFC evidence establish specific WBG relationships. Other WBG links are institutional context for proposed applications.",
+    "SatSure’s November 20 fundraising report appeared in Reuters, but this primary-source package does not repeat it because a matching official release was not verified.",
+    "Rori evidenceDate and signal date use month precision (2026-09) intentionally; do not convert into an invented day."
+  ],
+  "coverage": {
+    "companyUpdates": 9,
+    "companyAdditions": 11,
+    "trendUpdates": 9,
+    "sourcesChecked": 34,
+    "recommendedSpotlights": [
+      "iceye",
+      "cropin",
+      "rori",
+      "okra-solar",
+      "maad"
+    ],
+    "remainingGaps": [
+      "Country-level procurement and lifecycle costs",
+      "Disability and accessibility outcomes",
+      "Fragile and conflict-affected service delivery",
+      "Housing, municipal waste and urban mobility",
+      "Tourism and manufacturing beyond current examples"
+    ],
+    "scope": "Evidence-linked landscape with targeted current updates; not an exhaustive or continuously monitored market census."
+  }
+}
