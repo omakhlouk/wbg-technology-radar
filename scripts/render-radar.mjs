@@ -33,12 +33,14 @@ if(fontDir){
   }
 }
 const sandbox={console,Math,Date,performance:{now:()=>0}};sandbox.globalThis=sandbox;sandbox.window=sandbox;vm.createContext(sandbox);
-for(const file of ['data.js','radar-core.js','radar-film.js']){
+for(const file of ['data.js','company-logos.js','radar-core.js','radar-film.js']){
   const target=path.join(root,file);if(fs.existsSync(target))vm.runInContext(fs.readFileSync(target,'utf8'),sandbox,{filename:file});
 }
 const logoPng=await sharp(path.join(root,'wbg-logo-white.svg')).resize({width:640}).png().toBuffer();
 const logo=await loadImage(logoPng),canvas=createCanvas(width,height),ctx=canvas.getContext('2d');
-function frame(t){sandbox.RadarFilm.draw(ctx,{data:sandbox.RADAR_DATA,width,height,time:t,format,logo});}
+const companyLogos={atlas:await loadImage(path.join(root,'startup-logos.png')),manifest:sandbox.COMPANY_LOGOS};
+const qr=await loadImage(path.join(root,'radar-qr.png'));
+function frame(t){sandbox.RadarFilm.draw(ctx,{data:sandbox.RADAR_DATA,width,height,time:t,format,logo,companyLogos,qr});}
 fs.mkdirSync(path.dirname(out),{recursive:true});
 if(preview){
   const times=value('--times','6,20,33,47,61,77,91,105,121,138,153,172').split(',').map(Number),files=[];
@@ -68,6 +70,6 @@ if(preview){
   try{fs.renameSync(encodedPath,out);}catch(error){if(error.code!=='EXDEV')throw error;const ready=out+'.ready';fs.copyFileSync(encodedPath,ready);fs.renameSync(ready,out);}
   fs.rmSync(tempDirectory,{recursive:true,force:true});
   const sha=file=>createHash('sha256').update(fs.readFileSync(file)).digest('hex');
-  const metadata={file:path.basename(out),format,width,height,fps,durationSeconds:seconds,bytes:fs.statSync(out).size,sha256:sha(out),fontFamily,sharedRenderer:'radar-core.js',filmRenderer:'radar-film.js',dataVersion:sandbox.RADAR_DATA.meta.version,companyCount:sandbox.RADAR_DATA.companies.length,trendCount:sandbox.RADAR_DATA.trends.length,inputs:Object.fromEntries(['data.js','radar-core.js','radar-film.js','wbg-logo-white.svg'].map(file=>[file,sha(path.join(root,file))])),createdAt:new Date().toISOString()};
+  const metadata={file:path.basename(out),format,width,height,fps,durationSeconds:seconds,bytes:fs.statSync(out).size,sha256:sha(out),fontFamily,sharedRenderer:'radar-core.js',filmRenderer:'radar-film.js',dataVersion:sandbox.RADAR_DATA.meta.version,companyCount:sandbox.RADAR_DATA.companies.length,trendCount:sandbox.RADAR_DATA.trends.length,inputs:Object.fromEntries(['data.js','company-logos.js','startup-logos.png','radar-core.js','radar-film.js','wbg-logo-white.svg','radar-qr.png'].map(file=>[file,sha(path.join(root,file))])),createdAt:new Date().toISOString()};
   fs.writeFileSync(out+'.json',JSON.stringify(metadata,null,2)+'\n');console.log(JSON.stringify(metadata));
 }
