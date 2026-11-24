@@ -1,0 +1,20 @@
+{
+  "release": "2026.11.23.3-github-347f9f7b07c8",
+  "researchChecked": "2026-11-23",
+  "sourceRelease": "2026.11.23.3-dcbac3a5af0d",
+  "counts": {
+    "trends": 37,
+    "companies": 102,
+    "sources": 200,
+    "opportunities": 17
+  },
+  "sha256": {
+    ".nojekyll": "550c5cf1ff55b9e06674ba9498583fe537a9a47f825959dccd6ad36f41b7d885",
+    "app.js": "46d5158bca73ddd884c49fa786e7aaf6bed07127a11db788ac1a67bce8954d6b",
+    "data.js": "276cc08fb5b4eb456aa4ebf245a80a459a94c67d57cb5f5d4a3e8e0e1c243685",
+    "data.json": "262cab43d7794c290a437a777c9009e46238e2923f6256a0db181332abfde2a5",
+    "index.html": "7f33d6eff859cda31323bd14c0f6c4fbb619c589a4c2202f39b6e478c0cb5cf5",
+    "styles.css": "8a8807b3aa8b3c17f1d7635a9f262c9fb348b69b8a43bdc5c5506c55a4989a78",
+    "wbg-logo.svg": "b9f548bee627ab585009d7a06d6b2d2e948b9d8e6556ccf226c18f49595da9a9"
+  }
+}
