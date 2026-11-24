@@ -29,6 +29,7 @@
     "profileActivation": "Semantic label buttons and canvas point targets open the same profiles; pointer gestures preserve their initial target.",
     "gestureHandling": "Dragging, cancelled pointer gestures and page scrolling suppress unintended canvas activation.",
     "motionControls": "Pause and resume preserve the scanner angle; the initial state respects reduced-motion preference.",
+    "fullscreenProfiles": "Profile and backdrop move into the fullscreen layer and return to the page on exit.",
     "verification": "scripts/verify-interactions.mjs"
   },
   "identityRefresh": {
@@ -115,12 +116,12 @@
   "sha256": {
     ".gitignore": "e266b6ea6e547ee4dd49133c954e8aa3f8fc11d05013dc15ede11e6a6cc31d3f",
     ".nojekyll": "550c5cf1ff55b9e06674ba9498583fe537a9a47f825959dccd6ad36f41b7d885",
-    "README.md": "be421a50f881e5e6b5deedd4ace2e3e669108147ff67ab73eb7fc94bbb84502c",
-    "app.js": "8a22400c87bb8cf9345bfd2eea6fe97450255183437a599903284f51806e9c93",
+    "README.md": "9a84bf9704ce1a6de8d3afa5968f8a90b8e3241f42a20e4be79357e5a4ef52c8",
+    "app.js": "d6ce27a6a48f62de7c8fd972d7f5a1f7459478f5674ed37c9b8893253ec9cfdb",
     "company-logos.js": "9d1d68b4e020c6d0d76b952c39fe10df5620df59ee6e4bca8eac928c649125d4",
     "data.js": "f9f3158c9b12d9187daa348f275782ce88998961a3b478fbe5f9920d5b8bb3e2",
     "data.json": "62442f19cf3a16ac7eeb24b90b3d9c16c6c97d10e5c9d7ae9d65546e786886af",
-    "index.html": "c9b6bc8b16f2fc09c9b91387775bdd9302e396056f516aa7e865537d4205df51",
+    "index.html": "d022e8637a1168049fa85f7d2f78b46555b1bbd8b27ea71562fdd2a0d1c602a1",
     "package.json": "8f631d9bb8291bccf7a1fdd0c8b1ab7457c746988117c3f1f1fe916bbd2785aa",
     "radar-core.js": "d0ec5e62e7ad47cb35ad82050da1f96695ad690efae72ed9012d7a748d46c0c9",
     "radar-film.js": "2eaf1549deca620aa64956afb1fa447bf5e19792ebfb4ecdbcb26220d5c568bc",
@@ -137,13 +138,13 @@
     "research/frontier-refresh-20261124.json": "fe0aaab16e5af416f4abda849cd4ca5490fe59e4ab1632e64b075a147bc0b1b3",
     "research/merge-20261124.py": "629c92312db1dc83dce3ddf786e16f79dfb54f8456bc3ef09894909c7be51a4c",
     "research/merge-result-20261124.json": "e105822284ebd40438f76d0c5c5f595c8ce1437f8b90cc3bf82494300d347f63",
-    "scripts/package-release.py": "2899989fd33644cdc22afb86221aa11864498843381e3ac1464695feb5e23dbe",
+    "scripts/package-release.py": "847d6ac4b2f9c2def50c20e87401942ad628cfb9981930befc9c1bf9b96cd80a",
     "scripts/render-radar.mjs": "597b582da5787bdd0ecbd22dfee6a1511695b9621a9c201479e7b0ff23ab7eb3",
-    "scripts/verify-interactions.mjs": "7cb3d8b8db3c847d63c1c9a6581da786ff63c3e8652ab24557426a9ee6e95284",
+    "scripts/verify-interactions.mjs": "2e7cc0ad73060405023b07b93a6199da87c6cca2811c13458be39c311d2f8fc1",
     "scripts/verify-radar.mjs": "cc8903748ea2afc6b0d30238c7e835faff5741abbb1dcf606723d8e50f24cadd",
     "showcase.html": "e57657c2e98441db5ea240b882e5d8b13efa6a1fe13b93e5f8176b3f1dd5df14",
     "startup-logos.png": "46d01de9e186da6e37e92fc3ac0a31bf98e221401aad4f1ca8e7b37125225c2c",
-    "styles.css": "366a0f14943663465cbd1f69782b85be1136489615641696c1c3d0f4710ec2b3",
+    "styles.css": "5810ef133e0a41351a897819f360c640a641f79e98d046e41faacf0546955e0b",
     "wbg-logo-white.svg": "755489ceb22228ef1a909e2ae6beba4d8dd17bdc0911c699ff805f7fc513a5fc",
     "wbg-logo.svg": "b9f548bee627ab585009d7a06d6b2d2e948b9d8e6556ccf226c18f49595da9a9"
   }

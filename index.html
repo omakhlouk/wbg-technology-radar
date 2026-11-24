@@ -4,10 +4,10 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050e1e">
 <meta name="description" content="Explore technologies, companies and evidence relevant to World Bank Group development priorities and enterprise work.">
 <title>Technology radar | World Bank Group</title>
-<link rel="stylesheet" href="styles.css?v=2026.11.24.8">
+<link rel="stylesheet" href="styles.css?v=2026.11.24.8.1">
 <script defer src="data.js?v=2026.11.24.8"></script>
 <script defer src="company-logos.js?v=2026.11.24.8"></script>
-<script defer src="radar-core.js?v=2026.11.24.8"></script><script defer src="radar-film.js?v=2026.11.24.8"></script><script defer src="app.js?v=2026.11.24.8"></script>
+<script defer src="radar-core.js?v=2026.11.24.8"></script><script defer src="radar-film.js?v=2026.11.24.8"></script><script defer src="app.js?v=2026.11.24.8.1"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to radar</a>
@@ -27,7 +27,7 @@
 <label>Area<select id="domain-filter"><option value="all">All areas</option></select></label><label>Horizon<select id="horizon-filter"><option value="all">All horizons</option><option value="now">Now</option><option value="next">Next</option><option value="horizon">Horizon</option></select></label><label>Names<select id="label-filter"><option value="smart">Selected names</option><option value="more">More names</option><option value="none">Points only</option></select></label><button data-action="reset" class="text-button">Reset view</button>
 </div>
 <div class="stage-topline"><div class="type-toggle" role="group" aria-label="Radar content"><button data-kind="companies" class="active" aria-pressed="true">Companies</button><button data-kind="trends" aria-pressed="false">Trends</button></div><div class="stage-utilities"><span id="filter-status" aria-live="polite"></span><button data-action="clear-domain" id="clear-domain" hidden>All areas</button><button class="icon-button" data-action="fullscreen" aria-label="Expand radar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button></div></div>
-<div class="radar-stage" id="radar-stage"><canvas id="radar-canvas" role="img" aria-label="Technology radar. Select a point or area, or use the profile buttons and results below."></canvas><div id="radar-targets" class="radar-targets" role="group" aria-label="Profiles on the radar"></div><div class="radar-tooltip" id="radar-tooltip" hidden></div><div class="empty-radar" id="empty-radar" hidden><h2>No matches in this view</h2><p>Try another term or perspective.</p><button class="light-button" data-action="reset">Reset filters</button></div></div>
+<div class="radar-stage" id="radar-stage"><button class="fullscreen-exit" data-action="fullscreen" aria-label="Exit full screen">Exit full screen</button><canvas id="radar-canvas" role="img" aria-label="Technology radar. Select a point or area, or use the profile buttons and results below."></canvas><div id="radar-targets" class="radar-targets" role="group" aria-label="Profiles on the radar"></div><div class="radar-tooltip" id="radar-tooltip" hidden></div><div class="empty-radar" id="empty-radar" hidden><h2>No matches in this view</h2><p>Try another term or perspective.</p><button class="light-button" data-action="reset">Reset filters</button></div></div>
 <div class="stage-footer"><button class="text-button" data-action="method">Now · Next · Horizon <span aria-hidden="true">ⓘ</span></button><span class="interaction-hint">Select a name or point to open its profile</span><button class="text-button" data-action="motion" id="motion-control" aria-pressed="true">Pause sweep</button></div>
 </section>
 <section class="research-section" id="research-section" aria-labelledby="results-heading">

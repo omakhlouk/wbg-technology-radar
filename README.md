@@ -44,6 +44,8 @@ A visible scanner beam and trailing glow complete one turn every 10 seconds. Poi
 
 Hovering highlights a label without moving its click target. Every visible name has a semantic profile button for pointer and keyboard activation. Canvas points also open profiles, with larger hit areas on compact screens. The application captures the intended record when a pointer gesture begins and cancels activation after a drag, cancelled gesture, or page scroll. Company cards include an explicit Open profile action. Escape closes the profile drawer.
 
+Fullscreen keeps the company profile and its backdrop inside the expanded radar so selecting a name or point opens visible details. The Exit full screen control returns to the page.
+
 ### Company identity
 
 Locally bundled logos and official website icons identify **131 of 134 companies and builders** in radar labels, result cards, profile headers and film spotlights. Viamo, JUMO and SOURCE Global use text initials because a suitable official mark was not retrieved. Initials are a fallback, not a reconstructed logo.

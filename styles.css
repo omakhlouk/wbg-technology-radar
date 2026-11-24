@@ -35,3 +35,5 @@ dialog{border:1px solid #d6e4f7;border-radius:12px;background:#f8faff;color:#1c3
 @media(max-width:780px){.record-card p{font-size:.9375rem}.company-mark{width:40px;height:40px}.detail-logo{width:58px;height:58px}.tooltip-logo{width:34px;height:34px}.detail-brand{gap:14px}.detail-brand h2{font-size:1.9rem}.card-read{font-size:.8125rem}.stage-footer .text-button{font-size:.8125rem}}
 
 .radar-stage:fullscreen .radar-targets{inset:20px}
+
+.fullscreen-exit{display:none}.radar-stage:fullscreen .fullscreen-exit{display:block;position:absolute;top:20px;right:20px;z-index:10;padding:11px 17px;border:1px solid #4e6c93;border-radius:6px;background:#10223b;color:#dcecff;font-size:.875rem}
