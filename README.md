@@ -34,4 +34,4 @@ The research library retains WBG, ITS and Frontier perspectives, source-linked p
 
 The original Azure address is a separate deployment. Publishing here does not change the Azure site.
 
-Release: `2026.11.24.6-github-129377c10bcc`. `build.json` records hashes of the reviewed website assets.
+Release: `2026.11.24.6-github-c48b9043a253`. `build.json` records hashes of the reviewed website assets.

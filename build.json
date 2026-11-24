@@ -1,7 +1,7 @@
 {
-  "release": "2026.11.24.6-github-129377c10bcc",
+  "release": "2026.11.24.6-github-c48b9043a253",
   "researchChecked": "2026-11-23",
-  "sourceRelease": "2026.11.24.6-1c438666f19d",
+  "sourceRelease": "2026.11.24.6-6db4a60de7d3",
   "counts": {
     "trends": 37,
     "companies": 102,
@@ -14,7 +14,7 @@
     "data.js": "3e9ae412c7b8712469e8f9810ff787f2d0a3b0c7f9ce641bee47c066cf207ed0",
     "data.json": "c492e57ab9476025b00114948df0af4cf4492fc5d5fdcc65d4b8c3906999388e",
     "entry-route.js": "cada8cc90f0479a7d55589921fde74a9cab55e46651550ffeba865c3384b7c27",
-    "index.html": "f6772cac84fff68925d4d9f63a81ed507576878e7a1d3e4220d246512660e26b",
+    "index.html": "6eec8d817388e87ffd2740f1c37a023ef97b86351dce55250140b32f062ea3b5",
     "radar-hologram-1080.mp4": "29adb24eaeb30af0bc812ba3796dc1d6c525680496d6cead4fa13fc6d71ddccd",
     "radar-qr-poster.png": "717beaa0322b43f21e0b283f1f8342e7476f2ae4cd7fa1e0b920f4cf8188fbaf",
     "radar-qr-poster.svg": "ca57ee537dd4a66616bec530518c433313590b7db8828b9ac0c26bb4eb6e6299",
