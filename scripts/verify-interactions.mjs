@@ -65,7 +65,9 @@ class Element {
  get innerHTML(){return this._html;}
  set textContent(text){this._text=String(text);this.children=[];this._html=this._text;}
  get textContent(){return this._text||unescapeHTML(this._html.replace(/<[^>]*>/g,''));}
- appendChild(child){child.parentElement=this;this.children.push(child);return child;}
+ appendChild(child){if(child.parentElement)child.remove();child.parentElement=this;this.children.push(child);return child;}
+ append(...children){children.forEach(child=>this.appendChild(child));}
+ contains(child){for(let node=child;node;node=node.parentElement)if(node===this)return true;return false;}
  remove(){if(this.parentElement)this.parentElement.children=this.parentElement.children.filter(x=>x!==this);this.parentElement=null;}
  setAttribute(k,v){this.attributes[k]=String(v);if(k==='class')this.classes=new Set(String(v).split(/\s+/));}
  getAttribute(k){if(k.startsWith('data-'))return this.dataset[k.slice(5).replace(/-([a-z])/g,(_,c)=>c.toUpperCase())]??null;return this.attributes[k]??null;}
@@ -81,7 +83,7 @@ class Element {
  getBoundingClientRect(){return {...this.rect,right:this.rect.left+this.rect.width,bottom:this.rect.top+this.rect.height,x:this.rect.left,y:this.rect.top};}
  setPointerCapture(){}releasePointerCapture(){}hasPointerCapture(){return false;}
  showModal(){this.open=true;}close(){this.open=false;}
- requestFullscreen(){this.ownerDocument.fullscreenElement=this;return Promise.resolve();}
+ requestFullscreen(){this.ownerDocument.fullscreenElement=this;this.ownerDocument.dispatch('fullscreenchange',this.ownerDocument);return Promise.resolve();}
  click(){this.ownerDocument.dispatch('click',this);}
 }
 function parseHTML(html,parent,doc){
@@ -95,7 +97,7 @@ function parseHTML(html,parent,doc){
  }
 }
 function appHarness({width=1292,height=660,dpr=1,reducedMotion=false}={}){
- const doc=new Element('document',{},null);doc.ownerDocument=doc;doc.hidden=false;doc.activeElement=null;doc.createElement=tag=>new Element(tag,{},doc);doc.exitFullscreen=()=>{doc.fullscreenElement=null;return Promise.resolve();};
+ const doc=new Element('document',{},null);doc.ownerDocument=doc;doc.hidden=false;doc.activeElement=null;doc.createElement=tag=>new Element(tag,{},doc);doc.exitFullscreen=()=>{doc.fullscreenElement=null;doc.dispatch('fullscreenchange',doc);return Promise.resolve();};
  doc.dispatch=(type,target,values={})=>{const event={type,target,button:0,pointerId:1,pointerType:'mouse',isPrimary:true,detail:1,clientX:0,clientY:0,defaultPrevented:false,preventDefault(){this.defaultPrevented=true;},stopPropagation(){this.stopped=true;},...values};for(let node=target;node;node=node.parentElement){for(const listener of node.listeners[type]||[])listener(event);if(event.stopped)break;}return event;};
  parseHTML(source('index.html'),doc,doc);doc.body=doc.querySelector('body');doc.activeElement=doc.body;
  const canvas=doc.querySelector('#radar-canvas');canvas.rect={left:25,top:280,width,height};const film=doc.querySelector('#film-canvas');film.rect={left:25,top:180,width:960,height:540};
@@ -181,4 +183,60 @@ assert.equal(motion.window.RadarExplorer.getScene().sweep.angle,pausedAngle,'Pau
 motion.click(motion.element('#motion-control'));motion.frame(600);
 assert.equal(motion.window.RadarExplorer.getScene().sweep.angle,pausedAngle,'Resume must continue from the paused angle');
 appScenarios+=4;
-console.log(JSON.stringify({ok:true,labelChecks,pointChecks,filterChecks,sweepPeriodSeconds:Core.SWEEP_PERIOD,appScenarios,applicationCoverage:['card and radar button activation','canvas point activation','DPR and CSS scaling','gesture capture across redraw','drag/cancel/scroll suppression','Escape closure','reduced motion and pause/resume']},null,2));
+
+// The browser paints only the fullscreen subtree in its fullscreen layer.
+// Showing an outside drawer is insufficient even when its hidden flag is false.
+const fullscreen=appHarness(),stage=fullscreen.element('#radar-stage');
+const originalDrawer=fullscreen.element('#detail-drawer'),originalBackdrop=fullscreen.element('#drawer-backdrop');
+fullscreen.click(fullscreen.element('[data-action="fullscreen"]'));
+assert.equal(fullscreen.document.fullscreenElement,stage,'Expand must enter radar fullscreen');
+fullscreen.frame(200);
+const fullscreenButton=fullscreen.element('#radar-targets button');
+fullscreen.click(fullscreenButton);
+assert.equal(originalDrawer.hidden,false,'Fullscreen label activation must open the profile');
+assert(stage.contains(originalDrawer),'Open profile must be mounted inside the fullscreen layer');
+assert(stage.contains(originalBackdrop),'Profile backdrop must be mounted inside the fullscreen layer');
+assert.equal(fullscreen.window.RadarExplorer.getState().selectedId,fullscreenButton.dataset.open);
+assert.equal(fullscreen.document.querySelectorAll('#detail-drawer').length,1,'Reparenting must preserve one drawer');
+assert.equal(fullscreen.document.querySelectorAll('#drawer-backdrop').length,1,'Reparenting must preserve one backdrop');
+fullscreen.click(fullscreen.element('.drawer-close'));
+assert.equal(originalDrawer.hidden,true,'Close control must retain its handler after fullscreen reparenting');
+assert.equal(fullscreen.document.fullscreenElement,stage,'Closing a profile must preserve radar fullscreen');
+appScenarios+=2;
+
+fullscreen.frame(300);
+const fullscreenPoint=fullscreen.window.RadarExplorer.getScene().points.find(p=>p.visible&&p.id==='sylvera')||chosenPoint(fullscreen);
+fullscreen.pointer('pointerdown',fullscreenPoint);fullscreen.pointer('click',fullscreenPoint);
+assert.equal(fullscreen.window.RadarExplorer.getState().selectedId,fullscreenPoint.id,'Fullscreen point click must open the intended startup');
+assert(stage.contains(originalDrawer));
+fullscreen.click(originalBackdrop);
+assert.equal(originalDrawer.hidden,true,'Backdrop listener must survive reparenting');
+assert.equal(fullscreen.document.fullscreenElement,stage);
+appScenarios++;
+
+const exitControl=stage.querySelector('.fullscreen-exit');
+assert(exitControl,'Fullscreen radar needs an exit control inside its visible subtree');
+fullscreen.click(exitControl);
+assert.equal(fullscreen.document.fullscreenElement,null,'Exit full screen must leave the fullscreen layer');
+assert.equal(originalDrawer.parentElement,fullscreen.document.body);
+assert.equal(originalBackdrop.parentElement,fullscreen.document.body);
+fullscreen.click(fullscreen.element('[data-action="fullscreen"]'));
+assert.equal(fullscreen.document.fullscreenElement,stage,'Radar must be expandable again after exiting');
+appScenarios++;
+
+fullscreen.frame(400);
+fullscreen.click(fullscreen.element('#radar-targets button'));
+const profileBeforeExit=fullscreen.window.RadarExplorer.getState().selectedId;
+await fullscreen.document.exitFullscreen();
+assert.equal(fullscreen.document.fullscreenElement,null);
+assert.equal(originalDrawer.parentElement,fullscreen.document.body,'Exiting fullscreen must return the drawer to the document body');
+assert.equal(originalBackdrop.parentElement,fullscreen.document.body,'Exiting fullscreen must return the backdrop to the document body');
+assert.equal(fullscreen.element('#detail-drawer'),originalDrawer,'Fullscreen exit must preserve the existing drawer node');
+assert.equal(fullscreen.element('#drawer-backdrop'),originalBackdrop,'Fullscreen exit must preserve the existing backdrop node');
+assert.equal(originalDrawer.hidden,false,'Exiting fullscreen must keep an open profile visible');
+assert.equal(fullscreen.window.RadarExplorer.getState().selectedId,profileBeforeExit,'Fullscreen exit must preserve the current profile');
+fullscreen.click(fullscreen.element('.drawer-close'));
+assert.equal(originalDrawer.hidden,true,'Close control must still work after returning to the body');
+appScenarios++;
+
+console.log(JSON.stringify({ok:true,labelChecks,pointChecks,filterChecks,sweepPeriodSeconds:Core.SWEEP_PERIOD,appScenarios,applicationCoverage:['card and radar button activation','canvas point activation','DPR and CSS scaling','gesture capture across redraw','drag/cancel/scroll suppression','Escape closure','reduced motion and pause/resume','fullscreen profile layer and preserved handlers']},null,2));

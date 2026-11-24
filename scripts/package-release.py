@@ -154,6 +154,7 @@ def main() -> None:
             "profileActivation": "Semantic label buttons and canvas point targets open the same profiles; pointer gestures preserve their initial target.",
             "gestureHandling": "Dragging, cancelled pointer gestures and page scrolling suppress unintended canvas activation.",
             "motionControls": "Pause and resume preserve the scanner angle; the initial state respects reduced-motion preference.",
+            "fullscreenProfiles": "Profile and backdrop move into the fullscreen layer and return to the page on exit.",
             "verification": "scripts/verify-interactions.mjs",
         },
         "identityRefresh": {
