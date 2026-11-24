@@ -1,7 +1,7 @@
 {
-  "release": "2026.11.23.3-github-347f9f7b07c8",
+  "release": "2026.11.24.4-github-ca5a746bc622",
   "researchChecked": "2026-11-23",
-  "sourceRelease": "2026.11.23.3-dcbac3a5af0d",
+  "sourceRelease": "2026.11.24.4-a3ab08a78376",
   "counts": {
     "trends": 37,
     "companies": 102,
@@ -13,8 +13,25 @@
     "app.js": "46d5158bca73ddd884c49fa786e7aaf6bed07127a11db788ac1a67bce8954d6b",
     "data.js": "276cc08fb5b4eb456aa4ebf245a80a459a94c67d57cb5f5d4a3e8e0e1c243685",
     "data.json": "262cab43d7794c290a437a777c9009e46238e2923f6256a0db181332abfde2a5",
-    "index.html": "7f33d6eff859cda31323bd14c0f6c4fbb619c589a4c2202f39b6e478c0cb5cf5",
+    "index.html": "e2f5f121d51aa98b515c1803e399e1fee7a570d9ec794f82d16519ecac51f7fd",
+    "radar-hologram-1080.mp4": "3e7fb7949477d3851c28527b0e6a24203310eae82069991282dbd52b920399e2",
+    "radar-widescreen-1080.mp4": "429e6a5a748cc2f30c8dc85de963c4f3a69e333aef2745553ae55a9f4bd82a4b",
+    "research.html": "24fe96de249f44b3c9a9a9bc8b9d200fa168d2d897251720c8a704ba6eb9a25e",
+    "showcase-app.js": "995a39205c3649accd6e0a39d91618010204fce31fb15140bb643b80f0e9fb2b",
+    "showcase-data.js": "6572217599198224fd9480beb623a5671d13b514e6c7e4f30dd58ba7ac65f6af",
+    "showcase-data.json": "bb9758864aa6a2b61fd83135ee095c423f3f3212dd5d5a64254d6fcb85c1b8f6",
+    "showcase-export.js": "7ab9e8445f59c9b940714f4a483ca76f7d8f1d46011eacc417533a4976816696",
+    "showcase-model.js": "cb7b8fcd70fa572d6e47e86489444aff231d17d5984b873647558af5a3640c51",
+    "showcase-renderer.js": "eaa74eb9f52b7da82df5954ccd078499ce7bcfc849a0ca1b0fdbcc9579979721",
+    "showcase.css": "3c77f993c77a78b363c0b07858ccdd6e7cb95be539d393d2d83900f07b8ac765",
     "styles.css": "8a8807b3aa8b3c17f1d7635a9f262c9fb348b69b8a43bdc5c5506c55a4989a78",
+    "wbg-logo-white.svg": "ca3fe1d43f221b9e9470894cd8c9a1db530e66fa5c40b77817d0e5f81dd7591d",
     "wbg-logo.svg": "b9f548bee627ab585009d7a06d6b2d2e948b9d8e6556ccf226c18f49595da9a9"
+  },
+  "showcase": {
+    "scenes": 12,
+    "durationSeconds": 120,
+    "featuredBuilders": 63,
+    "storyboardChecked": "2026-11-24"
   }
 }
