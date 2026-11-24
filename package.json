@@ -1,10 +1,12 @@
 {
   "name": "wbg-technology-radar",
-  "version": "2026.11.24",
+  "version": "2026.11.24-8",
   "private": true,
   "description": "Shared interactive radar and guided film",
   "scripts": {
-    "verify": "node scripts/verify-radar.mjs",
+    "verify": "node scripts/verify-radar.mjs && node scripts/verify-interactions.mjs",
+    "verify:interactions": "node scripts/verify-interactions.mjs",
+    "package:release": "python3 scripts/package-release.py",
     "render:square": "node scripts/render-radar.mjs --format square --crf 21 --preset faster",
     "render:wide": "node scripts/render-radar.mjs --format wide --crf 21 --preset faster"
   },

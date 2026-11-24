@@ -5,19 +5,22 @@
   "height": 1080,
   "fps": 30,
   "durationSeconds": 180,
-  "bytes": 7548871,
-  "sha256": "6e6ff1b8dca4c31061fcd28dd641b870a78d23ca3c35c6731b5a53ea955bc905",
+  "bytes": 11963285,
+  "sha256": "06d4a2f1bc8da1831376fecd1604d88e3f444f525baac56945deae818994334d",
   "fontFamily": "Liberation Sans (Arial-compatible fallback)",
   "sharedRenderer": "radar-core.js",
   "filmRenderer": "radar-film.js",
-  "dataVersion": "2026.11.24.7",
+  "dataVersion": "2026.11.24.8",
   "companyCount": 134,
   "trendCount": 41,
   "inputs": {
-    "data.js": "339923ea47162adaf4d335b36119bfc5f0169c9cac669c248c40e81645506911",
-    "radar-core.js": "3c0521b077712303084565f21d89672ea8158f9fc1ae13e23d79b3dfa087837e",
-    "radar-film.js": "d83b0dde1eb440c0f623b52ba77f347e10fa3750d529cd5d85ff9575fe3b26f5",
-    "wbg-logo-white.svg": "755489ceb22228ef1a909e2ae6beba4d8dd17bdc0911c699ff805f7fc513a5fc"
+    "data.js": "f9f3158c9b12d9187daa348f275782ce88998961a3b478fbe5f9920d5b8bb3e2",
+    "company-logos.js": "9d1d68b4e020c6d0d76b952c39fe10df5620df59ee6e4bca8eac928c649125d4",
+    "startup-logos.png": "46d01de9e186da6e37e92fc3ac0a31bf98e221401aad4f1ca8e7b37125225c2c",
+    "radar-core.js": "d0ec5e62e7ad47cb35ad82050da1f96695ad690efae72ed9012d7a748d46c0c9",
+    "radar-film.js": "2eaf1549deca620aa64956afb1fa447bf5e19792ebfb4ecdbcb26220d5c568bc",
+    "wbg-logo-white.svg": "755489ceb22228ef1a909e2ae6beba4d8dd17bdc0911c699ff805f7fc513a5fc",
+    "radar-qr.png": "fadad491985026a312460baf1bbb9abc4314cfb6e48a08cb0666d4389abeb2e9"
   },
-  "createdAt": "2026-11-24T19:18:35.442Z"
+  "createdAt": "2026-11-24T21:01:24.711Z"
 }

@@ -34,6 +34,16 @@
     if(Array.isArray(company?.capabilities)&&company.capabilities.length)return company.capabilities.slice(0,3);
     return company?[company.summary]:[];
   }
+  function companyMark(ctx,company,logos,x,y,size){
+    const entry=company&&logos?.atlas?logos.manifest?.items?.[company.id]:null;
+    if(!entry||!Number.isInteger(entry.index))return false;
+    const {tile,columns}=logos.manifest,inset=size*.14;
+    ctx.save();root.RadarCore.roundedRect(ctx,x,y,size,size,Math.max(5,size*.16));ctx.fillStyle='#ffffff';ctx.fill();
+    ctx.drawImage(logos.atlas,(entry.index%columns)*tile,Math.floor(entry.index/columns)*tile,tile,tile,x+inset,y+inset,size-inset*2,size-inset*2);ctx.restore();return true;
+  }
+  function drawQR(ctx,qr,x,y,size){
+    if(!qr)return;ctx.save();ctx.imageSmoothingEnabled=false;ctx.fillStyle='#ffffff';ctx.fillRect(x,y,size,size);ctx.drawImage(qr,x,y,size,size);ctx.restore();
+  }
   function draw(ctx,options={}){
     const data=options.data||root.RADAR_DATA,width=options.width||ctx.canvas.width,height=options.height||ctx.canvas.height;
     const square=(options.format||options.mode)==='square'||options.mode==='hologram'||width/height<1.35;
@@ -46,7 +56,8 @@
     const glow=ctx.createRadialGradient(w*.5,1100,0,w*.5,1050,square?1000:1400);
     glow.addColorStop(0,'#1439a6');glow.addColorStop(.36,'#08152d');glow.addColorStop(.72,'#02050b');glow.addColorStop(1,'#000000');
     ctx.fillStyle=glow;ctx.fillRect(0,0,w,h);
-    const company=frame.company,isSpotlight=Boolean(company),f=frame.alpha;
+    const company=frame.company,isSpotlight=Boolean(company),isClosing=frame.scene.id==='closing',f=frame.alpha;
+    const companyLogos=options.companyLogos,hasCompanyMark=Boolean(company&&companyLogos?.atlas&&companyLogos.manifest?.items?.[company.id]);
     const logo=options.logo;
     if(logo){const lw=square?200:210,lh=lw*(logo.height/logo.width||.2);ctx.globalAlpha=.9;ctx.drawImage(logo,square?540-lw/2:82,square?68:54,lw,lh);ctx.globalAlpha=1;}
     else text(ctx,'WORLD BANK GROUP',square?540:82,square?68:54,440,18,'#e4efff',1,'400',square?'center':'left');
@@ -55,7 +66,10 @@
     const title=isSpotlight?company.name:frame.scene.title;
     const subtitle=isSpotlight?company.category:frame.scene.caption;
     if(square){
-      text(ctx,title,540,127,760,isSpotlight?38:39,'#f2f7ff',1,'400','center');
+      if(isSpotlight&&hasCompanyMark){
+        ctx.font=`400 38px ${core.FONT}`;const titleWidth=Math.min(680,ctx.measureText(title).width),markSize=46,gap=16,left=540-(titleWidth+markSize+gap)/2;
+        companyMark(ctx,company,companyLogos,left,121,markSize);text(ctx,title,left+markSize+gap,127,680,38,'#f2f7ff',1);
+      }else text(ctx,title,540,127,760,isSpotlight?38:39,'#f2f7ff',1,'400','center');
       if(!isSpotlight)text(ctx,subtitle,540,177,740,18,'#90acd2',1,'400','center');
     }else{
       text(ctx,'Technology radar',82,111,800,42,'#eef5ff',1,'400');
@@ -71,7 +85,12 @@
     }
     const clip=square?(isSpotlight?{x:100,y:210,w:880,h:430}:{x:50,y:196,w:980,h:737}):{x:35,y:225,w:1010,h:780};
     const labelBounds=square&&isSpotlight?{x:105,y:255,w:870,h:350}:clip;
-    const result=core.draw(ctx,{data,width:w,height:h,lens:frame.lens,kind:'companies',domain:frame.domain,selectedId:company?.id,time:t,centerX,centerY,radius:r,zoom,background:false,clip,labelBounds,fontSize:square?18:18,maxLabels:isSpotlight?9:square?15:18,labels:'smart',domainLabels:!isSpotlight,ringLabels:!isSpotlight,alpha:f,centerLabel:'WBG'});
+    const closingQR=square&&isClosing&&options.qr;
+    const labelExclusions=closingQR?[{x:426,y:404,w:228,h:228}]:[];
+    const result=core.draw(ctx,{data,width:w,height:h,lens:frame.lens,kind:'companies',domain:frame.domain,selectedId:company?.id,time:t,centerX,centerY,radius:r,zoom,background:false,clip,labelBounds,labelExclusions,companyLogos,fontSize:18,maxLabels:isSpotlight?9:square?15:18,labels:'smart',domainLabels:!isSpotlight,ringLabels:!isSpotlight&&!closingQR,alpha:closingQR?f*.65:f,centerLabel:'WBG'});
+    if(closingQR){
+      ctx.save();ctx.globalAlpha=f;core.roundedRect(ctx,438,416,204,204,12);ctx.fillStyle='#050e1e';ctx.shadowColor='#000000';ctx.shadowBlur=25;ctx.fill();ctx.shadowBlur=0;drawQR(ctx,options.qr,450,428,180);ctx.restore();
+    }
     if(square&&isSpotlight){
       const topFade=ctx.createLinearGradient(0,203,0,258);topFade.addColorStop(0,'#000000');topFade.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=topFade;ctx.fillRect(90,203,900,56);
       const bottomFade=ctx.createLinearGradient(0,601,0,655);bottomFade.addColorStop(0,'rgba(3,9,22,0)');bottomFade.addColorStop(1,'#030916');ctx.fillStyle=bottomFade;ctx.fillRect(90,601,900,55);
@@ -84,7 +103,8 @@
       }else{
         const domain=core.getDomains(frame.lens,data).find(d=>d.id===frame.domain);
         text(ctx,domain?.name||core.LENSES[frame.lens],cardX,252,cardW,19,domain?.color||'#91b6ef',1);
-        text(ctx,company.name,cardX,296,cardW,50,'#f4f8ff',2);
+        const markSpace=hasCompanyMark?82:0;if(hasCompanyMark)companyMark(ctx,company,companyLogos,cardX,292,62);
+        text(ctx,company.name,cardX+markSpace,296,cardW-markSpace,50,'#f4f8ff',2);
         text(ctx,company.category||'',cardX,363,cardW,22,'#9ab5d8',2);
       }
       let y=square?688:438;
@@ -105,7 +125,11 @@
       const x=1130,y=358;
       text(ctx,frame.scene.title,x,y,680,50,'#f2f7ff',2);
       text(ctx,frame.scene.caption,x,y+140,640,29,'#a1bee5',3);
-      if(frame.scene.id==='opening'||frame.scene.id==='closing'){
+      if(isClosing&&options.qr){
+        drawQR(ctx,options.qr,x,y+280,225);
+        text(ctx,'Scan to explore',x+255,y+316,370,25,'#e4efff',1);
+        text(ctx,'Companies, trends and the evidence behind them.',x+255,y+362,370,21,'#90acd2',3);
+      }else if(frame.scene.id==='opening'||isClosing){
         const counts=`${data.companies.length} companies & builders\n${data.trends.length} technology trends`;
         counts.split('\n').forEach((s,i)=>text(ctx,s,x,y+285+i*43,640,24,'#7d9ac4',1));
       }else if(frame.domain){
@@ -117,7 +141,7 @@
     ctx.globalAlpha=.85;
     if(square){
       if(!isSpotlight)text(ctx,core.LENSES[frame.lens],540,941,610,18,'#9bb9e3',1,'400','center');
-      text(ctx,'Explore at the QR code',540,980,560,14,'#6e8cb4',1,'400','center');
+      text(ctx,isClosing?'Scan to explore':'Explore at the QR code',540,980,560,isClosing?17:14,isClosing?'#a7c9f4':'#6e8cb4',1,'400','center');
     }else{
       text(ctx,'Public-source landscape · Company applications are proposals',82,1022,1140,16,'#6485b3',1);
       text(ctx,'Explore the live radar',1838,1022,520,17,'#92b9ef',1,'400','right');

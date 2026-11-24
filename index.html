@@ -4,14 +4,15 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050e1e">
 <meta name="description" content="Explore technologies, companies and evidence relevant to World Bank Group development priorities and enterprise work.">
 <title>Technology radar | World Bank Group</title>
-<link rel="stylesheet" href="styles.css?v=2026.11.24.7">
-<script defer src="data.js?v=2026.11.24.7"></script>
-<script defer src="radar-core.js?v=2026.11.24.7"></script><script defer src="radar-film.js?v=2026.11.24.7"></script><script defer src="app.js?v=2026.11.24.7"></script>
+<link rel="stylesheet" href="styles.css?v=2026.11.24.8">
+<script defer src="data.js?v=2026.11.24.8"></script>
+<script defer src="company-logos.js?v=2026.11.24.8"></script>
+<script defer src="radar-core.js?v=2026.11.24.8"></script><script defer src="radar-film.js?v=2026.11.24.8"></script><script defer src="app.js?v=2026.11.24.8"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to radar</a>
 <header class="site-header">
-<a class="brand" href="#radar" aria-label="World Bank Group Technology and Innovation radar"><img src="wbg-logo-white.svg" alt="World Bank Group" width="154" height="34"><span class="brand-unit">Technology &amp; Innovation</span></a>
+<a class="brand" href="#radar" data-action="home" aria-label="World Bank Group Technology and Innovation radar"><img src="wbg-logo-white.svg" alt="World Bank Group" width="154" height="34"><span class="brand-unit">Technology &amp; Innovation</span></a>
 <nav aria-label="Main navigation"><button data-view="radar" class="nav-link active" aria-current="page">Radar</button><button data-view="directory" class="nav-link">Explore</button><button data-action="about" class="nav-link">About</button></nav>
 <div class="header-actions"><button class="film-link" data-action="film"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg><span>Watch film</span></button><button class="share-button" data-action="share">Share</button></div>
 </header>
@@ -26,8 +27,8 @@
 <label>Area<select id="domain-filter"><option value="all">All areas</option></select></label><label>Horizon<select id="horizon-filter"><option value="all">All horizons</option><option value="now">Now</option><option value="next">Next</option><option value="horizon">Horizon</option></select></label><label>Names<select id="label-filter"><option value="smart">Selected names</option><option value="more">More names</option><option value="none">Points only</option></select></label><button data-action="reset" class="text-button">Reset view</button>
 </div>
 <div class="stage-topline"><div class="type-toggle" role="group" aria-label="Radar content"><button data-kind="companies" class="active" aria-pressed="true">Companies</button><button data-kind="trends" aria-pressed="false">Trends</button></div><div class="stage-utilities"><span id="filter-status" aria-live="polite"></span><button data-action="clear-domain" id="clear-domain" hidden>All areas</button><button class="icon-button" data-action="fullscreen" aria-label="Expand radar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button></div></div>
-<div class="radar-stage" id="radar-stage"><canvas id="radar-canvas" role="img" aria-label="Technology radar. Select a point or area, or use the accessible results list below."></canvas><div class="radar-tooltip" id="radar-tooltip" hidden></div><div class="empty-radar" id="empty-radar" hidden><h2>No matches in this view</h2><p>Try another term or perspective.</p><button class="light-button" data-action="reset">Reset filters</button></div></div>
-<div class="stage-footer"><button class="text-button" data-action="method">Now · Next · Horizon <span aria-hidden="true">ⓘ</span></button><span class="interaction-hint">Select an area or a name</span><button class="text-button" data-action="motion" id="motion-control">Pause motion</button></div>
+<div class="radar-stage" id="radar-stage"><canvas id="radar-canvas" role="img" aria-label="Technology radar. Select a point or area, or use the profile buttons and results below."></canvas><div id="radar-targets" class="radar-targets" role="group" aria-label="Profiles on the radar"></div><div class="radar-tooltip" id="radar-tooltip" hidden></div><div class="empty-radar" id="empty-radar" hidden><h2>No matches in this view</h2><p>Try another term or perspective.</p><button class="light-button" data-action="reset">Reset filters</button></div></div>
+<div class="stage-footer"><button class="text-button" data-action="method">Now · Next · Horizon <span aria-hidden="true">ⓘ</span></button><span class="interaction-hint">Select a name or point to open its profile</span><button class="text-button" data-action="motion" id="motion-control" aria-pressed="true">Pause sweep</button></div>
 </section>
 <section class="research-section" id="research-section" aria-labelledby="results-heading">
 <div class="section-heading"><div><h2 id="results-heading">Explore the landscape</h2><p id="results-summary"></p></div><div class="research-actions"><button data-action="saved" id="saved-button" class="quiet-button" aria-pressed="false">Saved <span id="saved-count">0</span></button><button data-action="export" class="quiet-button">Export</button></div></div>
@@ -37,7 +38,7 @@
 <section class="film-section" id="film-section" hidden aria-label="Radar film">
 <div class="film-heading"><button data-view="radar" class="text-button">Back to radar</button><h1>The radar, in motion.</h1><p>The same landscape, with time to look closer.</p></div>
 <div class="film-layout"><div class="film-player"><canvas id="film-canvas" aria-label="Animated guided tour of the technology radar"></canvas><div class="film-controls"><button id="film-play" data-action="film-play">Pause</button><input id="film-seek" type="range" min="0" max="180" step="0.1" value="0" aria-label="Film position"><span id="film-time">0:00 / 3:00</span><button data-action="film-fullscreen" aria-label="Fullscreen film"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button></div></div>
-<aside class="film-downloads"><h2>Take it to the room.</h2><p>Download the film for your display.</p><a class="primary-button" id="download-square" href="radar-hologram-1080.mp4?v=2026.11.24.7" download>Hologram MP4</a><span>1080 × 1080 · 3 minutes</span><a class="outline-button" id="download-wide" href="radar-widescreen-1080.mp4?v=2026.11.24.7" download>Presentation MP4</a><span>1920 × 1080 · 3 minutes</span><a class="quiet-button" href="radar-qr-poster.png" download>Download QR poster</a></aside></div><div class="film-chapters" id="film-chapters" aria-label="Film chapters"></div>
+<aside class="film-downloads"><h2>Take it to the room.</h2><p>Download the film for your display.</p><a class="primary-button" id="download-square" href="radar-hologram-1080.mp4?v=2026.11.24.8" download>Hologram MP4</a><span>1080 × 1080 · 3 minutes</span><a class="outline-button" id="download-wide" href="radar-widescreen-1080.mp4?v=2026.11.24.8" download>Presentation MP4</a><span>1920 × 1080 · 3 minutes</span><a class="quiet-button" href="radar-qr-poster.png" download>Download QR poster</a></aside></div><div class="film-chapters" id="film-chapters" aria-label="Film chapters"></div>
 </section>
 </main>
 <footer class="site-footer"><img src="wbg-logo.svg" alt="World Bank Group" width="148" height="35"><p>Technology &amp; Innovation</p><div><button data-action="about">Research &amp; sources</button><a href="https://www.worldbank.org/en/about/legal" target="_blank" rel="noopener noreferrer">Legal</a><button data-action="share">Share radar</button></div></footer>

@@ -3,7 +3,7 @@
     "title": "WBG Technology & Innovation Radar",
     "checked": "2026-11-23",
     "edition": "November 2026 · Expanded research",
-    "version": "2026.11.24.7",
+    "version": "2026.11.24.8",
     "description": "Technology intelligence for development outcomes, ITS capabilities and the wider frontier.",
     "automaticUpdates": false,
     "previousEdition": {
@@ -26,7 +26,7 @@
     ],
     "spotlightsChecked": "2026-11-24",
     "refreshScope": "Targeted 24 November review: 32 profiles added and 12 existing profiles refreshed, supported by 68 reviewed source records; 4 trends added and 15 updated. Five film profiles use the same capability and application fields as the live radar. Other records retain their earlier review dates.",
-    "interfaceVersion": "2026.11.24.7",
+    "interfaceVersion": "2026.11.24.8",
     "lastRefresh": "2026-11-24",
     "refreshedAt": "2026-11-24",
     "updatedCount": 12,
@@ -82,7 +82,17 @@
       "zama",
       "zep",
       "zipline"
-    ]
+    ],
+    "identityRefresh": {
+      "date": "2026-11-24",
+      "companyIds": [
+        "galileo"
+      ],
+      "sourceIds": [
+        "cisco-galileo-acquisition-20260522"
+      ],
+      "summary": "Confirmed Galileo’s acquisition by Cisco and updated the profile and company identity."
+    }
   },
   "domains": [
     {
@@ -2461,10 +2471,10 @@
     },
     {
       "id": "galileo",
-      "name": "Galileo",
+      "name": "Galileo (Cisco)",
       "website": "https://galileo.ai/",
       "category": "AI observability, evaluation and guardrails",
-      "summary": "Offers agent observability, evaluation metrics, failure analysis and runtime guardrails.",
+      "summary": "Provides AI-agent observability, evaluation and runtime guardrails. Cisco acquired Galileo in May 2026 to expand Splunk’s AI observability capabilities.",
       "domain": "trust",
       "ring": "experiment",
       "lenses": [
@@ -2477,11 +2487,12 @@
       "region": "",
       "proposedUse": "Test reliability and sensitive-data handling for a bounded knowledge assistant.",
       "sourceIds": [
-        "galileo-product"
+        "galileo-product",
+        "cisco-galileo-acquisition-20260522"
       ],
-      "verified": "2026-11-23",
-      "availability": "Commercial platform",
-      "note": "",
+      "verified": "2026-11-24",
+      "availability": "Acquired by Cisco; check the current Splunk offering and support arrangements.",
+      "note": "Confirm current product packaging, data handling and commercial terms with Cisco/Splunk.",
       "horizon": "now",
       "evidenceLabel": "Company product information",
       "evidenceNote": "",
@@ -2491,7 +2502,10 @@
       },
       "wbgContextSourceIds": [
         "wbg-public-institutions-ai-2026"
-      ]
+      ],
+      "entityType": "Acquired company",
+      "organizationType": "Acquired company",
+      "recentDevelopment": "Cisco completed its acquisition of Galileo on 22 May 2026 and plans to integrate its capabilities into the Splunk observability portfolio."
     },
     {
       "id": "ravenopus",
@@ -9890,6 +9904,14 @@
       "checked": "2026-11-24",
       "note": "",
       "kind": "Primary source"
+    },
+    {
+      "id": "cisco-galileo-acquisition-20260522",
+      "title": "Cisco completes Galileo acquisition",
+      "url": "https://www.cisco.com/site/us/en/about/corporate-development/acquisitions/galileo/index.html",
+      "publisher": "Cisco",
+      "date": "2026-05-22",
+      "checked": "2026-11-24"
     }
   ],
   "highlights": [
